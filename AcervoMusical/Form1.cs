@@ -20,5 +20,18 @@ namespace AcervoMusical
         {
 
         }
+
+        private void button_Cancelar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button_Entrar_Click(object sender, EventArgs e)
+        {
+            FormPrincipal abrir_principal = new FormPrincipal();
+            abrir_principal.Show();
+
+            this.Dispose();
+        }
     }
 }
