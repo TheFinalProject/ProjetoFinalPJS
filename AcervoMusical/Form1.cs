@@ -31,7 +31,43 @@ namespace AcervoMusical
             FormPrincipal abrir_principal = new FormPrincipal();
             abrir_principal.Show();
 
-            this.Dispose();
+            //this.Dispose();
+        }
+
+        private void textBox_Login_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // evento para quando precionar a tecla Enter ao tenta entrar no AcervoMusical
+            if (e.KeyChar == 13)
+            {
+                if (textBox_Login.Text != "" && textBox_Senha.Text != "")
+                {
+                    if (textBox_Login.Text == "admin" && textBox_Senha.Text == "123")
+                    {
+                        new FormPrincipal().Show();
+                    }
+                    else
+                    {
+                        
+                        label_mensagem.Text = "Senha ou usuário inválido";
+                    }
+                }
+                else
+                {
+                    errorProvider1.SetError(textBox_Login, "Preencha o campo com seu nome de acesso");
+                    errorProvider1.SetError(textBox_Senha, "Preencha o campo com sua senha de acesso");
+                }
+
+            }
+        }
+
+        private void textBox_Login_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox_Login.Text = "";
+        }
+
+        private void textBox_Senha_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox_Senha.Text = "";
         }
     }
 }
