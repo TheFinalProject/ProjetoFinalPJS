@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastroAmigos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroAmigos.Designer.cs">
+      <DependentUpon>CadastroAmigos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CadastroMusicas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroMusicas.Designer.cs">
+      <DependentUpon>CadastroMusicas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CadastroAmigos.resx">
+      <DependentUpon>CadastroAmigos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadastroMusicas.resx">
+      <DependentUpon>CadastroMusicas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

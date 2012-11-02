@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace AcervoMusical
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -68,6 +68,11 @@ namespace AcervoMusical
         private void textBox_Senha_MouseClick(object sender, MouseEventArgs e)
         {
             textBox_Senha.Text = "";
+        }
+
+        private void button_Cancelar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
