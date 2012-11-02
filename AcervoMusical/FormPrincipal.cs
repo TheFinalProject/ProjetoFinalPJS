@@ -15,5 +15,19 @@ namespace AcervoMusical
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CadastroMusicas CadastroMusica = new CadastroMusicas();
+            CadastroMusica.MdiParent = this;
+            CadastroMusica.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CadastroAmigos CadastroAmigo = new CadastroAmigos();
+            CadastroAmigo.MdiParent = this;
+            CadastroAmigo.Show();
+        }
     }
 }
