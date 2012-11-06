@@ -36,5 +36,10 @@ namespace AcervoMusical
             new Login().Show();
         }
 
+        private void FormPrincipal_Shown(object sender, EventArgs e)
+        {
+            new Login().Show();
+        }
+
     }
 }
