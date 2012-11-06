@@ -49,8 +49,6 @@
             this.textBox_Login.Size = new System.Drawing.Size(174, 20);
             this.textBox_Login.TabIndex = 1;
             this.textBox_Login.Text = "Nome";
-            this.textBox_Login.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_Login_MouseClick);
-            this.textBox_Login.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Login_KeyPress);
             // 
             // button_Entrar
             // 
@@ -70,8 +68,6 @@
             this.textBox_Senha.Size = new System.Drawing.Size(174, 20);
             this.textBox_Senha.TabIndex = 4;
             this.textBox_Senha.Text = "Senha";
-            this.textBox_Senha.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox_Senha_MouseClick);
-            this.textBox_Senha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_Login_KeyPress);
             // 
             // groupBox1
             // 
@@ -91,8 +87,9 @@
             this.label_mensagem.AutoSize = true;
             this.label_mensagem.Location = new System.Drawing.Point(7, 72);
             this.label_mensagem.Name = "label_mensagem";
-            this.label_mensagem.Size = new System.Drawing.Size(0, 13);
+            this.label_mensagem.Size = new System.Drawing.Size(13, 13);
             this.label_mensagem.TabIndex = 5;
+            this.label_mensagem.Text = "k";
             // 
             // linkLabel1
             // 
@@ -112,12 +109,12 @@
             this.button_Cancelar.TabIndex = 6;
             this.button_Cancelar.Text = "Cancelar";
             this.button_Cancelar.UseVisualStyleBackColor = true;
-            this.button_Cancelar.Click += new System.EventHandler(this.button_Cancelar_Click);
+            this.button_Cancelar.Click += new System.EventHandler(this.button_Cancelar_Click_1);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            this.button_Cancelar.Click += new System.EventHandler(this.button_Cancelar_Click_1);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
