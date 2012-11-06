@@ -62,6 +62,7 @@
             this.IsMdiContainer = true;
             this.Name = "FormPrincipal";
             this.Text = "FormPrincipal";
+            this.Activated += new System.EventHandler(this.FormPrincipal_Activated);
             this.ResumeLayout(false);
 
         }
