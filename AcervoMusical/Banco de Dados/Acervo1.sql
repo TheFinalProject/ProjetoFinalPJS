@@ -45,3 +45,4 @@ CREATE TABLE Emprestimos
 	FOREIGN KEY(id_amigo) REFERENCES Amigos (id_amigo)
 )
 
+insert into usuario values('admin', 'admin')
