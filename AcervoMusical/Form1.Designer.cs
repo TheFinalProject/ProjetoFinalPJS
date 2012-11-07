@@ -65,6 +65,7 @@
             this.textBox_Senha.ForeColor = System.Drawing.Color.DarkGray;
             this.textBox_Senha.Location = new System.Drawing.Point(6, 45);
             this.textBox_Senha.Name = "textBox_Senha";
+            this.textBox_Senha.PasswordChar = '*';
             this.textBox_Senha.Size = new System.Drawing.Size(174, 20);
             this.textBox_Senha.TabIndex = 4;
             this.textBox_Senha.Text = "Senha";

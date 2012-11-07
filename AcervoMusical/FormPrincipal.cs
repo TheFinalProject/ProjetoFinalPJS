@@ -14,6 +14,7 @@ namespace AcervoMusical
         public FormPrincipal()
         {
             InitializeComponent();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,5 +30,16 @@ namespace AcervoMusical
             CadastroAmigo.MdiParent = this;
             CadastroAmigo.Show();
         }
+
+        private void FormPrincipal_Activated(object sender, EventArgs e)
+        {
+            new Login().Show();
+        }
+
+        private void FormPrincipal_Shown(object sender, EventArgs e)
+        {
+            new Login().Show();
+        }
+
     }
 }

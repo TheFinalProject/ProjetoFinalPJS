@@ -13,6 +13,7 @@ namespace AcervoMusical
     public partial class Login : Form
     {
 
+        
         //minha conexao com o banco de dados
         SqlConnection Conexao = new SqlConnection();
         private string StrSQL = string.Empty;
@@ -49,7 +50,6 @@ namespace AcervoMusical
                 if (Verifica > 0)
                 {
                     logado = true;
-                   
                 }
                 else
                 {
@@ -83,7 +83,7 @@ namespace AcervoMusical
             logar();
             if (logado)
             {
-                new FormPrincipal().Show();
+                this.Dispose();
             }
             else
             {
