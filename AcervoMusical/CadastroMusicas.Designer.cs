@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.label_Origem_Compra = new System.Windows.Forms.Label();
             this.label_Interprete = new System.Windows.Forms.Label();
             this.label_Album = new System.Windows.Forms.Label();
@@ -41,10 +46,7 @@
             this.label_Identificação = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -52,6 +54,18 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.listView_Cadastro_Musicas = new System.Windows.Forms.ListView();
+            this.button_Cadastrar = new System.Windows.Forms.Button();
+            this.Identificação = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Musica = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Album = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Autor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Interprete = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DataAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DataCompra = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.OrigemCompra = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Classificacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Observacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label_Origem_Compra
@@ -93,7 +107,7 @@
             // label_Classificacao
             // 
             this.label_Classificacao.AutoSize = true;
-            this.label_Classificacao.Location = new System.Drawing.Point(12, 165);
+            this.label_Classificacao.Location = new System.Drawing.Point(313, 126);
             this.label_Classificacao.Name = "label_Classificacao";
             this.label_Classificacao.Size = new System.Drawing.Size(69, 13);
             this.label_Classificacao.TabIndex = 4;
@@ -129,7 +143,7 @@
             // label_Observação
             // 
             this.label_Observação.AutoSize = true;
-            this.label_Observação.Location = new System.Drawing.Point(282, 327);
+            this.label_Observação.Location = new System.Drawing.Point(12, 165);
             this.label_Observação.Name = "label_Observação";
             this.label_Observação.Size = new System.Drawing.Size(70, 13);
             this.label_Observação.TabIndex = 8;
@@ -167,37 +181,18 @@
             this.textBox2.Size = new System.Drawing.Size(193, 20);
             this.textBox2.TabIndex = 12;
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(395, 380);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 13;
-            // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(15, 370);
+            this.textBox4.Location = new System.Drawing.Point(12, 181);
+            this.textBox4.MaxLength = 200;
+            this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(518, 40);
             this.textBox4.TabIndex = 14;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(128, 370);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 15;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(258, 380);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 16;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(395, 330);
+            this.textBox7.Location = new System.Drawing.Point(313, 142);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 20);
             this.textBox7.TabIndex = 17;
@@ -247,11 +242,98 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(100, 20);
             this.dateTimePicker2.TabIndex = 23;
             // 
+            // listView_Cadastro_Musicas
+            // 
+            this.listView_Cadastro_Musicas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Identificação,
+            this.Musica,
+            this.Album,
+            this.Autor,
+            this.Interprete,
+            this.DataAlbum,
+            this.DataCompra,
+            this.OrigemCompra,
+            this.Classificacao,
+            this.Observacao});
+            listViewGroup1.Header = "Vinil";
+            listViewGroup1.Name = "Vinil";
+            listViewGroup2.Header = "K7";
+            listViewGroup2.Name = "K7";
+            listViewGroup3.Header = "CD";
+            listViewGroup3.Name = "CD";
+            listViewGroup4.Header = "DVD";
+            listViewGroup4.Name = "DVD";
+            listViewGroup5.Header = "Digital";
+            listViewGroup5.Name = "Digital";
+            this.listView_Cadastro_Musicas.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5});
+            this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(12, 256);
+            this.listView_Cadastro_Musicas.Name = "listView_Cadastro_Musicas";
+            this.listView_Cadastro_Musicas.Size = new System.Drawing.Size(604, 294);
+            this.listView_Cadastro_Musicas.TabIndex = 24;
+            this.listView_Cadastro_Musicas.UseCompatibleStateImageBehavior = false;
+            this.listView_Cadastro_Musicas.View = System.Windows.Forms.View.Details;
+            // 
+            // button_Cadastrar
+            // 
+            this.button_Cadastrar.Location = new System.Drawing.Point(455, 227);
+            this.button_Cadastrar.Name = "button_Cadastrar";
+            this.button_Cadastrar.Size = new System.Drawing.Size(75, 23);
+            this.button_Cadastrar.TabIndex = 25;
+            this.button_Cadastrar.Text = "Cadastrar";
+            this.button_Cadastrar.UseVisualStyleBackColor = true;
+            // 
+            // Identificação
+            // 
+            this.Identificação.Text = "Identificação";
+            // 
+            // Musica
+            // 
+            this.Musica.Text = "Música";
+            // 
+            // Album
+            // 
+            this.Album.Text = "Álbum";
+            // 
+            // Autor
+            // 
+            this.Autor.Text = "Autor";
+            // 
+            // Interprete
+            // 
+            this.Interprete.Text = "Interprete";
+            // 
+            // DataAlbum
+            // 
+            this.DataAlbum.Text = "Data do Álbum";
+            // 
+            // DataCompra
+            // 
+            this.DataCompra.Text = "Data da Compra";
+            // 
+            // OrigemCompra
+            // 
+            this.OrigemCompra.Text = "Origem da Compra";
+            // 
+            // Classificacao
+            // 
+            this.Classificacao.Text = "Classificação";
+            // 
+            // Observacao
+            // 
+            this.Observacao.Text = "Observação";
+            // 
             // CadastroMusicas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.button_Cadastrar);
+            this.Controls.Add(this.listView_Cadastro_Musicas);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.comboBox1);
@@ -259,10 +341,7 @@
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label_Identificação);
@@ -281,6 +360,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Músicas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.CadastroMusicas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -301,10 +381,7 @@
         private System.Windows.Forms.Label label_Identificação;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
@@ -312,6 +389,18 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.ListView listView_Cadastro_Musicas;
+        private System.Windows.Forms.ColumnHeader Identificação;
+        private System.Windows.Forms.ColumnHeader Musica;
+        private System.Windows.Forms.ColumnHeader Album;
+        private System.Windows.Forms.ColumnHeader Autor;
+        private System.Windows.Forms.ColumnHeader Interprete;
+        private System.Windows.Forms.ColumnHeader DataAlbum;
+        private System.Windows.Forms.ColumnHeader DataCompra;
+        private System.Windows.Forms.ColumnHeader OrigemCompra;
+        private System.Windows.Forms.ColumnHeader Classificacao;
+        private System.Windows.Forms.ColumnHeader Observacao;
+        private System.Windows.Forms.Button button_Cadastrar;
 
     }
 }

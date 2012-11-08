@@ -18,7 +18,7 @@ namespace AcervoMusical
         SqlConnection Conexao = new SqlConnection();
         private string StrSQL = string.Empty;
         //string de conexao
-        private string StringConexao = "Data Source=(local); Initial Catalog=Acervo; Integrated Security=SSPI";
+        private string StringConexao = "Data Source=PC15LAB3\\MSSQLSERVER3; Initial Catalog=Acervo; Integrated Security=SSPI";
 
         //variavel para controlar se esta logado ou nao, a principio ela começara sem logar.
         public bool logado = false;

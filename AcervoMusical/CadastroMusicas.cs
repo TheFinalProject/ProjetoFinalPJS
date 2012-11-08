@@ -15,5 +15,11 @@ namespace AcervoMusical
         {
             InitializeComponent();
         }
+
+        private void CadastroMusicas_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
