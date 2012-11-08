@@ -100,8 +100,11 @@ GO
 INSERT INTO usuario VALUES('Rafael','rafael')
 GO
 
+INSERT INTO usuario VALUES('Felipe', 'felipe')
+
 SELECT * FROM Cidades
 SELECT * FROM Amigos
 SELECT * FROM Estados
 SELECT * FROM Musicas
 SELECT * FROM Emprestimos
+select * from usuario
