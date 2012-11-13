@@ -98,8 +98,7 @@ CREATE TABLE Emprestimos
 )
 GO
 INSERT INTO usuario VALUES('Rafael','rafael')
-GO
-
+INSERT INTO usuario VALUES('Gustavo','gustavo')
 INSERT INTO usuario VALUES('Felipe', 'felipe')
 
 SELECT * FROM Cidades
@@ -108,3 +107,6 @@ SELECT * FROM Estados
 SELECT * FROM Musicas
 SELECT * FROM Emprestimos
 select * from usuario
+
+
+ALTER TABLE Musicas ADD Nome_Musica VARCHAR(50)
