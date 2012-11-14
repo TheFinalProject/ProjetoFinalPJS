@@ -15,35 +15,47 @@ namespace AcervoMusical
         {
             InitializeComponent();
         }
+        bool fechar = false;
 
         private void button_Cancelar_Click(object sender, EventArgs e)
         {
+
+            fechar = true;
             this.Close();
+
         }
 
         private void CadastroAmigos_FormClosing(object sender, FormClosingEventArgs e)
         {
-            int soma = 0;
-            foreach (Control c in this.Controls)
+
+
+            if (fechar == false)
             {
-                if (c is TextBox)
+
+                int soma = 0;
+                foreach (Control c in this.Controls)
                 {
-                    TextBox t = (TextBox)c;
-                    if (t.Text != "")
+                    if (c is TextBox)
                     {
-                        soma++;
+                        TextBox t = (TextBox)c;
+                        if (t.Text != "")
+                        {
+                            soma++;
+                        }
                     }
                 }
-            }
-            if (soma > 0)
-            {
-                if (MessageBox.Show("O Formulário contém dados não salvos, deseja continuar?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (soma > 0)
                 {
-                    this.Close();
-                }
-                else
-                {
-                    e.Cancel = true;
+                    if (MessageBox.Show("O Formulário contém dados não salvos, deseja continuar?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        fechar = true;
+                        this.Close();
+
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
                 }
             }
         }
