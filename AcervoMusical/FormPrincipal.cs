@@ -53,7 +53,12 @@ namespace AcervoMusical
 
         private void button_Musicas_Click(object sender, EventArgs e)
         {
-            new CadastroMusicas().Show();
+            new CadastroMusicas().ShowDialog();
+        }
+
+        private void button_Amigos_Click(object sender, EventArgs e)
+        {
+            new CadastroAmigos().ShowDialog();
         }
 
     }

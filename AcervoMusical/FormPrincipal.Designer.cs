@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Rafael ", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Felipe", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Rafael ", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Felipe", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "Linkin Park",
             "10/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "Iron Maiden",
             "10/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "Nirvana",
             "25/10/2012",
             "30/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "Beatles",
             "30/10/2012"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
@@ -54,6 +54,7 @@
             this.label_DiaSemana = new System.Windows.Forms.Label();
             this.label_Data = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox_Login = new System.Windows.Forms.PictureBox();
             this.labelRelogio = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelData = new System.Windows.Forms.Label();
@@ -62,15 +63,14 @@
             this.button_Agenda = new System.Windows.Forms.Button();
             this.button_Mubox = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox_Login = new System.Windows.Forms.PictureBox();
+            this.button_Consultas = new System.Windows.Forms.Button();
             this.button_Emprestimos = new System.Windows.Forms.Button();
             this.button_Musicas = new System.Windows.Forms.Button();
             this.button_Amigos = new System.Windows.Forms.Button();
-            this.button_Consultas = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Login)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Login)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -109,23 +109,23 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Devoluções,
             this.Emprestimo});
-            listViewGroup3.Header = "Rafael ";
-            listViewGroup3.Name = "Rafael";
-            listViewGroup3.Tag = "";
-            listViewGroup4.Header = "Felipe";
-            listViewGroup4.Name = "Felipe";
+            listViewGroup1.Header = "Rafael ";
+            listViewGroup1.Name = "Rafael";
+            listViewGroup1.Tag = "";
+            listViewGroup2.Header = "Felipe";
+            listViewGroup2.Name = "Felipe";
             this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3,
-            listViewGroup4});
-            listViewItem5.Group = listViewGroup3;
-            listViewItem6.Group = listViewGroup3;
-            listViewItem7.Group = listViewGroup4;
-            listViewItem8.Group = listViewGroup4;
+            listViewGroup1,
+            listViewGroup2});
+            listViewItem1.Group = listViewGroup1;
+            listViewItem2.Group = listViewGroup1;
+            listViewItem3.Group = listViewGroup2;
+            listViewItem4.Group = listViewGroup2;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4});
             this.listView1.Location = new System.Drawing.Point(338, 409);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(314, 170);
@@ -176,6 +176,18 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(43, 311);
             this.panel3.TabIndex = 27;
+            // 
+            // pictureBox_Login
+            // 
+            this.pictureBox_Login.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox_Login.BackgroundImage = global::AcervoMusical.Properties.Resources.login;
+            this.pictureBox_Login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox_Login.Location = new System.Drawing.Point(5, 27);
+            this.pictureBox_Login.Name = "pictureBox_Login";
+            this.pictureBox_Login.Size = new System.Drawing.Size(33, 33);
+            this.pictureBox_Login.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Login.TabIndex = 0;
+            this.pictureBox_Login.TabStop = false;
             // 
             // labelRelogio
             // 
@@ -274,17 +286,17 @@
             this.panel2.Size = new System.Drawing.Size(324, 355);
             this.panel2.TabIndex = 28;
             // 
-            // pictureBox_Login
+            // button_Consultas
             // 
-            this.pictureBox_Login.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox_Login.BackgroundImage = global::AcervoMusical.Properties.Resources.login;
-            this.pictureBox_Login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox_Login.Location = new System.Drawing.Point(5, 27);
-            this.pictureBox_Login.Name = "pictureBox_Login";
-            this.pictureBox_Login.Size = new System.Drawing.Size(33, 33);
-            this.pictureBox_Login.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_Login.TabIndex = 0;
-            this.pictureBox_Login.TabStop = false;
+            this.button_Consultas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Consultas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Consultas.BackgroundImage")));
+            this.button_Consultas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Consultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Consultas.Location = new System.Drawing.Point(2, 0);
+            this.button_Consultas.Name = "button_Consultas";
+            this.button_Consultas.Size = new System.Drawing.Size(317, 175);
+            this.button_Consultas.TabIndex = 13;
+            this.button_Consultas.UseVisualStyleBackColor = true;
             // 
             // button_Emprestimos
             // 
@@ -323,18 +335,7 @@
             this.button_Amigos.Size = new System.Drawing.Size(318, 175);
             this.button_Amigos.TabIndex = 24;
             this.button_Amigos.UseVisualStyleBackColor = true;
-            // 
-            // button_Consultas
-            // 
-            this.button_Consultas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_Consultas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Consultas.BackgroundImage")));
-            this.button_Consultas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_Consultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Consultas.Location = new System.Drawing.Point(2, 0);
-            this.button_Consultas.Name = "button_Consultas";
-            this.button_Consultas.Size = new System.Drawing.Size(317, 175);
-            this.button_Consultas.TabIndex = 13;
-            this.button_Consultas.UseVisualStyleBackColor = true;
+            this.button_Amigos.Click += new System.EventHandler(this.button_Amigos_Click);
             // 
             // FormPrincipal
             // 
@@ -357,10 +358,10 @@
             this.Text = "tool";
             this.Shown += new System.EventHandler(this.FormPrincipal_Shown);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Login)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Login)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
