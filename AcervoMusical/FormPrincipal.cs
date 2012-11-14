@@ -61,5 +61,10 @@ namespace AcervoMusical
             new CadastroAmigos().ShowDialog();
         }
 
+        private void button_Consultas_Click(object sender, EventArgs e)
+        {
+            new Consultas().Show();
+        }
+
     }
 }

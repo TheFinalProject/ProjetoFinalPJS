@@ -335,6 +335,19 @@
             this.button_Amigos.Size = new System.Drawing.Size(318, 175);
             this.button_Amigos.TabIndex = 24;
             this.button_Amigos.UseVisualStyleBackColor = true;
+            // 
+            // button_Consultas
+            // 
+            this.button_Consultas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Consultas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Consultas.BackgroundImage")));
+            this.button_Consultas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Consultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Consultas.Location = new System.Drawing.Point(2, 0);
+            this.button_Consultas.Name = "button_Consultas";
+            this.button_Consultas.Size = new System.Drawing.Size(317, 175);
+            this.button_Consultas.TabIndex = 13;
+            this.button_Consultas.UseVisualStyleBackColor = true;
+            this.button_Consultas.Click += new System.EventHandler(this.button_Consultas_Click);
             this.button_Amigos.Click += new System.EventHandler(this.button_Amigos_Click);
             // 
             // FormPrincipal
