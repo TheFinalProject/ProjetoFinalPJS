@@ -58,7 +58,7 @@
             this.button_Entrar.TabIndex = 2;
             this.button_Entrar.Text = "Entrar";
             this.button_Entrar.UseVisualStyleBackColor = true;
-            this.button_Entrar.Click += new System.EventHandler(this.button_Entrar_Click);
+
             // 
             // textBox_Senha
             // 
@@ -128,7 +128,6 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

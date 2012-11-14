@@ -54,6 +54,7 @@
             this.label_DiaSemana = new System.Windows.Forms.Label();
             this.label_Data = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox_Login = new System.Windows.Forms.PictureBox();
             this.labelRelogio = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelData = new System.Windows.Forms.Label();
@@ -62,15 +63,14 @@
             this.button_Agenda = new System.Windows.Forms.Button();
             this.button_Mubox = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox_Login = new System.Windows.Forms.PictureBox();
+            this.button_Consultas = new System.Windows.Forms.Button();
             this.button_Emprestimos = new System.Windows.Forms.Button();
             this.button_Musicas = new System.Windows.Forms.Button();
             this.button_Amigos = new System.Windows.Forms.Button();
-            this.button_Consultas = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Login)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Login)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -177,6 +177,18 @@
             this.panel3.Size = new System.Drawing.Size(43, 311);
             this.panel3.TabIndex = 27;
             // 
+            // pictureBox_Login
+            // 
+            this.pictureBox_Login.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox_Login.BackgroundImage = global::AcervoMusical.Properties.Resources.login;
+            this.pictureBox_Login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox_Login.Location = new System.Drawing.Point(5, 27);
+            this.pictureBox_Login.Name = "pictureBox_Login";
+            this.pictureBox_Login.Size = new System.Drawing.Size(33, 33);
+            this.pictureBox_Login.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Login.TabIndex = 0;
+            this.pictureBox_Login.TabStop = false;
+            // 
             // labelRelogio
             // 
             this.labelRelogio.AutoSize = true;
@@ -274,17 +286,17 @@
             this.panel2.Size = new System.Drawing.Size(324, 355);
             this.panel2.TabIndex = 28;
             // 
-            // pictureBox_Login
+            // button_Consultas
             // 
-            this.pictureBox_Login.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox_Login.BackgroundImage = global::AcervoMusical.Properties.Resources.login;
-            this.pictureBox_Login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox_Login.Location = new System.Drawing.Point(5, 27);
-            this.pictureBox_Login.Name = "pictureBox_Login";
-            this.pictureBox_Login.Size = new System.Drawing.Size(33, 33);
-            this.pictureBox_Login.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_Login.TabIndex = 0;
-            this.pictureBox_Login.TabStop = false;
+            this.button_Consultas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Consultas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Consultas.BackgroundImage")));
+            this.button_Consultas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Consultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Consultas.Location = new System.Drawing.Point(2, 0);
+            this.button_Consultas.Name = "button_Consultas";
+            this.button_Consultas.Size = new System.Drawing.Size(317, 175);
+            this.button_Consultas.TabIndex = 13;
+            this.button_Consultas.UseVisualStyleBackColor = true;
             // 
             // button_Emprestimos
             // 
@@ -336,6 +348,7 @@
             this.button_Consultas.TabIndex = 13;
             this.button_Consultas.UseVisualStyleBackColor = true;
             this.button_Consultas.Click += new System.EventHandler(this.button_Consultas_Click);
+            this.button_Amigos.Click += new System.EventHandler(this.button_Amigos_Click);
             // 
             // FormPrincipal
             // 
@@ -358,10 +371,10 @@
             this.Text = "tool";
             this.Shown += new System.EventHandler(this.FormPrincipal_Shown);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Login)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Login)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
