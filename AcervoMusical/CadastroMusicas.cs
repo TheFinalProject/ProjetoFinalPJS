@@ -16,10 +16,21 @@ namespace AcervoMusical
             InitializeComponent();
         }
 
-        private void CadastroMusicas_Load(object sender, EventArgs e)
+        private void comboBox_Midia_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (comboBox_Midia.SelectedItem.ToString() == "Digital")
+            {
+                label_Musica.Visible = true;
+                textBox_Musicas.Visible = true;
+            }
+            else
+            {
+                label_Musica.Visible = false;
+                textBox_Musicas.Visible = false;
+            }
         }
+
+
 
     }
 }
