@@ -66,5 +66,15 @@ namespace AcervoMusical
             new Consultas().Show();
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

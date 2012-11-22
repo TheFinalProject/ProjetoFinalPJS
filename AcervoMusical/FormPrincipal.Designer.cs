@@ -75,8 +75,8 @@
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label_relogio
             // 
@@ -297,6 +297,7 @@
             this.button_Consultas.Size = new System.Drawing.Size(317, 175);
             this.button_Consultas.TabIndex = 13;
             this.button_Consultas.UseVisualStyleBackColor = true;
+            this.button_Consultas.Click += new System.EventHandler(this.button_Consultas_Click);
             // 
             // button_Emprestimos
             // 
@@ -335,19 +336,6 @@
             this.button_Amigos.Size = new System.Drawing.Size(318, 175);
             this.button_Amigos.TabIndex = 24;
             this.button_Amigos.UseVisualStyleBackColor = true;
-            // 
-            // button_Consultas
-            // 
-            this.button_Consultas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_Consultas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Consultas.BackgroundImage")));
-            this.button_Consultas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_Consultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Consultas.Location = new System.Drawing.Point(2, 0);
-            this.button_Consultas.Name = "button_Consultas";
-            this.button_Consultas.Size = new System.Drawing.Size(317, 175);
-            this.button_Consultas.TabIndex = 13;
-            this.button_Consultas.UseVisualStyleBackColor = true;
-            this.button_Consultas.Click += new System.EventHandler(this.button_Consultas_Click);
             this.button_Amigos.Click += new System.EventHandler(this.button_Amigos_Click);
             // 
             // FormPrincipal
@@ -369,6 +357,7 @@
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "FormPrincipal";
             this.Text = "tool";
+            this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.Shown += new System.EventHandler(this.FormPrincipal_Shown);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Login)).EndInit();
