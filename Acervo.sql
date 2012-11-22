@@ -1,6 +1,7 @@
 DROP DATABASE Acervo
 GO
 
+--Criação do diretorio
 XP_CREATE_SUBDIR N'C:\Mubox\DB'
 
 CREATE DATABASE Acervo ON PRIMARY
