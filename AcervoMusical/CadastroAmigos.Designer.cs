@@ -274,6 +274,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_NomeAmigo.Location = new System.Drawing.Point(12, 24);
             this.textBox_NomeAmigo.MaximumSize = new System.Drawing.Size(600, 20);
+            this.textBox_NomeAmigo.MaxLength = 10;
             this.textBox_NomeAmigo.MinimumSize = new System.Drawing.Size(150, 20);
             this.textBox_NomeAmigo.Name = "textBox_NomeAmigo";
             this.textBox_NomeAmigo.Size = new System.Drawing.Size(382, 20);
