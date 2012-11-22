@@ -71,5 +71,10 @@ namespace AcervoMusical
 
         }
 
+        private void FormPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

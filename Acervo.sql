@@ -107,9 +107,7 @@ CREATE TABLE Emprestimos
 )
 GO
 
-
---TRUNCATE TABLE Usuario
-INSERT INTO usuario
+INSERT INTO Usuario
 VALUES 
 	('Rafael','rafael'),
 	('Gustavo','gustavo'),
@@ -125,13 +123,14 @@ SELECT * FROM Emprestimos
 select * from Usuario
 
 
-INSERT INTO Estados VALUES  ('SP','SAO PAULO')
-INSERT INTO Estados VALUES  ('RJ','Rio de Janeiro')
-GO
+--DELETE FROM
+--INSERT INTO Estados VALUES  ('SP','SAO PAULO')
+--INSERT INTO Estados VALUES  ('RJ','Rio de Janeiro')
+--GO
 
-INSERT INTO Cidades VALUES(1,'Campos do Jordao','SP'),(2,'Taubate','SP')
-INSERT INTO Cidades VALUES(3,'Niteroi','RJ')
-GO
+--INSERT INTO Cidades VALUES(1,'Campos do Jordao','SP'),(2,'Taubate','SP')
+--INSERT INTO Cidades VALUES(3,'Niteroi','RJ')
+--GO
 
-SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
-ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'SP'
+--SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
+--ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'SP'
