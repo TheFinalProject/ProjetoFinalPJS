@@ -63,9 +63,9 @@
             this.label_Origem_Compra = new System.Windows.Forms.Label();
             this.button_Cancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button_Editar = new System.Windows.Forms.Button();
             this.button_Remover = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -192,6 +192,7 @@
             this.button_Adicionar.TabIndex = 73;
             this.button_Adicionar.Text = "Adicionar";
             this.button_Adicionar.UseVisualStyleBackColor = true;
+            this.button_Adicionar.Click += new System.EventHandler(this.button_Adicionar_Click);
             // 
             // textBox_Origem
             // 
@@ -335,13 +336,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Remover / Editar";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(6, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(468, 20);
-            this.textBox1.TabIndex = 77;
-            // 
             // button_Editar
             // 
             this.button_Editar.Location = new System.Drawing.Point(561, 17);
@@ -359,6 +353,13 @@
             this.button_Remover.TabIndex = 77;
             this.button_Remover.Text = "Remover";
             this.button_Remover.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(468, 20);
+            this.textBox1.TabIndex = 77;
             // 
             // CadastroMusicas
             // 
