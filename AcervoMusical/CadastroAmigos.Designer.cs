@@ -360,6 +360,7 @@
             this.Text = "Cadastro de Amigos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CadastroAmigos_FormClosing);
             this.Load += new System.EventHandler(this.CadastroAmigos_Load);
+            this.Enter += new System.EventHandler(this.CadastroAmigos_Enter);
             this.groupBox_Remover.ResumeLayout(false);
             this.groupBox_Remover.PerformLayout();
             this.ResumeLayout(false);

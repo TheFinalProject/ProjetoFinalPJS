@@ -74,29 +74,6 @@ namespace AcervoMusical
                 try
                 {
 
-                    Array_Insercao.Add(textBox_NomeAmigo.Text);
-                    Array_Insercao.Add(maskedTextBox_Telefone.Text);
-                    Array_Insercao.Add(textBox_Endereco.Text);
-                    Array_Insercao.Add(textBox_Bairro.Text);
-                    Array_Insercao.Add(textBox_Numero.Text);
-                    Array_Insercao.Add(textBox_Email.Text);
-                    //Array_Insercao.Add(comboBox_Cidade.Text);
-                    //Array_Insercao.Add(comboBox_UF.Text);
-
-
-                    //cria novo comando em sql para inserção de dados na tabela de amigos!
-                    SqlCommand comando = new SqlCommand("INSERT INTO Amigos (Nome, Telefone, Endereço, Bairro, Numero, Email) VALUES  (@Nome, @Telefone, @Endereço, @Bairro, @Numero, @Email)", ClasseConexao.Conexao);
-
-                    comando.Parameters.Add(new SqlParameter("@Nome", Array_Insercao[0]));
-                    comando.Parameters.Add(new SqlParameter("@Telefone", Array_Insercao[1]));
-                    comando.Parameters.Add(new SqlParameter("@Endereço", Array_Insercao[2]));
-                    comando.Parameters.Add(new SqlParameter("@Bairro", Array_Insercao[3]));
-                    comando.Parameters.Add(new SqlParameter("@Numero", Array_Insercao[4]));
-                    comando.Parameters.Add(new SqlParameter("@Email", Array_Insercao[5]));
-                    //comando.Parameters.Add(new SqlParameter("@id_Cidade", Array_Insercao[6]));
-                    //comando.Parameters.Add(new SqlParameter("@id_Estado", Array_Insercao[7]));
-                    comando.ExecuteNonQuery();
-
                 }
                 catch (Exception erro)
                 {
@@ -111,22 +88,42 @@ namespace AcervoMusical
 
         private void CadastroAmigos_Load(object sender, EventArgs e)
         {
-            //SqlDataReader LeitorEstados;
-            //SqlDataReader LeitorCidades;
+            SqlDataReader LeitorEstados;
+            SqlDataReader LeitorCidades;
 
-            //if (!ClasseConexao.conectar())
-            //    return;
-
-            //SqlCommand Cmd = new SqlCommand("Select * From Estados", ClasseConexao.Conexao);
-
-            //LeitorEstados = Cmd.ExecuteReader();
-
-            //while (LeitorEstados.Read())
-            //{
-            //    comboBox_UF.Items.Add(LeitorEstados["id_Estado"].ToString());
-            //}
-
+            if (!ClasseConexao.conectar())
+            {
+                return;
+            }
+            else
+            {
+              
+                SqlCommand CmdEstados = new SqlCommand("Select * From Estados", ClasseConexao.Conexao);
              
+                LeitorEstados = CmdEstados.ExecuteReader();
+
+                while (LeitorEstados.Read())
+                {
+                    comboBox_UF.Items.Add(LeitorEstados["id_Estado"].ToString());
+                }
+
+                LeitorEstados.Close();
+
+                SqlCommand CmdCidades = new SqlCommand("Select * From Cidades", ClasseConexao.Conexao);
+                LeitorCidades = CmdCidades.ExecuteReader();
+
+                while (LeitorCidades.Read())
+                {
+                    comboBox_Cidade.Items.Add(LeitorCidades["Nome"].ToString());
+                }
+            
+            }
+             
+        }
+
+        private void CadastroAmigos_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

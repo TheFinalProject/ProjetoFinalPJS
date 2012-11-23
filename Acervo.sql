@@ -45,6 +45,7 @@ CREATE TABLE Estados
 GO
 
 
+select * from cidades
 CREATE TABLE Cidades
 (
 	id_Cidade INT PRIMARY KEY,
