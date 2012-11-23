@@ -139,6 +139,17 @@ namespace AcervoMusical
                     #endregion
                     Comando.Parameters.AddRange(new SqlParameter[] {NomeInterprete, Autor, Album, DataAlbum, DataCompra, Origem, Midia, Observacao, Nota, Musica, Status });
                     Comando.ExecuteNonQuery();
+
+                    ListViewItem Item = new ListViewItem();
+                    Item.Text = textBox_Musicas.Text;
+                    Item.Group = listView_Cadastro_Musicas.Groups[comboBox_Midia.SelectedItem.ToString()];
+                    Item.SubItems.Add(textBox_Album.Text);
+                    Item.SubItems.Add(textBox_Autor.Text);
+                    Item.SubItems.Add(textBox_Interprete.Text);
+                    Item.SubItems.Add(textBox_Classificação.Text);
+                    Item.SubItems.Add(textBox_Observacao.Text);
+                    listView_Cadastro_Musicas.Items.Add(Item);
+
                 }
                 catch (Exception erro)
                 {
