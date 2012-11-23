@@ -192,6 +192,7 @@
             this.button_Adicionar.TabIndex = 73;
             this.button_Adicionar.Text = "Adicionar";
             this.button_Adicionar.UseVisualStyleBackColor = true;
+            this.button_Adicionar.Click += new System.EventHandler(this.button_Adicionar_Click);
             // 
             // textBox_Origem
             // 

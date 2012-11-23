@@ -116,6 +116,8 @@ namespace AcervoMusical
                 {
                     comboBox_Cidade.Items.Add(LeitorCidades["Nome"].ToString());
                 }
+
+                LeitorCidades.Close();
             
             }
              
