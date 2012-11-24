@@ -1,5 +1,5 @@
-DROP DATABASE Acervo
-GO
+--DROP DATABASE Acervo
+--GO
 
 --Criação do diretorio
 XP_CREATE_SUBDIR N'C:\Mubox\DB'
@@ -44,8 +44,6 @@ CREATE TABLE Estados
 )
 GO
 
-
-select * from cidades
 CREATE TABLE Cidades
 (
 	id_Cidade INT PRIMARY KEY,
@@ -133,5 +131,5 @@ select * from Usuario
 --INSERT INTO Cidades VALUES(3,'Niteroi','RJ')
 --GO
 
---SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
---ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'SP'
+SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
+ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'RJ'
