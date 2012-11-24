@@ -36,13 +36,6 @@
             this.button_Cadastrar = new System.Windows.Forms.Button();
             this.textBox_Email = new System.Windows.Forms.TextBox();
             this.label_Email = new System.Windows.Forms.Label();
-            this.listView_Amigos = new System.Windows.Forms.ListView();
-            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Telefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Endereço = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Número = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Bairro = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.maskedTextBox_Telefone = new System.Windows.Forms.MaskedTextBox();
             this.textBox_Bairro = new System.Windows.Forms.TextBox();
             this.label_Bairro = new System.Windows.Forms.Label();
@@ -57,6 +50,12 @@
             this.comboBox_UF = new System.Windows.Forms.ComboBox();
             this.label_Cidade = new System.Windows.Forms.Label();
             this.label_UF = new System.Windows.Forms.Label();
+            this.listView_CadastroAmigos = new System.Windows.Forms.ListView();
+            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Telefone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Endereço = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Número = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox_Remover.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,55 +139,6 @@
             this.label_Email.Size = new System.Drawing.Size(35, 13);
             this.label_Email.TabIndex = 54;
             this.label_Email.Text = "E-mail";
-            // 
-            // listView_Amigos
-            // 
-            this.listView_Amigos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView_Amigos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Nome,
-            this.Email,
-            this.Telefone,
-            this.Endereço,
-            this.Número,
-            this.Bairro});
-            this.listView_Amigos.Location = new System.Drawing.Point(12, 149);
-            this.listView_Amigos.Name = "listView_Amigos";
-            this.listView_Amigos.Size = new System.Drawing.Size(790, 345);
-            this.listView_Amigos.TabIndex = 53;
-            this.listView_Amigos.UseCompatibleStateImageBehavior = false;
-            this.listView_Amigos.View = System.Windows.Forms.View.Details;
-            // 
-            // Nome
-            // 
-            this.Nome.Text = "Nome";
-            this.Nome.Width = 200;
-            // 
-            // Email
-            // 
-            this.Email.Text = "Email";
-            this.Email.Width = 121;
-            // 
-            // Telefone
-            // 
-            this.Telefone.Text = "Telefone";
-            this.Telefone.Width = 97;
-            // 
-            // Endereço
-            // 
-            this.Endereço.Text = "Endereço";
-            this.Endereço.Width = 159;
-            // 
-            // Número
-            // 
-            this.Número.Text = "Número";
-            this.Número.Width = 51;
-            // 
-            // Bairro
-            // 
-            this.Bairro.Text = "Bairro";
-            this.Bairro.Width = 154;
             // 
             // maskedTextBox_Telefone
             // 
@@ -326,11 +276,51 @@
             this.label_UF.TabIndex = 62;
             this.label_UF.Text = "UF";
             // 
+            // listView_CadastroAmigos
+            // 
+            this.listView_CadastroAmigos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Nome,
+            this.Telefone,
+            this.Endereço,
+            this.Número,
+            this.Email});
+            this.listView_CadastroAmigos.Location = new System.Drawing.Point(12, 149);
+            this.listView_CadastroAmigos.Name = "listView_CadastroAmigos";
+            this.listView_CadastroAmigos.Size = new System.Drawing.Size(791, 345);
+            this.listView_CadastroAmigos.TabIndex = 63;
+            this.listView_CadastroAmigos.UseCompatibleStateImageBehavior = false;
+            this.listView_CadastroAmigos.View = System.Windows.Forms.View.Details;
+            // 
+            // Nome
+            // 
+            this.Nome.Text = "Nome";
+            this.Nome.Width = 244;
+            // 
+            // Telefone
+            // 
+            this.Telefone.Text = "Telefone";
+            this.Telefone.Width = 118;
+            // 
+            // Endereço
+            // 
+            this.Endereço.Text = "Endereço";
+            this.Endereço.Width = 201;
+            // 
+            // Número
+            // 
+            this.Número.Text = "Número";
+            // 
+            // Email
+            // 
+            this.Email.Text = "Email";
+            this.Email.Width = 164;
+            // 
             // CadastroAmigos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(815, 506);
+            this.Controls.Add(this.listView_CadastroAmigos);
             this.Controls.Add(this.label_UF);
             this.Controls.Add(this.label_Cidade);
             this.Controls.Add(this.comboBox_UF);
@@ -340,7 +330,6 @@
             this.Controls.Add(this.button_Cadastrar);
             this.Controls.Add(this.textBox_Email);
             this.Controls.Add(this.label_Email);
-            this.Controls.Add(this.listView_Amigos);
             this.Controls.Add(this.maskedTextBox_Telefone);
             this.Controls.Add(this.textBox_Bairro);
             this.Controls.Add(this.label_Bairro);
@@ -378,13 +367,6 @@
         private System.Windows.Forms.Button button_Cadastrar;
         private System.Windows.Forms.TextBox textBox_Email;
         private System.Windows.Forms.Label label_Email;
-        private System.Windows.Forms.ListView listView_Amigos;
-        private System.Windows.Forms.ColumnHeader Nome;
-        private System.Windows.Forms.ColumnHeader Email;
-        private System.Windows.Forms.ColumnHeader Telefone;
-        private System.Windows.Forms.ColumnHeader Endereço;
-        private System.Windows.Forms.ColumnHeader Número;
-        private System.Windows.Forms.ColumnHeader Bairro;
         private System.Windows.Forms.MaskedTextBox maskedTextBox_Telefone;
         private System.Windows.Forms.TextBox textBox_Bairro;
         private System.Windows.Forms.Label label_Bairro;
@@ -399,6 +381,12 @@
         private System.Windows.Forms.ComboBox comboBox_UF;
         private System.Windows.Forms.Label label_Cidade;
         private System.Windows.Forms.Label label_UF;
+        private System.Windows.Forms.ListView listView_CadastroAmigos;
+        private System.Windows.Forms.ColumnHeader Nome;
+        private System.Windows.Forms.ColumnHeader Telefone;
+        private System.Windows.Forms.ColumnHeader Endereço;
+        private System.Windows.Forms.ColumnHeader Número;
+        private System.Windows.Forms.ColumnHeader Email;
 
 
     }
