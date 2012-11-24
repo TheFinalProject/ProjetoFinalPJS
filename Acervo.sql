@@ -134,3 +134,4 @@ select * from Usuario
 
 --SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
 --ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'SP'
+

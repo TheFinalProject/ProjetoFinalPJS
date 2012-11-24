@@ -39,12 +39,12 @@ namespace AcervoMusical
             {
                 try
                 {
-                    SqlCommand Comando = new SqlCommand("Insert into Musicas values(@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)", ClasseConexao.Conexao);
+                    SqlCommand Comando = new SqlCommand("Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)", ClasseConexao.Conexao);
                     #region Parametros
                     #region ParametroInterprete
                     SqlParameter NomeInterprete = new SqlParameter();
                     NomeInterprete.Value = textBox_Interprete.Text;
-                    NomeInterprete.SourceColumn = "Nome_INTerprete";
+                    NomeInterprete.SourceColumn = "Nome_Interprete";
                     NomeInterprete.ParameterName = "@Interprete";
                     NomeInterprete.SqlDbType = SqlDbType.VarChar;
                     NomeInterprete.Size = 50;
@@ -71,17 +71,19 @@ namespace AcervoMusical
                     #region ParametroDataAlbum
                     SqlParameter DataAlbum = new SqlParameter();
                     DataAlbum.SourceColumn = "Data_Album";
-                    DataAlbum.Value = dateTimePicker_DataAlbum.Value;
-                    DataAlbum.ParameterName = "@DataAlbum";
                     DataAlbum.SqlDbType = SqlDbType.Date;
+                    DataAlbum.Value = dateTimePicker_DataAlbum.Value.ToShortDateString();
+                    DataAlbum.ParameterName = "@DataAlbum";
+                    
                     #endregion
 
                     #region ParametroDataCompra
                     SqlParameter DataCompra = new SqlParameter();
                     DataCompra.SourceColumn = "Data_Compra";
-                    DataCompra.Value = dateTimePicker_DataCampra.Value;
-                    DataCompra.ParameterName = "@DataCompra";
                     DataCompra.SqlDbType = SqlDbType.Date;
+                    DataCompra.Value = dateTimePicker_DataCampra.Value.ToShortDateString();
+                    DataCompra.ParameterName = "@DataCompra";
+                    
                     #endregion
 
                     #region ParametroOrigem
@@ -153,7 +155,7 @@ namespace AcervoMusical
                 }
                 catch (Exception erro)
                 {
-
+                    MessageBox.Show(erro.Message, "");
                 }
                 finally
                 {
