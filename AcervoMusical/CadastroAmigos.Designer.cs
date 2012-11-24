@@ -257,6 +257,7 @@
             this.comboBox_UF.Name = "comboBox_UF";
             this.comboBox_UF.Size = new System.Drawing.Size(45, 21);
             this.comboBox_UF.TabIndex = 60;
+            this.comboBox_UF.SelectedIndexChanged += new System.EventHandler(this.comboBox_UF_SelectedIndexChanged);
             // 
             // label_Cidade
             // 

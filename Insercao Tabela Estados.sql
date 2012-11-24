@@ -1,4 +1,5 @@
-
+USE Acervo
+GO
 
 INSERT INTO Estados VALUES ( 'AC', 'Acre')
 INSERT INTO Estados VALUES ( 'AL', 'Alagoas')
@@ -28,4 +29,4 @@ INSERT INTO Estados VALUES ( 'SE', 'Sergipe')
 INSERT INTO Estados VALUES ( 'SP', 'São Paulo')
 INSERT INTO Estados VALUES ( 'TO', 'Tocantins')
 
-SELECT * FROM tb_estados
+SELECT * FROM Estados
