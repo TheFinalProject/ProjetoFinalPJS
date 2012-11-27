@@ -5,14 +5,13 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Collections;
-using System.Windows.Forms;
 
 namespace AcervoMusical
 {
     class Class_Conexão
     {
-        private const string StringConexao = @"Data Source = RAFAEL-PC\MSQL2008; Initial Catalog=Acervo;Integrated Security =SSPI";
-        
+        private const string StringConexao = @"Data Source =(local); Initial Catalog=Acervo;Integrated Security =SSPI";
+
         public SqlConnection Conexao = null;
 
         #region "Metodos para conectar e desconectar o banco de dados"
@@ -23,7 +22,6 @@ namespace AcervoMusical
             {
                 return true;
             }
-
             Conexao = new SqlConnection(StringConexao);
             try
             {
@@ -33,10 +31,7 @@ namespace AcervoMusical
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Erro " + erro);
-                return (false);
-                
-                
+                return false;
             }
         }
 

@@ -45,50 +45,35 @@
             "Beatles",
             "30/10/2012"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label_relogio = new System.Windows.Forms.Label();
+            this.timer_Relogio = new System.Windows.Forms.Timer(this.components);
             this.label_login = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Devoluções = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Emprestimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label_DiaSemana = new System.Windows.Forms.Label();
-            this.label_Data = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox_Login = new System.Windows.Forms.PictureBox();
-            this.labelRelogio = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labelData = new System.Windows.Forms.Label();
-            this.labelSemana = new System.Windows.Forms.Label();
-            this.button_MediaPlayer = new System.Windows.Forms.Button();
-            this.button_Agenda = new System.Windows.Forms.Button();
-            this.button_Mubox = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.label_Ferramentas = new System.Windows.Forms.Label();
             this.button_Consultas = new System.Windows.Forms.Button();
+            this.panel_Relogio = new System.Windows.Forms.Panel();
+            this.label_Data = new System.Windows.Forms.Label();
+            this.label_DiaSemana = new System.Windows.Forms.Label();
+            this.label_relogio = new System.Windows.Forms.Label();
+            this.panel_Configuraçoes = new System.Windows.Forms.Panel();
+            this.pictureBox_ferramentas = new System.Windows.Forms.PictureBox();
+            this.pictureBox_Login = new System.Windows.Forms.PictureBox();
             this.button_Emprestimos = new System.Windows.Forms.Button();
             this.button_Musicas = new System.Windows.Forms.Button();
+            this.button_MediaPlayer = new System.Windows.Forms.Button();
             this.button_Amigos = new System.Windows.Forms.Button();
-            this.panel3.SuspendLayout();
+            this.button_Agenda = new System.Windows.Forms.Button();
+            this.button_Mubox = new System.Windows.Forms.Button();
+            this.panel_Relogio.SuspendLayout();
+            this.panel_Configuraçoes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ferramentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Login)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // timer1
+            // timer_Relogio
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label_relogio
-            // 
-            this.label_relogio.AutoSize = true;
-            this.label_relogio.BackColor = System.Drawing.Color.Transparent;
-            this.label_relogio.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_relogio.ForeColor = System.Drawing.Color.White;
-            this.label_relogio.Location = new System.Drawing.Point(142, 88);
-            this.label_relogio.Name = "label_relogio";
-            this.label_relogio.Size = new System.Drawing.Size(21, 29);
-            this.label_relogio.TabIndex = 8;
-            this.label_relogio.Text = "r";
+            this.timer_Relogio.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label_login
             // 
@@ -98,9 +83,9 @@
             this.label_login.ForeColor = System.Drawing.Color.White;
             this.label_login.Location = new System.Drawing.Point(98, 181);
             this.label_login.Name = "label_login";
-            this.label_login.Size = new System.Drawing.Size(37, 13);
+            this.label_login.Size = new System.Drawing.Size(129, 13);
             this.label_login.TabIndex = 21;
-            this.label_login.Text = "Config";
+            this.label_login.Text = "Consigurações de usuário";
             this.label_login.Visible = false;
             // 
             // listView1
@@ -126,12 +111,15 @@
             listViewItem2,
             listViewItem3,
             listViewItem4});
-            this.listView1.Location = new System.Drawing.Point(338, 409);
+            this.listView1.Location = new System.Drawing.Point(337, 409);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(314, 170);
+            this.listView1.Size = new System.Drawing.Size(318, 175);
             this.listView1.TabIndex = 30;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
+            this.listView1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
+            this.listView1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // Devoluções
             // 
@@ -143,17 +131,52 @@
             this.Emprestimo.Text = "Emprestimo";
             this.Emprestimo.Width = 98;
             // 
-            // label_DiaSemana
+            // label_Ferramentas
             // 
-            this.label_DiaSemana.AutoSize = true;
-            this.label_DiaSemana.BackColor = System.Drawing.Color.Transparent;
-            this.label_DiaSemana.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_DiaSemana.ForeColor = System.Drawing.Color.White;
-            this.label_DiaSemana.Location = new System.Drawing.Point(6, 52);
-            this.label_DiaSemana.Name = "label_DiaSemana";
-            this.label_DiaSemana.Size = new System.Drawing.Size(29, 31);
-            this.label_DiaSemana.TabIndex = 9;
-            this.label_DiaSemana.Text = "d";
+            this.label_Ferramentas.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label_Ferramentas.AutoSize = true;
+            this.label_Ferramentas.BackColor = System.Drawing.Color.Transparent;
+            this.label_Ferramentas.ForeColor = System.Drawing.Color.White;
+            this.label_Ferramentas.Location = new System.Drawing.Point(98, 249);
+            this.label_Ferramentas.Name = "label_Ferramentas";
+            this.label_Ferramentas.Size = new System.Drawing.Size(108, 13);
+            this.label_Ferramentas.TabIndex = 31;
+            this.label_Ferramentas.Text = "Configurações Gerais";
+            this.label_Ferramentas.Visible = false;
+            // 
+            // button_Consultas
+            // 
+            this.button_Consultas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Consultas.BackColor = System.Drawing.Color.Transparent;
+            this.button_Consultas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Consultas.BackgroundImage")));
+            this.button_Consultas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Consultas.FlatAppearance.BorderSize = 0;
+            this.button_Consultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Consultas.ForeColor = System.Drawing.Color.Transparent;
+            this.button_Consultas.Location = new System.Drawing.Point(660, 228);
+            this.button_Consultas.Name = "button_Consultas";
+            this.button_Consultas.Size = new System.Drawing.Size(315, 175);
+            this.button_Consultas.TabIndex = 13;
+            this.button_Consultas.UseVisualStyleBackColor = false;
+            this.button_Consultas.Click += new System.EventHandler(this.Abrir_Fomulario);
+            this.button_Consultas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
+            this.button_Consultas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
+            this.button_Consultas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
+            // 
+            // panel_Relogio
+            // 
+            this.panel_Relogio.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel_Relogio.BackgroundImage = global::AcervoMusical.Properties.Resources.data;
+            this.panel_Relogio.Controls.Add(this.label_Data);
+            this.panel_Relogio.Controls.Add(this.label_DiaSemana);
+            this.panel_Relogio.Controls.Add(this.label_relogio);
+            this.panel_Relogio.Location = new System.Drawing.Point(730, 458);
+            this.panel_Relogio.Name = "panel_Relogio";
+            this.panel_Relogio.Size = new System.Drawing.Size(245, 121);
+            this.panel_Relogio.TabIndex = 14;
+            this.panel_Relogio.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
+            this.panel_Relogio.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
+            this.panel_Relogio.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // label_Data
             // 
@@ -167,15 +190,59 @@
             this.label_Data.TabIndex = 10;
             this.label_Data.Text = "d";
             // 
-            // panel3
+            // label_DiaSemana
             // 
-            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel3.BackgroundImage = global::AcervoMusical.Properties.Resources.data;
-            this.panel3.Controls.Add(this.pictureBox_Login);
-            this.panel3.Location = new System.Drawing.Point(55, 134);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(43, 311);
-            this.panel3.TabIndex = 27;
+            this.label_DiaSemana.AutoSize = true;
+            this.label_DiaSemana.BackColor = System.Drawing.Color.Transparent;
+            this.label_DiaSemana.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_DiaSemana.ForeColor = System.Drawing.Color.White;
+            this.label_DiaSemana.Location = new System.Drawing.Point(6, 52);
+            this.label_DiaSemana.Name = "label_DiaSemana";
+            this.label_DiaSemana.Size = new System.Drawing.Size(29, 31);
+            this.label_DiaSemana.TabIndex = 9;
+            this.label_DiaSemana.Text = "d";
+            // 
+            // label_relogio
+            // 
+            this.label_relogio.AutoSize = true;
+            this.label_relogio.BackColor = System.Drawing.Color.Transparent;
+            this.label_relogio.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_relogio.ForeColor = System.Drawing.Color.White;
+            this.label_relogio.Location = new System.Drawing.Point(142, 88);
+            this.label_relogio.Name = "label_relogio";
+            this.label_relogio.Size = new System.Drawing.Size(21, 29);
+            this.label_relogio.TabIndex = 8;
+            this.label_relogio.Text = "r";
+            // 
+            // panel_Configuraçoes
+            // 
+            this.panel_Configuraçoes.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel_Configuraçoes.BackColor = System.Drawing.Color.Transparent;
+            this.panel_Configuraçoes.BackgroundImage = global::AcervoMusical.Properties.Resources.data;
+            this.panel_Configuraçoes.Controls.Add(this.pictureBox_ferramentas);
+            this.panel_Configuraçoes.Controls.Add(this.pictureBox_Login);
+            this.panel_Configuraçoes.Location = new System.Drawing.Point(55, 134);
+            this.panel_Configuraçoes.Name = "panel_Configuraçoes";
+            this.panel_Configuraçoes.Size = new System.Drawing.Size(43, 311);
+            this.panel_Configuraçoes.TabIndex = 27;
+            this.panel_Configuraçoes.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
+            this.panel_Configuraçoes.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
+            this.panel_Configuraçoes.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
+            // 
+            // pictureBox_ferramentas
+            // 
+            this.pictureBox_ferramentas.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox_ferramentas.BackgroundImage = global::AcervoMusical.Properties.Resources.Ferramentas;
+            this.pictureBox_ferramentas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox_ferramentas.Location = new System.Drawing.Point(6, 102);
+            this.pictureBox_ferramentas.Name = "pictureBox_ferramentas";
+            this.pictureBox_ferramentas.Size = new System.Drawing.Size(33, 33);
+            this.pictureBox_ferramentas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_ferramentas.TabIndex = 1;
+            this.pictureBox_ferramentas.TabStop = false;
+            this.pictureBox_ferramentas.Click += new System.EventHandler(this.Abrir_Fomulario);
+            this.pictureBox_ferramentas.MouseLeave += new System.EventHandler(this.Esconder_texto);
+            this.pictureBox_ferramentas.MouseHover += new System.EventHandler(this.Mostrar_texto);
             // 
             // pictureBox_Login
             // 
@@ -188,128 +255,28 @@
             this.pictureBox_Login.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox_Login.TabIndex = 0;
             this.pictureBox_Login.TabStop = false;
-            // 
-            // labelRelogio
-            // 
-            this.labelRelogio.AutoSize = true;
-            this.labelRelogio.BackColor = System.Drawing.Color.Transparent;
-            this.labelRelogio.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRelogio.ForeColor = System.Drawing.Color.White;
-            this.labelRelogio.Location = new System.Drawing.Point(142, 88);
-            this.labelRelogio.Name = "labelRelogio";
-            this.labelRelogio.Size = new System.Drawing.Size(21, 29);
-            this.labelRelogio.TabIndex = 11;
-            this.labelRelogio.Text = "r";
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.panel1.BackgroundImage = global::AcervoMusical.Properties.Resources.data;
-            this.panel1.Controls.Add(this.labelData);
-            this.panel1.Controls.Add(this.labelSemana);
-            this.panel1.Controls.Add(this.labelRelogio);
-            this.panel1.Controls.Add(this.label_Data);
-            this.panel1.Controls.Add(this.label_DiaSemana);
-            this.panel1.Controls.Add(this.label_relogio);
-            this.panel1.Location = new System.Drawing.Point(79, 234);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(245, 121);
-            this.panel1.TabIndex = 14;
-            // 
-            // labelData
-            // 
-            this.labelData.AutoSize = true;
-            this.labelData.BackColor = System.Drawing.Color.Transparent;
-            this.labelData.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelData.ForeColor = System.Drawing.Color.White;
-            this.labelData.Location = new System.Drawing.Point(6, 9);
-            this.labelData.Name = "labelData";
-            this.labelData.Size = new System.Drawing.Size(29, 31);
-            this.labelData.TabIndex = 13;
-            this.labelData.Text = "d";
-            // 
-            // labelSemana
-            // 
-            this.labelSemana.AutoSize = true;
-            this.labelSemana.BackColor = System.Drawing.Color.Transparent;
-            this.labelSemana.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSemana.ForeColor = System.Drawing.Color.White;
-            this.labelSemana.Location = new System.Drawing.Point(6, 52);
-            this.labelSemana.Name = "labelSemana";
-            this.labelSemana.Size = new System.Drawing.Size(29, 31);
-            this.labelSemana.TabIndex = 12;
-            this.labelSemana.Text = "d";
-            // 
-            // button_MediaPlayer
-            // 
-            this.button_MediaPlayer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_MediaPlayer.BackgroundImage = global::AcervoMusical.Properties.Resources.mediaplayer;
-            this.button_MediaPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_MediaPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_MediaPlayer.Location = new System.Drawing.Point(139, 230);
-            this.button_MediaPlayer.Name = "button_MediaPlayer";
-            this.button_MediaPlayer.Size = new System.Drawing.Size(195, 175);
-            this.button_MediaPlayer.TabIndex = 25;
-            this.button_MediaPlayer.UseVisualStyleBackColor = true;
-            // 
-            // button_Agenda
-            // 
-            this.button_Agenda.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_Agenda.BackgroundImage = global::AcervoMusical.Properties.Resources.agenda;
-            this.button_Agenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_Agenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Agenda.Location = new System.Drawing.Point(140, 408);
-            this.button_Agenda.Name = "button_Agenda";
-            this.button_Agenda.Size = new System.Drawing.Size(194, 175);
-            this.button_Agenda.TabIndex = 23;
-            this.button_Agenda.UseVisualStyleBackColor = true;
-            // 
-            // button_Mubox
-            // 
-            this.button_Mubox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_Mubox.BackgroundImage = global::AcervoMusical.Properties.Resources.mubox;
-            this.button_Mubox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_Mubox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Mubox.Location = new System.Drawing.Point(139, 49);
-            this.button_Mubox.Name = "button_Mubox";
-            this.button_Mubox.Size = new System.Drawing.Size(320, 175);
-            this.button_Mubox.TabIndex = 22;
-            this.button_Mubox.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel2.Controls.Add(this.button_Consultas);
-            this.panel2.Controls.Add(this.panel1);
-            this.panel2.Location = new System.Drawing.Point(658, 228);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(324, 355);
-            this.panel2.TabIndex = 28;
-            // 
-            // button_Consultas
-            // 
-            this.button_Consultas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button_Consultas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Consultas.BackgroundImage")));
-            this.button_Consultas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button_Consultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Consultas.Location = new System.Drawing.Point(2, 0);
-            this.button_Consultas.Name = "button_Consultas";
-            this.button_Consultas.Size = new System.Drawing.Size(317, 175);
-            this.button_Consultas.TabIndex = 13;
-            this.button_Consultas.UseVisualStyleBackColor = true;
-            this.button_Consultas.Click += new System.EventHandler(this.button_Consultas_Click);
+            this.pictureBox_Login.Click += new System.EventHandler(this.Abrir_Fomulario);
+            this.pictureBox_Login.MouseLeave += new System.EventHandler(this.Esconder_texto);
+            this.pictureBox_Login.MouseHover += new System.EventHandler(this.Mostrar_texto);
             // 
             // button_Emprestimos
             // 
             this.button_Emprestimos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Emprestimos.BackColor = System.Drawing.Color.Transparent;
             this.button_Emprestimos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Emprestimos.BackgroundImage")));
             this.button_Emprestimos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Emprestimos.FlatAppearance.BorderSize = 0;
             this.button_Emprestimos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Emprestimos.Location = new System.Drawing.Point(463, 49);
+            this.button_Emprestimos.ForeColor = System.Drawing.Color.Transparent;
+            this.button_Emprestimos.Location = new System.Drawing.Point(462, 49);
             this.button_Emprestimos.Name = "button_Emprestimos";
             this.button_Emprestimos.Size = new System.Drawing.Size(194, 175);
             this.button_Emprestimos.TabIndex = 29;
-            this.button_Emprestimos.UseVisualStyleBackColor = true;
+            this.button_Emprestimos.UseVisualStyleBackColor = false;
+            this.button_Emprestimos.Click += new System.EventHandler(this.Abrir_Fomulario);
+            this.button_Emprestimos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
+            this.button_Emprestimos.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
+            this.button_Emprestimos.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button_Musicas
             // 
@@ -317,53 +284,123 @@
             this.button_Musicas.BackColor = System.Drawing.Color.Transparent;
             this.button_Musicas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Musicas.BackgroundImage")));
             this.button_Musicas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Musicas.FlatAppearance.BorderSize = 0;
             this.button_Musicas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Musicas.Location = new System.Drawing.Point(661, 50);
+            this.button_Musicas.ForeColor = System.Drawing.Color.Transparent;
+            this.button_Musicas.Location = new System.Drawing.Point(660, 50);
             this.button_Musicas.Name = "button_Musicas";
             this.button_Musicas.Size = new System.Drawing.Size(315, 173);
             this.button_Musicas.TabIndex = 26;
             this.button_Musicas.UseVisualStyleBackColor = false;
-            this.button_Musicas.Click += new System.EventHandler(this.button_Musicas_Click);
+            this.button_Musicas.Click += new System.EventHandler(this.Abrir_Fomulario);
+            this.button_Musicas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
+            this.button_Musicas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
+            this.button_Musicas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
+            // 
+            // button_MediaPlayer
+            // 
+            this.button_MediaPlayer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_MediaPlayer.BackColor = System.Drawing.Color.Transparent;
+            this.button_MediaPlayer.BackgroundImage = global::AcervoMusical.Properties.Resources.mediaplayer;
+            this.button_MediaPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_MediaPlayer.FlatAppearance.BorderSize = 0;
+            this.button_MediaPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_MediaPlayer.ForeColor = System.Drawing.Color.Transparent;
+            this.button_MediaPlayer.Location = new System.Drawing.Point(138, 230);
+            this.button_MediaPlayer.Name = "button_MediaPlayer";
+            this.button_MediaPlayer.Size = new System.Drawing.Size(195, 175);
+            this.button_MediaPlayer.TabIndex = 25;
+            this.button_MediaPlayer.UseVisualStyleBackColor = false;
+            this.button_MediaPlayer.Click += new System.EventHandler(this.Abrir_Fomulario);
+            this.button_MediaPlayer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
+            this.button_MediaPlayer.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
+            this.button_MediaPlayer.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // button_Amigos
             // 
             this.button_Amigos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Amigos.BackColor = System.Drawing.Color.Transparent;
             this.button_Amigos.BackgroundImage = global::AcervoMusical.Properties.Resources.amigos1;
             this.button_Amigos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Amigos.FlatAppearance.BorderSize = 0;
             this.button_Amigos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Amigos.Location = new System.Drawing.Point(338, 228);
+            this.button_Amigos.ForeColor = System.Drawing.Color.Transparent;
+            this.button_Amigos.Location = new System.Drawing.Point(337, 228);
             this.button_Amigos.Name = "button_Amigos";
             this.button_Amigos.Size = new System.Drawing.Size(318, 175);
             this.button_Amigos.TabIndex = 24;
-            this.button_Amigos.UseVisualStyleBackColor = true;
-            this.button_Amigos.Click += new System.EventHandler(this.button_Amigos_Click);
+            this.button_Amigos.UseVisualStyleBackColor = false;
+            this.button_Amigos.Click += new System.EventHandler(this.Abrir_Fomulario);
+            this.button_Amigos.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
+            this.button_Amigos.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
+            this.button_Amigos.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
+            // 
+            // button_Agenda
+            // 
+            this.button_Agenda.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Agenda.BackColor = System.Drawing.Color.Transparent;
+            this.button_Agenda.BackgroundImage = global::AcervoMusical.Properties.Resources.agenda;
+            this.button_Agenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Agenda.FlatAppearance.BorderSize = 0;
+            this.button_Agenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Agenda.ForeColor = System.Drawing.Color.Transparent;
+            this.button_Agenda.Location = new System.Drawing.Point(138, 409);
+            this.button_Agenda.Name = "button_Agenda";
+            this.button_Agenda.Size = new System.Drawing.Size(195, 175);
+            this.button_Agenda.TabIndex = 23;
+            this.button_Agenda.UseVisualStyleBackColor = false;
+            this.button_Agenda.Click += new System.EventHandler(this.Abrir_Fomulario);
+            this.button_Agenda.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
+            this.button_Agenda.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
+            this.button_Agenda.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
+            // 
+            // button_Mubox
+            // 
+            this.button_Mubox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Mubox.BackColor = System.Drawing.Color.Transparent;
+            this.button_Mubox.BackgroundImage = global::AcervoMusical.Properties.Resources.mubox;
+            this.button_Mubox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button_Mubox.FlatAppearance.BorderSize = 0;
+            this.button_Mubox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Mubox.ForeColor = System.Drawing.Color.Transparent;
+            this.button_Mubox.Location = new System.Drawing.Point(138, 49);
+            this.button_Mubox.Name = "button_Mubox";
+            this.button_Mubox.Size = new System.Drawing.Size(320, 175);
+            this.button_Mubox.TabIndex = 22;
+            this.button_Mubox.UseVisualStyleBackColor = false;
+            this.button_Mubox.Click += new System.EventHandler(this.Abrir_Fomulario);
+            this.button_Mubox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
+            this.button_Mubox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
+            this.button_Mubox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Navy;
-            this.ClientSize = new System.Drawing.Size(1037, 632);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1034, 632);
+            this.Controls.Add(this.label_Ferramentas);
+            this.Controls.Add(this.button_Consultas);
             this.Controls.Add(this.label_login);
+            this.Controls.Add(this.panel_Relogio);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel_Configuraçoes);
             this.Controls.Add(this.button_Emprestimos);
             this.Controls.Add(this.button_Musicas);
             this.Controls.Add(this.button_MediaPlayer);
             this.Controls.Add(this.button_Amigos);
             this.Controls.Add(this.button_Agenda);
             this.Controls.Add(this.button_Mubox);
-            this.Controls.Add(this.panel2);
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "FormPrincipal";
-            this.Text = "tool";
+            this.Text = "Mubox";
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
-            this.Shown += new System.EventHandler(this.FormPrincipal_Shown);
-            this.panel3.ResumeLayout(false);
+            this.panel_Relogio.ResumeLayout(false);
+            this.panel_Relogio.PerformLayout();
+            this.panel_Configuraçoes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ferramentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Login)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,28 +408,26 @@
 
         #endregion
 
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label_relogio;
+        private System.Windows.Forms.Timer timer_Relogio;
         private System.Windows.Forms.Label label_login;
         private System.Windows.Forms.PictureBox pictureBox_Login;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader Devoluções;
         private System.Windows.Forms.ColumnHeader Emprestimo;
         private System.Windows.Forms.Label label_DiaSemana;
-        private System.Windows.Forms.Label label_Data;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label labelRelogio;
+        private System.Windows.Forms.Panel panel_Configuraçoes;
         private System.Windows.Forms.Button button_Emprestimos;
         private System.Windows.Forms.Button button_Consultas;
         private System.Windows.Forms.Button button_Musicas;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labelData;
-        private System.Windows.Forms.Label labelSemana;
+        private System.Windows.Forms.Panel panel_Relogio;
         private System.Windows.Forms.Button button_MediaPlayer;
         private System.Windows.Forms.Button button_Amigos;
         private System.Windows.Forms.Button button_Agenda;
         private System.Windows.Forms.Button button_Mubox;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox_ferramentas;
+        private System.Windows.Forms.Label label_Ferramentas;
+        private System.Windows.Forms.Label label_Data;
+        private System.Windows.Forms.Label label_relogio;
 
 
     }

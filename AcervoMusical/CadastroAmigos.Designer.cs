@@ -245,7 +245,7 @@
             // comboBox_Cidade
             // 
             this.comboBox_Cidade.FormattingEnabled = true;
-            this.comboBox_Cidade.Location = new System.Drawing.Point(413, 63);
+            this.comboBox_Cidade.Location = new System.Drawing.Point(471, 63);
             this.comboBox_Cidade.Name = "comboBox_Cidade";
             this.comboBox_Cidade.Size = new System.Drawing.Size(121, 21);
             this.comboBox_Cidade.TabIndex = 59;
@@ -253,7 +253,7 @@
             // comboBox_UF
             // 
             this.comboBox_UF.FormattingEnabled = true;
-            this.comboBox_UF.Location = new System.Drawing.Point(540, 63);
+            this.comboBox_UF.Location = new System.Drawing.Point(413, 63);
             this.comboBox_UF.Name = "comboBox_UF";
             this.comboBox_UF.Size = new System.Drawing.Size(45, 21);
             this.comboBox_UF.TabIndex = 60;
@@ -262,7 +262,7 @@
             // label_Cidade
             // 
             this.label_Cidade.AutoSize = true;
-            this.label_Cidade.Location = new System.Drawing.Point(410, 47);
+            this.label_Cidade.Location = new System.Drawing.Point(468, 47);
             this.label_Cidade.Name = "label_Cidade";
             this.label_Cidade.Size = new System.Drawing.Size(40, 13);
             this.label_Cidade.TabIndex = 61;
@@ -271,7 +271,7 @@
             // label_UF
             // 
             this.label_UF.AutoSize = true;
-            this.label_UF.Location = new System.Drawing.Point(537, 47);
+            this.label_UF.Location = new System.Drawing.Point(410, 47);
             this.label_UF.Name = "label_UF";
             this.label_UF.Size = new System.Drawing.Size(21, 13);
             this.label_UF.TabIndex = 62;
@@ -350,7 +350,6 @@
             this.Text = "Cadastro de Amigos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CadastroAmigos_FormClosing);
             this.Load += new System.EventHandler(this.CadastroAmigos_Load);
-            this.Enter += new System.EventHandler(this.CadastroAmigos_Enter);
             this.groupBox_Remover.ResumeLayout(false);
             this.groupBox_Remover.PerformLayout();
             this.ResumeLayout(false);
