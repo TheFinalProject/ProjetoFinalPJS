@@ -36,6 +36,54 @@ CREATE TABLE Usuario
 	senha VARCHAR(20)
 )
 GO
+USE Acervo
+
+CREATE TABLE ConfiguracoesBotoes
+(
+	BotaoAmigos CHAR(10) NOT NULL DEFAULT('CadastroAmigos'),
+	AmigosLocalizacaoY CHAR(8),
+	AmigosLocalizacaoZ CHAR(8),
+	
+	BotaoAgenda CHAR(10),
+	AgendaLocalizacaoY CHAR(8),
+	AgendaLocalizacaoZ CHAR(8),
+	
+	BotaoMusicas CHAR(10),
+	MusicasLocalizacaoY CHAR(8),
+	MusicasLocalizacaoZ CHAR(8),
+	
+	BotaoMubox CHAR(10),
+	MuboxLocalizacaoY CHAR(8),
+	MuboxLocalizacaoZ CHAR(8),
+		
+	BotaoEmprestimos CHAR(10),
+	EmprestimosLocalizacaoY CHAR(8),
+	EmprestimosLocalizacaoZ CHAR(8),
+	
+	BotaoMediaPlayer CHAR(10),
+	MediaPlayerLocalizacaoY CHAR(8),
+	MediaPlayerLocalizacaoZ CHAR(8),
+	
+)
+GO
+
+CREATE TABLE ConfiguracoesPanel
+(
+	PanelConfig CHAR(10),
+	ConfigLocalizacaoY CHAR(8),
+	ConfigLocalizacaoX CHAR(8),
+	
+	PanelTime CHAR(10),
+	TimeLocalizacaoY CHAR(8),
+	TimeLocalizacaoX CHAR(8)
+)
+GO
+
+CREATE TABLE ConfiguracoesForm
+(
+	FundoFormulario CHAR(10)
+)
+GO
 
 CREATE TABLE Estados
 (
@@ -119,8 +167,12 @@ SELECT * FROM Amigos
 SELECT * FROM Estados
 SELECT * FROM Musicas
 SELECT * FROM Emprestimos
-select * from Usuario
+SELECT * FROM Usuario
+SELECT * FROM ConfiguracoesBotoes
+SELECT * FROM ConfiguracoesPanel
+SELECT * FROM ConfiguracoesPanel
 
+-- Scripts para teste ===========================================================
 
 --DELETE FROM
 --INSERT INTO Estados VALUES  ('SP','SAO PAULO')
@@ -135,6 +187,7 @@ select * from Usuario
 --SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
 --ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'SP'
 
-SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
-ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'RJ'
+--SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
+--ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'RJ'
 
+--=================================================================================

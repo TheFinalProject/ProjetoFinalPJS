@@ -35,7 +35,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label_mensagem = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.button_Cancelar = new System.Windows.Forms.Button();
+            this.button_sair = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -58,7 +58,6 @@
             this.button_Entrar.TabIndex = 2;
             this.button_Entrar.Text = "Entrar";
             this.button_Entrar.UseVisualStyleBackColor = true;
-
             // 
             // textBox_Senha
             // 
@@ -100,16 +99,17 @@
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Esqueceu a senha?";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // button_Cancelar
+            // button_sair
             // 
-            this.button_Cancelar.Location = new System.Drawing.Point(117, 233);
-            this.button_Cancelar.Name = "button_Cancelar";
-            this.button_Cancelar.Size = new System.Drawing.Size(75, 23);
-            this.button_Cancelar.TabIndex = 6;
-            this.button_Cancelar.Text = "Cancelar";
-            this.button_Cancelar.UseVisualStyleBackColor = true;
-            this.button_Cancelar.Click += new System.EventHandler(this.button_Cancelar_Click_1);
+            this.button_sair.Location = new System.Drawing.Point(117, 233);
+            this.button_sair.Name = "button_sair";
+            this.button_sair.Size = new System.Drawing.Size(75, 23);
+            this.button_sair.TabIndex = 6;
+            this.button_sair.Text = "Sair";
+            this.button_sair.UseVisualStyleBackColor = true;
+            this.button_sair.Click += new System.EventHandler(this.button_Cancelar_Click_1);
             // 
             // errorProvider1
             // 
@@ -121,13 +121,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(301, 268);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.button_Cancelar);
+            this.Controls.Add(this.button_sair);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button_Entrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -142,7 +143,7 @@
         private System.Windows.Forms.Button button_Entrar;
         private System.Windows.Forms.TextBox textBox_Senha;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button_Cancelar;
+        private System.Windows.Forms.Button button_sair;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label_mensagem;

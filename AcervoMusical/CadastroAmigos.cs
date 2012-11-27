@@ -90,13 +90,8 @@ namespace AcervoMusical
         {
             SqlDataReader LeitorEstados;
 
-            if (!ClasseConexao.conectar())
+            if (ClasseConexao.conectar())
             {
-                return;
-            }
-            else
-            {
-
                 SqlCommand CmdEstados = new SqlCommand("Select * From Estados", ClasseConexao.Conexao);
 
                 LeitorEstados = CmdEstados.ExecuteReader();
@@ -108,25 +103,16 @@ namespace AcervoMusical
 
                 LeitorEstados.Close();
             }
-
-        }
-
-        private void CadastroAmigos_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBox_UF_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Carrega o combobox_Cidade com os valores de cada estado
+            comboBox_Cidade.Items.Clear();
             SqlDataReader LeitorCidades;
-
-            if (!ClasseConexao.conectar())
+            if (ClasseConexao.conectar())
             {
-            }
-            else
-            {
-
-                SqlCommand CmdCidades = new SqlCommand("SELECT Cidades.Nome FROM Cidades INNER JOIN Estados ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = '"+comboBox_UF.Text+"'", ClasseConexao.Conexao);
+                SqlCommand CmdCidades = new SqlCommand("SELECT Nome FROM Cidades WHERE CidadeId_uf = '" + comboBox_UF.Text + "'", ClasseConexao.Conexao);
 
                 LeitorCidades = CmdCidades.ExecuteReader();
 
