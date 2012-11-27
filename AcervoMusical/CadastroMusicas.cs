@@ -164,5 +164,10 @@ namespace AcervoMusical
                 }
             }
         }
+
+        private void textBox_Musicas_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
