@@ -17,7 +17,7 @@ namespace AcervoMusical
         {
             InitializeComponent();
         }
-
+        ListViewItem Amigos = new ListViewItem();
         Class_Conexão ClasseConexao = new Class_Conexão();
         //Variavel criada para verificação de botao caso precionado
         bool fechar = false;
@@ -151,13 +151,19 @@ namespace AcervoMusical
                     Comando.Parameters.AddRange(new SqlParameter[] { NomeAmigo, Telefone, Endereco, Bairro, Numero, Email, Cidade, Estado });
                     Comando.ExecuteNonQuery();
 
-                    ListViewItem Amigos = new ListViewItem();
+
+
+                    Amigos = new ListViewItem();
+
+                    ListViewGroup grupo = new ListViewGroup(comboBox_Cidade.Text.ToString(), HorizontalAlignment.Left);
+                    listView_CadastroAmigos.Groups.Add(grupo);
+
                     Amigos.Text = textBox_NomeAmigo.Text;
-                    Amigos.Group = listView_CadastroAmigos.Groups[comboBox_Cidade.SelectedItem.ToString()];
                     Amigos.SubItems.Add(maskedTextBox_Telefone.Text);
                     Amigos.SubItems.Add(textBox_Endereco.Text);
                     Amigos.SubItems.Add(textBox_Numero.Text);
                     Amigos.SubItems.Add(textBox_Email.Text);
+                    Amigos.Group = grupo;
                     listView_CadastroAmigos.Items.Add(Amigos);
                
                 }
@@ -182,7 +188,7 @@ namespace AcervoMusical
                 SqlCommand CmdEstados = new SqlCommand("Select * From Estados", ClasseConexao.Conexao);
 
                 LeitorEstados = CmdEstados.ExecuteReader();
-
+                //enquanto o CmdEstados for verdadeiro, ele vai carrega o combobox com os valores do Estado.
                 while (LeitorEstados.Read())
                 {
                     comboBox_UF.Items.Add(LeitorEstados["id_Estado"].ToString());
@@ -214,14 +220,14 @@ namespace AcervoMusical
 
         private void comboBox_Cidade_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            ClasseConexao.conectar();
             SqlCommand IdCidades = new SqlCommand("SELECT id_Cidade FROM Cidades WHERE Nome = @Nome", ClasseConexao.Conexao);
             IdCidades.Parameters.Add("@Nome", SqlDbType.VarChar);
             IdCidades.Parameters["@Nome"].Value = comboBox_Cidade.Text;
 
             try
             {
-                ClasseConexao.conectar();
+                
                 Id_Cidade = (int)IdCidades.ExecuteScalar();
 
             }
@@ -234,6 +240,69 @@ namespace AcervoMusical
                 ClasseConexao.desconectar();
             }
             
+        }
+
+        private void button_Remover_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ClasseConexao.conectar();
+                SqlCommand CmdRemover = new SqlCommand("DELETE FROM Amigos WHERE (Nome = @Nome) AND (Email = @Email) AND (Telefone = @Telefone)", ClasseConexao.Conexao);
+
+                #region parametros deleção
+                SqlParameter P_Amigo = new SqlParameter();
+                P_Amigo.Value = textBox_NomeAmigo.Text;
+                P_Amigo.SourceColumn = "Nome";
+                P_Amigo.ParameterName = "@Nome";
+                P_Amigo.SqlDbType = SqlDbType.VarChar;
+                P_Amigo.Size = 50;
+
+                SqlParameter P_Email = new SqlParameter();
+                P_Email.SourceColumn = "Email";
+                P_Email.Value = textBox_Email.Text;
+                P_Email.ParameterName = "@Email";
+                P_Email.SqlDbType = SqlDbType.VarChar;
+                P_Email.Size = 50;
+
+                SqlParameter P_Telefone = new SqlParameter();
+                P_Telefone.SourceColumn = "Telefone";
+                P_Telefone.Value = maskedTextBox_Telefone.Text;
+                P_Telefone.ParameterName = "@Telefone";
+                P_Telefone.SqlDbType = SqlDbType.Char;
+                P_Telefone.Size = 15;
+
+                #endregion
+
+                CmdRemover.Parameters.AddRange(new SqlParameter[] { P_Amigo, P_Email, P_Telefone});
+                CmdRemover.ExecuteNonQuery();
+            }
+            catch (SqlException erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+            finally
+            {
+                ClasseConexao.desconectar();
+            }
+            //CmdSql.ExecuteNonQuery();
+                    
+        }
+
+        private void listView_CadastroAmigos_Click(object sender, EventArgs e)
+        {
+            if (listView_CadastroAmigos.SelectedItems.Count != 0)
+            {
+
+                //coloca os itens e subitens nos texboxs para edição
+                textBox_NomeAmigo.Text = listView_CadastroAmigos.SelectedItems[0].Text;
+                textBox_Email.Text = listView_CadastroAmigos.FocusedItem.SubItems[4].Text;
+                maskedTextBox_Telefone.Text = listView_CadastroAmigos.FocusedItem.SubItems[1].Text;
+                textBox_Endereco.Text = listView_CadastroAmigos.FocusedItem.SubItems[2].Text;
+                textBox_Numero.Text = listView_CadastroAmigos.FocusedItem.SubItems[3].Text;
+
+                comboBox_Cidade.Text = listView_CadastroAmigos.SelectedItems[0].Group.Header;
+
+            }
         }
     }
 }
