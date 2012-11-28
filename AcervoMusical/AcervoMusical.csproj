@@ -65,6 +65,7 @@
       <DependentUpon>CadastroMusicas.cs</DependentUpon>
     </Compile>
     <Compile Include="Class_Conexao.cs" />
+    <Compile Include="Class_DataSet.cs" />
     <Compile Include="ConfiguracoesGerais.cs">
       <SubType>Form</SubType>
     </Compile>

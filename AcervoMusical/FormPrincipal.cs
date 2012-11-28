@@ -6,16 +6,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace AcervoMusical
 {
     public partial class FormPrincipal : Form
     {
+        public Class_Conexão Conector = new Class_Conexão();
+
         public FormPrincipal()
         {
             InitializeComponent();
         }
-
+              
+        
         //Variaveis para controle de Posicionamento
         bool Mover;
         Point Inicial;

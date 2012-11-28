@@ -17,6 +17,10 @@ namespace AcervoMusical
             InitializeComponent();
         }
 
+        Class_Conexão ClasseConexao = new Class_Conexão();
+        //Variavel criada para verificação de botao caso precionado
+        bool fechar = false;
+
         private void comboBox_Midia_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox_Midia.SelectedItem.ToString() == "Digital")
@@ -31,15 +35,15 @@ namespace AcervoMusical
             }
         }
 
+        #region Botão Adicionar
         private void button_Adicionar_Click(object sender, EventArgs e)
         {
-            Class_Conexão ClasseConexao = new Class_Conexão();
             ClasseConexao.conectar();
             if (ClasseConexao.conectar())
             {
                 try
                 {
-                    SqlCommand Comando = new SqlCommand("Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)", ClasseConexao.Conexao);
+                    SqlCommand Adicionar = new SqlCommand("Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)", ClasseConexao.Conexao);
                     #region Parametros
                     #region ParametroInterprete
                     SqlParameter NomeInterprete = new SqlParameter();
@@ -139,19 +143,9 @@ namespace AcervoMusical
                     Musica.Size = 50;
                     #endregion
                     #endregion
-                    Comando.Parameters.AddRange(new SqlParameter[] {NomeInterprete, Autor, Album, DataAlbum, DataCompra, Origem, Midia, Observacao, Nota, Musica, Status });
-                    Comando.ExecuteNonQuery();
-
-                    ListViewItem Item = new ListViewItem();
-                    Item.Text = textBox_Musicas.Text;
-                    Item.Group = listView_Cadastro_Musicas.Groups[comboBox_Midia.SelectedItem.ToString()];
-                    Item.SubItems.Add(textBox_Album.Text);
-                    Item.SubItems.Add(textBox_Autor.Text);
-                    Item.SubItems.Add(textBox_Interprete.Text);
-                    Item.SubItems.Add(textBox_Classificação.Text);
-                    Item.SubItems.Add(textBox_Observacao.Text);
-                    listView_Cadastro_Musicas.Items.Add(Item);
-
+                    
+                    Adicionar.Parameters.AddRange(new SqlParameter[] {NomeInterprete, Autor, Album, DataAlbum, DataCompra, Origem, Midia, Observacao, Nota, Musica, Status });
+                    Adicionar.ExecuteNonQuery();
                 }
                 catch (Exception erro)
                 {
@@ -163,6 +157,88 @@ namespace AcervoMusical
                         ClasseConexao.Conexao.Close();
                 }
             }
+        }
+        #endregion
+
+        #region Botões de Cancelar e fechar formulario
+        private void button_Cancelar_Click(object sender, EventArgs e)
+        {
+            //se o botao foi precionado altera o valor da variavel para true e fecha o form
+            fechar = true;
+            this.Close();
+        }
+
+        private void CadastroMusicas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Verifica se a variavel manteve o seu valor inicial, se caso manteve, ele entra e verifica se há dados salvos ou nao!!!
+            if (fechar == false)
+            {
+                int soma = 0;
+                foreach (Control c in this.Controls)
+                {
+                    if (c is TextBox)
+                    {
+                        TextBox t = (TextBox)c;
+                        if (t.Text != "")
+                        {
+                            soma++;
+                        }
+                    }
+                    if (c is ComboBox)
+                    {
+                        ComboBox combo = (ComboBox)c;
+                        if (combo.Text != "")
+                        {
+                            soma++;
+                        }
+                    }
+                }
+                if (soma > 0)
+                {
+                    if (MessageBox.Show("O Formulário contém dados não salvos, deseja continuar?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        fechar = true;
+                        this.Close();
+
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+                }
+            }
+        }
+        #endregion
+
+        private void button_Remover_Click(object sender, EventArgs e)
+        {
+            //SqlCommand Deletar = new SqlCommand("Delete from Musicas where 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+             
+        }
+
+        private void CadastroMusicas_Load(object sender, EventArgs e)
+        {
+            Class_DataSet datasete = new Class_DataSet();
+            datasete.PreencheMusicas();
+            #region ListView de Amigos
+            foreach (DataRow registro in datasete.Dados.Tables["MusicasCompletas"].Rows)
+            {
+                ListViewItem Item = new ListViewItem();
+                Item.Text = registro["Nome_Musica"].ToString();
+                //Item.Group = registro["Tipo_Midia"].ToString();
+                Item.SubItems.Add(registro["Nome_Album"].ToString());
+                Item.SubItems.Add(registro["Nome_Autor"].ToString());
+                Item.SubItems.Add(registro["Nome_Interprete"].ToString());
+                Item.SubItems.Add(registro["Nota"].ToString());
+                Item.SubItems.Add(registro["Observacao"].ToString());
+                listView_Cadastro_Musicas.Items.Add(Item);
+            }
+            #endregion
+            
         }
     }
 }

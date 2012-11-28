@@ -323,6 +323,7 @@
             this.button_Cancelar.TabIndex = 75;
             this.button_Cancelar.Text = "Cancelar";
             this.button_Cancelar.UseVisualStyleBackColor = true;
+            this.button_Cancelar.Click += new System.EventHandler(this.button_Cancelar_Click);
             // 
             // groupBox1
             // 
@@ -353,6 +354,7 @@
             this.button_Remover.TabIndex = 77;
             this.button_Remover.Text = "Remover";
             this.button_Remover.UseVisualStyleBackColor = true;
+            this.button_Remover.Click += new System.EventHandler(this.button_Remover_Click);
             // 
             // textBox1
             // 
@@ -360,6 +362,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(468, 20);
             this.textBox1.TabIndex = 77;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // CadastroMusicas
             // 
@@ -395,6 +398,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Músicas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CadastroMusicas_FormClosing);
+            this.Load += new System.EventHandler(this.CadastroMusicas_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

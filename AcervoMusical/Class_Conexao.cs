@@ -11,46 +11,40 @@ namespace AcervoMusical
 {
     class Class_Conexão
     {
-        private const string StringConexao = @"Data Source = RAFAEL-PC\MSQL2008; Initial Catalog=Acervo;Integrated Security =SSPI";
+        private const string StringConexao = @"Data Source = (local); Initial Catalog = Acervo; Integrated Security = SSPI";
         
-        public SqlConnection Conexao = null;
+        public SqlConnection Conexao;
+
+        public Class_Conexão()
+        {
+            Conexao = new SqlConnection(StringConexao);
+        }
 
         #region "Metodos para conectar e desconectar o banco de dados"
-
-        public bool conectar()
+        public bool Conectar()
         {
             if (Conexao != null && Conexao.State == ConnectionState.Open)
-            {
                 return true;
-            }
-
-            Conexao = new SqlConnection(StringConexao);
             try
             {
-
                 Conexao.Open();
                 return true;
             }
             catch (Exception erro)
             {
                 MessageBox.Show("Erro " + erro);
-                return (false);
-                
-                
+                return false;
             }
         }
 
-        public bool desconectar()
+        public bool Desconectar()
         {
             if (Conexao.State != ConnectionState.Closed)
             {
                 Conexao.Close();
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         #endregion
     }
