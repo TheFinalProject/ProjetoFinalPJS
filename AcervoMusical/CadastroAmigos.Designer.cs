@@ -219,6 +219,7 @@
             this.textBox_NomeAmigo.Name = "textBox_NomeAmigo";
             this.textBox_NomeAmigo.Size = new System.Drawing.Size(382, 20);
             this.textBox_NomeAmigo.TabIndex = 44;
+
             // 
             // label_Nome
             // 
