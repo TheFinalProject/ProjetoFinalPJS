@@ -17,7 +17,8 @@ namespace AcervoMusical
             InitializeComponent();
         }
 
-        Class_Conexão ClasseConexao = new Class_Conexão();
+        Class_Conexão Conector;
+        public FormPrincipal FP;
         //Variavel criada para verificação de botao caso precionado
         bool fechar = false;
 
@@ -38,12 +39,11 @@ namespace AcervoMusical
         #region Botão Adicionar
         private void button_Adicionar_Click(object sender, EventArgs e)
         {
-            ClasseConexao.conectar();
-            if (ClasseConexao.conectar())
+            if (Conector.Conectar())
             {
                 try
                 {
-                    SqlCommand Adicionar = new SqlCommand("Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)", ClasseConexao.Conexao);
+                    SqlCommand Adicionar = new SqlCommand("Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)", Conector.Conexao);
                     #region Parametros
                     #region ParametroInterprete
                     SqlParameter NomeInterprete = new SqlParameter();
@@ -153,8 +153,8 @@ namespace AcervoMusical
                 }
                 finally
                 {
-                    if (ClasseConexao != null)
-                        ClasseConexao.Conexao.Close();
+                    if (Conector != null)
+                        Conector.Conexao.Close();
                 }
             }
         }

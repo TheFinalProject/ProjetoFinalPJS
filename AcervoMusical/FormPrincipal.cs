@@ -118,7 +118,11 @@ namespace AcervoMusical
             else if (sender == button_Mubox)
                 new Mubox().Show();
             else if (sender == button_Musicas)
-                new CadastroMusicas().Show();
+            {
+                CadastroMusicas CM = new CadastroMusicas();
+                CM.FP = this;
+                CM.Show();
+            }
             else if (sender == button_Amigos)
                 new CadastroAmigos().Show();
 
