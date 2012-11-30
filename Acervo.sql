@@ -1,6 +1,7 @@
 --DROP DATABASE Acervo
 --GO
 
+USE Acervo
 --Criação do diretorio
 XP_CREATE_SUBDIR N'C:\Mubox\DB'
 
@@ -172,7 +173,11 @@ SELECT * FROM ConfiguracoesBotoes
 SELECT * FROM ConfiguracoesPanel
 SELECT * FROM ConfiguracoesPanel
 
+
+
+
 -- Scripts para teste ===========================================================
+--Delete From Amigos
 
 --DELETE FROM
 --INSERT INTO Estados VALUES  ('SP','SAO PAULO')
@@ -182,7 +187,6 @@ SELECT * FROM ConfiguracoesPanel
 --INSERT INTO Cidades VALUES(1,'Campos do Jordao','SP'),(2,'Taubate','SP')
 --INSERT INTO Cidades VALUES(3,'Niteroi','RJ')
 --GO
-
 
 --SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
 --ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'SP'
