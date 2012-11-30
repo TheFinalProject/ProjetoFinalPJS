@@ -189,8 +189,18 @@ namespace AcervoMusical
                 {
                     ClasseConexao.conectar();
 
-                    SqlCommand CmdUpdate = new SqlCommand("UPDATE Amigos SET Nome = @Nome, Telefone = @Telefone, Endereço = @Endereço, Bairro = @Bairro, Numero = @Numero, Email = @Email, AmigosId_Cidade = @AmigosIdCidade, AmigosId_Estado = @AmigosIdEstados WHERE (Nome = @Nome) AND (Telefone = @Telefone) AND (Email = @Email)", ClasseConexao.Conexao);
+                    //Comando para pegar o id da cidade selecionada.
+                    SqlCommand IdCidades = new SqlCommand("SELECT id_Cidade FROM Cidades WHERE Nome = @Nome", ClasseConexao.Conexao);
+                    IdCidades.Parameters.Add("@Nome", SqlDbType.VarChar);
+                    IdCidades.Parameters["@Nome"].Value = comboBox_Cidade.Text;
+                    Id_Cidade = (int)IdCidades.ExecuteScalar();
 
+                    //comando para alterar os valores do amigo
+                    SqlCommand CmdUpdate = new SqlCommand("UPDATE Amigos SET Nome = @Nome, Telefone = @Telefone, Endereço = @Endereço, Bairro = @Bairro, Numero = @Numero, Email = @Email, AmigosId_Cidade = @AmigosId_Cidade, AmigosId_Estado = @AmigosId_Estado WHERE (Nome = @NomeAmigo) AND (Telefone = @TelAmigo) AND (Email = @EmailAmigo)", ClasseConexao.Conexao);
+
+                    /*
+
+            }*/
                     #region Parametros Update
                     SqlParameter NomeAmigo = new SqlParameter();
                     NomeAmigo.Value = textBox_NomeAmigo.Text;
@@ -243,8 +253,31 @@ namespace AcervoMusical
                     Estado.ParameterName = "@AmigosId_Estado";
                     Estado.SqlDbType = SqlDbType.Char;
                     Estado.Size = 3;
+
+                    SqlParameter NomeConsulta = new SqlParameter();
+                    NomeConsulta.SourceColumn = "Nome";
+                    NomeConsulta.Value = listView_CadastroAmigos.SelectedItems[0].Text;
+                    NomeConsulta.ParameterName = "@NomeAmigo";
+                    NomeConsulta.SqlDbType = SqlDbType.VarChar;
+                    NomeConsulta.Size = 50;
+
+                    SqlParameter TelConsulta = new SqlParameter();
+                    TelConsulta.SourceColumn = "Telefone";
+                    TelConsulta.Value = listView_CadastroAmigos.FocusedItem.SubItems[1].Text;
+                    TelConsulta.ParameterName = "@TelAmigo";
+                    TelConsulta.SqlDbType = SqlDbType.Char;
+                    TelConsulta.Size = 15;
+
+                    SqlParameter EmailConsulta = new SqlParameter();
+                    EmailConsulta.SourceColumn = "Email";
+                    EmailConsulta.Value = listView_CadastroAmigos.FocusedItem.SubItems[4].Text;
+                    EmailConsulta.ParameterName = "@EmailAmigo";
+                    EmailConsulta.SqlDbType = SqlDbType.VarChar;
+                    EmailConsulta.Size = 50;
+
                     #endregion
-                    CmdUpdate.Parameters.AddRange(new SqlParameter[] { NomeAmigo, Telefone, Endereco, Bairro,Numero, Email,Cidade,Estado});
+                    CmdUpdate.Parameters.AddRange(new SqlParameter[] { NomeAmigo, Telefone, Endereco, Bairro,Numero, Email,Cidade,Estado, NomeConsulta, TelConsulta,EmailConsulta});
+
                     CmdUpdate.ExecuteNonQuery();
                 }
                 catch (SqlException erro)
