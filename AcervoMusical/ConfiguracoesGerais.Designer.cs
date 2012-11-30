@@ -112,6 +112,7 @@
             this.Controls.Add(this.comboBox_cores);
             this.Name = "ConfiguracoesGerais";
             this.Text = "ConfiguracoesGerais";
+            this.Load += new System.EventHandler(this.ConfiguracoesGerais_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

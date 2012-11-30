@@ -18,7 +18,7 @@ namespace AcervoMusical
             InitializeComponent();
         }
         ListViewItem Amigos = new ListViewItem();
-        Class_Conexão ClasseConexao = new Class_Conexão();
+        public FormPrincipal FP;
         //Variavel criada para verificação de botao caso precionado
         bool fechar = false;
         int Id_Cidade = 0;

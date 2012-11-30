@@ -108,15 +108,35 @@ namespace AcervoMusical
         private void Abrir_Fomulario(object sender, EventArgs e)
         {
             if (sender == button_Agenda)
-                new Agenda().Show();
+            {
+                Agenda AG = new Agenda();
+                AG.FP = this;
+                AG.Show();
+            }
             else if (sender == button_Consultas)
-                new Consultas().Show();
+            {
+                Consultas CO = new Consultas();
+                CO.FP = this;
+                CO.Show();
+            }
             else if (sender == button_Emprestimos)
-                new Emprestimos().Show();
+            {
+                Emprestimos EM = new Emprestimos();
+                EM.FP = this;
+                EM.Show();
+            }
             else if (sender == button_MediaPlayer)
-                new MediaPlayer().Show();
+            {
+                MediaPlayer MP = new MediaPlayer();
+                MP.FP = this;
+                MP.Show();
+            }
             else if (sender == button_Mubox)
-                new Mubox().Show();
+            {
+                Mubox MU = new Mubox();
+                MU.FP = this;
+                MU.Show();
+            }
             else if (sender == button_Musicas)
             {
                 CadastroMusicas CM = new CadastroMusicas();
@@ -124,18 +144,29 @@ namespace AcervoMusical
                 CM.Show();
             }
             else if (sender == button_Amigos)
-                new CadastroAmigos().Show();
-
+            {
+                CadastroAmigos CA = new CadastroAmigos();
+                CA.FP = this;
+                CA.Show();
+            }
             else if (sender == pictureBox_Login)
-                new ConfiguracoesUsuario("").Show();
+            {
+                ConfiguracoesUsuario CU = new ConfiguracoesUsuario("");
+                CU.FP = this;
+                CU.Show();
+            }
             else if (sender == pictureBox_ferramentas)
-                new ConfiguracoesGerais(this).Show();
-
+            {
+                ConfiguracoesGerais CG = new ConfiguracoesGerais(this);
+                CG.FP = this;
+                CG.Show();
+            }
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             timer_Relogio.Start();
+            Conector.Conectar();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

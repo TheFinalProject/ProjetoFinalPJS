@@ -15,5 +15,12 @@ namespace AcervoMusical
         {
             InitializeComponent();
         }
+
+        public FormPrincipal FP;
+
+        private void Agenda_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace AcervoMusical
 {
-    class Class_Conexão
+    public class Class_Conexão
     {
         public const string StringConexao = @"Data Source = (local); Initial Catalog = Acervo; Integrated Security = SSPI";
 
