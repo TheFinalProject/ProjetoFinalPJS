@@ -156,12 +156,9 @@ namespace AcervoMusical
                         Comando.ExecuteNonQuery();
 
 
-
                         Amigos = new ListViewItem();
-
                         ListViewGroup grupo = new ListViewGroup(comboBox_Cidade.Text.ToString(), HorizontalAlignment.Left);
                         listView_CadastroAmigos.Groups.Add(grupo);
-
                         Amigos.Text = textBox_NomeAmigo.Text;
                         Amigos.SubItems.Add(maskedTextBox_Telefone.Text);
                         Amigos.SubItems.Add(textBox_Endereco.Text);
@@ -198,9 +195,6 @@ namespace AcervoMusical
                     //comando para alterar os valores do amigo
                     SqlCommand CmdUpdate = new SqlCommand("UPDATE Amigos SET Nome = @Nome, Telefone = @Telefone, Endereço = @Endereço, Bairro = @Bairro, Numero = @Numero, Email = @Email, AmigosId_Cidade = @AmigosId_Cidade, AmigosId_Estado = @AmigosId_Estado WHERE (Nome = @NomeAmigo) AND (Telefone = @TelAmigo) AND (Email = @EmailAmigo)", ClasseConexao.Conexao);
 
-                    /*
-
-            }*/
                     #region Parametros Update
                     SqlParameter NomeAmigo = new SqlParameter();
                     NomeAmigo.Value = textBox_NomeAmigo.Text;
@@ -276,6 +270,7 @@ namespace AcervoMusical
                     EmailConsulta.Size = 50;
 
                     #endregion
+
                     CmdUpdate.Parameters.AddRange(new SqlParameter[] { NomeAmigo, Telefone, Endereco, Bairro,Numero, Email,Cidade,Estado, NomeConsulta, TelConsulta,EmailConsulta});
 
                     CmdUpdate.ExecuteNonQuery();

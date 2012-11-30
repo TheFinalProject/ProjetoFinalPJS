@@ -16,28 +16,5 @@ namespace AcervoMusical
             InitializeComponent();
         }
 
-        private void panel1_Enter(object sender, EventArgs e)
-        {
-            panel1.Width= 600;
-            panel1.Height = 800;
-        }
-
-        private void panel1_Leave(object sender, EventArgs e)
-        {
-            panel1.Width = 100;
-            panel1.Height = 200;
-        }
-
-        private void panel3_Enter(object sender, EventArgs e)
-        {
-            panel3.Width = 600;
-            panel3.Height = 800;
-        }
-
-        private void panel3_Leave(object sender, EventArgs e)
-        {
-            panel3.Width = 100;
-            panel3.Height = 200;
-        }
     }
 }
