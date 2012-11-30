@@ -158,6 +158,7 @@ namespace AcervoMusical
                 }
             }
         }
+
         #endregion
 
         #region Botões de Cancelar e fechar formulario
@@ -237,8 +238,12 @@ namespace AcervoMusical
                 Item.SubItems.Add(registro["Observacao"].ToString());
                 listView_Cadastro_Musicas.Items.Add(Item);
             }
+        }
             #endregion
-            
+
+        private void textBox_Musicas_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

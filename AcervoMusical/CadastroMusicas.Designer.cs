@@ -76,6 +76,7 @@
             this.textBox_Musicas.Size = new System.Drawing.Size(518, 20);
             this.textBox_Musicas.TabIndex = 74;
             this.textBox_Musicas.Visible = false;
+            this.textBox_Musicas.TextChanged += new System.EventHandler(this.textBox_Musicas_TextChanged);
             // 
             // listView_Cadastro_Musicas
             // 

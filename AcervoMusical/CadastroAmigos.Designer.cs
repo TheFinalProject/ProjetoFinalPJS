@@ -30,7 +30,6 @@
         {
             this.button_Remover = new System.Windows.Forms.Button();
             this.groupBox_Remover = new System.Windows.Forms.GroupBox();
-            this.button_Editar = new System.Windows.Forms.Button();
             this.textBox_Remover = new System.Windows.Forms.TextBox();
             this.button_Cancelar = new System.Windows.Forms.Button();
             this.button_Cadastrar = new System.Windows.Forms.Button();
@@ -61,16 +60,16 @@
             // 
             // button_Remover
             // 
-            this.button_Remover.Location = new System.Drawing.Point(586, 17);
+            this.button_Remover.Location = new System.Drawing.Point(667, 16);
             this.button_Remover.Name = "button_Remover";
             this.button_Remover.Size = new System.Drawing.Size(75, 23);
             this.button_Remover.TabIndex = 60;
             this.button_Remover.Text = "Remover";
             this.button_Remover.UseVisualStyleBackColor = true;
+            this.button_Remover.Click += new System.EventHandler(this.button_Remover_Click);
             // 
             // groupBox_Remover
             // 
-            this.groupBox_Remover.Controls.Add(this.button_Editar);
             this.groupBox_Remover.Controls.Add(this.button_Remover);
             this.groupBox_Remover.Controls.Add(this.textBox_Remover);
             this.groupBox_Remover.Location = new System.Drawing.Point(12, 92);
@@ -80,20 +79,11 @@
             this.groupBox_Remover.TabStop = false;
             this.groupBox_Remover.Text = "Remover / Editar";
             // 
-            // button_Editar
-            // 
-            this.button_Editar.Location = new System.Drawing.Point(667, 16);
-            this.button_Editar.Name = "button_Editar";
-            this.button_Editar.Size = new System.Drawing.Size(75, 23);
-            this.button_Editar.TabIndex = 59;
-            this.button_Editar.Text = "Editar";
-            this.button_Editar.UseVisualStyleBackColor = true;
-            // 
             // textBox_Remover
             // 
             this.textBox_Remover.Location = new System.Drawing.Point(6, 19);
             this.textBox_Remover.Name = "textBox_Remover";
-            this.textBox_Remover.Size = new System.Drawing.Size(567, 20);
+            this.textBox_Remover.Size = new System.Drawing.Size(655, 20);
             this.textBox_Remover.TabIndex = 1;
             // 
             // button_Cancelar
@@ -224,7 +214,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_NomeAmigo.Location = new System.Drawing.Point(12, 24);
             this.textBox_NomeAmigo.MaximumSize = new System.Drawing.Size(600, 20);
-            this.textBox_NomeAmigo.MaxLength = 10;
+            this.textBox_NomeAmigo.MaxLength = 50;
             this.textBox_NomeAmigo.MinimumSize = new System.Drawing.Size(150, 20);
             this.textBox_NomeAmigo.Name = "textBox_NomeAmigo";
             this.textBox_NomeAmigo.Size = new System.Drawing.Size(382, 20);
@@ -249,6 +239,7 @@
             this.comboBox_Cidade.Name = "comboBox_Cidade";
             this.comboBox_Cidade.Size = new System.Drawing.Size(121, 21);
             this.comboBox_Cidade.TabIndex = 59;
+            this.comboBox_Cidade.SelectedIndexChanged += new System.EventHandler(this.comboBox_Cidade_SelectedIndexChanged);
             // 
             // comboBox_UF
             // 
@@ -291,6 +282,7 @@
             this.listView_CadastroAmigos.TabIndex = 63;
             this.listView_CadastroAmigos.UseCompatibleStateImageBehavior = false;
             this.listView_CadastroAmigos.View = System.Windows.Forms.View.Details;
+            this.listView_CadastroAmigos.Click += new System.EventHandler(this.listView_CadastroAmigos_Click);
             // 
             // Nome
             // 
@@ -361,7 +353,6 @@
 
         private System.Windows.Forms.Button button_Remover;
         private System.Windows.Forms.GroupBox groupBox_Remover;
-        private System.Windows.Forms.Button button_Editar;
         private System.Windows.Forms.TextBox textBox_Remover;
         private System.Windows.Forms.Button button_Cancelar;
         private System.Windows.Forms.Button button_Cadastrar;
