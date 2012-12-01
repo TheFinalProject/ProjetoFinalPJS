@@ -38,6 +38,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox_smtp = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox_Senha = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox_smtp = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -156,6 +156,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cadastro de email";
             // 
+            // textBox_smtp
+            // 
+            this.textBox_smtp.Location = new System.Drawing.Point(12, 181);
+            this.textBox_smtp.Name = "textBox_smtp";
+            this.textBox_smtp.Size = new System.Drawing.Size(315, 20);
+            this.textBox_smtp.TabIndex = 13;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 106);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(315, 20);
+            this.textBox1.TabIndex = 12;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -212,7 +226,7 @@
             this.textBox3.Size = new System.Drawing.Size(432, 29);
             this.textBox3.TabIndex = 0;
             this.textBox3.Text = "O cadastro de email serve em caso de perda da senha, caso nao utilize um usuario " +
-                "com senha, nao é necessario preencher este campo";
+    "com senha, nao é necessario preencher este campo";
             // 
             // pictureBox1
             // 
@@ -248,20 +262,6 @@
             this.textBox_Senha.TabIndex = 11;
             this.textBox_Senha.Visible = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 106);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(315, 20);
-            this.textBox1.TabIndex = 12;
-            // 
-            // textBox_smtp
-            // 
-            this.textBox_smtp.Location = new System.Drawing.Point(12, 181);
-            this.textBox_smtp.Name = "textBox_smtp";
-            this.textBox_smtp.Size = new System.Drawing.Size(315, 20);
-            this.textBox_smtp.TabIndex = 13;
-            // 
             // ConfiguracoesUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,6 +275,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ConfiguracoesUsuario";
             this.Text = "ConfiguracoesUsuario";
+            this.Load += new System.EventHandler(this.ConfiguracoesUsuario_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

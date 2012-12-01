@@ -18,6 +18,8 @@ namespace AcervoMusical
             textBox_smtp.Text = SmtpSelecionado;
         }
 
+        public FormPrincipal FP;
+
         private void label8_Click(object sender, EventArgs e)
         {
            new Smtp().Show();
@@ -37,6 +39,11 @@ namespace AcervoMusical
                 label_Senha.Visible = false;
                 label_MaxChar.Visible = false;
             }
+
+        }
+
+        private void ConfiguracoesUsuario_Load(object sender, EventArgs e)
+        {
 
         }
     }

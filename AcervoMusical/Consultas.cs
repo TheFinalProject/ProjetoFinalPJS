@@ -16,6 +16,13 @@ namespace AcervoMusical
             InitializeComponent();
         }
 
+        public FormPrincipal FP;
+
+        private void Consultas_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

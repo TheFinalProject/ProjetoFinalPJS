@@ -30,12 +30,14 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -52,8 +54,10 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+
             this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +105,7 @@
             this.tabPage2.Text = "Músicas";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+
             // label7
             // 
             this.label7.AutoSize = true;
@@ -196,6 +201,49 @@
             // 
             // textBox2
             // 
+
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(746, 93);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(68, 20);
+            this.textBox5.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(742, 76);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Classificação:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(335, 93);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(157, 20);
+            this.textBox4.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(333, 76);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Intérprete:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(172, 93);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(157, 20);
+            this.textBox3.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+
             this.textBox2.Location = new System.Drawing.Point(583, 93);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(157, 20);
@@ -248,9 +296,15 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 76);
             this.label1.Name = "label1";
+
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nome:";
+
+            this.label1.Size = new System.Drawing.Size(90, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nome da Música:";
+
             // 
             // listView1
             // 
@@ -265,7 +319,11 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+
             this.tabPage3.Size = new System.Drawing.Size(1076, 456);
+
+            this.tabPage3.Size = new System.Drawing.Size(864, 456);
+
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Empréstimos";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -275,7 +333,8 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1076, 456);
+
+            this.tabPage4.Size = new System.Drawing.Size(864, 456);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Devoluções";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -285,6 +344,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+
             this.tabPage5.Size = new System.Drawing.Size(1076, 456);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Pendentes";
@@ -307,6 +367,12 @@
             this.button2.TabIndex = 20;
             this.button2.Text = "Limpar";
             this.button2.UseVisualStyleBackColor = true;
+
+            this.tabPage5.Size = new System.Drawing.Size(864, 456);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Pendentes";
+            this.tabPage5.UseVisualStyleBackColor = true;
+
             // 
             // Consultas
             // 
@@ -316,6 +382,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Consultas";
             this.Text = "Consultas";
+            this.Load += new System.EventHandler(this.Consultas_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();

@@ -18,7 +18,7 @@ namespace AcervoMusical
             InitializeComponent();
         }
         ListViewItem Amigos = new ListViewItem();
-        Class_Conexão ClasseConexao = new Class_Conexão();
+        public FormPrincipal FP;
         //Variavel criada para verificação de botao caso precionado
         bool fechar = false;
         int Id_Cidade = 0;
@@ -68,11 +68,11 @@ namespace AcervoMusical
         private void button_Cadastrar_Click(object sender, EventArgs e)
         {
             Class_Conexão ClasseConexao = new Class_Conexão();
-            ClasseConexao.conectar();
+            FP.Conector.Conectar();
 
             if (button_Cadastrar.Text == "Adicionar")
             {
-                if (ClasseConexao.conectar())
+                if (FP.Conector.Conectar())
                 {
                     try
                     {
@@ -184,7 +184,7 @@ namespace AcervoMusical
             {
                 try
                 {
-                    ClasseConexao.conectar();
+                    FP.Conector.Conectar();
 
                     //Comando para pegar o id da cidade selecionada.
                     SqlCommand IdCidades = new SqlCommand("SELECT id_Cidade FROM Cidades WHERE Nome = @Nome", ClasseConexao.Conexao);
@@ -281,7 +281,7 @@ namespace AcervoMusical
                 }
                 finally
                 {
-                    ClasseConexao.desconectar();
+                    FP.Conector.Desconectar();
                 }
                 button_Cadastrar.Text = "Adicionar";
 
@@ -294,9 +294,9 @@ namespace AcervoMusical
 
             button_Remover.Enabled = false;
 
-            if (ClasseConexao.conectar())
+            if (FP.Conector.Conectar())
             {
-                SqlCommand CmdEstados = new SqlCommand("Select * From Estados", ClasseConexao.Conexao);
+                SqlCommand CmdEstados = new SqlCommand("Select * From Estados", FP.Conector.Conexao);
 
                 LeitorEstados = CmdEstados.ExecuteReader();
                 //enquanto o CmdEstados for verdadeiro, ele vai carrega o combobox com os valores do Estado.
@@ -314,9 +314,9 @@ namespace AcervoMusical
             //Carrega o combobox_Cidade com os valores de cada estado
             comboBox_Cidade.Items.Clear();
             SqlDataReader LeitorCidades;
-            if (ClasseConexao.conectar())
+            if (FP.Conector.Conectar())
             {
-                SqlCommand CmdCidades = new SqlCommand("SELECT Nome FROM Cidades WHERE CidadeId_uf = '" + comboBox_UF.Text + "'", ClasseConexao.Conexao);
+                SqlCommand CmdCidades = new SqlCommand("SELECT Nome FROM Cidades WHERE CidadeId_uf = '" + comboBox_UF.Text + "'", FP.Conector.Conexao);
 
                 LeitorCidades = CmdCidades.ExecuteReader();
 
@@ -331,8 +331,8 @@ namespace AcervoMusical
 
         private void comboBox_Cidade_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ClasseConexao.conectar();
-            SqlCommand IdCidades = new SqlCommand("SELECT id_Cidade FROM Cidades WHERE Nome = @Nome", ClasseConexao.Conexao);
+            FP.Conector.Conectar();
+            SqlCommand IdCidades = new SqlCommand("SELECT id_Cidade FROM Cidades WHERE Nome = @Nome", FP.Conector.Conexao);
             IdCidades.Parameters.Add("@Nome", SqlDbType.VarChar);
             IdCidades.Parameters["@Nome"].Value = comboBox_Cidade.Text;
 
@@ -348,7 +348,7 @@ namespace AcervoMusical
             }
             finally
             {
-                ClasseConexao.desconectar();
+                FP.Conector.Desconectar();
             }
             
         }
@@ -359,8 +359,8 @@ namespace AcervoMusical
             {
                 try
                 {
-                    ClasseConexao.conectar();
-                    SqlCommand CmdRemover = new SqlCommand("DELETE FROM Amigos WHERE (Nome = @Nome) AND (Email = @Email) AND (Telefone = @Telefone)", ClasseConexao.Conexao);
+                    FP.Conector.Conectar();
+                    SqlCommand CmdRemover = new SqlCommand("DELETE FROM Amigos WHERE (Nome = @Nome) AND (Email = @Email) AND (Telefone = @Telefone)", FP.Conector.Conexao);
 
                     #region parametros deleção
                     SqlParameter P_Amigo = new SqlParameter();
@@ -403,7 +403,7 @@ namespace AcervoMusical
                 }
                 finally
                 {
-                    ClasseConexao.desconectar();
+                    FP.Conector.Desconectar();
                 }
                 //CmdSql.ExecuteNonQuery();
             }

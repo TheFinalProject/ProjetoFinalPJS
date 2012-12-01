@@ -19,6 +19,8 @@ namespace AcervoMusical
             Principal = FrmPrincipal;
         }
 
+        public FormPrincipal FP;
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -68,6 +70,11 @@ namespace AcervoMusical
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void ConfiguracoesGerais_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
