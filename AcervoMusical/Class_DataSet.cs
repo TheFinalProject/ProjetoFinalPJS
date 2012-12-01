@@ -10,7 +10,7 @@ namespace AcervoMusical
 {
     class Class_DataSet
     {
-        public Class_Conexão Conector;
+        public Class_Conexão Conector = new Class_Conexão();
         public DataSet Dados;
         public SqlDataAdapter AdaptadorMusicas;
 
