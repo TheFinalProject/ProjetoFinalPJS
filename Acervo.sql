@@ -193,5 +193,6 @@ SELECT * FROM ConfiguracoesPanel
 
 --SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
 --ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'RJ'
+--Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values ('iron', 'iron', 'iron', '11-11-2011', '11-11-2012', ' ', 'CD', ' ', 9, '', 0)
 
 --=================================================================================
