@@ -17,6 +17,8 @@ namespace AcervoMusical
         {
             InitializeComponent();
         }
+
+
         ListViewItem Amigos = new ListViewItem();
         public FormPrincipal FP;
         //Variavel criada para verificação de botao caso precionado
@@ -67,7 +69,6 @@ namespace AcervoMusical
 
         private void button_Cadastrar_Click(object sender, EventArgs e)
         {
-            Class_Conexão ClasseConexao = new Class_Conexão();
             FP.Conector.Conectar();
 
             if (button_Cadastrar.Text == "Adicionar")
@@ -76,7 +77,7 @@ namespace AcervoMusical
                 {
                     try
                     {
-                        SqlCommand Comando = new SqlCommand("Insert into Amigos (Nome, Telefone, Endereço, Bairro, Numero, Email, AmigosId_Cidade, AmigosId_Estado) values (@Nome, @Telefone, @Endereço, @Bairro, @Numero, @Email, @AmigosId_Cidade, @AmigosId_Estado)", ClasseConexao.Conexao);
+                        SqlCommand Comando = new SqlCommand("Insert into Amigos (Nome, Telefone, Endereço, Bairro, Numero, Email, AmigosId_Cidade, AmigosId_Estado) values (@Nome, @Telefone, @Endereço, @Bairro, @Numero, @Email, @AmigosId_Cidade, @AmigosId_Estado)", FP.Conector.Conexao);
                         #region Parametros
                         #region Param_Amigo
                         SqlParameter NomeAmigo = new SqlParameter();
@@ -157,15 +158,17 @@ namespace AcervoMusical
 
 
                         Amigos = new ListViewItem();
-                        ListViewGroup grupo = new ListViewGroup(comboBox_Cidade.Text.ToString(), HorizontalAlignment.Left);
-                        listView_CadastroAmigos.Groups.Add(grupo);
-                        Amigos.Text = textBox_NomeAmigo.Text;
-                        Amigos.SubItems.Add(maskedTextBox_Telefone.Text);
-                        Amigos.SubItems.Add(textBox_Endereco.Text);
-                        Amigos.SubItems.Add(textBox_Numero.Text);
-                        Amigos.SubItems.Add(textBox_Email.Text);
-                        Amigos.Group = grupo;
-                        listView_CadastroAmigos.Items.Add(Amigos);
+                        
+
+                        
+                        //listView_CadastroAmigos.Groups.Add(grupo);
+                        //Amigos.Text = textBox_NomeAmigo.Text;
+                        //Amigos.SubItems.Add(maskedTextBox_Telefone.Text);
+                        //Amigos.SubItems.Add(textBox_Endereco.Text);
+                        //Amigos.SubItems.Add(textBox_Numero.Text);
+                        //Amigos.SubItems.Add(textBox_Email.Text);
+                        //Amigos.Group = grupo;
+                        //listView_CadastroAmigos.Items.Add(Amigos);
 
 
                     }
@@ -175,10 +178,19 @@ namespace AcervoMusical
                     }
                     finally
                     {
-                        if (ClasseConexao != null)
-                            ClasseConexao.Conexao.Close();
+                        if (FP.Conector != null)
+                            FP.Conector.Conexao.Close();
                     }
                 }
+                textBox_NomeAmigo.Clear();
+                textBox_Endereco.Clear();
+                textBox_Email.Clear();
+                textBox_Bairro.Clear();
+                textBox_Numero.Clear();
+                textBox_Remover.Clear();
+                comboBox_Cidade.Text = "";
+                comboBox_UF.Text = "";
+                
             }
             else
             {
@@ -187,13 +199,13 @@ namespace AcervoMusical
                     FP.Conector.Conectar();
 
                     //Comando para pegar o id da cidade selecionada.
-                    SqlCommand IdCidades = new SqlCommand("SELECT id_Cidade FROM Cidades WHERE Nome = @Nome", ClasseConexao.Conexao);
+                    SqlCommand IdCidades = new SqlCommand("SELECT id_Cidade FROM Cidades WHERE Nome = @Nome", FP.Conector.Conexao);
                     IdCidades.Parameters.Add("@Nome", SqlDbType.VarChar);
                     IdCidades.Parameters["@Nome"].Value = comboBox_Cidade.Text;
                     Id_Cidade = (int)IdCidades.ExecuteScalar();
 
                     //comando para alterar os valores do amigo
-                    SqlCommand CmdUpdate = new SqlCommand("UPDATE Amigos SET Nome = @Nome, Telefone = @Telefone, Endereço = @Endereço, Bairro = @Bairro, Numero = @Numero, Email = @Email, AmigosId_Cidade = @AmigosId_Cidade, AmigosId_Estado = @AmigosId_Estado WHERE (Nome = @NomeAmigo) AND (Telefone = @TelAmigo) AND (Email = @EmailAmigo)", ClasseConexao.Conexao);
+                    SqlCommand CmdUpdate = new SqlCommand("UPDATE Amigos SET Nome = @Nome, Telefone = @Telefone, Endereço = @Endereço, Bairro = @Bairro, Numero = @Numero, Email = @Email, AmigosId_Cidade = @AmigosId_Cidade, AmigosId_Estado = @AmigosId_Estado WHERE (Nome = @NomeAmigo) AND (Telefone = @TelAmigo) AND (Email = @EmailAmigo)", FP.Conector.Conexao);
 
                     #region Parametros Update
                     SqlParameter NomeAmigo = new SqlParameter();
@@ -291,6 +303,17 @@ namespace AcervoMusical
         private void CadastroAmigos_Load(object sender, EventArgs e)
         {
             SqlDataReader LeitorEstados;
+
+            SqlDataReader buscacidades;
+            SqlCommand cmdbuscacidades = new SqlCommand("SELECT Nome From Cidades", FP.Conector.Conexao);
+
+            buscacidades = cmdbuscacidades.ExecuteReader();
+
+            while (buscacidades.Read())
+            {
+                ListViewItem Bacon = new ListViewItem();
+                Bacon.Group.Items.Add(buscacidades["Nome"].ToString());
+            }
 
             button_Remover.Enabled = false;
 
