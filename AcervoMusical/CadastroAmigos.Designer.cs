@@ -55,6 +55,8 @@
             this.Endereço = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Número = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Cidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.UF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox_Remover.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +87,8 @@
             this.textBox_Remover.Name = "textBox_Remover";
             this.textBox_Remover.Size = new System.Drawing.Size(655, 20);
             this.textBox_Remover.TabIndex = 1;
+            this.textBox_Remover.TextChanged += new System.EventHandler(this.textBox_Remover_TextChanged);
+
             // 
             // button_Cancelar
             // 
@@ -275,7 +279,10 @@
             this.Telefone,
             this.Endereço,
             this.Número,
-            this.Email});
+            this.Email,
+            this.Cidade,
+            this.UF});
+            this.listView_CadastroAmigos.GridLines = true;
             this.listView_CadastroAmigos.Location = new System.Drawing.Point(12, 149);
             this.listView_CadastroAmigos.Name = "listView_CadastroAmigos";
             this.listView_CadastroAmigos.Size = new System.Drawing.Size(791, 345);
@@ -287,17 +294,17 @@
             // Nome
             // 
             this.Nome.Text = "Nome";
-            this.Nome.Width = 244;
+            this.Nome.Width = 174;
             // 
             // Telefone
             // 
             this.Telefone.Text = "Telefone";
-            this.Telefone.Width = 118;
+            this.Telefone.Width = 89;
             // 
             // Endereço
             // 
             this.Endereço.Text = "Endereço";
-            this.Endereço.Width = 201;
+            this.Endereço.Width = 179;
             // 
             // Número
             // 
@@ -306,7 +313,16 @@
             // Email
             // 
             this.Email.Text = "Email";
-            this.Email.Width = 164;
+            this.Email.Width = 130;
+            // 
+            // Cidade
+            // 
+            this.Cidade.Text = "Cidade";
+            this.Cidade.Width = 94;
+            // 
+            // UF
+            // 
+            this.UF.Text = "UF";
             // 
             // CadastroAmigos
             // 
@@ -378,6 +394,8 @@
         private System.Windows.Forms.ColumnHeader Endereço;
         private System.Windows.Forms.ColumnHeader Número;
         private System.Windows.Forms.ColumnHeader Email;
+        private System.Windows.Forms.ColumnHeader Cidade;
+        private System.Windows.Forms.ColumnHeader UF;
 
 
     }

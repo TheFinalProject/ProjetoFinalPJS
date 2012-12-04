@@ -63,7 +63,6 @@
             this.label_Origem_Compra = new System.Windows.Forms.Label();
             this.button_Cancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button_Editar = new System.Windows.Forms.Button();
             this.button_Remover = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -87,6 +86,7 @@
             this.Interprete,
             this.Classificacao,
             this.Observacao});
+            this.listView_Cadastro_Musicas.GridLines = true;
             listViewGroup1.Header = "Vinil";
             listViewGroup1.Name = "Vinil";
             listViewGroup2.Header = "K7";
@@ -103,12 +103,13 @@
             listViewGroup3,
             listViewGroup4,
             listViewGroup5});
-            this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(12, 344);
+            this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(12, 312);
             this.listView_Cadastro_Musicas.Name = "listView_Cadastro_Musicas";
-            this.listView_Cadastro_Musicas.Size = new System.Drawing.Size(645, 206);
+            this.listView_Cadastro_Musicas.Size = new System.Drawing.Size(645, 238);
             this.listView_Cadastro_Musicas.TabIndex = 72;
             this.listView_Cadastro_Musicas.UseCompatibleStateImageBehavior = false;
             this.listView_Cadastro_Musicas.View = System.Windows.Forms.View.Details;
+            this.listView_Cadastro_Musicas.Click += new System.EventHandler(this.listView_Cadastro_Musicas_Click);
             // 
             // Musica
             // 
@@ -123,7 +124,7 @@
             // Autor
             // 
             this.Autor.Text = "Autor";
-            this.Autor.Width = 87;
+            this.Autor.Width = 101;
             // 
             // Interprete
             // 
@@ -133,7 +134,7 @@
             // Classificacao
             // 
             this.Classificacao.Text = "Classificação";
-            this.Classificacao.Width = 91;
+            this.Classificacao.Width = 79;
             // 
             // Observacao
             // 
@@ -328,28 +329,18 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button_Editar);
             this.groupBox1.Controls.Add(this.button_Remover);
             this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 271);
+            this.groupBox1.Location = new System.Drawing.Point(12, 257);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(645, 49);
             this.groupBox1.TabIndex = 76;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Remover / Editar";
             // 
-            // button_Editar
-            // 
-            this.button_Editar.Location = new System.Drawing.Point(561, 17);
-            this.button_Editar.Name = "button_Editar";
-            this.button_Editar.Size = new System.Drawing.Size(75, 23);
-            this.button_Editar.TabIndex = 78;
-            this.button_Editar.Text = "Editar";
-            this.button_Editar.UseVisualStyleBackColor = true;
-            // 
             // button_Remover
             // 
-            this.button_Remover.Location = new System.Drawing.Point(480, 17);
+            this.button_Remover.Location = new System.Drawing.Point(564, 17);
             this.button_Remover.Name = "button_Remover";
             this.button_Remover.Size = new System.Drawing.Size(75, 23);
             this.button_Remover.TabIndex = 77;
@@ -361,7 +352,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(6, 19);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(468, 20);
+            this.textBox1.Size = new System.Drawing.Size(552, 20);
             this.textBox1.TabIndex = 77;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -394,11 +385,11 @@
             this.Controls.Add(this.label_Album);
             this.Controls.Add(this.label_Interprete);
             this.Controls.Add(this.label_Origem_Compra);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(800, 600);
             this.Name = "CadastroMusicas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Músicas";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CadastroMusicas_FormClosing);
             this.Load += new System.EventHandler(this.CadastroMusicas_Load);
             this.groupBox1.ResumeLayout(false);
@@ -440,7 +431,6 @@
         private System.Windows.Forms.Label label_Origem_Compra;
         private System.Windows.Forms.Button button_Cancelar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button_Editar;
         private System.Windows.Forms.Button button_Remover;
         private System.Windows.Forms.TextBox textBox1;
 

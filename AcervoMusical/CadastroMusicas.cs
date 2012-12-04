@@ -17,6 +17,7 @@ namespace AcervoMusical
             InitializeComponent();
         }
 
+        ListViewItem Musicas = new ListViewItem();
         public FormPrincipal FP;
         //Variavel criada para verificação de botao caso precionado
         bool fechar = false;
@@ -38,12 +39,149 @@ namespace AcervoMusical
         #region Botão Adicionar
         private void button_Adicionar_Click(object sender, EventArgs e)
         {
-            if (FP.Conector.Conectar())
+            if (button_Adicionar.Text == "Adicionar")
+            {
+                if (FP.Conector.Conectar())
+                {
+                    try
+                    {
+                        SqlCommand Adicionar = new SqlCommand("Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)", FP.Conector.Conexao);
+                        #region Parametros
+                        #region ParametroInterprete
+                        SqlParameter NomeInterprete = new SqlParameter();
+                        NomeInterprete.Value = textBox_Interprete.Text;
+                        NomeInterprete.SourceColumn = "Nome_Interprete";
+                        NomeInterprete.ParameterName = "@Interprete";
+                        NomeInterprete.SqlDbType = SqlDbType.VarChar;
+                        NomeInterprete.Size = 50;
+                        #endregion
+
+                        #region ParametroAutor
+                        SqlParameter Autor = new SqlParameter();
+                        Autor.SourceColumn = "Nome_Autor";
+                        Autor.Value = textBox_Autor.Text;
+                        Autor.ParameterName = "@Autor";
+                        Autor.SqlDbType = SqlDbType.VarChar;
+                        Autor.Size = 50;
+                        #endregion
+
+                        #region ParametroAlbum
+                        SqlParameter Album = new SqlParameter();
+                        Album.SourceColumn = "Nome_Album";
+                        Album.Value = textBox_Album.Text;
+                        Album.ParameterName = "@Album";
+                        Album.SqlDbType = SqlDbType.VarChar;
+                        Album.Size = 50;
+                        #endregion
+
+                        #region ParametroDataAlbum
+                        SqlParameter DataAlbum = new SqlParameter();
+                        DataAlbum.SourceColumn = "Data_Album";
+                        DataAlbum.SqlDbType = SqlDbType.Date;
+                        DataAlbum.Value = dateTimePicker_DataAlbum.Value.ToShortDateString();
+                        DataAlbum.ParameterName = "@DataAlbum";
+
+                        #endregion
+
+                        #region ParametroDataCompra
+                        SqlParameter DataCompra = new SqlParameter();
+                        DataCompra.SourceColumn = "Data_Compra";
+                        DataCompra.SqlDbType = SqlDbType.Date;
+                        DataCompra.Value = dateTimePicker_DataCampra.Value.ToShortDateString();
+                        DataCompra.ParameterName = "@DataCompra";
+
+                        #endregion
+
+                        #region ParametroOrigem
+                        SqlParameter Origem = new SqlParameter();
+                        Origem.SourceColumn = "Origem_Compra";
+                        Origem.Value = textBox_Origem.Text;
+                        Origem.ParameterName = "@Origem";
+                        Origem.SqlDbType = SqlDbType.VarChar;
+                        Origem.Size = 40;
+                        #endregion
+
+                        #region ParametroObservação
+                        SqlParameter Observacao = new SqlParameter();
+                        Observacao.SourceColumn = "Observacao";
+                        Observacao.Value = textBox_Observacao.Text;
+                        Observacao.ParameterName = "@Observacao";
+                        Observacao.SqlDbType = SqlDbType.VarChar;
+                        Observacao.Size = 200;
+                        #endregion
+
+                        #region ParametroMidia
+                        SqlParameter Midia = new SqlParameter();
+                        Midia.SourceColumn = "Tipo_Midia";
+                        Midia.Value = comboBox_Midia.SelectedItem.ToString();
+                        Midia.ParameterName = "@Midia";
+                        Midia.SqlDbType = SqlDbType.VarChar;
+                        Midia.Size = 10;
+                        #endregion
+
+                        #region ParametroNota
+                        SqlParameter Nota = new SqlParameter();
+                        Nota.SourceColumn = "Nota";
+                        Nota.Value = textBox_Classificação.Text;
+                        Nota.ParameterName = "@Nota";
+                        Nota.SqlDbType = SqlDbType.SmallInt;
+                        #endregion
+
+                        #region ParametroStatus
+                        SqlParameter Status = new SqlParameter();
+                        Status.SourceColumn = "Status";
+                        Status.Value = 0;
+                        Status.ParameterName = "@Status";
+                        Status.SqlDbType = SqlDbType.Bit;
+
+                        #endregion
+
+                        #region ParametroMusica
+                        SqlParameter Musica = new SqlParameter();
+                        Musica.SourceColumn = "Nome_Musica";
+                        Musica.Value = textBox_Musicas.Text;
+                        Musica.ParameterName = "@Musica";
+                        Musica.SqlDbType = SqlDbType.VarChar;
+                        Musica.Size = 50;
+                        #endregion
+                        #endregion
+
+                        Adicionar.Parameters.AddRange(new SqlParameter[] { NomeInterprete, Autor, Album, DataAlbum, DataCompra, Origem, Midia, Observacao, Nota, Musica, Status });
+                        Adicionar.ExecuteNonQuery();
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show(erro.Message, "");
+                    }
+                    finally
+                    {
+                        if (FP.Conector != null)
+                            FP.Conector.Conexao.Close();
+                    }
+
+                    Musicas = new ListViewItem();
+                    Musicas.Group = listView_Cadastro_Musicas.Groups[comboBox_Midia.Text];
+                    Musicas.Text = textBox_Musicas.Text;
+                    Musicas.SubItems.Add(textBox_Album.Text);
+                    Musicas.SubItems.Add(textBox_Autor.Text);
+                    Musicas.SubItems.Add(textBox_Interprete.Text);
+                    Musicas.SubItems.Add(textBox_Classificação.Text);
+                    Musicas.SubItems.Add(textBox_Observacao.Text);
+                    listView_Cadastro_Musicas.Items.Add(Musicas);
+                }
+            }
+            else
             {
                 try
                 {
-                    SqlCommand Adicionar = new SqlCommand("Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)", FP.Conector.Conexao);
-                    #region Parametros
+                    FP.Conector.Conectar();
+
+
+                    //comando para alterar os valores do amigo////(Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)"
+                    SqlCommand CmdUpdate = new SqlCommand("UPDATE Musicas SET Nome_Interprete = @Interprete, Nome_Autor = @Autor, Nome_Album = @Album, Data_Album = @DataAlbm, Data_Compra = @Datacompra, Origem_Compra = @Origem, Tipo_Midia = @Midia, Observacao = @Observacao, Nota = @Nota, Nome_Musica = @Musica, Status = @Status WHERE (Nome_Musica = @Musica) AND (Nome_Autor = @Autor) AND (Nome_Album = @Album)", FP.Conector.Conexao);
+
+                    #region Parametros Update
+
                     #region ParametroInterprete
                     SqlParameter NomeInterprete = new SqlParameter();
                     NomeInterprete.Value = textBox_Interprete.Text;
@@ -77,7 +215,7 @@ namespace AcervoMusical
                     DataAlbum.SqlDbType = SqlDbType.Date;
                     DataAlbum.Value = dateTimePicker_DataAlbum.Value.ToShortDateString();
                     DataAlbum.ParameterName = "@DataAlbum";
-                    
+
                     #endregion
 
                     #region ParametroDataCompra
@@ -86,7 +224,7 @@ namespace AcervoMusical
                     DataCompra.SqlDbType = SqlDbType.Date;
                     DataCompra.Value = dateTimePicker_DataCampra.Value.ToShortDateString();
                     DataCompra.ParameterName = "@DataCompra";
-                    
+
                     #endregion
 
                     #region ParametroOrigem
@@ -142,20 +280,39 @@ namespace AcervoMusical
                     Musica.Size = 50;
                     #endregion
                     #endregion
+
                     
-                    Adicionar.Parameters.AddRange(new SqlParameter[] {NomeInterprete, Autor, Album, DataAlbum, DataCompra, Origem, Midia, Observacao, Nota, Musica, Status });
-                    Adicionar.ExecuteNonQuery();
+                    CmdUpdate.ExecuteNonQuery();
+
+                    CmdUpdate.Parameters.AddRange(new SqlParameter[] { NomeInterprete, Autor, Album, DataAlbum, DataCompra, Origem, Midia, Observacao, Nota, Musica, Status });
+                        CmdUpdate.ExecuteNonQuery();
+
+                    #region atualiza o listview depois de alterações
+                    for (int i = listView_Cadastro_Musicas.SelectedItems.Count - 1; i >= 0; i--)
+                    {
+                        ListViewItem atualiza = listView_Cadastro_Musicas.SelectedItems[i];
+                        atualiza.Group = listView_Cadastro_Musicas.Groups[comboBox_Midia.Text];
+                        atualiza.Text = textBox_Musicas.Text;
+                        atualiza.SubItems.Add(textBox_Album.Text);
+                        atualiza.SubItems.Add(textBox_Autor.Text);
+                        atualiza.SubItems.Add(textBox_Interprete.Text);
+                        atualiza.SubItems.Add(textBox_Classificação.Text);
+                        atualiza.SubItems.Add(textBox_Observacao.Text);
+                        listView_Cadastro_Musicas.Items.Add(atualiza);
+                    }
+                    #endregion
+
                 }
-                catch (Exception erro)
+                catch (SqlException erro)
                 {
-                    MessageBox.Show(erro.Message, "");
+                    MessageBox.Show(erro.Message);
                 }
                 finally
                 {
-                    if (FP.Conector != null)
-                        FP.Conector.Conexao.Close();
+                    FP.Conector.Desconectar();
                 }
             }
+
         }
 
         #endregion
@@ -224,7 +381,7 @@ namespace AcervoMusical
         {
             Class_DataSet datasete = new Class_DataSet();
             datasete.PreencheMusicas();
-            #region ListView de Amigos
+            #region ListView de Musicas
             foreach (DataRow registro in datasete.Dados.Tables["MusicasCompletas"].Rows)
             {
                 ListViewItem Item = new ListViewItem();
@@ -243,6 +400,28 @@ namespace AcervoMusical
         private void textBox_Musicas_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void listView_Cadastro_Musicas_Click(object sender, EventArgs e)
+        {
+            if (listView_Cadastro_Musicas.SelectedItems != null)
+            {
+                button_Adicionar.Text = "Salvar";
+                button_Remover.Enabled = true;
+                //coloca os itens e subitens nos textbox para edição
+                textBox_Musicas.Text = listView_Cadastro_Musicas.SelectedItems[0].Text;
+                textBox_Album.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[1].Text;
+                textBox_Autor.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[2].Text;
+                textBox_Interprete.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[3].Text;
+                textBox_Classificação.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[4].Text;
+                textBox_Observacao.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[5].Text;
+                comboBox_Midia.Text = listView_Cadastro_Musicas.SelectedItems[0].Group.Header;
+                
+            }
+            else
+            {
+                button_Remover.Enabled = false;
+            }
         }
     }
 }
