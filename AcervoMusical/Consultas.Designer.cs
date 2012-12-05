@@ -28,14 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox_Nota = new System.Windows.Forms.ComboBox();
             this.listView_ConsultaMusicas = new System.Windows.Forms.ListView();
             this.Musica = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Album = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -55,11 +50,11 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_Interprete = new System.Windows.Forms.TextBox();
+            this.textBox_Autor = new System.Windows.Forms.TextBox();
+            this.textBox_Album = new System.Windows.Forms.TextBox();
+            this.comboBox_Midia = new System.Windows.Forms.ComboBox();
+            this.textBox_Nome = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox_NomeEmprestimo = new System.Windows.Forms.TextBox();
@@ -88,6 +83,7 @@
             this.dateTimePicker_DataFinal = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker_DataInicial = new System.Windows.Forms.DateTimePicker();
+            this.Midia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -110,7 +106,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.comboBox2);
+            this.tabPage2.Controls.Add(this.comboBox_Nota);
             this.tabPage2.Controls.Add(this.listView_ConsultaMusicas);
             this.tabPage2.Controls.Add(this.checkBox8);
             this.tabPage2.Controls.Add(this.checkBox7);
@@ -124,11 +120,11 @@
             this.tabPage2.Controls.Add(this.dateTimePicker1);
             this.tabPage2.Controls.Add(this.checkBox2);
             this.tabPage2.Controls.Add(this.checkBox1);
-            this.tabPage2.Controls.Add(this.textBox4);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.textBox_Interprete);
+            this.tabPage2.Controls.Add(this.textBox_Autor);
+            this.tabPage2.Controls.Add(this.textBox_Album);
+            this.tabPage2.Controls.Add(this.comboBox_Midia);
+            this.tabPage2.Controls.Add(this.textBox_Nome);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -136,12 +132,11 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Músicas";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
             // 
-            // comboBox2
+            // comboBox_Nota
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.comboBox_Nota.FormattingEnabled = true;
+            this.comboBox_Nota.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -153,10 +148,10 @@
             "8",
             "9",
             "10"});
-            this.comboBox2.Location = new System.Drawing.Point(466, 77);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(77, 21);
-            this.comboBox2.TabIndex = 74;
+            this.comboBox_Nota.Location = new System.Drawing.Point(466, 77);
+            this.comboBox_Nota.Name = "comboBox_Nota";
+            this.comboBox_Nota.Size = new System.Drawing.Size(77, 21);
+            this.comboBox_Nota.TabIndex = 74;
             // 
             // listView_ConsultaMusicas
             // 
@@ -165,27 +160,12 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_ConsultaMusicas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Musica,
+            this.Midia,
             this.Album,
             this.Autor,
             this.Interprete,
             this.Classificacao,
             this.Observacao});
-            listViewGroup6.Header = "Vinil";
-            listViewGroup6.Name = "Vinil";
-            listViewGroup7.Header = "K7";
-            listViewGroup7.Name = "K7";
-            listViewGroup8.Header = "CD";
-            listViewGroup8.Name = "CD";
-            listViewGroup9.Header = "DVD";
-            listViewGroup9.Name = "DVD";
-            listViewGroup10.Header = "Digital";
-            listViewGroup10.Name = "Digital";
-            this.listView_ConsultaMusicas.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup6,
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9,
-            listViewGroup10});
             this.listView_ConsultaMusicas.Location = new System.Drawing.Point(9, 103);
             this.listView_ConsultaMusicas.Name = "listView_ConsultaMusicas";
             this.listView_ConsultaMusicas.Size = new System.Drawing.Size(1013, 347);
@@ -196,17 +176,17 @@
             // Musica
             // 
             this.Musica.Text = "Música";
-            this.Musica.Width = 200;
+            this.Musica.Width = 186;
             // 
             // Album
             // 
             this.Album.Text = "Álbum";
-            this.Album.Width = 175;
+            this.Album.Width = 151;
             // 
             // Autor
             // 
             this.Autor.Text = "Autor";
-            this.Autor.Width = 177;
+            this.Autor.Width = 169;
             // 
             // Interprete
             // 
@@ -221,7 +201,7 @@
             // Observacao
             // 
             this.Observacao.Text = "Observação";
-            this.Observacao.Width = 298;
+            this.Observacao.Width = 177;
             // 
             // checkBox8
             // 
@@ -302,6 +282,7 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dateTimePicker2
             // 
@@ -339,47 +320,47 @@
             this.checkBox1.Text = "Data da Compra:";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // textBox_Interprete
             // 
-            this.textBox4.Location = new System.Drawing.Point(246, 32);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(213, 20);
-            this.textBox4.TabIndex = 10;
+            this.textBox_Interprete.Location = new System.Drawing.Point(246, 32);
+            this.textBox_Interprete.Name = "textBox_Interprete";
+            this.textBox_Interprete.Size = new System.Drawing.Size(213, 20);
+            this.textBox_Interprete.TabIndex = 10;
             // 
-            // textBox3
+            // textBox_Autor
             // 
-            this.textBox3.Location = new System.Drawing.Point(3, 77);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(237, 20);
-            this.textBox3.TabIndex = 8;
+            this.textBox_Autor.Location = new System.Drawing.Point(3, 77);
+            this.textBox_Autor.Name = "textBox_Autor";
+            this.textBox_Autor.Size = new System.Drawing.Size(237, 20);
+            this.textBox_Autor.TabIndex = 8;
             // 
-            // textBox2
+            // textBox_Album
             // 
-            this.textBox2.Location = new System.Drawing.Point(246, 77);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(213, 20);
-            this.textBox2.TabIndex = 7;
+            this.textBox_Album.Location = new System.Drawing.Point(246, 77);
+            this.textBox_Album.Name = "textBox_Album";
+            this.textBox_Album.Size = new System.Drawing.Size(213, 20);
+            this.textBox_Album.TabIndex = 7;
             // 
-            // comboBox1
+            // comboBox_Midia
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBox_Midia.FormattingEnabled = true;
+            this.comboBox_Midia.Items.AddRange(new object[] {
             "Vinil",
             "K7",
             "CD",
             "DVD",
             "Digital"});
-            this.comboBox1.Location = new System.Drawing.Point(465, 32);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(78, 21);
-            this.comboBox1.TabIndex = 3;
+            this.comboBox_Midia.Location = new System.Drawing.Point(465, 32);
+            this.comboBox_Midia.Name = "comboBox_Midia";
+            this.comboBox_Midia.Size = new System.Drawing.Size(78, 21);
+            this.comboBox_Midia.TabIndex = 3;
             // 
-            // textBox1
+            // textBox_Nome
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(237, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBox_Nome.Location = new System.Drawing.Point(3, 32);
+            this.textBox_Nome.Name = "textBox_Nome";
+            this.textBox_Nome.Size = new System.Drawing.Size(237, 20);
+            this.textBox_Nome.TabIndex = 2;
             // 
             // tabPage3
             // 
@@ -621,6 +602,11 @@
             this.dateTimePicker_DataInicial.Size = new System.Drawing.Size(99, 20);
             this.dateTimePicker_DataInicial.TabIndex = 8;
             // 
+            // Midia
+            // 
+            this.Midia.Text = "Mídia";
+            this.Midia.Width = 119;
+            // 
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -629,6 +615,7 @@
             this.Controls.Add(this.tabControl);
             this.Name = "Consultas";
             this.Text = "Consultas";
+            this.Load += new System.EventHandler(this.Consultas_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
@@ -644,11 +631,11 @@
 
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_Interprete;
+        private System.Windows.Forms.TextBox textBox_Autor;
+        private System.Windows.Forms.TextBox textBox_Album;
+        private System.Windows.Forms.ComboBox comboBox_Midia;
+        private System.Windows.Forms.TextBox textBox_Nome;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button button1;
@@ -670,7 +657,7 @@
         private System.Windows.Forms.ColumnHeader Interprete;
         private System.Windows.Forms.ColumnHeader Classificacao;
         private System.Windows.Forms.ColumnHeader Observacao;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox_Nota;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker_DataFinalEmprestimo;
         private System.Windows.Forms.Label label1;
@@ -697,6 +684,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker_DataFinal;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dateTimePicker_DataInicial;
+        private System.Windows.Forms.ColumnHeader Midia;
 
     }
 }

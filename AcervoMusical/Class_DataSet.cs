@@ -36,5 +36,9 @@ namespace AcervoMusical
             AdaptadorAmigos.Fill(Dados, "AmigosCompletos");
 
         }
+        public void ConsultaMusicas()
+        {
+
+        }
     }
 }
