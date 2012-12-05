@@ -28,6 +28,19 @@ namespace AcervoMusical
             AdaptadorMusicas.MissingSchemaAction = MissingSchemaAction.AddWithKey;
             AdaptadorMusicas.Fill(Dados, "MusicasCompletas");
         }
+        
+        public void BuscarMusicas(string parametro)
+       {
+            AdaptadorMusicas.SelectCommand = new SqlCommand("Select * from Musicas where (Nome_Musica like '%@par%')", Conector.Conexao);
+            SqlParameter ParBusca = new SqlParameter();
+            ParBusca.Value = parametro;
+            ParBusca.SourceColumn = "Nome_Musica";
+            ParBusca.ParameterName = "@par";
+            ParBusca.SqlDbType = SqlDbType.VarChar;
+            AdaptadorMusicas.SelectCommand.Parameters.Add(ParBusca);
+            AdaptadorMusicas.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            AdaptadorMusicas.Fill(Dados, "BuscaMusicas");
+        }
 
         public void PreencheAmigos()
         {

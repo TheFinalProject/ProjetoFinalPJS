@@ -64,7 +64,7 @@
             this.button_Cancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_Remover = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_BuscaMusica = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +75,6 @@
             this.textBox_Musicas.Size = new System.Drawing.Size(518, 20);
             this.textBox_Musicas.TabIndex = 74;
             this.textBox_Musicas.Visible = false;
-            this.textBox_Musicas.TextChanged += new System.EventHandler(this.textBox_Musicas_TextChanged);
             // 
             // listView_Cadastro_Musicas
             // 
@@ -109,7 +108,7 @@
             this.listView_Cadastro_Musicas.TabIndex = 72;
             this.listView_Cadastro_Musicas.UseCompatibleStateImageBehavior = false;
             this.listView_Cadastro_Musicas.View = System.Windows.Forms.View.Details;
-            this.listView_Cadastro_Musicas.Click += new System.EventHandler(this.listView_Cadastro_Musicas_Click);
+            this.listView_Cadastro_Musicas.Click += new System.EventHandler(this.listView_Cadastro_Musicas_Click_1);
             // 
             // Musica
             // 
@@ -330,7 +329,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button_Remover);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBox_BuscaMusica);
             this.groupBox1.Location = new System.Drawing.Point(12, 257);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(645, 49);
@@ -348,13 +347,12 @@
             this.button_Remover.UseVisualStyleBackColor = true;
             this.button_Remover.Click += new System.EventHandler(this.button_Remover_Click);
             // 
-            // textBox1
+            // textBox_BuscaMusica
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(552, 20);
-            this.textBox1.TabIndex = 77;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox_BuscaMusica.Location = new System.Drawing.Point(6, 19);
+            this.textBox_BuscaMusica.Name = "textBox_BuscaMusica";
+            this.textBox_BuscaMusica.Size = new System.Drawing.Size(552, 20);
+            this.textBox_BuscaMusica.TabIndex = 77;
             // 
             // CadastroMusicas
             // 
@@ -432,7 +430,7 @@
         private System.Windows.Forms.Button button_Cancelar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button_Remover;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_BuscaMusica;
 
 
 
