@@ -163,6 +163,8 @@ namespace AcervoMusical
                         Amigos.SubItems.Add(textBox_Endereco.Text);
                         Amigos.SubItems.Add(textBox_Numero.Text);
                         Amigos.SubItems.Add(textBox_Email.Text);
+                        Amigos.SubItems.Add(comboBox_Cidade.Text);
+                        Amigos.SubItems.Add(comboBox_UF.Text);
                         listView_CadastroAmigos.Items.Add(Amigos);
                         #endregion
 
@@ -347,8 +349,8 @@ namespace AcervoMusical
                 Amigos.SubItems.Add(registro["Endereço"].ToString());
                 Amigos.SubItems.Add(registro["Numero"].ToString());
                 Amigos.SubItems.Add(registro["Email"].ToString());
-               Amigos.SubItems.Add(registro["AmigosId_Cidade"].ToString());
-               Amigos.SubItems.Add(registro["AmigosId_Estado"].ToString());
+               Amigos.SubItems.Add(registro["id_Cidade"].ToString());
+               Amigos.SubItems.Add(registro["CidadeId_uf"].ToString());
                 listView_CadastroAmigos.Items.Add(Amigos);
             }
             #endregion
