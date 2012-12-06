@@ -21,11 +21,13 @@ namespace AcervoMusical
         private void Emprestimos_Load(object sender, EventArgs e)
         {
             Class_DataSet DatasetEmprestimos = new Class_DataSet();
-            AutoCompleteStringCollection Dados = new AutoCompleteStringCollection();
+            AutoCompleteStringCollection DadosCombobox = new AutoCompleteStringCollection();
 
             foreach (DataRow registro in DatasetEmprestimos.Dados.Tables["AmigosCompletos"].Rows)
             {
-                Dados.Add(registro["Nome"].ToString());
+                comboBox_NomeAmigo.Items.Add(registro["Nome"]);
+                //DadosCombobox.Add(registro["Nome"].ToString());
+                //comboBox_NomeAmigo.AutoCompleteCustomSource = DadosCombobox;
             }
         }
 
