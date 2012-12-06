@@ -327,6 +327,7 @@ namespace AcervoMusical
                 SqlCommand CmdEstados = new SqlCommand("Select * From Estados", FP.Conector.Conexao);
 
                 LeitorEstados = CmdEstados.ExecuteReader();
+
                 //enquanto o CmdEstados for verdadeiro, ele vai carrega o combobox com os valores do Estado.
                 while (LeitorEstados.Read())
                 {
@@ -349,8 +350,8 @@ namespace AcervoMusical
                 Amigos.SubItems.Add(registro["Endereço"].ToString());
                 Amigos.SubItems.Add(registro["Numero"].ToString());
                 Amigos.SubItems.Add(registro["Email"].ToString());
-               Amigos.SubItems.Add(registro["id_Cidade"].ToString());
-               Amigos.SubItems.Add(registro["CidadeId_uf"].ToString());
+                Amigos.SubItems.Add(registro["NomeCidade"].ToString());
+                Amigos.SubItems.Add(registro["CidadeId_uf"].ToString());
                 listView_CadastroAmigos.Items.Add(Amigos);
             }
             #endregion
@@ -364,13 +365,13 @@ namespace AcervoMusical
             if (FP.Conector.Conectar())
             {
                 //comando faz a selecao das cidades de acordo com o estado selecionado
-                SqlCommand CmdCidades = new SqlCommand("SELECT Nome FROM Cidades WHERE CidadeId_uf = '" + comboBox_UF.Text + "'", FP.Conector.Conexao);
+                SqlCommand CmdCidades = new SqlCommand("SELECT NomeCidade FROM Cidades WHERE CidadeId_uf = '" + comboBox_UF.Text + "'", FP.Conector.Conexao);
 
                 LeitorCidades = CmdCidades.ExecuteReader();
 
                 while (LeitorCidades.Read())
                 {
-                    comboBox_Cidade.Items.Add(LeitorCidades["Nome"].ToString());
+                    comboBox_Cidade.Items.Add(LeitorCidades["NomeCidade"].ToString());
                 }
 
                 LeitorCidades.Close();
@@ -382,7 +383,7 @@ namespace AcervoMusical
             FP.Conector.Conectar();
 
             // comando que procura a id da cidade onde o nome seja igual ao combobox. e passa numa variavel do tipo inteiro o valor da ID de certa cidade com nome tal.
-            SqlCommand IdCidades = new SqlCommand("SELECT id_Cidade FROM Cidades WHERE Nome = @Nome", FP.Conector.Conexao);
+            SqlCommand IdCidades = new SqlCommand("SELECT id_Cidade FROM Cidades WHERE NomeCidade = @Nome", FP.Conector.Conexao);
             IdCidades.Parameters.Add("@Nome", SqlDbType.VarChar);
             IdCidades.Parameters["@Nome"].Value = comboBox_Cidade.Text;
 
