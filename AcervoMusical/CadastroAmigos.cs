@@ -327,6 +327,7 @@ namespace AcervoMusical
                 SqlCommand CmdEstados = new SqlCommand("Select * From Estados", FP.Conector.Conexao);
 
                 LeitorEstados = CmdEstados.ExecuteReader();
+
                 //enquanto o CmdEstados for verdadeiro, ele vai carrega o combobox com os valores do Estado.
                 while (LeitorEstados.Read())
                 {
@@ -349,8 +350,8 @@ namespace AcervoMusical
                 Amigos.SubItems.Add(registro["Endereço"].ToString());
                 Amigos.SubItems.Add(registro["Numero"].ToString());
                 Amigos.SubItems.Add(registro["Email"].ToString());
-               Amigos.SubItems.Add(registro["id_Cidade"].ToString());
-               Amigos.SubItems.Add(registro["CidadeId_uf"].ToString());
+                Amigos.SubItems.Add(registro["Nome"].ToString());
+                Amigos.SubItems.Add(registro["CidadeId_uf"].ToString());
                 listView_CadastroAmigos.Items.Add(Amigos);
             }
             #endregion
