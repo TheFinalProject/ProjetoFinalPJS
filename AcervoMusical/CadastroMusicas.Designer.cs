@@ -65,6 +65,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_Remover = new System.Windows.Forms.Button();
             this.textBox_BuscaMusica = new System.Windows.Forms.TextBox();
+            this.label_Aviso = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,9 +103,9 @@
             listViewGroup3,
             listViewGroup4,
             listViewGroup5});
-            this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(12, 312);
+            this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(12, 328);
             this.listView_Cadastro_Musicas.Name = "listView_Cadastro_Musicas";
-            this.listView_Cadastro_Musicas.Size = new System.Drawing.Size(645, 238);
+            this.listView_Cadastro_Musicas.Size = new System.Drawing.Size(645, 222);
             this.listView_Cadastro_Musicas.TabIndex = 72;
             this.listView_Cadastro_Musicas.UseCompatibleStateImageBehavior = false;
             this.listView_Cadastro_Musicas.View = System.Windows.Forms.View.Details;
@@ -328,11 +329,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label_Aviso);
             this.groupBox1.Controls.Add(this.button_Remover);
             this.groupBox1.Controls.Add(this.textBox_BuscaMusica);
             this.groupBox1.Location = new System.Drawing.Point(12, 257);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(645, 49);
+            this.groupBox1.Size = new System.Drawing.Size(645, 65);
             this.groupBox1.TabIndex = 76;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Remover / Editar";
@@ -353,6 +355,16 @@
             this.textBox_BuscaMusica.Name = "textBox_BuscaMusica";
             this.textBox_BuscaMusica.Size = new System.Drawing.Size(552, 20);
             this.textBox_BuscaMusica.TabIndex = 77;
+            // 
+            // label_Aviso
+            // 
+            this.label_Aviso.AutoSize = true;
+            this.label_Aviso.Location = new System.Drawing.Point(523, 42);
+            this.label_Aviso.Name = "label_Aviso";
+            this.label_Aviso.Size = new System.Drawing.Size(35, 13);
+            this.label_Aviso.TabIndex = 78;
+            this.label_Aviso.Text = "label1";
+            this.label_Aviso.Visible = false;
             // 
             // CadastroMusicas
             // 
@@ -431,6 +443,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button_Remover;
         private System.Windows.Forms.TextBox textBox_BuscaMusica;
+        private System.Windows.Forms.Label label_Aviso;
 
 
 
