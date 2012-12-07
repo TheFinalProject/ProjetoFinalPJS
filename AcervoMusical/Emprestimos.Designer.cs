@@ -41,8 +41,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button_Emprestar = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button_ConsultarAlbum = new System.Windows.Forms.Button();
+            this.button_ConsultarAmigos = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +58,7 @@
             this.comboBox_NomeAmigos.Name = "comboBox_NomeAmigos";
             this.comboBox_NomeAmigos.Size = new System.Drawing.Size(201, 21);
             this.comboBox_NomeAmigos.TabIndex = 0;
+            this.comboBox_NomeAmigos.SelectedIndexChanged += new System.EventHandler(this.comboBox_NomeAmigos_SelectedIndexChanged);
             // 
             // Nome
             // 
@@ -84,6 +87,7 @@
             this.comboBox_NomeMusicas.Name = "comboBox_NomeMusicas";
             this.comboBox_NomeMusicas.Size = new System.Drawing.Size(298, 21);
             this.comboBox_NomeMusicas.TabIndex = 2;
+            this.comboBox_NomeMusicas.SelectedIndexChanged += new System.EventHandler(this.comboBox_NomeMusicas_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -151,6 +155,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button_ConsultarAmigos);
+            this.tabPage1.Controls.Add(this.button_ConsultarAlbum);
             this.tabPage1.Controls.Add(this.button_Emprestar);
             this.tabPage1.Controls.Add(this.listView1);
             this.tabPage1.Controls.Add(this.label3);
@@ -168,6 +174,16 @@
             this.tabPage1.Text = "Emprestimos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button_Emprestar
+            // 
+            this.button_Emprestar.Location = new System.Drawing.Point(713, 93);
+            this.button_Emprestar.Name = "button_Emprestar";
+            this.button_Emprestar.Size = new System.Drawing.Size(75, 23);
+            this.button_Emprestar.TabIndex = 8;
+            this.button_Emprestar.Text = "Emprestar";
+            this.button_Emprestar.UseVisualStyleBackColor = true;
+            this.button_Emprestar.Click += new System.EventHandler(this.button_Emprestar_Click);
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -178,14 +194,25 @@
             this.tabPage2.Text = "Devoluções";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button_Emprestar
+            // button_ConsultarAlbum
             // 
-            this.button_Emprestar.Location = new System.Drawing.Point(713, 93);
-            this.button_Emprestar.Name = "button_Emprestar";
-            this.button_Emprestar.Size = new System.Drawing.Size(75, 23);
-            this.button_Emprestar.TabIndex = 8;
-            this.button_Emprestar.Text = "Emprestar";
-            this.button_Emprestar.UseVisualStyleBackColor = true;
+            this.button_ConsultarAlbum.Location = new System.Drawing.Point(295, 78);
+            this.button_ConsultarAlbum.Name = "button_ConsultarAlbum";
+            this.button_ConsultarAlbum.Size = new System.Drawing.Size(75, 23);
+            this.button_ConsultarAlbum.TabIndex = 9;
+            this.button_ConsultarAlbum.Text = "Consultar";
+            this.button_ConsultarAlbum.UseVisualStyleBackColor = true;
+            this.button_ConsultarAlbum.Click += new System.EventHandler(this.button_ConsultarAlbum_Click);
+            // 
+            // button_ConsultarAmigos
+            // 
+            this.button_ConsultarAmigos.Location = new System.Drawing.Point(9, 78);
+            this.button_ConsultarAmigos.Name = "button_ConsultarAmigos";
+            this.button_ConsultarAmigos.Size = new System.Drawing.Size(75, 23);
+            this.button_ConsultarAmigos.TabIndex = 10;
+            this.button_ConsultarAmigos.Text = "Consultar";
+            this.button_ConsultarAmigos.UseVisualStyleBackColor = true;
+            this.button_ConsultarAmigos.Click += new System.EventHandler(this.button_ConsultarAmigos_Click);
             // 
             // Emprestimos
             // 
@@ -219,5 +246,7 @@
         private System.Windows.Forms.ColumnHeader DataEmprestimo;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button_Emprestar;
+        private System.Windows.Forms.Button button_ConsultarAmigos;
+        private System.Windows.Forms.Button button_ConsultarAlbum;
     }
 }

@@ -181,5 +181,8 @@ INSERT INTO Amigos VALUES('Rafael','36624530','rua hum','ceu azul','14','phaelrl
 Select Amigos.Nome, Amigos.Telefone, Amigos.Endereço, Amigos.Numero, Amigos.Email, Cidades.NomeCidade, Cidades.CidadeId_uf FROM Amigos INNER JOIN Cidades ON Amigos.AmigosId_Cidade = Cidades.id_Cidade
 SELECT * FROM Musicas
 
+SELECT id_amigo FROM Amigos WHERE Nome = 'Rafael'
+
+SELECT id_musicas FROM Musicas WHERE Nome_Musica = ''
 --=================================================================================*/
 
