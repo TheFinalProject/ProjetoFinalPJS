@@ -127,13 +127,13 @@ CREATE TABLE Musicas
 (
 	id_musicas INT PRIMARY KEY IDENTITY,
 	Nome_Musica VARCHAR(50),
-	Nome_Interprete VARCHAR(50),
-	Nome_Autor VARCHAR(50),
+	Nome_Interprete VARCHAR(50)NOT NULL,
+	Nome_Autor VARCHAR(50)NOT NULL,
 	Nome_Album VARCHAR(50),
 	Data_Album DATE,
 	Data_Compra DATE,
 	Origem_Compra VARCHAR(40),
-	Tipo_Midia VARCHAR(10),
+	Tipo_Midia VARCHAR(10)NOT NULL,
 	Observacao VARCHAR(200),
 	Nota SMALLINT,
 	Status BIT

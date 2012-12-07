@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.textBox_Musicas = new System.Windows.Forms.TextBox();
             this.listView_Cadastro_Musicas = new System.Windows.Forms.ListView();
             this.Musica = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -65,7 +65,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_Remover = new System.Windows.Forms.Button();
             this.textBox_BuscaMusica = new System.Windows.Forms.TextBox();
-            this.label_Aviso = new System.Windows.Forms.Label();
+            this.label_AvisoRemover = new System.Windows.Forms.Label();
+            this.label_AvisoAdicionar = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +75,7 @@
             this.textBox_Musicas.Location = new System.Drawing.Point(139, 26);
             this.textBox_Musicas.Name = "textBox_Musicas";
             this.textBox_Musicas.Size = new System.Drawing.Size(518, 20);
-            this.textBox_Musicas.TabIndex = 74;
+            this.textBox_Musicas.TabIndex = 1;
             this.textBox_Musicas.Visible = false;
             // 
             // listView_Cadastro_Musicas
@@ -86,27 +87,28 @@
             this.Interprete,
             this.Classificacao,
             this.Observacao});
+            this.listView_Cadastro_Musicas.FullRowSelect = true;
             this.listView_Cadastro_Musicas.GridLines = true;
-            listViewGroup11.Header = "Vinil";
-            listViewGroup11.Name = "Vinil";
-            listViewGroup12.Header = "K7";
-            listViewGroup12.Name = "K7";
-            listViewGroup13.Header = "CD";
-            listViewGroup13.Name = "CD";
-            listViewGroup14.Header = "DVD";
-            listViewGroup14.Name = "DVD";
-            listViewGroup15.Header = "Digital";
-            listViewGroup15.Name = "Digital";
+            listViewGroup1.Header = "Vinil";
+            listViewGroup1.Name = "Vinil";
+            listViewGroup2.Header = "K7";
+            listViewGroup2.Name = "K7";
+            listViewGroup3.Header = "CD";
+            listViewGroup3.Name = "CD";
+            listViewGroup4.Header = "DVD";
+            listViewGroup4.Name = "DVD";
+            listViewGroup5.Header = "Digital";
+            listViewGroup5.Name = "Digital";
             this.listView_Cadastro_Musicas.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup11,
-            listViewGroup12,
-            listViewGroup13,
-            listViewGroup14,
-            listViewGroup15});
-            this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(12, 328);
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5});
+            this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(12, 340);
             this.listView_Cadastro_Musicas.Name = "listView_Cadastro_Musicas";
-            this.listView_Cadastro_Musicas.Size = new System.Drawing.Size(645, 222);
-            this.listView_Cadastro_Musicas.TabIndex = 72;
+            this.listView_Cadastro_Musicas.Size = new System.Drawing.Size(645, 210);
+            this.listView_Cadastro_Musicas.TabIndex = 14;
             this.listView_Cadastro_Musicas.UseCompatibleStateImageBehavior = false;
             this.listView_Cadastro_Musicas.View = System.Windows.Forms.View.Details;
             this.listView_Cadastro_Musicas.Click += new System.EventHandler(this.listView_Cadastro_Musicas_Click_1);
@@ -147,7 +149,7 @@
             this.dateTimePicker_DataCampra.Location = new System.Drawing.Point(12, 143);
             this.dateTimePicker_DataCampra.Name = "dateTimePicker_DataCampra";
             this.dateTimePicker_DataCampra.Size = new System.Drawing.Size(100, 20);
-            this.dateTimePicker_DataCampra.TabIndex = 71;
+            this.dateTimePicker_DataCampra.TabIndex = 7;
             // 
             // dateTimePicker_DataAlbum
             // 
@@ -155,7 +157,7 @@
             this.dateTimePicker_DataAlbum.Location = new System.Drawing.Point(557, 104);
             this.dateTimePicker_DataAlbum.Name = "dateTimePicker_DataAlbum";
             this.dateTimePicker_DataAlbum.Size = new System.Drawing.Size(100, 20);
-            this.dateTimePicker_DataAlbum.TabIndex = 70;
+            this.dateTimePicker_DataAlbum.TabIndex = 6;
             // 
             // comboBox_Midia
             // 
@@ -169,7 +171,7 @@
             this.comboBox_Midia.Location = new System.Drawing.Point(12, 25);
             this.comboBox_Midia.Name = "comboBox_Midia";
             this.comboBox_Midia.Size = new System.Drawing.Size(121, 21);
-            this.comboBox_Midia.TabIndex = 69;
+            this.comboBox_Midia.TabIndex = 0;
             this.comboBox_Midia.SelectedIndexChanged += new System.EventHandler(this.comboBox_Midia_SelectedIndexChanged);
             // 
             // textBox_Album
@@ -177,21 +179,21 @@
             this.textBox_Album.Location = new System.Drawing.Point(12, 65);
             this.textBox_Album.Name = "textBox_Album";
             this.textBox_Album.Size = new System.Drawing.Size(645, 20);
-            this.textBox_Album.TabIndex = 68;
+            this.textBox_Album.TabIndex = 3;
             // 
             // textBox_Interprete
             // 
             this.textBox_Interprete.Location = new System.Drawing.Point(283, 104);
             this.textBox_Interprete.Name = "textBox_Interprete";
             this.textBox_Interprete.Size = new System.Drawing.Size(268, 20);
-            this.textBox_Interprete.TabIndex = 67;
+            this.textBox_Interprete.TabIndex = 5;
             // 
             // button_Adicionar
             // 
             this.button_Adicionar.Location = new System.Drawing.Point(501, 228);
             this.button_Adicionar.Name = "button_Adicionar";
             this.button_Adicionar.Size = new System.Drawing.Size(75, 23);
-            this.button_Adicionar.TabIndex = 73;
+            this.button_Adicionar.TabIndex = 11;
             this.button_Adicionar.Text = "Adicionar";
             this.button_Adicionar.UseVisualStyleBackColor = true;
             this.button_Adicionar.Click += new System.EventHandler(this.button_Adicionar_Click);
@@ -201,14 +203,14 @@
             this.textBox_Origem.Location = new System.Drawing.Point(118, 143);
             this.textBox_Origem.Name = "textBox_Origem";
             this.textBox_Origem.Size = new System.Drawing.Size(327, 20);
-            this.textBox_Origem.TabIndex = 66;
+            this.textBox_Origem.TabIndex = 8;
             // 
             // textBox_Classificação
             // 
             this.textBox_Classificação.Location = new System.Drawing.Point(451, 143);
             this.textBox_Classificação.Name = "textBox_Classificação";
             this.textBox_Classificação.Size = new System.Drawing.Size(100, 20);
-            this.textBox_Classificação.TabIndex = 65;
+            this.textBox_Classificação.TabIndex = 9;
             // 
             // textBox_Observacao
             // 
@@ -217,14 +219,14 @@
             this.textBox_Observacao.Multiline = true;
             this.textBox_Observacao.Name = "textBox_Observacao";
             this.textBox_Observacao.Size = new System.Drawing.Size(645, 40);
-            this.textBox_Observacao.TabIndex = 64;
+            this.textBox_Observacao.TabIndex = 10;
             // 
             // textBox_Autor
             // 
             this.textBox_Autor.Location = new System.Drawing.Point(12, 104);
             this.textBox_Autor.Name = "textBox_Autor";
             this.textBox_Autor.Size = new System.Drawing.Size(265, 20);
-            this.textBox_Autor.TabIndex = 63;
+            this.textBox_Autor.TabIndex = 4;
             // 
             // label_Musica
             // 
@@ -296,7 +298,7 @@
             this.label_Album.Location = new System.Drawing.Point(13, 49);
             this.label_Album.Name = "label_Album";
             this.label_Album.Size = new System.Drawing.Size(36, 13);
-            this.label_Album.TabIndex = 53;
+            this.label_Album.TabIndex = 3;
             this.label_Album.Text = "Album";
             // 
             // label_Interprete
@@ -322,29 +324,29 @@
             this.button_Cancelar.Location = new System.Drawing.Point(582, 228);
             this.button_Cancelar.Name = "button_Cancelar";
             this.button_Cancelar.Size = new System.Drawing.Size(75, 23);
-            this.button_Cancelar.TabIndex = 75;
+            this.button_Cancelar.TabIndex = 12;
             this.button_Cancelar.Text = "Cancelar";
             this.button_Cancelar.UseVisualStyleBackColor = true;
             this.button_Cancelar.Click += new System.EventHandler(this.button_Cancelar_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label_Aviso);
+            this.groupBox1.Controls.Add(this.label_AvisoRemover);
             this.groupBox1.Controls.Add(this.button_Remover);
             this.groupBox1.Controls.Add(this.textBox_BuscaMusica);
-            this.groupBox1.Location = new System.Drawing.Point(12, 257);
+            this.groupBox1.Location = new System.Drawing.Point(12, 270);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(645, 65);
-            this.groupBox1.TabIndex = 76;
+            this.groupBox1.Size = new System.Drawing.Size(645, 64);
+            this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Remover / Editar";
             // 
             // button_Remover
             // 
-            this.button_Remover.Location = new System.Drawing.Point(564, 17);
+            this.button_Remover.Location = new System.Drawing.Point(564, 19);
             this.button_Remover.Name = "button_Remover";
             this.button_Remover.Size = new System.Drawing.Size(75, 23);
-            this.button_Remover.TabIndex = 77;
+            this.button_Remover.TabIndex = 1;
             this.button_Remover.Text = "Remover";
             this.button_Remover.UseVisualStyleBackColor = true;
             this.button_Remover.Click += new System.EventHandler(this.button_Remover_Click);
@@ -354,24 +356,36 @@
             this.textBox_BuscaMusica.Location = new System.Drawing.Point(6, 19);
             this.textBox_BuscaMusica.Name = "textBox_BuscaMusica";
             this.textBox_BuscaMusica.Size = new System.Drawing.Size(552, 20);
-            this.textBox_BuscaMusica.TabIndex = 77;
+            this.textBox_BuscaMusica.TabIndex = 0;
             // 
-            // label_Aviso
+            // label_AvisoRemover
             // 
-            this.label_Aviso.AutoSize = true;
-            this.label_Aviso.ForeColor = System.Drawing.Color.Red;
-            this.label_Aviso.Location = new System.Drawing.Point(510, 42);
-            this.label_Aviso.Name = "label_Aviso";
-            this.label_Aviso.Size = new System.Drawing.Size(35, 13);
-            this.label_Aviso.TabIndex = 78;
-            this.label_Aviso.Text = "label1";
-            this.label_Aviso.Visible = false;
+            this.label_AvisoRemover.AutoSize = true;
+            this.label_AvisoRemover.ForeColor = System.Drawing.Color.Red;
+            this.label_AvisoRemover.Location = new System.Drawing.Point(504, 42);
+            this.label_AvisoRemover.Name = "label_AvisoRemover";
+            this.label_AvisoRemover.Size = new System.Drawing.Size(35, 13);
+            this.label_AvisoRemover.TabIndex = 78;
+            this.label_AvisoRemover.Text = "label1";
+            this.label_AvisoRemover.Visible = false;
+            // 
+            // label_AvisoAdicionar
+            // 
+            this.label_AvisoAdicionar.AutoSize = true;
+            this.label_AvisoAdicionar.ForeColor = System.Drawing.Color.Red;
+            this.label_AvisoAdicionar.Location = new System.Drawing.Point(516, 254);
+            this.label_AvisoAdicionar.Name = "label_AvisoAdicionar";
+            this.label_AvisoAdicionar.Size = new System.Drawing.Size(35, 13);
+            this.label_AvisoAdicionar.TabIndex = 79;
+            this.label_AvisoAdicionar.Text = "label1";
+            this.label_AvisoAdicionar.Visible = false;
             // 
             // CadastroMusicas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 562);
+            this.Controls.Add(this.label_AvisoAdicionar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button_Cancelar);
             this.Controls.Add(this.textBox_Musicas);
@@ -444,7 +458,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button_Remover;
         private System.Windows.Forms.TextBox textBox_BuscaMusica;
-        private System.Windows.Forms.Label label_Aviso;
+        private System.Windows.Forms.Label label_AvisoRemover;
+        private System.Windows.Forms.Label label_AvisoAdicionar;
 
 
 

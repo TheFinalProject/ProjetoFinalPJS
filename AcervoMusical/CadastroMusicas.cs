@@ -41,11 +41,13 @@ namespace AcervoMusical
         {
             if (comboBox_Midia.SelectedItem.ToString() == "Digital")
             {
+                textBox_Musicas.TabStop = true;
                 label_Musica.Visible = true;
                 textBox_Musicas.Visible = true;
             }
             else
             {
+                textBox_Musicas.TabStop = false;
                 label_Musica.Visible = false;
                 textBox_Musicas.Visible = false;
             }
@@ -163,27 +165,31 @@ namespace AcervoMusical
 
                         Adicionar.Parameters.AddRange(new SqlParameter[] { NomeInterprete, Autor, Album, DataAlbum, DataCompra, Origem, Midia, Observacao, Nota, Musica, Status });
                         Adicionar.ExecuteNonQuery();
+                        
+                        Musicas = new ListViewItem();
+                        Musicas.Group = listView_Cadastro_Musicas.Groups[comboBox_Midia.Text];
+                        Musicas.Text = textBox_Musicas.Text;
+                        Musicas.SubItems.Add(textBox_Album.Text);
+                        Musicas.SubItems.Add(textBox_Autor.Text);
+                        Musicas.SubItems.Add(textBox_Interprete.Text);
+                        Musicas.SubItems.Add(textBox_Classificação.Text);
+                        Musicas.SubItems.Add(textBox_Observacao.Text);
+                        listView_Cadastro_Musicas.Items.Add(Musicas);
+                        LimparTextBox();
                     }
                     catch (Exception erro)
                     {
-                        MessageBox.Show(erro.Message, "");
+                        label_AvisoAdicionar.Visible = true;
+                        label_AvisoAdicionar.Text = "Campos obrigatórios não preenchidos";
+                        textBox_Autor.BackColor = Color.Red;
+                        textBox_Interprete.BackColor = Color.Red;
+                        comboBox_Midia.BackColor = Color.Red;
                     }
                     finally
                     {
                         if (FP.Conector != null)
                             FP.Conector.Conexao.Close();
                     }
-
-                    Musicas = new ListViewItem();
-                    Musicas.Group = listView_Cadastro_Musicas.Groups[comboBox_Midia.Text];
-                    Musicas.Text = textBox_Musicas.Text;
-                    Musicas.SubItems.Add(textBox_Album.Text);
-                    Musicas.SubItems.Add(textBox_Autor.Text);
-                    Musicas.SubItems.Add(textBox_Interprete.Text);
-                    Musicas.SubItems.Add(textBox_Classificação.Text);
-                    Musicas.SubItems.Add(textBox_Observacao.Text);
-                    listView_Cadastro_Musicas.Items.Add(Musicas);
-                    LimparTextBox();
                 }
             }
             else
@@ -417,8 +423,8 @@ namespace AcervoMusical
             }
             else
             {
-                label_Aviso.Text = "Nenhum Item Selecionado!";
-                label_Aviso.Visible = true;
+                label_AvisoRemover.Text = "Nenhum Item Selecionado!";
+                label_AvisoRemover.Visible = true;
             }
         }
 
@@ -439,13 +445,18 @@ namespace AcervoMusical
                 listView_Cadastro_Musicas.Items.Add(Item);
             }
             #endregion
+            foreach (Control C in this.Controls)
+            {
+                if (C is Label)
+                    C.TabStop = false;
+            }
             LimparTextBox();
         }
 
         private void listView_Cadastro_Musicas_Click_1(object sender, EventArgs e)
         {
             button_Adicionar.Text = "Salvar";
-            label_Aviso.Visible = false;
+            label_AvisoRemover.Visible = false;
             textBox_Musicas.Text = listView_Cadastro_Musicas.SelectedItems[0].Text;
             textBox_Autor.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[2].Text;
             textBox_Album.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[1].Text;
