@@ -379,7 +379,7 @@ namespace AcervoMusical
 
         private void button_Remover_Click(object sender, EventArgs e)
         {
-            if (listView_Cadastro_Musicas.SelectedIndices.ToString() != null)
+            if ( listView_Cadastro_Musicas.SelectedItems.Count > 0)
             {
                 FP.Conector.Conectar();
                 SqlCommand Deletar = new SqlCommand("Delete from Musicas where (Nome_Musica = @Musica) and (Nome_Autor = @Autor ) and (Nome_Album = @Album)", FP.Conector.Conexao);
@@ -411,6 +411,7 @@ namespace AcervoMusical
                 Deletar.ExecuteNonQuery();
                 ListViewItem removido = listView_Cadastro_Musicas.SelectedItems[0];
                 listView_Cadastro_Musicas.Items.Remove(removido);
+                button_Adicionar.Text = "Adicionar";
                 LimparTextBox();
                 FP.Conector.Desconectar();
             }
