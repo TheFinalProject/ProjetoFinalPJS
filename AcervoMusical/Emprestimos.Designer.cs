@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox_NomeAmigo = new System.Windows.Forms.ComboBox();
+            this.comboBox_NomeAmigos = new System.Windows.Forms.ComboBox();
             this.Nome = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox_NomeMusicas = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.NomeAmigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -42,21 +42,20 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button_Emprestar = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBox_NomeAmigo
+            // comboBox_NomeAmigos
             // 
-            this.comboBox_NomeAmigo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox_NomeAmigo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBox_NomeAmigo.FormattingEnabled = true;
-            this.comboBox_NomeAmigo.Location = new System.Drawing.Point(10, 51);
-            this.comboBox_NomeAmigo.Name = "comboBox_NomeAmigo";
-            this.comboBox_NomeAmigo.Size = new System.Drawing.Size(201, 21);
-            this.comboBox_NomeAmigo.TabIndex = 0;
-            this.comboBox_NomeAmigo.SelectedIndexChanged += new System.EventHandler(this.comboBox_NomeAmigo_SelectedIndexChanged);
-            this.comboBox_NomeAmigo.TextChanged += new System.EventHandler(this.comboBox_NomeAmigo_TextChanged);
+            this.comboBox_NomeAmigos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_NomeAmigos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.comboBox_NomeAmigos.FormattingEnabled = true;
+            this.comboBox_NomeAmigos.Location = new System.Drawing.Point(10, 51);
+            this.comboBox_NomeAmigos.Name = "comboBox_NomeAmigos";
+            this.comboBox_NomeAmigos.Size = new System.Drawing.Size(201, 21);
+            this.comboBox_NomeAmigos.TabIndex = 0;
             // 
             // Nome
             // 
@@ -70,24 +69,26 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(318, 35);
+            this.label1.Location = new System.Drawing.Point(292, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Nome Album";
             // 
-            // comboBox2
+            // comboBox_NomeMusicas
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(321, 51);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(298, 21);
-            this.comboBox2.TabIndex = 2;
+            this.comboBox_NomeMusicas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_NomeMusicas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.comboBox_NomeMusicas.FormattingEnabled = true;
+            this.comboBox_NomeMusicas.Location = new System.Drawing.Point(295, 51);
+            this.comboBox_NomeMusicas.Name = "comboBox_NomeMusicas";
+            this.comboBox_NomeMusicas.Size = new System.Drawing.Size(298, 21);
+            this.comboBox_NomeMusicas.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(234, 55);
+            this.label2.Location = new System.Drawing.Point(225, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 4;
@@ -99,7 +100,7 @@
             this.NomeAmigo,
             this.NomeAblum,
             this.DataEmprestimo});
-            this.listView1.Location = new System.Drawing.Point(7, 107);
+            this.listView1.Location = new System.Drawing.Point(7, 136);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(781, 316);
             this.listView1.TabIndex = 5;
@@ -124,15 +125,15 @@
             // dateTimePicker_emprestimo
             // 
             this.dateTimePicker_emprestimo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_emprestimo.Location = new System.Drawing.Point(649, 51);
+            this.dateTimePicker_emprestimo.Location = new System.Drawing.Point(673, 51);
             this.dateTimePicker_emprestimo.Name = "dateTimePicker_emprestimo";
-            this.dateTimePicker_emprestimo.Size = new System.Drawing.Size(115, 20);
+            this.dateTimePicker_emprestimo.Size = new System.Drawing.Size(113, 20);
             this.dateTimePicker_emprestimo.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(646, 35);
+            this.label3.Location = new System.Drawing.Point(670, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 13);
             this.label3.TabIndex = 7;
@@ -142,26 +143,27 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(-2, 69);
+            this.tabControl1.Location = new System.Drawing.Point(-2, 65);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(803, 456);
+            this.tabControl1.Size = new System.Drawing.Size(803, 485);
             this.tabControl1.TabIndex = 8;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button_Emprestar);
             this.tabPage1.Controls.Add(this.listView1);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.comboBox2);
+            this.tabPage1.Controls.Add(this.comboBox_NomeMusicas);
             this.tabPage1.Controls.Add(this.dateTimePicker_emprestimo);
-            this.tabPage1.Controls.Add(this.comboBox_NomeAmigo);
+            this.tabPage1.Controls.Add(this.comboBox_NomeAmigos);
             this.tabPage1.Controls.Add(this.Nome);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(795, 430);
+            this.tabPage1.Size = new System.Drawing.Size(795, 459);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Emprestimos";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -171,16 +173,25 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(795, 430);
+            this.tabPage2.Size = new System.Drawing.Size(795, 459);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Devoluções";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button_Emprestar
+            // 
+            this.button_Emprestar.Location = new System.Drawing.Point(713, 93);
+            this.button_Emprestar.Name = "button_Emprestar";
+            this.button_Emprestar.Size = new System.Drawing.Size(75, 23);
+            this.button_Emprestar.TabIndex = 8;
+            this.button_Emprestar.Text = "Emprestar";
+            this.button_Emprestar.UseVisualStyleBackColor = true;
             // 
             // Emprestimos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 530);
+            this.ClientSize = new System.Drawing.Size(804, 548);
             this.Controls.Add(this.tabControl1);
             this.Name = "Emprestimos";
             this.Load += new System.EventHandler(this.Emprestimos_Load);
@@ -193,10 +204,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox_NomeAmigo;
+        private System.Windows.Forms.ComboBox comboBox_NomeAmigos;
         private System.Windows.Forms.Label Nome;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox_NomeMusicas;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.DateTimePicker dateTimePicker_emprestimo;
@@ -207,5 +218,6 @@
         private System.Windows.Forms.ColumnHeader NomeAblum;
         private System.Windows.Forms.ColumnHeader DataEmprestimo;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button button_Emprestar;
     }
 }

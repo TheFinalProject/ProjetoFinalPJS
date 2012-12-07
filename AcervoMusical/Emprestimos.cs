@@ -21,27 +21,30 @@ namespace AcervoMusical
         private void Emprestimos_Load(object sender, EventArgs e)
         {
             Class_DataSet DatasetEmprestimos = new Class_DataSet();
-            AutoCompleteStringCollection DadosCombobox = new AutoCompleteStringCollection();
+
+            AutoCompleteStringCollection DadosComboboxAmigos = new AutoCompleteStringCollection();
+            AutoCompleteStringCollection DadosComboboxMusicas = new AutoCompleteStringCollection();
+
+            DatasetEmprestimos.PreencheAmigos();
+            DatasetEmprestimos.PreencheMusicas();
 
             foreach (DataRow registro in DatasetEmprestimos.Dados.Tables["AmigosCompletos"].Rows)
             {
-                comboBox_NomeAmigo.Items.Add(registro["Nome"]);
-                //DadosCombobox.Add(registro["Nome"].ToString());
-                //comboBox_NomeAmigo.AutoCompleteCustomSource = DadosCombobox;
+                    comboBox_NomeAmigos.Items.Add(registro["Nome"]);
+                    DadosComboboxAmigos.Add(registro["Nome"].ToString());
+                    comboBox_NomeAmigos.AutoCompleteCustomSource = DadosComboboxAmigos;
             }
-        }
-
-        private void comboBox_NomeAmigo_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void comboBox_NomeAmigo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            comboBox_NomeAmigo.AutoCompleteSource = AutoCompleteSource.AllSystemSources;
-            comboBox_NomeAmigo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-
-//                comboBox1.AutoCompleteSource = AutoCompleteSource.AllSystemSources;
-//comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend; 
+            foreach (DataRow registro in DatasetEmprestimos.Dados.Tables["MusicasCompletas"].Rows)
+            {
+                if (registro["Tipo_Midia"].ToString() != "Digital")
+                {
+                    comboBox_NomeMusicas.Items.Add(registro["Nome_Album"]);
+                    DadosComboboxMusicas.Add(registro["Nome_Album"].ToString());
+                    comboBox_NomeMusicas.AutoCompleteCustomSource = DadosComboboxMusicas;
+                }
+                else
+                    comboBox_NomeMusicas.Text = "Nao ha midias para emprestimo";
+            }
         }
     }
 }

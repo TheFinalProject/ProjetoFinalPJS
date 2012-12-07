@@ -199,7 +199,7 @@ namespace AcervoMusical
                     FP.Conector.Conectar();
 
                     //Comando para pegar o id da cidade selecionada.
-                    SqlCommand IdCidades = new SqlCommand("SELECT id_Cidade FROM Cidades WHERE Nome = @Nome", FP.Conector.Conexao);
+                    SqlCommand IdCidades = new SqlCommand("SELECT id_Cidade FROM Cidades WHERE NomeCidade = @Nome", FP.Conector.Conexao);
                     IdCidades.Parameters.Add("@Nome", SqlDbType.VarChar);
                     IdCidades.Parameters["@Nome"].Value = comboBox_Cidade.Text;
                     Id_Cidade = (int)IdCidades.ExecuteScalar();
@@ -324,7 +324,7 @@ namespace AcervoMusical
 
             if (FP.Conector.Conectar())
             {
-                SqlCommand CmdEstados = new SqlCommand("Select * From Estados", FP.Conector.Conexao);
+                SqlCommand CmdEstados = new SqlCommand("SELECT * FROM Estados", FP.Conector.Conexao);
 
                 LeitorEstados = CmdEstados.ExecuteReader();
 
@@ -460,10 +460,6 @@ namespace AcervoMusical
                     FP.Conector.Desconectar();
                 }
             }
-            else
-            {
-
-            }
         }
 
         private void listView_CadastroAmigos_Click(object sender, EventArgs e)
@@ -492,13 +488,19 @@ namespace AcervoMusical
 
         private void textBox_Remover_TextChanged(object sender, EventArgs e)
         {
-            
-                
+            try
+            {
                 SqlCommand CmdProcura = new SqlCommand("SELECT Nome FROM Amigos WHERE Nome LIKE '%" + textBox_Remover.Text + "%'", FP.Conector.Conexao);
                 CmdProcura.ExecuteNonQuery();
-
-               
-        }
-   
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show(Erro.Message);
+            }
+            finally
+            {
+                FP.Conector.Desconectar();
+            }               
+        }   
     }
 }
