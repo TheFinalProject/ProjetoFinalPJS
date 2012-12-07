@@ -16,8 +16,17 @@ FILEGROUP Acervo_FG
 (
 	NAME = N'Acervo_FG',
 	FILENAME = N'C:\Mubox\DB\Acervo_FG.ndf',
-	SIZE = 15MB,
+	SIZE = 10MB,
 	MAXSIZE = UNLIMITED
+),
+FILEGROUP Acervo_Default
+(
+	NAME = N'Acervo_Default',
+	FILENAME = N'C:\Mubox\DB\Acervo_FGDefault',
+	SIZE = 10MB,
+	MAXSIZE = 2048MB,
+	FILEGROWTH = 10%
+	
 )
 LOG ON
 (
@@ -26,6 +35,7 @@ LOG ON
 	SIZE = 5MB,
 	MAXSIZE = 2048GB
 )
+ALTER DATABASE Acervo MODIFY FILEGROUP Acervo_Default DEFAULT
 GO
 
 USE Acervo;
@@ -71,7 +81,6 @@ CREATE TABLE Cidades
 	CidadeId_uf CHAR(3),	
 	FOREIGN KEY (CidadeId_uf)REFERENCES Estados(id_Estado)
 )
-CREATE INDEX ICidades ON Cidades(CidadeId_uf)
 GO
 
 
@@ -145,30 +154,32 @@ SELECT * FROM ConfiguracoesPanel
 
 
 
--- Scripts para teste ===========================================================
---Delete From Amigos
+/*Scripts para teste ===========================================================
+Delete From Amigos
 
---DELETE FROM
---INSERT INTO Estados VALUES  ('SP','SAO PAULO')
---INSERT INTO Estados VALUES  ('RJ','Rio de Janeiro')
---GO
+DELETE FROM
+INSERT INTO Estados VALUES  ('SP','SAO PAULO')
+INSERT INTO Estados VALUES  ('RJ','Rio de Janeiro')
+GO
 
---INSERT INTO Cidades VALUES(1,'Campos do Jordao','SP'),(2,'Taubate','SP')
---INSERT INTO Cidades VALUES(3,'Niteroi','RJ')
---GO
+INSERT INTO Cidades VALUES(1,'Campos do Jordao','SP'),(2,'Taubate','SP')
+INSERT INTO Cidades VALUES(3,'Niteroi','RJ')
+GO
 
---SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
---ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'SP'
+SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
+ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'SP'
 
---Select * from Musicas where  (Nome_Musica like '%i%')
+Select * from Musicas where  (Nome_Musica like '%i%')
 
---SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
---ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'RJ'
---Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values ('iron', 'iron', 'iron', '11-11-2011', '11-11-2012', ' ', 'CD', ' ', 9, '', 0)
+SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
+ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'RJ'
+Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values ('iron', 'iron', 'iron', '11-11-2011', '11-11-2012', ' ', 'CD', ' ', 9, '', 0)
 INSERT INTO Estados VALUES('SP','Sao Paulo')
 INSERT INTO Cidades VALUES('12460','Campos do jordao','SP') 
 INSERT INTO Amigos VALUES('Rafael','36624530','rua hum','ceu azul','14','phaelrlz@gmail.com','12460','SP')
---=================================================================================
 
 Select Amigos.Nome, Amigos.Telefone, Amigos.Endereço, Amigos.Numero, Amigos.Email, Cidades.NomeCidade, Cidades.CidadeId_uf FROM Amigos INNER JOIN Cidades ON Amigos.AmigosId_Cidade = Cidades.id_Cidade
 SELECT * FROM Musicas
+
+--=================================================================================*/
+

@@ -88,7 +88,6 @@
             this.textBox_Remover.Name = "textBox_Remover";
             this.textBox_Remover.Size = new System.Drawing.Size(655, 20);
             this.textBox_Remover.TabIndex = 11;
-            this.textBox_Remover.TextChanged += new System.EventHandler(this.textBox_Remover_TextChanged);
             // 
             // button_Cancelar
             // 

@@ -177,7 +177,7 @@ namespace AcervoMusical
                         listView_Cadastro_Musicas.Items.Add(Musicas);
                         LimparTextBox();
                     }
-                    catch (Exception erro)
+                    catch
                     {
                         label_AvisoAdicionar.Visible = true;
                         label_AvisoAdicionar.Text = "Campos obrigatórios não preenchidos";

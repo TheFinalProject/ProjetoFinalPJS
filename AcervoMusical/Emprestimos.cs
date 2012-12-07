@@ -36,11 +36,15 @@ namespace AcervoMusical
             }
             foreach (DataRow registro in DatasetEmprestimos.Dados.Tables["MusicasCompletas"].Rows)
             {
-                if (registro["Tipo_Midia"].ToString() != "Digital")
+                int ContadorDeRegistros = registro.ItemArray.Count();
+                if (ContadorDeRegistros > 0)
                 {
-                    comboBox_NomeMusicas.Items.Add(registro["Nome_Album"]);
-                    DadosComboboxMusicas.Add(registro["Nome_Album"].ToString());
-                    comboBox_NomeMusicas.AutoCompleteCustomSource = DadosComboboxMusicas;
+                    if (registro["Tipo_Midia"].ToString() != "Digital")
+                    {
+                        comboBox_NomeMusicas.Items.Add(registro["Nome_Album"]);
+                        DadosComboboxMusicas.Add(registro["Nome_Album"].ToString());
+                        comboBox_NomeMusicas.AutoCompleteCustomSource = DadosComboboxMusicas;
+                    }
                 }
                 else
                     comboBox_NomeMusicas.Text = "Nao ha midias para emprestimo";
