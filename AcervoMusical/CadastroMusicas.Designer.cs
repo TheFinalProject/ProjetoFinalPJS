@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup11 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup12 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup13 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup14 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup15 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.textBox_Musicas = new System.Windows.Forms.TextBox();
             this.listView_Cadastro_Musicas = new System.Windows.Forms.ListView();
             this.Musica = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -65,6 +65,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_Remover = new System.Windows.Forms.Button();
             this.textBox_BuscaMusica = new System.Windows.Forms.TextBox();
+            this.label_Aviso = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,25 +87,25 @@
             this.Classificacao,
             this.Observacao});
             this.listView_Cadastro_Musicas.GridLines = true;
-            listViewGroup1.Header = "Vinil";
-            listViewGroup1.Name = "Vinil";
-            listViewGroup2.Header = "K7";
-            listViewGroup2.Name = "K7";
-            listViewGroup3.Header = "CD";
-            listViewGroup3.Name = "CD";
-            listViewGroup4.Header = "DVD";
-            listViewGroup4.Name = "DVD";
-            listViewGroup5.Header = "Digital";
-            listViewGroup5.Name = "Digital";
+            listViewGroup11.Header = "Vinil";
+            listViewGroup11.Name = "Vinil";
+            listViewGroup12.Header = "K7";
+            listViewGroup12.Name = "K7";
+            listViewGroup13.Header = "CD";
+            listViewGroup13.Name = "CD";
+            listViewGroup14.Header = "DVD";
+            listViewGroup14.Name = "DVD";
+            listViewGroup15.Header = "Digital";
+            listViewGroup15.Name = "Digital";
             this.listView_Cadastro_Musicas.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5});
-            this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(12, 312);
+            listViewGroup11,
+            listViewGroup12,
+            listViewGroup13,
+            listViewGroup14,
+            listViewGroup15});
+            this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(12, 328);
             this.listView_Cadastro_Musicas.Name = "listView_Cadastro_Musicas";
-            this.listView_Cadastro_Musicas.Size = new System.Drawing.Size(645, 238);
+            this.listView_Cadastro_Musicas.Size = new System.Drawing.Size(645, 222);
             this.listView_Cadastro_Musicas.TabIndex = 72;
             this.listView_Cadastro_Musicas.UseCompatibleStateImageBehavior = false;
             this.listView_Cadastro_Musicas.View = System.Windows.Forms.View.Details;
@@ -328,11 +329,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label_Aviso);
             this.groupBox1.Controls.Add(this.button_Remover);
             this.groupBox1.Controls.Add(this.textBox_BuscaMusica);
             this.groupBox1.Location = new System.Drawing.Point(12, 257);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(645, 49);
+            this.groupBox1.Size = new System.Drawing.Size(645, 65);
             this.groupBox1.TabIndex = 76;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Remover / Editar";
@@ -353,6 +355,17 @@
             this.textBox_BuscaMusica.Name = "textBox_BuscaMusica";
             this.textBox_BuscaMusica.Size = new System.Drawing.Size(552, 20);
             this.textBox_BuscaMusica.TabIndex = 77;
+            // 
+            // label_Aviso
+            // 
+            this.label_Aviso.AutoSize = true;
+            this.label_Aviso.ForeColor = System.Drawing.Color.Red;
+            this.label_Aviso.Location = new System.Drawing.Point(510, 42);
+            this.label_Aviso.Name = "label_Aviso";
+            this.label_Aviso.Size = new System.Drawing.Size(35, 13);
+            this.label_Aviso.TabIndex = 78;
+            this.label_Aviso.Text = "label1";
+            this.label_Aviso.Visible = false;
             // 
             // CadastroMusicas
             // 
@@ -431,6 +444,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button_Remover;
         private System.Windows.Forms.TextBox textBox_BuscaMusica;
+        private System.Windows.Forms.Label label_Aviso;
 
 
 
