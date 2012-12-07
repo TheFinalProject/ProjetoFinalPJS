@@ -57,6 +57,7 @@
             this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Cidade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.UF = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Bairro = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox_Remover.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +66,7 @@
             this.button_Remover.Location = new System.Drawing.Point(667, 16);
             this.button_Remover.Name = "button_Remover";
             this.button_Remover.Size = new System.Drawing.Size(75, 23);
-            this.button_Remover.TabIndex = 60;
+            this.button_Remover.TabIndex = 12;
             this.button_Remover.Text = "Remover";
             this.button_Remover.UseVisualStyleBackColor = true;
             this.button_Remover.Click += new System.EventHandler(this.button_Remover_Click);
@@ -86,46 +87,46 @@
             this.textBox_Remover.Location = new System.Drawing.Point(6, 19);
             this.textBox_Remover.Name = "textBox_Remover";
             this.textBox_Remover.Size = new System.Drawing.Size(655, 20);
-            this.textBox_Remover.TabIndex = 1;
+            this.textBox_Remover.TabIndex = 11;
             this.textBox_Remover.TextChanged += new System.EventHandler(this.textBox_Remover_TextChanged);
             // 
             // button_Cancelar
             // 
-            this.button_Cancelar.Location = new System.Drawing.Point(679, 63);
+            this.button_Cancelar.Location = new System.Drawing.Point(760, 61);
             this.button_Cancelar.Name = "button_Cancelar";
             this.button_Cancelar.Size = new System.Drawing.Size(75, 23);
-            this.button_Cancelar.TabIndex = 57;
+            this.button_Cancelar.TabIndex = 10;
             this.button_Cancelar.Text = "Cancelar";
             this.button_Cancelar.UseVisualStyleBackColor = true;
             this.button_Cancelar.Click += new System.EventHandler(this.button_Cancelar_Click);
             // 
             // button_Cadastrar
             // 
-            this.button_Cadastrar.Location = new System.Drawing.Point(598, 63);
+            this.button_Cadastrar.Location = new System.Drawing.Point(679, 61);
             this.button_Cadastrar.Name = "button_Cadastrar";
             this.button_Cadastrar.Size = new System.Drawing.Size(75, 23);
-            this.button_Cadastrar.TabIndex = 56;
+            this.button_Cadastrar.TabIndex = 9;
             this.button_Cadastrar.Text = "Adicionar";
             this.button_Cadastrar.UseVisualStyleBackColor = true;
             this.button_Cadastrar.Click += new System.EventHandler(this.button_Cadastrar_Click);
             // 
             // textBox_Email
             // 
-            this.textBox_Email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_Email.Location = new System.Drawing.Point(400, 24);
+            this.textBox_Email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Email.Location = new System.Drawing.Point(401, 24);
             this.textBox_Email.MaximumSize = new System.Drawing.Size(600, 20);
             this.textBox_Email.MinimumSize = new System.Drawing.Size(150, 20);
             this.textBox_Email.Name = "textBox_Email";
-            this.textBox_Email.Size = new System.Drawing.Size(154, 20);
-            this.textBox_Email.TabIndex = 55;
+            this.textBox_Email.Size = new System.Drawing.Size(150, 20);
+            this.textBox_Email.TabIndex = 2;
             // 
             // label_Email
             // 
-            this.label_Email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Email.AutoSize = true;
             this.label_Email.Location = new System.Drawing.Point(401, 8);
             this.label_Email.Name = "label_Email";
@@ -140,20 +141,20 @@
             this.maskedTextBox_Telefone.MaximumSize = new System.Drawing.Size(152, 20);
             this.maskedTextBox_Telefone.Name = "maskedTextBox_Telefone";
             this.maskedTextBox_Telefone.Size = new System.Drawing.Size(80, 20);
-            this.maskedTextBox_Telefone.TabIndex = 52;
+            this.maskedTextBox_Telefone.TabIndex = 3;
             // 
             // textBox_Bairro
             // 
-            this.textBox_Bairro.Location = new System.Drawing.Point(297, 63);
+            this.textBox_Bairro.Location = new System.Drawing.Point(376, 63);
             this.textBox_Bairro.MinimumSize = new System.Drawing.Size(110, 20);
             this.textBox_Bairro.Name = "textBox_Bairro";
             this.textBox_Bairro.Size = new System.Drawing.Size(110, 20);
-            this.textBox_Bairro.TabIndex = 51;
+            this.textBox_Bairro.TabIndex = 6;
             // 
             // label_Bairro
             // 
             this.label_Bairro.AutoSize = true;
-            this.label_Bairro.Location = new System.Drawing.Point(294, 47);
+            this.label_Bairro.Location = new System.Drawing.Point(376, 47);
             this.label_Bairro.Name = "label_Bairro";
             this.label_Bairro.Size = new System.Drawing.Size(34, 13);
             this.label_Bairro.TabIndex = 50;
@@ -161,17 +162,17 @@
             // 
             // textBox_Numero
             // 
-            this.textBox_Numero.Location = new System.Drawing.Point(229, 63);
+            this.textBox_Numero.Location = new System.Drawing.Point(308, 63);
             this.textBox_Numero.MaximumSize = new System.Drawing.Size(62, 20);
             this.textBox_Numero.MinimumSize = new System.Drawing.Size(30, 20);
             this.textBox_Numero.Name = "textBox_Numero";
             this.textBox_Numero.Size = new System.Drawing.Size(62, 20);
-            this.textBox_Numero.TabIndex = 49;
+            this.textBox_Numero.TabIndex = 5;
             // 
             // label_Numero
             // 
             this.label_Numero.AutoSize = true;
-            this.label_Numero.Location = new System.Drawing.Point(226, 47);
+            this.label_Numero.Location = new System.Drawing.Point(305, 46);
             this.label_Numero.Name = "label_Numero";
             this.label_Numero.Size = new System.Drawing.Size(44, 13);
             this.label_Numero.TabIndex = 48;
@@ -179,21 +180,21 @@
             // 
             // textBox_Endereco
             // 
-            this.textBox_Endereco.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Endereco.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Endereco.Location = new System.Drawing.Point(12, 63);
             this.textBox_Endereco.MaximumSize = new System.Drawing.Size(442, 20);
             this.textBox_Endereco.MinimumSize = new System.Drawing.Size(130, 20);
             this.textBox_Endereco.Name = "textBox_Endereco";
-            this.textBox_Endereco.Size = new System.Drawing.Size(211, 20);
-            this.textBox_Endereco.TabIndex = 47;
+            this.textBox_Endereco.Size = new System.Drawing.Size(291, 20);
+            this.textBox_Endereco.TabIndex = 4;
             // 
             // label_Endereço
             // 
-            this.label_Endereço.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Endereço.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Endereço.AutoSize = true;
             this.label_Endereço.Location = new System.Drawing.Point(9, 47);
             this.label_Endereço.Name = "label_Endereço";
@@ -212,22 +213,22 @@
             // 
             // textBox_NomeAmigo
             // 
-            this.textBox_NomeAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_NomeAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_NomeAmigo.Location = new System.Drawing.Point(12, 24);
             this.textBox_NomeAmigo.MaximumSize = new System.Drawing.Size(600, 20);
             this.textBox_NomeAmigo.MaxLength = 50;
             this.textBox_NomeAmigo.MinimumSize = new System.Drawing.Size(150, 20);
             this.textBox_NomeAmigo.Name = "textBox_NomeAmigo";
-            this.textBox_NomeAmigo.Size = new System.Drawing.Size(382, 20);
-            this.textBox_NomeAmigo.TabIndex = 44;
+            this.textBox_NomeAmigo.Size = new System.Drawing.Size(383, 20);
+            this.textBox_NomeAmigo.TabIndex = 1;
             // 
             // label_Nome
             // 
-            this.label_Nome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Nome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Nome.AutoSize = true;
             this.label_Nome.Location = new System.Drawing.Point(9, 8);
             this.label_Nome.Name = "label_Nome";
@@ -238,25 +239,25 @@
             // comboBox_Cidade
             // 
             this.comboBox_Cidade.FormattingEnabled = true;
-            this.comboBox_Cidade.Location = new System.Drawing.Point(471, 63);
+            this.comboBox_Cidade.Location = new System.Drawing.Point(545, 63);
             this.comboBox_Cidade.Name = "comboBox_Cidade";
             this.comboBox_Cidade.Size = new System.Drawing.Size(121, 21);
-            this.comboBox_Cidade.TabIndex = 59;
+            this.comboBox_Cidade.TabIndex = 8;
             this.comboBox_Cidade.SelectedIndexChanged += new System.EventHandler(this.comboBox_Cidade_SelectedIndexChanged);
             // 
             // comboBox_UF
             // 
             this.comboBox_UF.FormattingEnabled = true;
-            this.comboBox_UF.Location = new System.Drawing.Point(413, 63);
+            this.comboBox_UF.Location = new System.Drawing.Point(492, 63);
             this.comboBox_UF.Name = "comboBox_UF";
             this.comboBox_UF.Size = new System.Drawing.Size(45, 21);
-            this.comboBox_UF.TabIndex = 60;
+            this.comboBox_UF.TabIndex = 7;
             this.comboBox_UF.SelectedIndexChanged += new System.EventHandler(this.comboBox_UF_SelectedIndexChanged);
             // 
             // label_Cidade
             // 
             this.label_Cidade.AutoSize = true;
-            this.label_Cidade.Location = new System.Drawing.Point(468, 47);
+            this.label_Cidade.Location = new System.Drawing.Point(542, 47);
             this.label_Cidade.Name = "label_Cidade";
             this.label_Cidade.Size = new System.Drawing.Size(40, 13);
             this.label_Cidade.TabIndex = 61;
@@ -265,7 +266,7 @@
             // label_UF
             // 
             this.label_UF.AutoSize = true;
-            this.label_UF.Location = new System.Drawing.Point(410, 47);
+            this.label_UF.Location = new System.Drawing.Point(489, 47);
             this.label_UF.Name = "label_UF";
             this.label_UF.Size = new System.Drawing.Size(21, 13);
             this.label_UF.TabIndex = 62;
@@ -278,13 +279,14 @@
             this.Telefone,
             this.Endereço,
             this.Número,
+            this.Bairro,
             this.Email,
             this.Cidade,
             this.UF});
             this.listView_CadastroAmigos.GridLines = true;
             this.listView_CadastroAmigos.Location = new System.Drawing.Point(12, 149);
             this.listView_CadastroAmigos.Name = "listView_CadastroAmigos";
-            this.listView_CadastroAmigos.Size = new System.Drawing.Size(791, 345);
+            this.listView_CadastroAmigos.Size = new System.Drawing.Size(926, 345);
             this.listView_CadastroAmigos.TabIndex = 63;
             this.listView_CadastroAmigos.UseCompatibleStateImageBehavior = false;
             this.listView_CadastroAmigos.View = System.Windows.Forms.View.Details;
@@ -303,31 +305,38 @@
             // Endereço
             // 
             this.Endereço.Text = "Endereço";
-            this.Endereço.Width = 179;
+            this.Endereço.Width = 165;
             // 
             // Número
             // 
             this.Número.Text = "Número";
+            this.Número.Width = 49;
             // 
             // Email
             // 
             this.Email.Text = "Email";
-            this.Email.Width = 130;
+            this.Email.Width = 176;
             // 
             // Cidade
             // 
             this.Cidade.Text = "Cidade";
-            this.Cidade.Width = 94;
+            this.Cidade.Width = 145;
             // 
             // UF
             // 
             this.UF.Text = "UF";
+            this.UF.Width = 33;
+            // 
+            // Bairro
+            // 
+            this.Bairro.Text = "Bairro";
+            this.Bairro.Width = 90;
             // 
             // CadastroAmigos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(815, 506);
+            this.ClientSize = new System.Drawing.Size(950, 506);
             this.Controls.Add(this.listView_CadastroAmigos);
             this.Controls.Add(this.label_UF);
             this.Controls.Add(this.label_Cidade);
@@ -348,7 +357,7 @@
             this.Controls.Add(this.label_Telefone);
             this.Controls.Add(this.textBox_NomeAmigo);
             this.Controls.Add(this.label_Nome);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(821, 534);
@@ -395,6 +404,7 @@
         private System.Windows.Forms.ColumnHeader Email;
         private System.Windows.Forms.ColumnHeader Cidade;
         private System.Windows.Forms.ColumnHeader UF;
+        private System.Windows.Forms.ColumnHeader Bairro;
 
 
     }

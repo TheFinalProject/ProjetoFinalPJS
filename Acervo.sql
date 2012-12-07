@@ -1,5 +1,6 @@
 --DROP DATABASE Acervo
 --GO
+
 --Criação do diretorio
 
 XP_CREATE_SUBDIR N'C:\Mubox\DB'
@@ -103,7 +104,7 @@ CREATE TABLE Musicas
 	Data_Album DATE,
 	Data_Compra DATE,
 	Origem_Compra VARCHAR(40),
-	Tipo_Midia CHAR(10),
+	Tipo_Midia VARCHAR(10),
 	Observacao VARCHAR(200),
 	Nota SMALLINT,
 	Status BIT
@@ -144,7 +145,6 @@ SELECT * FROM ConfiguracoesPanel
 
 
 
-
 -- Scripts para teste ===========================================================
 --Delete From Amigos
 
@@ -159,6 +159,8 @@ SELECT * FROM ConfiguracoesPanel
 
 --SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
 --ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'SP'
+
+--Select * from Musicas where  (Nome_Musica like '%i%')
 
 --SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
 --ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'RJ'
