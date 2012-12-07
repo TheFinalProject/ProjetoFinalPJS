@@ -53,5 +53,10 @@ namespace AcervoMusical
         {
 
         }
+
+        public void BuscaIdMusica()
+        {
+
+        }
     }
 }

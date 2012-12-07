@@ -18,13 +18,14 @@ namespace AcervoMusical
             InitializeComponent();
         }
 
-
         ListViewItem Amigos = new ListViewItem();
         public FormPrincipal FP;
+
         //Variavel criada para verificação de botao caso precionado
         bool fechar = false;
         int Id_Cidade = 0;
         string NomeCidade = null;
+
         private void button_Cancelar_Click(object sender, EventArgs e)
         {
 
