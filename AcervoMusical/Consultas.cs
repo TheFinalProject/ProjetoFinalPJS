@@ -28,7 +28,42 @@ namespace AcervoMusical
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             FP.Conector.Conectar();
+            DataSet DataFiltro = new DataSet();
+            SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("SELECT * FROM Musicas", FP.Conector.Conexao);
+            DataTable TabelaFiltro = DataFiltro.Tables["Musicas"];
+            
+            foreach (DataRow registro in DataFiltro.Tables["Musicas"].Rows)
+            {
+                DateTime DataAlbum = Convert.ToDateTime(registro["Data_Album"]);
+                DateTime DataCompra = Convert.ToDateTime(registro["Data_Compra"]);
+                if (checkBox_Interprete.Checked)
+                {
+                    if (registro.RowState != DataRowState.Deleted && registro["Nome_Interprete"].ToString() != textBox_Interprete.Text)
+                    {
+                        registro.Delete();
+                    }
+                }
+                if (checkBox_Autor.Checked)
+                {
+                    if(registro.RowState != DataRowState.Deleted && registro["Nome_Autor"].ToString() != textBox_Autor.Text)
+                    {
+                        registro.Delete();
+                    }
+                }
+                if(checkBox_Album.Checked)
+                {
+                    if(registro.RowState != DataRowState.Deleted && registro["Nome_Album"].ToString() != textBox_Album.Text)
+                    {
+                        registro.Delete();
+                    }
+                }
+                
+
+
+            }
+
             SqlDataReader LeitorBusca;
 
             ListViewItem PreencheMusicas = new ListViewItem();
@@ -88,11 +123,14 @@ namespace AcervoMusical
                 Item.SubItems.Add(registro["Nome_Album"].ToString());
                 Item.SubItems.Add(registro["Nome_Autor"].ToString());
                 Item.SubItems.Add(registro["Nome_Interprete"].ToString());
+                Item.SubItems.Add(registro["Data_Album"].ToString());
+                Item.SubItems.Add(registro["Data_Compra"].ToString());
+                Item.SubItems.Add(registro["Oridem_Compra"].ToString());
                 Item.SubItems.Add(registro["Nota"].ToString());
-                Item.SubItems.Add(registro["Observacao"].ToString());
                 listView_ConsultaMusicas.Items.Add(Item);
             }
             #endregion
         }
+
     }
 }
