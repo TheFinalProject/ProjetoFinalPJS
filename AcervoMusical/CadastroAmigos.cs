@@ -162,6 +162,7 @@ namespace AcervoMusical
                         Amigos.SubItems.Add(maskedTextBox_Telefone.Text);
                         Amigos.SubItems.Add(textBox_Endereco.Text);
                         Amigos.SubItems.Add(textBox_Numero.Text);
+                        Amigos.SubItems.Add(textBox_Bairro.Text);
                         Amigos.SubItems.Add(textBox_Email.Text);
                         Amigos.SubItems.Add(comboBox_Cidade.Text);
                         Amigos.SubItems.Add(comboBox_UF.Text);
@@ -199,7 +200,7 @@ namespace AcervoMusical
                     FP.Conector.Conectar();
 
                     //Comando para pegar o id da cidade selecionada.
-                    SqlCommand IdCidades = new SqlCommand("SELECT id_Cidade FROM Cidades WHERE Nome = @Nome", FP.Conector.Conexao);
+                    SqlCommand IdCidades = new SqlCommand("SELECT id_Cidade FROM Cidades WHERE NomeCidade = @Nome", FP.Conector.Conexao);
                     IdCidades.Parameters.Add("@Nome", SqlDbType.VarChar);
                     IdCidades.Parameters["@Nome"].Value = comboBox_Cidade.Text;
                     Id_Cidade = (int)IdCidades.ExecuteScalar();
@@ -296,9 +297,10 @@ namespace AcervoMusical
                         atualiza.SubItems[1].Text = maskedTextBox_Telefone.Text;
                         atualiza.SubItems[2].Text = textBox_Endereco.Text;
                         atualiza.SubItems[3].Text = textBox_Numero.Text;
-                        atualiza.SubItems[4].Text = textBox_Email.Text;
-                        atualiza.SubItems[5].Text = comboBox_Cidade.Text;
-                        atualiza.SubItems[6].Text = comboBox_UF.Text;
+                        atualiza.SubItems[4].Text = textBox_Bairro.Text;
+                        atualiza.SubItems[5].Text = textBox_Email.Text;
+                        atualiza.SubItems[6].Text = comboBox_Cidade.Text;
+                        atualiza.SubItems[7].Text = comboBox_UF.Text;
                     }
                     #endregion
 
@@ -324,7 +326,7 @@ namespace AcervoMusical
 
             if (FP.Conector.Conectar())
             {
-                SqlCommand CmdEstados = new SqlCommand("Select * From Estados", FP.Conector.Conexao);
+                SqlCommand CmdEstados = new SqlCommand("SELECT * FROM Estados", FP.Conector.Conexao);
 
                 LeitorEstados = CmdEstados.ExecuteReader();
 
@@ -349,6 +351,7 @@ namespace AcervoMusical
                 Amigos.SubItems.Add(registro["Telefone"].ToString());
                 Amigos.SubItems.Add(registro["Endereço"].ToString());
                 Amigos.SubItems.Add(registro["Numero"].ToString());
+                Amigos.SubItems.Add(registro["Bairro"].ToString());
                 Amigos.SubItems.Add(registro["Email"].ToString());
                 Amigos.SubItems.Add(registro["NomeCidade"].ToString());
                 Amigos.SubItems.Add(registro["CidadeId_uf"].ToString());
@@ -460,10 +463,6 @@ namespace AcervoMusical
                     FP.Conector.Desconectar();
                 }
             }
-            else
-            {
-
-            }
         }
 
         private void listView_CadastroAmigos_Click(object sender, EventArgs e)
@@ -474,12 +473,13 @@ namespace AcervoMusical
                 button_Remover.Enabled = true;
                 //coloca os itens e subitens nos textbox para edição
                 textBox_NomeAmigo.Text = listView_CadastroAmigos.SelectedItems[0].Text;
-                textBox_Email.Text = listView_CadastroAmigos.FocusedItem.SubItems[4].Text;
+                textBox_Email.Text = listView_CadastroAmigos.FocusedItem.SubItems[5].Text;
                 maskedTextBox_Telefone.Text = listView_CadastroAmigos.FocusedItem.SubItems[1].Text;
                 textBox_Endereco.Text = listView_CadastroAmigos.FocusedItem.SubItems[2].Text;
+                textBox_Bairro.Text = listView_CadastroAmigos.FocusedItem.SubItems[4].Text;
                 textBox_Numero.Text = listView_CadastroAmigos.FocusedItem.SubItems[3].Text;
-                comboBox_Cidade.Text = listView_CadastroAmigos.FocusedItem.SubItems[5].Text;
-                comboBox_UF.Text = listView_CadastroAmigos.FocusedItem.SubItems[6].Text;
+                comboBox_Cidade.Text = listView_CadastroAmigos.FocusedItem.SubItems[6].Text;
+                comboBox_UF.Text = listView_CadastroAmigos.FocusedItem.SubItems[7].Text;
                 textBox_Remover.Text = listView_CadastroAmigos.SelectedItems[0].Text;
 
 
@@ -489,16 +489,5 @@ namespace AcervoMusical
                 button_Remover.Enabled = false;
             }
         }
-
-        private void textBox_Remover_TextChanged(object sender, EventArgs e)
-        {
-            
-                
-                SqlCommand CmdProcura = new SqlCommand("SELECT Nome FROM Amigos WHERE Nome LIKE '%" + textBox_Remover.Text + "%'", FP.Conector.Conexao);
-                CmdProcura.ExecuteNonQuery();
-
-               
-        }
-   
     }
 }

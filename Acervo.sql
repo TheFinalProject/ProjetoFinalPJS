@@ -2,6 +2,7 @@
 --GO
 
 --Criação do diretorio
+
 XP_CREATE_SUBDIR N'C:\Mubox\DB'
 
 CREATE DATABASE Acervo ON PRIMARY
@@ -36,36 +37,6 @@ CREATE TABLE Usuario
 	senha VARCHAR(20)
 )
 GO
-USE Acervo
-
-CREATE TABLE ConfiguracoesBotoes
-(
-	BotaoAmigos CHAR(10) NOT NULL DEFAULT('CadastroAmigos'),
-	AmigosLocalizacaoY CHAR(8),
-	AmigosLocalizacaoZ CHAR(8),
-	
-	BotaoAgenda CHAR(10),
-	AgendaLocalizacaoY CHAR(8),
-	AgendaLocalizacaoZ CHAR(8),
-	
-	BotaoMusicas CHAR(10),
-	MusicasLocalizacaoY CHAR(8),
-	MusicasLocalizacaoZ CHAR(8),
-	
-	BotaoMubox CHAR(10),
-	MuboxLocalizacaoY CHAR(8),
-	MuboxLocalizacaoZ CHAR(8),
-		
-	BotaoEmprestimos CHAR(10),
-	EmprestimosLocalizacaoY CHAR(8),
-	EmprestimosLocalizacaoZ CHAR(8),
-	
-	BotaoMediaPlayer CHAR(10),
-	MediaPlayerLocalizacaoY CHAR(8),
-	MediaPlayerLocalizacaoZ CHAR(8),
-	
-)
-GO
 
 CREATE TABLE ConfiguracoesPanel
 (
@@ -95,7 +66,7 @@ GO
 CREATE TABLE Cidades
 (
 	id_Cidade INT PRIMARY KEY,
-	Nome VARCHAR(50),
+	NomeCidade VARCHAR(50),
 	
 	CidadeId_uf CHAR(3),	
 	FOREIGN KEY (CidadeId_uf)REFERENCES Estados(id_Estado)
@@ -194,5 +165,10 @@ SELECT * FROM ConfiguracoesPanel
 --SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
 --ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'RJ'
 --Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values ('iron', 'iron', 'iron', '11-11-2011', '11-11-2012', ' ', 'CD', ' ', 9, '', 0)
-
+INSERT INTO Estados VALUES('SP','Sao Paulo')
+INSERT INTO Cidades VALUES('12460','Campos do jordao','SP') 
+INSERT INTO Amigos VALUES('Rafael','36624530','rua hum','ceu azul','14','phaelrlz@gmail.com','12460','SP')
 --=================================================================================
+
+Select Amigos.Nome, Amigos.Telefone, Amigos.Endereço, Amigos.Numero, Amigos.Email, Cidades.NomeCidade, Cidades.CidadeId_uf FROM Amigos INNER JOIN Cidades ON Amigos.AmigosId_Cidade = Cidades.id_Cidade
+SELECT * FROM Musicas
