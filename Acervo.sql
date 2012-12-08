@@ -183,6 +183,7 @@ SELECT * FROM Musicas
 
 SELECT id_amigo FROM Amigos WHERE Nome = 'Rafael'
 
-SELECT id_musicas FROM Musicas WHERE Nome_Musica = ''
+SELECT * FROM Emprestimos
+SELECT Amigos.Nome, Musicas.Nome_Album, Emprestimos.Data_Emprestimo FROM Emprestimos INNER JOIN Amigos ON Emprestimos.EmprestimosId_amigo = Amigos.id_amigo INNER JOIN Musicas ON Emprestimos.EmprestimosId_musicas = Musicas.id_musicas  
 --=================================================================================*/
 

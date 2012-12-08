@@ -33,8 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox_NomeMusicas = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.NomeAmigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listView_Emprestimos = new System.Windows.Forms.ListView();
             this.NomeAblum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DataEmprestimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateTimePicker_emprestimo = new System.Windows.Forms.DateTimePicker();
@@ -45,6 +44,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button_ConsultarAlbum = new System.Windows.Forms.Button();
             this.button_ConsultarAmigos = new System.Windows.Forms.Button();
+            this.NomeAmigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -98,33 +98,30 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Emprestar";
             // 
-            // listView1
+            // listView_Emprestimos
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listView_Emprestimos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.NomeAmigo,
             this.NomeAblum,
             this.DataEmprestimo});
-            this.listView1.Location = new System.Drawing.Point(7, 136);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(781, 316);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // NomeAmigo
-            // 
-            this.NomeAmigo.Text = "Nome Amigo";
-            this.NomeAmigo.Width = 275;
+            this.listView_Emprestimos.Location = new System.Drawing.Point(-315, -158);
+            this.listView_Emprestimos.Name = "listView_Emprestimos";
+            this.listView_Emprestimos.Size = new System.Drawing.Size(781, 316);
+            this.listView_Emprestimos.TabIndex = 5;
+            this.listView_Emprestimos.UseCompatibleStateImageBehavior = false;
+            this.listView_Emprestimos.View = System.Windows.Forms.View.Details;
             // 
             // NomeAblum
             // 
+            this.NomeAblum.DisplayIndex = 0;
             this.NomeAblum.Text = "Nome Album";
-            this.NomeAblum.Width = 304;
+            this.NomeAblum.Width = 241;
             // 
             // DataEmprestimo
             // 
+            this.DataEmprestimo.DisplayIndex = 1;
             this.DataEmprestimo.Text = "Data Emprestimo";
-            this.DataEmprestimo.Width = 175;
+            this.DataEmprestimo.Width = 242;
             // 
             // dateTimePicker_emprestimo
             // 
@@ -158,7 +155,6 @@
             this.tabPage1.Controls.Add(this.button_ConsultarAmigos);
             this.tabPage1.Controls.Add(this.button_ConsultarAlbum);
             this.tabPage1.Controls.Add(this.button_Emprestar);
-            this.tabPage1.Controls.Add(this.listView1);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.comboBox_NomeMusicas);
             this.tabPage1.Controls.Add(this.dateTimePicker_emprestimo);
@@ -214,12 +210,19 @@
             this.button_ConsultarAmigos.UseVisualStyleBackColor = true;
             this.button_ConsultarAmigos.Click += new System.EventHandler(this.button_ConsultarAmigos_Click);
             // 
+            // NomeAmigo
+            // 
+            this.NomeAmigo.DisplayIndex = 2;
+            this.NomeAmigo.Text = "Nome do Amigo";
+            this.NomeAmigo.Width = 174;
+            // 
             // Emprestimos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 548);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.listView_Emprestimos);
             this.Name = "Emprestimos";
             this.Load += new System.EventHandler(this.Emprestimos_Load);
             this.tabControl1.ResumeLayout(false);
@@ -236,17 +239,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox_NomeMusicas;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listView_Emprestimos;
         private System.Windows.Forms.DateTimePicker dateTimePicker_emprestimo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.ColumnHeader NomeAmigo;
         private System.Windows.Forms.ColumnHeader NomeAblum;
         private System.Windows.Forms.ColumnHeader DataEmprestimo;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button_Emprestar;
         private System.Windows.Forms.Button button_ConsultarAmigos;
         private System.Windows.Forms.Button button_ConsultarAlbum;
+        private System.Windows.Forms.ColumnHeader NomeAmigo;
     }
 }
