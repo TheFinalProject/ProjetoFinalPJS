@@ -30,6 +30,10 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button_Buscar = new System.Windows.Forms.Button();
+            this.button_Limpar = new System.Windows.Forms.Button();
+            this.textBox_OrigemCompra = new System.Windows.Forms.TextBox();
+            this.checkBox_OrigemCompra = new System.Windows.Forms.CheckBox();
             this.label_Ate2 = new System.Windows.Forms.Label();
             this.label_Ate1 = new System.Windows.Forms.Label();
             this.dateTimePicker_AteAlbum = new System.Windows.Forms.DateTimePicker();
@@ -51,8 +55,6 @@
             this.checkBox_Interprete = new System.Windows.Forms.CheckBox();
             this.checkBox_Autor = new System.Windows.Forms.CheckBox();
             this.checkBox_Nome = new System.Windows.Forms.CheckBox();
-            this.button_Limpar = new System.Windows.Forms.Button();
-            this.button_Buscar = new System.Windows.Forms.Button();
             this.dateTimePicker_Album = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_Compra = new System.Windows.Forms.DateTimePicker();
             this.checkBox_DataAlbum = new System.Windows.Forms.CheckBox();
@@ -90,6 +92,7 @@
             this.dateTimePicker_DataFinal = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker_DataInicial = new System.Windows.Forms.DateTimePicker();
+            this.button_TodasMusicas = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -104,7 +107,7 @@
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage4);
-            this.tabControl.Location = new System.Drawing.Point(12, 69);
+            this.tabControl.Location = new System.Drawing.Point(8, 74);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1047, 482);
@@ -112,6 +115,11 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button_TodasMusicas);
+            this.tabPage2.Controls.Add(this.button_Buscar);
+            this.tabPage2.Controls.Add(this.button_Limpar);
+            this.tabPage2.Controls.Add(this.textBox_OrigemCompra);
+            this.tabPage2.Controls.Add(this.checkBox_OrigemCompra);
             this.tabPage2.Controls.Add(this.label_Ate2);
             this.tabPage2.Controls.Add(this.label_Ate1);
             this.tabPage2.Controls.Add(this.dateTimePicker_AteAlbum);
@@ -124,8 +132,6 @@
             this.tabPage2.Controls.Add(this.checkBox_Interprete);
             this.tabPage2.Controls.Add(this.checkBox_Autor);
             this.tabPage2.Controls.Add(this.checkBox_Nome);
-            this.tabPage2.Controls.Add(this.button_Limpar);
-            this.tabPage2.Controls.Add(this.button_Buscar);
             this.tabPage2.Controls.Add(this.dateTimePicker_Album);
             this.tabPage2.Controls.Add(this.dateTimePicker_Compra);
             this.tabPage2.Controls.Add(this.checkBox_DataAlbum);
@@ -142,6 +148,42 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Músicas";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button_Buscar
+            // 
+            this.button_Buscar.Location = new System.Drawing.Point(788, 75);
+            this.button_Buscar.Name = "button_Buscar";
+            this.button_Buscar.Size = new System.Drawing.Size(75, 23);
+            this.button_Buscar.TabIndex = 17;
+            this.button_Buscar.Text = "Buscar";
+            this.button_Buscar.UseVisualStyleBackColor = true;
+            this.button_Buscar.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button_Limpar
+            // 
+            this.button_Limpar.Location = new System.Drawing.Point(869, 75);
+            this.button_Limpar.Name = "button_Limpar";
+            this.button_Limpar.Size = new System.Drawing.Size(75, 23);
+            this.button_Limpar.TabIndex = 20;
+            this.button_Limpar.Text = "Limpar";
+            this.button_Limpar.UseVisualStyleBackColor = true;
+            // 
+            // textBox_OrigemCompra
+            // 
+            this.textBox_OrigemCompra.Location = new System.Drawing.Point(801, 29);
+            this.textBox_OrigemCompra.Name = "textBox_OrigemCompra";
+            this.textBox_OrigemCompra.Size = new System.Drawing.Size(224, 20);
+            this.textBox_OrigemCompra.TabIndex = 80;
+            // 
+            // checkBox_OrigemCompra
+            // 
+            this.checkBox_OrigemCompra.AutoSize = true;
+            this.checkBox_OrigemCompra.Location = new System.Drawing.Point(801, 12);
+            this.checkBox_OrigemCompra.Name = "checkBox_OrigemCompra";
+            this.checkBox_OrigemCompra.Size = new System.Drawing.Size(113, 17);
+            this.checkBox_OrigemCompra.TabIndex = 79;
+            this.checkBox_OrigemCompra.Text = "Origem da Compra";
+            this.checkBox_OrigemCompra.UseVisualStyleBackColor = true;
             // 
             // label_Ate2
             // 
@@ -172,7 +214,7 @@
             // dateTimePicker_AteCompra
             // 
             this.dateTimePicker_AteCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_AteCompra.Location = new System.Drawing.Point(698, 33);
+            this.dateTimePicker_AteCompra.Location = new System.Drawing.Point(698, 31);
             this.dateTimePicker_AteCompra.Name = "dateTimePicker_AteCompra";
             this.dateTimePicker_AteCompra.Size = new System.Drawing.Size(85, 20);
             this.dateTimePicker_AteCompra.TabIndex = 75;
@@ -212,9 +254,9 @@
             this.DataCompra,
             this.OrigemCompra,
             this.Classificacao});
-            this.listView_ConsultaMusicas.Location = new System.Drawing.Point(3, 103);
+            this.listView_ConsultaMusicas.Location = new System.Drawing.Point(3, 104);
             this.listView_ConsultaMusicas.Name = "listView_ConsultaMusicas";
-            this.listView_ConsultaMusicas.Size = new System.Drawing.Size(1013, 347);
+            this.listView_ConsultaMusicas.Size = new System.Drawing.Size(1030, 346);
             this.listView_ConsultaMusicas.TabIndex = 73;
             this.listView_ConsultaMusicas.UseCompatibleStateImageBehavior = false;
             this.listView_ConsultaMusicas.View = System.Windows.Forms.View.Details;
@@ -262,7 +304,7 @@
             // Classificacao
             // 
             this.Classificacao.Text = "Classificação";
-            this.Classificacao.Width = 74;
+            this.Classificacao.Width = 85;
             // 
             // checkBox_Album
             // 
@@ -277,7 +319,7 @@
             // checkBox_Nota
             // 
             this.checkBox_Nota.AutoSize = true;
-            this.checkBox_Nota.Location = new System.Drawing.Point(465, 59);
+            this.checkBox_Nota.Location = new System.Drawing.Point(465, 58);
             this.checkBox_Nota.Name = "checkBox_Nota";
             this.checkBox_Nota.Size = new System.Drawing.Size(52, 17);
             this.checkBox_Nota.TabIndex = 25;
@@ -325,25 +367,6 @@
             this.checkBox_Nome.TabIndex = 21;
             this.checkBox_Nome.Text = "Nome:";
             this.checkBox_Nome.UseVisualStyleBackColor = true;
-            // 
-            // button_Limpar
-            // 
-            this.button_Limpar.Location = new System.Drawing.Point(798, 74);
-            this.button_Limpar.Name = "button_Limpar";
-            this.button_Limpar.Size = new System.Drawing.Size(75, 23);
-            this.button_Limpar.TabIndex = 20;
-            this.button_Limpar.Text = "Limpar";
-            this.button_Limpar.UseVisualStyleBackColor = true;
-            // 
-            // button_Buscar
-            // 
-            this.button_Buscar.Location = new System.Drawing.Point(798, 29);
-            this.button_Buscar.Name = "button_Buscar";
-            this.button_Buscar.Size = new System.Drawing.Size(75, 23);
-            this.button_Buscar.TabIndex = 17;
-            this.button_Buscar.Text = "Buscar";
-            this.button_Buscar.UseVisualStyleBackColor = true;
-            this.button_Buscar.Click += new System.EventHandler(this.button1_Click);
             // 
             // dateTimePicker_Album
             // 
@@ -663,6 +686,16 @@
             this.dateTimePicker_DataInicial.Size = new System.Drawing.Size(99, 20);
             this.dateTimePicker_DataInicial.TabIndex = 8;
             // 
+            // button_TodasMusicas
+            // 
+            this.button_TodasMusicas.Location = new System.Drawing.Point(950, 75);
+            this.button_TodasMusicas.Name = "button_TodasMusicas";
+            this.button_TodasMusicas.Size = new System.Drawing.Size(75, 23);
+            this.button_TodasMusicas.TabIndex = 81;
+            this.button_TodasMusicas.Text = "Todos";
+            this.button_TodasMusicas.UseVisualStyleBackColor = true;
+            this.button_TodasMusicas.Click += new System.EventHandler(this.button_TodasMusicas_Click);
+            // 
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -747,6 +780,9 @@
         private System.Windows.Forms.ColumnHeader DataAlbum;
         private System.Windows.Forms.ColumnHeader DataCompra;
         private System.Windows.Forms.ColumnHeader OrigemCompra;
+        private System.Windows.Forms.TextBox textBox_OrigemCompra;
+        private System.Windows.Forms.CheckBox checkBox_OrigemCompra;
+        private System.Windows.Forms.Button button_TodasMusicas;
 
     }
 }
