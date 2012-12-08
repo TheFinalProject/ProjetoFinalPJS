@@ -44,6 +44,13 @@ namespace AcervoMusical
             {
                 DateTime DataAlbum = Convert.ToDateTime(registro["Data_Album"]);
                 DateTime DataCompra = Convert.ToDateTime(registro["Data_Compra"]);
+                if (checkBox_Nome.Checked)
+                {
+                    if (registro.RowState != DataRowState.Deleted && registro["Nome_Musica"].ToString() != textBox_Nome.Text)
+                    {
+                        registro.Delete();
+                    }
+                }
                 if (checkBox_Interprete.Checked)
                 {
                     if (registro.RowState != DataRowState.Deleted && registro["Nome_Interprete"].ToString() != textBox_Interprete.Text)

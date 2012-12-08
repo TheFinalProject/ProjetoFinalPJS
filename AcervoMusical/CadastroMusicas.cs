@@ -35,6 +35,7 @@ namespace AcervoMusical
             textBox_Origem.Text = null;
             textBox_Autor.Text = null;
             textBox_Album.Text = null;
+            
         }
 
         private void comboBox_Midia_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,7 +187,7 @@ namespace AcervoMusical
                     catch
                     {
                         label_AvisoAdicionar.Visible = true;
-                        label_AvisoAdicionar.Text = "Campos obrigatórios não preenchidos";
+                        label_AvisoAdicionar.Text = "Campos *obrigatórios não preenchidos";
                         textBox_Autor.BackColor = Color.OldLace;
                         textBox_Interprete.BackColor = Color.OldLace;
                         comboBox_Midia.BackColor = Color.OldLace;

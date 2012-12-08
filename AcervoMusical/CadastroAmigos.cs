@@ -205,6 +205,7 @@ namespace AcervoMusical
                 textBox_Remover.Clear();
                 comboBox_Cidade.Text = "";
                 comboBox_UF.Text = "";
+                maskedTextBox_Telefone.Clear();
                 #endregion
 
             }
