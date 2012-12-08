@@ -177,6 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(868, 461);
             this.Controls.Add(this.WindowsMediaPlayer);
             this.Controls.Add(this.listBox_Musicas);
@@ -191,6 +192,7 @@
             this.Controls.Add(this.button_Resume);
             this.Controls.Add(this.button_Primeiro);
             this.Name = "MediaPlayer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MediaPlayer";
             this.Load += new System.EventHandler(this.MediaPlayer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Volume)).EndInit();

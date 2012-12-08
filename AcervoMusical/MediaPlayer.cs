@@ -27,8 +27,11 @@ namespace AcervoMusical
 
         private void button_Play_Click(object sender, EventArgs e)
         {
-            WindowsMediaPlayer.URL = Musicas[listBox_Musicas.SelectedIndex];
-            timer_tempo.Start();
+            if (listBox_Musicas.SelectedItems.Count > 0)
+            {
+                WindowsMediaPlayer.URL = Musicas[listBox_Musicas.SelectedIndex];
+                timer_tempo.Start();
+            }
         }
 
 
@@ -73,39 +76,52 @@ namespace AcervoMusical
 
         private void button_Primeiro_Click(object sender, EventArgs e)
         {
-            listBox_Musicas.SetSelected(0, true);
-            WindowsMediaPlayer.URL = Musicas[listBox_Musicas.SelectedIndex];
+            if (listBox_Musicas.SelectedItems.Count > 0)
+            {
+                listBox_Musicas.SetSelected(0, true);
+                WindowsMediaPlayer.URL = Musicas[listBox_Musicas.SelectedIndex];
+            }
         }
 
         private void button_anterior_Click(object sender, EventArgs e)
         {
-            if (listBox_Musicas.SelectedIndex != 0)
+            if (listBox_Musicas.SelectedItems.Count > 0)
             {
-                listBox_Musicas.SetSelected(listBox_Musicas.SelectedIndex - 1, true);
-                WindowsMediaPlayer.URL = Musicas[listBox_Musicas.SelectedIndex];
+                if (listBox_Musicas.SelectedIndex != 0)
+                {
+                    listBox_Musicas.SetSelected(listBox_Musicas.SelectedIndex - 1, true);
+                    WindowsMediaPlayer.URL = Musicas[listBox_Musicas.SelectedIndex];
 
+                }
             }
         }
 
         private void button_proximo_Click(object sender, EventArgs e)
         {
-            if (listBox_Musicas.SelectedIndex != listBox_Musicas.Items.Count - 1)
+            if (listBox_Musicas.SelectedItems.Count > 0)
             {
-                listBox_Musicas.SetSelected(listBox_Musicas.SelectedIndex + 1, true);
-                WindowsMediaPlayer.URL = Musicas[listBox_Musicas.SelectedIndex];
+                if (listBox_Musicas.SelectedIndex != listBox_Musicas.Items.Count - 1)
+                {
+                    listBox_Musicas.SetSelected(listBox_Musicas.SelectedIndex + 1, true);
+                    WindowsMediaPlayer.URL = Musicas[listBox_Musicas.SelectedIndex];
 
+                }
             }
         }
 
         private void button_ultimo_Click(object sender, EventArgs e)
         {
-            listBox_Musicas.SetSelected(listBox_Musicas.Items.Count - 1, true);
-            WindowsMediaPlayer.URL = Musicas[listBox_Musicas.SelectedIndex];
+            if (listBox_Musicas.SelectedItems.Count > 0)
+            {
+                listBox_Musicas.SetSelected(listBox_Musicas.Items.Count - 1, true);
+                WindowsMediaPlayer.URL = Musicas[listBox_Musicas.SelectedIndex];
+            }
         }
 
         private void trackBar_Volume_Scroll(object sender, EventArgs e)
         {
             WindowsMediaPlayer.settings.volume = trackBar_Volume.Value;
         }
+
     }
 }

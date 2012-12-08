@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup26 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup27 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup28 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup29 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup30 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.textBox_Musicas = new System.Windows.Forms.TextBox();
             this.listView_Cadastro_Musicas = new System.Windows.Forms.ListView();
             this.Musica = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -88,22 +88,22 @@
             this.Observacao});
             this.listView_Cadastro_Musicas.FullRowSelect = true;
             this.listView_Cadastro_Musicas.GridLines = true;
-            listViewGroup26.Header = "Vinil";
-            listViewGroup26.Name = "Vinil";
-            listViewGroup27.Header = "K7";
-            listViewGroup27.Name = "K7";
-            listViewGroup28.Header = "CD";
-            listViewGroup28.Name = "CD";
-            listViewGroup29.Header = "DVD";
-            listViewGroup29.Name = "DVD";
-            listViewGroup30.Header = "Digital";
-            listViewGroup30.Name = "Digital";
+            listViewGroup1.Header = "Vinil";
+            listViewGroup1.Name = "Vinil";
+            listViewGroup2.Header = "K7";
+            listViewGroup2.Name = "K7";
+            listViewGroup3.Header = "CD";
+            listViewGroup3.Name = "CD";
+            listViewGroup4.Header = "DVD";
+            listViewGroup4.Name = "DVD";
+            listViewGroup5.Header = "Digital";
+            listViewGroup5.Name = "Digital";
             this.listView_Cadastro_Musicas.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup26,
-            listViewGroup27,
-            listViewGroup28,
-            listViewGroup29,
-            listViewGroup30});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5});
             this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(12, 291);
             this.listView_Cadastro_Musicas.Name = "listView_Cadastro_Musicas";
             this.listView_Cadastro_Musicas.Size = new System.Drawing.Size(645, 259);
@@ -179,7 +179,7 @@
             this.textBox_Album.Location = new System.Drawing.Point(12, 65);
             this.textBox_Album.Name = "textBox_Album";
             this.textBox_Album.Size = new System.Drawing.Size(315, 20);
-            this.textBox_Album.TabIndex = 3;
+            this.textBox_Album.TabIndex = 2;
             // 
             // textBox_Interprete
             // 
@@ -194,7 +194,7 @@
             this.button_Adicionar.Location = new System.Drawing.Point(500, 192);
             this.button_Adicionar.Name = "button_Adicionar";
             this.button_Adicionar.Size = new System.Drawing.Size(75, 23);
-            this.button_Adicionar.TabIndex = 11;
+            this.button_Adicionar.TabIndex = 10;
             this.button_Adicionar.Text = "Adicionar";
             this.button_Adicionar.UseVisualStyleBackColor = true;
             this.button_Adicionar.Click += new System.EventHandler(this.button_Adicionar_Click);
@@ -204,7 +204,7 @@
             this.textBox_Origem.Location = new System.Drawing.Point(331, 65);
             this.textBox_Origem.Name = "textBox_Origem";
             this.textBox_Origem.Size = new System.Drawing.Size(325, 20);
-            this.textBox_Origem.TabIndex = 8;
+            this.textBox_Origem.TabIndex = 3;
             // 
             // textBox_Observacao
             // 
@@ -213,7 +213,7 @@
             this.textBox_Observacao.Multiline = true;
             this.textBox_Observacao.Name = "textBox_Observacao";
             this.textBox_Observacao.Size = new System.Drawing.Size(645, 40);
-            this.textBox_Observacao.TabIndex = 10;
+            this.textBox_Observacao.TabIndex = 9;
             // 
             // textBox_Autor
             // 
@@ -319,7 +319,7 @@
             this.button_Cancelar.Location = new System.Drawing.Point(581, 192);
             this.button_Cancelar.Name = "button_Cancelar";
             this.button_Cancelar.Size = new System.Drawing.Size(75, 23);
-            this.button_Cancelar.TabIndex = 12;
+            this.button_Cancelar.TabIndex = 11;
             this.button_Cancelar.Text = "Cancelar";
             this.button_Cancelar.UseVisualStyleBackColor = true;
             this.button_Cancelar.Click += new System.EventHandler(this.button_Cancelar_Click);
@@ -341,7 +341,7 @@
             this.button_Remover.Location = new System.Drawing.Point(564, 19);
             this.button_Remover.Name = "button_Remover";
             this.button_Remover.Size = new System.Drawing.Size(75, 23);
-            this.button_Remover.TabIndex = 1;
+            this.button_Remover.TabIndex = 13;
             this.button_Remover.Text = "Remover";
             this.button_Remover.UseVisualStyleBackColor = true;
             this.button_Remover.Click += new System.EventHandler(this.button_Remover_Click);
@@ -351,7 +351,7 @@
             this.textBox_BuscaMusica.Location = new System.Drawing.Point(6, 19);
             this.textBox_BuscaMusica.Name = "textBox_BuscaMusica";
             this.textBox_BuscaMusica.Size = new System.Drawing.Size(552, 20);
-            this.textBox_BuscaMusica.TabIndex = 0;
+            this.textBox_BuscaMusica.TabIndex = 12;
             // 
             // label_AvisoAdicionar
             // 
@@ -382,7 +382,7 @@
             this.comboBox_Classificacao.Location = new System.Drawing.Point(577, 104);
             this.comboBox_Classificacao.Name = "comboBox_Classificacao";
             this.comboBox_Classificacao.Size = new System.Drawing.Size(65, 21);
-            this.comboBox_Classificacao.TabIndex = 80;
+            this.comboBox_Classificacao.TabIndex = 8;
             // 
             // CadastroMusicas
             // 
