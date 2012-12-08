@@ -26,6 +26,16 @@ namespace AcervoMusical
         int Id_Cidade = 0;
         string NomeCidade = null;
 
+        public void Limpar()
+        {
+            textBox_NomeAmigo.Text = null;
+            textBox_Email.Text = null;
+            maskedTextBox_Telefone.Text = null;
+            textBox_Endereco.Text = null;
+            textBox_Numero.Text = null;
+            
+        }
+
         private void button_Cancelar_Click(object sender, EventArgs e)
         {
 
@@ -173,7 +183,12 @@ namespace AcervoMusical
                     }
                     catch (Exception erro)
                     {
-                        MessageBox.Show(erro.Message, "");
+                        label_Aviso.Visible = true;
+                        textBox_NomeAmigo.BackColor = Color.OldLace;
+                        textBox_Email.BackColor = Color.OldLace;
+                        maskedTextBox_Telefone.BackColor = Color.OldLace;
+                        comboBox_UF.BackColor = Color.OldLace;
+                        comboBox_Cidade.BackColor = Color.OldLace;
                     }
                     finally
                     {
@@ -195,7 +210,7 @@ namespace AcervoMusical
             }
             else
             {
-                
+
                 try
                 {
                     FP.Conector.Conectar();
@@ -285,7 +300,7 @@ namespace AcervoMusical
 
                     #endregion
 
-                    CmdUpdate.Parameters.AddRange(new SqlParameter[] { NomeAmigo, Telefone, Endereco, Bairro,Numero, Email,Cidade,Estado, NomeConsulta, TelConsulta,EmailConsulta});
+                    CmdUpdate.Parameters.AddRange(new SqlParameter[] { NomeAmigo, Telefone, Endereco, Bairro, Numero, Email, Cidade, Estado, NomeConsulta, TelConsulta, EmailConsulta });
 
                     CmdUpdate.ExecuteNonQuery();
 
@@ -322,7 +337,7 @@ namespace AcervoMusical
         private void CadastroAmigos_Load(object sender, EventArgs e)
         {
             SqlDataReader LeitorEstados;
-          
+
             button_Remover.Enabled = false;
 
             if (FP.Conector.Conectar())
@@ -393,7 +408,7 @@ namespace AcervoMusical
 
             try
             {
-                
+
                 Id_Cidade = (int)IdCidades.ExecuteScalar();
                 NomeCidade = comboBox_Cidade.Text;
 
@@ -406,7 +421,7 @@ namespace AcervoMusical
             {
                 FP.Conector.Desconectar();
             }
-            
+
         }
 
         private void button_Remover_Click(object sender, EventArgs e)
@@ -489,6 +504,36 @@ namespace AcervoMusical
             {
                 button_Remover.Enabled = false;
             }
+        }
+
+        private void textBox_NomeAmigo_Enter(object sender, EventArgs e)
+        {
+            textBox_NomeAmigo.BackColor = SystemColors.Window;
+            label_Aviso.Visible = false;
+        }
+
+        private void textBox_Email_Enter(object sender, EventArgs e)
+        {
+            textBox_Email.BackColor = SystemColors.Window;
+            label_Aviso.Visible = false;
+        }
+
+        private void maskedTextBox_Telefone_Enter(object sender, EventArgs e)
+        {
+            maskedTextBox_Telefone.BackColor = SystemColors.Window;
+            label_Aviso.Visible = false;
+        }
+
+        private void comboBox_UF_Enter(object sender, EventArgs e)
+        {
+            comboBox_UF.BackColor = SystemColors.Window;
+            label_Aviso.Visible = false;
+        }
+
+        private void comboBox_Cidade_Enter(object sender, EventArgs e)
+        {
+            comboBox_Cidade.BackColor = SystemColors.Window;
+            label_Aviso.Visible = false;
         }
     }
 }

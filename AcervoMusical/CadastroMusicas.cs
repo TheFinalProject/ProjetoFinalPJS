@@ -137,9 +137,13 @@ namespace AcervoMusical
                         #endregion
 
                         #region ParametroNota
+                        
                         SqlParameter Nota = new SqlParameter();
                         Nota.SourceColumn = "Nota";
-                        Nota.Value = comboBox_Classificacao.Text;
+                        if (comboBox_Classificacao.Text != "")
+                            Nota.Value = comboBox_Classificacao.Text;
+                        else
+                            Nota.Value = 0;
                         Nota.ParameterName = "@Nota";
                         Nota.SqlDbType = SqlDbType.SmallInt;
                         #endregion
@@ -181,9 +185,9 @@ namespace AcervoMusical
                     {
                         label_AvisoAdicionar.Visible = true;
                         label_AvisoAdicionar.Text = "Campos obrigatórios não preenchidos";
-                        textBox_Autor.BackColor = Color.Red;
-                        textBox_Interprete.BackColor = Color.Red;
-                        comboBox_Midia.BackColor = Color.Red;
+                        textBox_Autor.BackColor = Color.OldLace;
+                        textBox_Interprete.BackColor = Color.OldLace;
+                        comboBox_Midia.BackColor = Color.OldLace;
                     }
                     finally
                     {
@@ -360,7 +364,7 @@ namespace AcervoMusical
                     if (c is ComboBox)
                     {
                         ComboBox combo = (ComboBox)c;
-                        if (combo.Text != "")
+                        if ((combo.Text != "") && combo.Name != "comboBox_Classificacao")
                         {
                             soma++;
                         }
@@ -385,8 +389,6 @@ namespace AcervoMusical
 
         private void button_Remover_Click(object sender, EventArgs e)
         {
-            if ( listView_Cadastro_Musicas.SelectedItems.Count > 0)
-            {
                 FP.Conector.Conectar();
                 SqlCommand Deletar = new SqlCommand("Delete from Musicas where (Nome_Musica = @Musica) and (Nome_Autor = @Autor ) and (Nome_Album = @Album)", FP.Conector.Conexao);
                 #region ParametroAutor
@@ -420,12 +422,7 @@ namespace AcervoMusical
                 button_Adicionar.Text = "Adicionar";
                 LimparTextBox();
                 FP.Conector.Desconectar();
-            }
-            else
-            {
-                label_AvisoRemover.Text = "Nenhum Item Selecionado!";
-                label_AvisoRemover.Visible = true;
-            }
+                button_Remover.Enabled = false;
         }
 
 
@@ -450,13 +447,13 @@ namespace AcervoMusical
                 if (C is Label)
                     C.TabStop = false;
             }
-            LimparTextBox();
+            LimparTextBox(); 
         }
 
         private void listView_Cadastro_Musicas_Click_1(object sender, EventArgs e)
         {
+            button_Remover.Enabled = true;
             button_Adicionar.Text = "Salvar";
-            label_AvisoRemover.Visible = false;
             textBox_Musicas.Text = listView_Cadastro_Musicas.SelectedItems[0].Text;
             textBox_Autor.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[2].Text;
             textBox_Album.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[1].Text;
@@ -505,6 +502,24 @@ namespace AcervoMusical
                     FP.Conector.Desconectar();
                 }
             }
+        }
+
+        private void textBox_Autor_Enter(object sender, EventArgs e)
+        {
+            textBox_Autor.BackColor = SystemColors.Window;
+            label_AvisoAdicionar.Visible = false;
+        }
+
+        private void comboBox_Midia_Enter(object sender, EventArgs e)
+        {
+            comboBox_Midia.BackColor = SystemColors.Window;
+            label_AvisoAdicionar.Visible = false;
+        }
+
+        private void textBox_Interprete_Enter(object sender, EventArgs e)
+        {
+            textBox_Interprete.BackColor = SystemColors.Window;
+            label_AvisoAdicionar.Visible = false;
         }
     }
 }
