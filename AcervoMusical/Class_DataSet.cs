@@ -49,14 +49,12 @@ namespace AcervoMusical
             AdaptadorAmigos.Fill(Dados, "AmigosCompletos");
 
         }
-        public void ConsultaMusicas()
+
+        public void PreencheEmprestimos()
         {
-
-        }
-
-        public void BuscaIdMusica()
-        {
-
+            AdaptadorMusicas.SelectCommand = new SqlCommand("SELECT Amigos.Nome, Musicas.Nome_Album, Emprestimos.Data_Emprestimo FROM Emprestimos INNER JOIN Amigos ON Emprestimos.EmprestimosId_amigo = Amigos.id_amigo INNER JOIN Musicas ON Emprestimos.EmprestimosId_musicas = Musicas.id_musicas", Conector.Conexao);
+            AdaptadorMusicas.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            AdaptadorMusicas.Fill(Dados, "EmprestimosCompletos");
         }
     }
 }

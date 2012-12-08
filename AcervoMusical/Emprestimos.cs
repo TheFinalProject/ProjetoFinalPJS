@@ -27,50 +27,60 @@ namespace AcervoMusical
         private void Emprestimos_Load(object sender, EventArgs e)
         {
             
-
             AutoCompleteStringCollection DadosComboboxAmigos = new AutoCompleteStringCollection();
             AutoCompleteStringCollection DadosComboboxMusicas = new AutoCompleteStringCollection();
 
             DatasetEmprestimos.PreencheAmigos();
             DatasetEmprestimos.PreencheMusicas();
+            DatasetEmprestimos.PreencheEmprestimos();
+            
+            int ContadorDeDados = DatasetEmprestimos.Dados.Tables.Count;
 
-            foreach (DataRow registro in DatasetEmprestimos.Dados.Tables["AmigosCompletos"].Rows)
+            if (ContadorDeDados > 0)
             {
+                foreach (DataRow registro in DatasetEmprestimos.Dados.Tables["EmprestimosCompletos"].Rows)
+                {
+                    ListViewItem ListaDeEmprestimos = new ListViewItem();
+
+                    ListaDeEmprestimos.Text = (registro["Musicas.Nome_Album"].ToString());
+                    ListaDeEmprestimos.SubItems.Add(registro["Emprestimos.Data_Emprestimo"].ToString());
+
+                    listView_Emprestimos.Items.Add(ListaDeEmprestimos);
+                }
+                foreach (DataRow registro in DatasetEmprestimos.Dados.Tables["AmigosCompletos"].Rows)
+                {
                     comboBox_NomeAmigos.Items.Add(registro["Nome"]);
                     DadosComboboxAmigos.Add(registro["Nome"].ToString());
                     comboBox_NomeAmigos.AutoCompleteCustomSource = DadosComboboxAmigos;
-            }
-            foreach (DataRow registro in DatasetEmprestimos.Dados.Tables["MusicasCompletas"].Rows)
-            {
-                int ContadorDeRegistros = registro.ItemArray.Count();
-                int ContadorDeEmprestimos = 0;
-
-                if (ContadorDeRegistros > 0)
+                }
+                foreach (DataRow registro in DatasetEmprestimos.Dados.Tables["MusicasCompletas"].Rows)
                 {
-                    if (registro["Tipo_Midia"].ToString() != "Digital" && registro["Status"].ToString() != "1")
+                    int ContadorDeRegistros = registro.ItemArray.Count();
+                    int ContadorDeEmprestimos = 0;
+
+                    if (ContadorDeRegistros > 0)
                     {
-                        comboBox_NomeMusicas.Items.Add(registro["Nome_Album"]);
-                        DadosComboboxMusicas.Add(registro["Nome_Album"].ToString());
-                        comboBox_NomeMusicas.AutoCompleteCustomSource = DadosComboboxMusicas;
-                    }
-                    else if (registro["Status"].ToString() == "1")
-                    {
-                        ContadorDeRegistros = ContadorDeRegistros++;
-                        comboBox_NomeMusicas.Text = "Voce tem : " + ContadorDeEmprestimos + " emprestados.";
+                        if (registro["Tipo_Midia"].ToString() != "Digital" && registro["Status"].ToString() != "1")
+                        {
+                            comboBox_NomeMusicas.Items.Add(registro["Nome_Album"]);
+                            DadosComboboxMusicas.Add(registro["Nome_Album"].ToString());
+                            comboBox_NomeMusicas.AutoCompleteCustomSource = DadosComboboxMusicas;
+                        }
+                        else if (registro["Status"].ToString() == "1")
+                        {
+                            ContadorDeRegistros = ContadorDeRegistros++;
+                            comboBox_NomeMusicas.Text = "Voce tem : " + ContadorDeEmprestimos + " emprestados.";
+                        }
                     }
                 }
-                else
-                    comboBox_NomeMusicas.Text = "Nao ha midias para emprestimo";
             }
+            else
+                comboBox_NomeMusicas.Text = "Acervo Vazio.";
         }
 
         private void button_Emprestar_Click(object sender, EventArgs e)
         {
 
-            foreach (DataRow registro in DatasetEmprestimos.Dados.Tables["MusicasCompletas"].Rows)
-            {
-
-            }
         }
 
         private void comboBox_NomeAmigos_SelectedIndexChanged(object sender, EventArgs e)

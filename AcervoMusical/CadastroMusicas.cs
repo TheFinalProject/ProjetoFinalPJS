@@ -178,7 +178,9 @@ namespace AcervoMusical
                         Musicas.SubItems.Add(textBox_Interprete.Text);
                         Musicas.SubItems.Add(comboBox_Classificacao.Text);
                         Musicas.SubItems.Add(textBox_Observacao.Text);
+
                         listView_Cadastro_Musicas.Items.Add(Musicas);
+
                         LimparTextBox();
                     }
                     catch
