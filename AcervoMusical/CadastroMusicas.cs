@@ -31,7 +31,7 @@ namespace AcervoMusical
             textBox_Interprete.Text = null;
             textBox_Observacao.Text = null;
             textBox_Origem.Text = null;
-            textBox_Classificação.Text = null;
+            comboBox_Classificacao.Text = null;
             textBox_Origem.Text = null;
             textBox_Autor.Text = null;
             textBox_Album.Text = null;
@@ -139,7 +139,7 @@ namespace AcervoMusical
                         #region ParametroNota
                         SqlParameter Nota = new SqlParameter();
                         Nota.SourceColumn = "Nota";
-                        Nota.Value = textBox_Classificação.Text;
+                        Nota.Value = comboBox_Classificacao.Text;
                         Nota.ParameterName = "@Nota";
                         Nota.SqlDbType = SqlDbType.SmallInt;
                         #endregion
@@ -172,7 +172,7 @@ namespace AcervoMusical
                         Musicas.SubItems.Add(textBox_Album.Text);
                         Musicas.SubItems.Add(textBox_Autor.Text);
                         Musicas.SubItems.Add(textBox_Interprete.Text);
-                        Musicas.SubItems.Add(textBox_Classificação.Text);
+                        Musicas.SubItems.Add(comboBox_Classificacao.Text);
                         Musicas.SubItems.Add(textBox_Observacao.Text);
 
                         listView_Cadastro_Musicas.Items.Add(Musicas);
@@ -278,7 +278,7 @@ namespace AcervoMusical
                     #region ParametroNota
                     SqlParameter Nota = new SqlParameter();
                     Nota.SourceColumn = "Nota";
-                    Nota.Value = int.Parse(textBox_Classificação.Text);
+                    Nota.Value = int.Parse(comboBox_Classificacao.Text);
                     Nota.ParameterName = "@Nota";
                     Nota.SqlDbType = SqlDbType.SmallInt;
                     #endregion
@@ -315,7 +315,7 @@ namespace AcervoMusical
                     Atualizado.SubItems[1].Text = textBox_Album.Text;
                     Atualizado.SubItems[2].Text = textBox_Autor.Text;
                     Atualizado.SubItems[3].Text = textBox_Interprete.Text;
-                    Atualizado.SubItems[4].Text = textBox_Classificação.Text;
+                    Atualizado.SubItems[4].Text = comboBox_Classificacao.Text;
                     Atualizado.SubItems[5].Text = textBox_Observacao.Text;
                     #endregion
                     LimparTextBox();
@@ -463,7 +463,7 @@ namespace AcervoMusical
             textBox_Autor.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[2].Text;
             textBox_Album.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[1].Text;
             textBox_Interprete.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[3].Text;
-            textBox_Classificação.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[4].Text;
+            comboBox_Classificacao.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[4].Text;
             textBox_Observacao.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[5].Text;
             comboBox_Midia.SelectedItem = listView_Cadastro_Musicas.FocusedItem.Group.ToString();
         }
