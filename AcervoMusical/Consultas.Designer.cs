@@ -30,6 +30,7 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button_TodasMusicas = new System.Windows.Forms.Button();
             this.button_Buscar = new System.Windows.Forms.Button();
             this.button_Limpar = new System.Windows.Forms.Button();
             this.textBox_OrigemCompra = new System.Windows.Forms.TextBox();
@@ -92,7 +93,6 @@
             this.dateTimePicker_DataFinal = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker_DataInicial = new System.Windows.Forms.DateTimePicker();
-            this.button_TodasMusicas = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -148,6 +148,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Músicas";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button_TodasMusicas
+            // 
+            this.button_TodasMusicas.Location = new System.Drawing.Point(950, 75);
+            this.button_TodasMusicas.Name = "button_TodasMusicas";
+            this.button_TodasMusicas.Size = new System.Drawing.Size(75, 23);
+            this.button_TodasMusicas.TabIndex = 81;
+            this.button_TodasMusicas.Text = "Todos";
+            this.button_TodasMusicas.UseVisualStyleBackColor = true;
+            this.button_TodasMusicas.Click += new System.EventHandler(this.button_TodasMusicas_Click);
             // 
             // button_Buscar
             // 
@@ -686,16 +696,6 @@
             this.dateTimePicker_DataInicial.Size = new System.Drawing.Size(99, 20);
             this.dateTimePicker_DataInicial.TabIndex = 8;
             // 
-            // button_TodasMusicas
-            // 
-            this.button_TodasMusicas.Location = new System.Drawing.Point(950, 75);
-            this.button_TodasMusicas.Name = "button_TodasMusicas";
-            this.button_TodasMusicas.Size = new System.Drawing.Size(75, 23);
-            this.button_TodasMusicas.TabIndex = 81;
-            this.button_TodasMusicas.Text = "Todos";
-            this.button_TodasMusicas.UseVisualStyleBackColor = true;
-            this.button_TodasMusicas.Click += new System.EventHandler(this.button_TodasMusicas_Click);
-            // 
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -703,6 +703,7 @@
             this.ClientSize = new System.Drawing.Size(1070, 563);
             this.Controls.Add(this.tabControl);
             this.Name = "Consultas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultas";
             this.Load += new System.EventHandler(this.Consultas_Load);
             this.tabControl.ResumeLayout(false);

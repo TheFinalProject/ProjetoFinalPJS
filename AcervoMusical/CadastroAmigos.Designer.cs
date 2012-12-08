@@ -81,7 +81,7 @@
             this.groupBox_Remover.Size = new System.Drawing.Size(752, 53);
             this.groupBox_Remover.TabIndex = 58;
             this.groupBox_Remover.TabStop = false;
-            this.groupBox_Remover.Text = "Remover / Editar";
+            this.groupBox_Remover.Text = "Pesquisar:";
             // 
             // textBox_Remover
             // 
@@ -89,6 +89,7 @@
             this.textBox_Remover.Name = "textBox_Remover";
             this.textBox_Remover.Size = new System.Drawing.Size(655, 20);
             this.textBox_Remover.TabIndex = 11;
+            this.textBox_Remover.TextChanged += new System.EventHandler(this.textBox_Remover_TextChanged);
             // 
             // button_Cancelar
             // 
@@ -344,9 +345,9 @@
             this.label_Aviso.ForeColor = System.Drawing.Color.Red;
             this.label_Aviso.Location = new System.Drawing.Point(584, 87);
             this.label_Aviso.Name = "label_Aviso";
-            this.label_Aviso.Size = new System.Drawing.Size(170, 13);
+            this.label_Aviso.Size = new System.Drawing.Size(188, 13);
             this.label_Aviso.TabIndex = 65;
-            this.label_Aviso.Text = "Campos obrigatorios não inseridos!";
+            this.label_Aviso.Text = "Campos *obrigatórios não preenchidos";
             this.label_Aviso.Visible = false;
             // 
             // CadastroAmigos
@@ -375,9 +376,7 @@
             this.Controls.Add(this.label_Telefone);
             this.Controls.Add(this.textBox_NomeAmigo);
             this.Controls.Add(this.label_Nome);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(821, 534);
             this.Name = "CadastroAmigos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

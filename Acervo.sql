@@ -1,5 +1,5 @@
---DROP DATABASE Acervo
---GO
+DROP DATABASE Acervo
+GO
 
 --Criação do diretorio
 
