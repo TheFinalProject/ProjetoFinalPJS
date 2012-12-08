@@ -34,17 +34,19 @@
             this.comboBox_NomeMusicas = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.listView_Emprestimos = new System.Windows.Forms.ListView();
-            this.NomeAblum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DataEmprestimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NomeAmigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.NomeAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateTimePicker_emprestimo = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button_ConsultarAmigos = new System.Windows.Forms.Button();
+            this.button_ConsultarAlbum = new System.Windows.Forms.Button();
             this.button_Emprestar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button_ConsultarAlbum = new System.Windows.Forms.Button();
-            this.button_ConsultarAmigos = new System.Windows.Forms.Button();
-            this.NomeAmigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label_Emprestados = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -102,26 +104,30 @@
             // 
             this.listView_Emprestimos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.NomeAmigo,
-            this.NomeAblum,
+            this.NomeAlbum,
             this.DataEmprestimo});
-            this.listView_Emprestimos.Location = new System.Drawing.Point(-315, -158);
+            this.listView_Emprestimos.FullRowSelect = true;
+            this.listView_Emprestimos.Location = new System.Drawing.Point(6, 198);
             this.listView_Emprestimos.Name = "listView_Emprestimos";
-            this.listView_Emprestimos.Size = new System.Drawing.Size(781, 316);
+            this.listView_Emprestimos.Size = new System.Drawing.Size(781, 325);
             this.listView_Emprestimos.TabIndex = 5;
             this.listView_Emprestimos.UseCompatibleStateImageBehavior = false;
             this.listView_Emprestimos.View = System.Windows.Forms.View.Details;
             // 
-            // NomeAblum
-            // 
-            this.NomeAblum.DisplayIndex = 0;
-            this.NomeAblum.Text = "Nome Album";
-            this.NomeAblum.Width = 241;
-            // 
             // DataEmprestimo
             // 
-            this.DataEmprestimo.DisplayIndex = 1;
-            this.DataEmprestimo.Text = "Data Emprestimo";
-            this.DataEmprestimo.Width = 242;
+            this.DataEmprestimo.Text = "Data de Emprestimo";
+            this.DataEmprestimo.Width = 174;
+            // 
+            // NomeAmigo
+            // 
+            this.NomeAmigo.Text = "Nome do Amigo";
+            this.NomeAmigo.Width = 241;
+            // 
+            // NomeAlbum
+            // 
+            this.NomeAlbum.Text = "Nome do Album";
+            this.NomeAlbum.Width = 242;
             // 
             // dateTimePicker_emprestimo
             // 
@@ -144,15 +150,18 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(-2, 65);
+            this.tabControl1.Location = new System.Drawing.Point(1, 65);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(803, 485);
+            this.tabControl1.Size = new System.Drawing.Size(803, 553);
             this.tabControl1.TabIndex = 8;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.label_Emprestados);
             this.tabPage1.Controls.Add(this.button_ConsultarAmigos);
+            this.tabPage1.Controls.Add(this.listView_Emprestimos);
             this.tabPage1.Controls.Add(this.button_ConsultarAlbum);
             this.tabPage1.Controls.Add(this.button_Emprestar);
             this.tabPage1.Controls.Add(this.label3);
@@ -165,14 +174,34 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(795, 459);
+            this.tabPage1.Size = new System.Drawing.Size(795, 527);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Emprestimos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button_ConsultarAmigos
+            // 
+            this.button_ConsultarAmigos.Location = new System.Drawing.Point(9, 78);
+            this.button_ConsultarAmigos.Name = "button_ConsultarAmigos";
+            this.button_ConsultarAmigos.Size = new System.Drawing.Size(75, 23);
+            this.button_ConsultarAmigos.TabIndex = 10;
+            this.button_ConsultarAmigos.Text = "Consultar";
+            this.button_ConsultarAmigos.UseVisualStyleBackColor = true;
+            this.button_ConsultarAmigos.Click += new System.EventHandler(this.button_ConsultarAmigos_Click);
+            // 
+            // button_ConsultarAlbum
+            // 
+            this.button_ConsultarAlbum.Location = new System.Drawing.Point(295, 78);
+            this.button_ConsultarAlbum.Name = "button_ConsultarAlbum";
+            this.button_ConsultarAlbum.Size = new System.Drawing.Size(75, 23);
+            this.button_ConsultarAlbum.TabIndex = 9;
+            this.button_ConsultarAlbum.Text = "Consultar";
+            this.button_ConsultarAlbum.UseVisualStyleBackColor = true;
+            this.button_ConsultarAlbum.Click += new System.EventHandler(this.button_ConsultarAlbum_Click);
+            // 
             // button_Emprestar
             // 
-            this.button_Emprestar.Location = new System.Drawing.Point(713, 93);
+            this.button_Emprestar.Location = new System.Drawing.Point(711, 97);
             this.button_Emprestar.Name = "button_Emprestar";
             this.button_Emprestar.Size = new System.Drawing.Size(75, 23);
             this.button_Emprestar.TabIndex = 8;
@@ -190,39 +219,30 @@
             this.tabPage2.Text = "Devoluções";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button_ConsultarAlbum
+            // label_Emprestados
             // 
-            this.button_ConsultarAlbum.Location = new System.Drawing.Point(295, 78);
-            this.button_ConsultarAlbum.Name = "button_ConsultarAlbum";
-            this.button_ConsultarAlbum.Size = new System.Drawing.Size(75, 23);
-            this.button_ConsultarAlbum.TabIndex = 9;
-            this.button_ConsultarAlbum.Text = "Consultar";
-            this.button_ConsultarAlbum.UseVisualStyleBackColor = true;
-            this.button_ConsultarAlbum.Click += new System.EventHandler(this.button_ConsultarAlbum_Click);
+            this.label_Emprestados.AutoSize = true;
+            this.label_Emprestados.ForeColor = System.Drawing.Color.Red;
+            this.label_Emprestados.Location = new System.Drawing.Point(4, 180);
+            this.label_Emprestados.Name = "label_Emprestados";
+            this.label_Emprestados.Size = new System.Drawing.Size(67, 13);
+            this.label_Emprestados.TabIndex = 11;
+            this.label_Emprestados.Text = "Nome Album";
+            this.label_Emprestados.Visible = false;
             // 
-            // button_ConsultarAmigos
+            // textBox1
             // 
-            this.button_ConsultarAmigos.Location = new System.Drawing.Point(9, 78);
-            this.button_ConsultarAmigos.Name = "button_ConsultarAmigos";
-            this.button_ConsultarAmigos.Size = new System.Drawing.Size(75, 23);
-            this.button_ConsultarAmigos.TabIndex = 10;
-            this.button_ConsultarAmigos.Text = "Consultar";
-            this.button_ConsultarAmigos.UseVisualStyleBackColor = true;
-            this.button_ConsultarAmigos.Click += new System.EventHandler(this.button_ConsultarAmigos_Click);
-            // 
-            // NomeAmigo
-            // 
-            this.NomeAmigo.DisplayIndex = 2;
-            this.NomeAmigo.Text = "Nome do Amigo";
-            this.NomeAmigo.Width = 174;
+            this.textBox1.Location = new System.Drawing.Point(530, 172);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(256, 20);
+            this.textBox1.TabIndex = 12;
             // 
             // Emprestimos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 548);
+            this.ClientSize = new System.Drawing.Size(801, 615);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.listView_Emprestimos);
             this.Name = "Emprestimos";
             this.Load += new System.EventHandler(this.Emprestimos_Load);
             this.tabControl1.ResumeLayout(false);
@@ -244,12 +264,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.ColumnHeader NomeAblum;
-        private System.Windows.Forms.ColumnHeader DataEmprestimo;
+        private System.Windows.Forms.ColumnHeader NomeAmigo;
+        private System.Windows.Forms.ColumnHeader NomeAlbum;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button button_Emprestar;
         private System.Windows.Forms.Button button_ConsultarAmigos;
         private System.Windows.Forms.Button button_ConsultarAlbum;
-        private System.Windows.Forms.ColumnHeader NomeAmigo;
+        private System.Windows.Forms.ColumnHeader DataEmprestimo;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label_Emprestados;
     }
 }

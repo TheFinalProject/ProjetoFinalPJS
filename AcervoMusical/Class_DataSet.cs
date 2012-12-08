@@ -47,7 +47,6 @@ namespace AcervoMusical
             AdaptadorAmigos.SelectCommand = new SqlCommand("Select Amigos.Nome, Amigos.Telefone, Amigos.Endereço, Amigos.Numero, Amigos.Email,Amigos.Bairro, Cidades.NomeCidade, Cidades.CidadeId_uf FROM Amigos INNER JOIN Cidades ON Amigos.AmigosId_Cidade = Cidades.id_Cidade", Conector.Conexao);
             AdaptadorAmigos.MissingSchemaAction = MissingSchemaAction.AddWithKey;
             AdaptadorAmigos.Fill(Dados, "AmigosCompletos");
-
         }
 
         public void PreencheEmprestimos()

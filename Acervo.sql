@@ -185,5 +185,9 @@ SELECT id_amigo FROM Amigos WHERE Nome = 'Rafael'
 
 SELECT * FROM Emprestimos
 SELECT Amigos.Nome, Musicas.Nome_Album, Emprestimos.Data_Emprestimo FROM Emprestimos INNER JOIN Amigos ON Emprestimos.EmprestimosId_amigo = Amigos.id_amigo INNER JOIN Musicas ON Emprestimos.EmprestimosId_musicas = Musicas.id_musicas  
+
+UPDATE Musicas SET Status = 0 WHERE id_musicas = 7; SELECT * FROM Musicas
+
+DELETE FROM Emprestimos
 --=================================================================================*/
 
