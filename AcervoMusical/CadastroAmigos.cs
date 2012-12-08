@@ -17,6 +17,8 @@ namespace AcervoMusical
         {
             InitializeComponent();
         }
+        DataSet FiltraAmigo = new DataSet();
+        Class_DataSet DatasetAmigos = new Class_DataSet();
 
         ListViewItem Amigos = new ListViewItem();
         public FormPrincipal FP;
@@ -33,7 +35,7 @@ namespace AcervoMusical
             maskedTextBox_Telefone.Text = null;
             textBox_Endereco.Text = null;
             textBox_Numero.Text = null;
-            
+
         }
 
         private void button_Cancelar_Click(object sender, EventArgs e)
@@ -357,7 +359,6 @@ namespace AcervoMusical
             }
 
             #region Situação atual de amigos no Banco de Dados
-            Class_DataSet DatasetAmigos = new Class_DataSet();
 
             DatasetAmigos.PreencheAmigos();
 
@@ -488,7 +489,7 @@ namespace AcervoMusical
             {
                 button_Cadastrar.Text = "Salvar";
                 button_Remover.Enabled = true;
-                //coloca os itens e subitens nos textbox para edição
+                //coloca os itens e subitens nos textbox para edição8
                 textBox_NomeAmigo.Text = listView_CadastroAmigos.SelectedItems[0].Text;
                 textBox_Email.Text = listView_CadastroAmigos.FocusedItem.SubItems[5].Text;
                 maskedTextBox_Telefone.Text = listView_CadastroAmigos.FocusedItem.SubItems[1].Text;
@@ -507,6 +508,7 @@ namespace AcervoMusical
             }
         }
 
+        #region Campos Obrigatórios
         private void textBox_NomeAmigo_Enter(object sender, EventArgs e)
         {
             textBox_NomeAmigo.BackColor = SystemColors.Window;
@@ -536,5 +538,66 @@ namespace AcervoMusical
             comboBox_Cidade.BackColor = SystemColors.Window;
             label_Aviso.Visible = false;
         }
+        #endregion
+
+        private void textBox_Remover_TextChanged(object sender, EventArgs e)
+        {
+            //SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("SELECT Amigos.Nome, Amigos.Telefone, Amigos.Endereço, Amigos.Numero, Amigos.Email,Amigos.Bairro, Cidades.NomeCidade, Cidades.CidadeId_uf FROM Amigos INNER JOIN Cidades ON Amigos.AmigosId_Cidade = Cidades.id_Cidade", FP.Conector.Conexao);
+            SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("SELECT * FROM Amigos", FP.Conector.Conexao);
+            AdaptadorFiltro.Fill(FiltraAmigo, "Amigos");
+            DataTable TabelaFiltro = FiltraAmigo.Tables["Amigos"];
+
+            listView_CadastroAmigos.Items.Clear();
+
+            foreach (DataRow registro in FiltraAmigo.Tables["Amigos"].Rows)
+            {
+                if (textBox_NomeAmigo.Text != "")
+                {
+                    if (registro.RowState != DataRowState.Deleted && registro["Nome"].ToString() != textBox_NomeAmigo.Text)
+                    {
+                        registro.Delete();
+                    }
+                }
+            }
+            //if(textBox_NomeAmigo.Text != "")
+            //{
+            listView_CadastroAmigos.Items.Clear();
+                for (int i = 0; i < TabelaFiltro.Rows.Count; i++)
+                {
+                    DataRow RegistroMusicas = TabelaFiltro.Rows[i];
+                    // Somente as linhas que não foram deletadas
+                    if (RegistroMusicas.RowState != DataRowState.Deleted)
+                    {
+                        // Define os itens da lista
+                        ListViewItem InseriAmigos = new ListViewItem();
+                        InseriAmigos.Text = RegistroMusicas["Nome"].ToString();
+                        InseriAmigos.SubItems.Add(RegistroMusicas["Telefone"].ToString());
+                        InseriAmigos.SubItems.Add(RegistroMusicas["Endereço"].ToString());
+                        InseriAmigos.SubItems.Add(RegistroMusicas["Numero"].ToString());
+                        InseriAmigos.SubItems.Add(RegistroMusicas["Bairro"].ToString());
+                        InseriAmigos.SubItems.Add(RegistroMusicas["Email"].ToString());
+                        InseriAmigos.SubItems.Add(RegistroMusicas["AmigosId_Cidade"].ToString());
+                        InseriAmigos.SubItems.Add(RegistroMusicas["AmigosId_Estado"].ToString());
+                        listView_CadastroAmigos.Items.Add(InseriAmigos);
+                    }
+                }
+            }
+            //else
+            //{
+            //    DatasetAmigos.PreencheAmigos();
+            //     foreach (DataRow registro in DatasetAmigos.Dados.Tables["AmigosCompletos"].Rows)
+            //     {
+            //        ListViewItem Amigos = new ListViewItem();
+            //        Amigos.Text = registro["Nome"].ToString();
+            //        Amigos.SubItems.Add(registro["Telefone"].ToString());
+            //        Amigos.SubItems.Add(registro["Endereço"].ToString());
+            //        Amigos.SubItems.Add(registro["Numero"].ToString());
+            //        Amigos.SubItems.Add(registro["Bairro"].ToString());
+            //        Amigos.SubItems.Add(registro["Email"].ToString());
+            //        Amigos.SubItems.Add(registro["NomeCidade"].ToString());
+            //        Amigos.SubItems.Add(registro["CidadeId_uf"].ToString());
+            //        listView_CadastroAmigos.Items.Add(Amigos);
+            //     }
+            //}
+        }
     }
-}

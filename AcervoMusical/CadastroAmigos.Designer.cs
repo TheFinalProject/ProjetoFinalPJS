@@ -89,6 +89,7 @@
             this.textBox_Remover.Name = "textBox_Remover";
             this.textBox_Remover.Size = new System.Drawing.Size(655, 20);
             this.textBox_Remover.TabIndex = 11;
+            this.textBox_Remover.TextChanged += new System.EventHandler(this.textBox_Remover_TextChanged);
             // 
             // button_Cancelar
             // 
@@ -374,9 +375,7 @@
             this.Controls.Add(this.label_Telefone);
             this.Controls.Add(this.textBox_NomeAmigo);
             this.Controls.Add(this.label_Nome);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(821, 534);
             this.Name = "CadastroAmigos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
