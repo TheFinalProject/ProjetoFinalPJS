@@ -73,12 +73,7 @@ namespace AcervoMusical
                     ListViewItem InseriMusicas = new ListViewItem();
                     InseriMusicas.Text = RegistroMusicas["Nome"].ToString();
                     InseriMusicas.SubItems.Add(RegistroMusicas["Telefone"].ToString());
-                    InseriMusicas.SubItems.Add(RegistroMusicas["Endereço"].ToString());
-                    InseriMusicas.SubItems.Add(RegistroMusicas["Numero"].ToString());
-                    InseriMusicas.SubItems.Add(RegistroMusicas["Bairro"].ToString());
                     InseriMusicas.SubItems.Add(RegistroMusicas["Email"].ToString());
-                    InseriMusicas.SubItems.Add(RegistroMusicas["AmigosId_Cidade"].ToString());
-                    InseriMusicas.SubItems.Add(RegistroMusicas["AmigosId_Estado"].ToString());
 
                     listView_AgendaAmigos.Items.Add(InseriMusicas);
                 }

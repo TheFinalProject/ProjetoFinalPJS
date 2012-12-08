@@ -171,6 +171,7 @@ namespace AcervoMusical
         private void button_ConsultarAlbum_Click(object sender, EventArgs e)
         {
             Consultas ConsultarAlbum = new Consultas();
+            ConsultarAlbum.FP = FP;
             ConsultarAlbum.Show();
         }
 

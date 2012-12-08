@@ -153,9 +153,9 @@
             this.button_Consultas.FlatAppearance.BorderSize = 0;
             this.button_Consultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Consultas.ForeColor = System.Drawing.Color.Transparent;
-            this.button_Consultas.Location = new System.Drawing.Point(660, 228);
+            this.button_Consultas.Location = new System.Drawing.Point(658, 228);
             this.button_Consultas.Name = "button_Consultas";
-            this.button_Consultas.Size = new System.Drawing.Size(315, 175);
+            this.button_Consultas.Size = new System.Drawing.Size(318, 175);
             this.button_Consultas.TabIndex = 13;
             this.button_Consultas.UseVisualStyleBackColor = false;
             this.button_Consultas.Click += new System.EventHandler(this.Abrir_Fomulario);
@@ -268,7 +268,7 @@
             this.button_Emprestimos.FlatAppearance.BorderSize = 0;
             this.button_Emprestimos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Emprestimos.ForeColor = System.Drawing.Color.Transparent;
-            this.button_Emprestimos.Location = new System.Drawing.Point(462, 49);
+            this.button_Emprestimos.Location = new System.Drawing.Point(462, 50);
             this.button_Emprestimos.Name = "button_Emprestimos";
             this.button_Emprestimos.Size = new System.Drawing.Size(194, 175);
             this.button_Emprestimos.TabIndex = 29;
