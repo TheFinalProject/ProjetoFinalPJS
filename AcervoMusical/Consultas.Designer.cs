@@ -246,6 +246,7 @@
             this.textBox_OrigemCompra.Name = "textBox_OrigemCompra";
             this.textBox_OrigemCompra.Size = new System.Drawing.Size(224, 20);
             this.textBox_OrigemCompra.TabIndex = 80;
+            this.textBox_OrigemCompra.TextChanged += new System.EventHandler(this.textBox_Interprete_TextChanged);
             // 
             // label_Ate2
             // 
@@ -300,6 +301,7 @@
             this.comboBox_Nota.Name = "comboBox_Nota";
             this.comboBox_Nota.Size = new System.Drawing.Size(77, 21);
             this.comboBox_Nota.TabIndex = 74;
+            this.comboBox_Nota.TextChanged += new System.EventHandler(this.textBox_Interprete_TextChanged);
             // 
             // listView_ConsultaMusicas
             // 
@@ -442,6 +444,7 @@
             this.comboBox_Midia.Name = "comboBox_Midia";
             this.comboBox_Midia.Size = new System.Drawing.Size(78, 21);
             this.comboBox_Midia.TabIndex = 3;
+            this.comboBox_Midia.TextChanged += new System.EventHandler(this.textBox_Interprete_TextChanged);
             // 
             // textBox_Nome
             // 
