@@ -58,6 +58,7 @@
             this.button_Entrar.TabIndex = 2;
             this.button_Entrar.Text = "Entrar";
             this.button_Entrar.UseVisualStyleBackColor = true;
+            this.button_Entrar.Click += new System.EventHandler(this.button_Entrar_Click);
             // 
             // textBox_Senha
             // 

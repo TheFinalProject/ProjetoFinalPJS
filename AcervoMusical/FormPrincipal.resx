@@ -1763,6 +1763,24 @@
         wwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="textBox_Mubox.Text" xml:space="preserve">
+    <value>O Mubox é um sistema de controle de suas Musicas e amigos com o ele é possivel adicionar editar e remove-los. É simples pratico e dinamico  
+
+- Botao Amigos
+
+1 - Clique sobre o botão Amigo++
+1.1 - Neste formulario é possivel adicionar novos amigos, editar amigos existentes e tambem remove-los este  formulario contem informações importantes que serão uteis na hora de emprestar suas musicas
+
+- Botao Musicas
+
+1 -Clique sobre o botão Musicas++
+1.1 - Neste formulario é possivel adicionar novas muscias, editar Musicas existentes e tambem remove-las, você pode também agrupalas por categoria de midia facilitando na organização das mesmas.
+
+-Botao Emprestimos
+
+1 -Clique sobre o botao Emprestimos
+1.1 - Neste Formulario é possivel realizar os emprestimos de suas Musicas, com ele voce associara seus amigos as muscias emprestadas, para que voce tenha total controle de suas locações</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>81</value>
   </metadata>

@@ -43,13 +43,17 @@
             this.listBox_Musicas = new System.Windows.Forms.ListBox();
             this.WindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.timer_tempo = new System.Windows.Forms.Timer(this.components);
+            this.panel_MediaPlayer = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Volume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WindowsMediaPlayer)).BeginInit();
+            this.panel_MediaPlayer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // trackBar_Volume
             // 
-            this.trackBar_Volume.Location = new System.Drawing.Point(824, 48);
+            this.trackBar_Volume.Location = new System.Drawing.Point(817, 134);
             this.trackBar_Volume.Maximum = 100;
             this.trackBar_Volume.Name = "trackBar_Volume";
             this.trackBar_Volume.Orientation = System.Windows.Forms.Orientation.Vertical;
@@ -60,7 +64,7 @@
             // 
             // button_anterior
             // 
-            this.button_anterior.Location = new System.Drawing.Point(117, 230);
+            this.button_anterior.Location = new System.Drawing.Point(110, 316);
             this.button_anterior.Name = "button_anterior";
             this.button_anterior.Size = new System.Drawing.Size(75, 24);
             this.button_anterior.TabIndex = 37;
@@ -70,7 +74,7 @@
             // 
             // button_proximo
             // 
-            this.button_proximo.Location = new System.Drawing.Point(198, 230);
+            this.button_proximo.Location = new System.Drawing.Point(191, 316);
             this.button_proximo.Name = "button_proximo";
             this.button_proximo.Size = new System.Drawing.Size(75, 24);
             this.button_proximo.TabIndex = 36;
@@ -80,7 +84,7 @@
             // 
             // button_ultimo
             // 
-            this.button_ultimo.Location = new System.Drawing.Point(279, 230);
+            this.button_ultimo.Location = new System.Drawing.Point(272, 316);
             this.button_ultimo.Name = "button_ultimo";
             this.button_ultimo.Size = new System.Drawing.Size(75, 24);
             this.button_ultimo.TabIndex = 35;
@@ -91,7 +95,7 @@
             // button_Play
             // 
             this.button_Play.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button_Play.Location = new System.Drawing.Point(142, 37);
+            this.button_Play.Location = new System.Drawing.Point(135, 123);
             this.button_Play.Name = "button_Play";
             this.button_Play.Size = new System.Drawing.Size(118, 51);
             this.button_Play.TabIndex = 34;
@@ -102,7 +106,7 @@
             // button_Add
             // 
             this.button_Add.BackColor = System.Drawing.Color.Transparent;
-            this.button_Add.Location = new System.Drawing.Point(824, 12);
+            this.button_Add.Location = new System.Drawing.Point(817, 98);
             this.button_Add.Name = "button_Add";
             this.button_Add.Size = new System.Drawing.Size(40, 30);
             this.button_Add.TabIndex = 33;
@@ -113,7 +117,7 @@
             // button_Pause
             // 
             this.button_Pause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button_Pause.Location = new System.Drawing.Point(12, 91);
+            this.button_Pause.Location = new System.Drawing.Point(5, 177);
             this.button_Pause.Name = "button_Pause";
             this.button_Pause.Size = new System.Drawing.Size(118, 51);
             this.button_Pause.TabIndex = 41;
@@ -124,7 +128,7 @@
             // button_Stop
             // 
             this.button_Stop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button_Stop.Location = new System.Drawing.Point(267, 91);
+            this.button_Stop.Location = new System.Drawing.Point(260, 177);
             this.button_Stop.Name = "button_Stop";
             this.button_Stop.Size = new System.Drawing.Size(118, 51);
             this.button_Stop.TabIndex = 40;
@@ -134,7 +138,7 @@
             // 
             // button_Resume
             // 
-            this.button_Resume.Location = new System.Drawing.Point(142, 147);
+            this.button_Resume.Location = new System.Drawing.Point(135, 233);
             this.button_Resume.Name = "button_Resume";
             this.button_Resume.Size = new System.Drawing.Size(118, 51);
             this.button_Resume.TabIndex = 39;
@@ -144,7 +148,7 @@
             // 
             // button_Primeiro
             // 
-            this.button_Primeiro.Location = new System.Drawing.Point(36, 230);
+            this.button_Primeiro.Location = new System.Drawing.Point(29, 316);
             this.button_Primeiro.Name = "button_Primeiro";
             this.button_Primeiro.Size = new System.Drawing.Size(75, 24);
             this.button_Primeiro.TabIndex = 38;
@@ -155,7 +159,7 @@
             // listBox_Musicas
             // 
             this.listBox_Musicas.FormattingEnabled = true;
-            this.listBox_Musicas.Location = new System.Drawing.Point(391, 12);
+            this.listBox_Musicas.Location = new System.Drawing.Point(384, 98);
             this.listBox_Musicas.Name = "listBox_Musicas";
             this.listBox_Musicas.Size = new System.Drawing.Size(427, 394);
             this.listBox_Musicas.TabIndex = 44;
@@ -163,22 +167,40 @@
             // WindowsMediaPlayer
             // 
             this.WindowsMediaPlayer.Enabled = true;
-            this.WindowsMediaPlayer.Location = new System.Drawing.Point(391, 403);
+            this.WindowsMediaPlayer.Location = new System.Drawing.Point(384, 489);
             this.WindowsMediaPlayer.Name = "WindowsMediaPlayer";
             this.WindowsMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WindowsMediaPlayer.OcxState")));
             this.WindowsMediaPlayer.Size = new System.Drawing.Size(427, 46);
             this.WindowsMediaPlayer.TabIndex = 45;
+            this.WindowsMediaPlayer.Visible = false;
             // 
             // timer_tempo
             // 
             this.timer_tempo.Enabled = true;
+            // 
+            // panel_MediaPlayer
+            // 
+            this.panel_MediaPlayer.Controls.Add(this.pictureBox1);
+            this.panel_MediaPlayer.Location = new System.Drawing.Point(-2, 0);
+            this.panel_MediaPlayer.Name = "panel_MediaPlayer";
+            this.panel_MediaPlayer.Size = new System.Drawing.Size(871, 60);
+            this.panel_MediaPlayer.TabIndex = 46;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 60);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // MediaPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(868, 461);
+            this.ClientSize = new System.Drawing.Size(868, 547);
+            this.Controls.Add(this.panel_MediaPlayer);
             this.Controls.Add(this.WindowsMediaPlayer);
             this.Controls.Add(this.listBox_Musicas);
             this.Controls.Add(this.trackBar_Volume);
@@ -197,6 +219,8 @@
             this.Load += new System.EventHandler(this.MediaPlayer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Volume)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WindowsMediaPlayer)).EndInit();
+            this.panel_MediaPlayer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +241,7 @@
         private System.Windows.Forms.ListBox listBox_Musicas;
         private AxWMPLib.AxWindowsMediaPlayer WindowsMediaPlayer;
         private System.Windows.Forms.Timer timer_tempo;
+        private System.Windows.Forms.Panel panel_MediaPlayer;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

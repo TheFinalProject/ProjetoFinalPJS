@@ -32,5 +32,11 @@ namespace AcervoMusical
         {
             
         }
+
+        private void button_Entrar_Click(object sender, EventArgs e)
+        {
+            FormPrincipal FRMP = new FormPrincipal();
+            FRMP.Show();
+        }
     }
 }

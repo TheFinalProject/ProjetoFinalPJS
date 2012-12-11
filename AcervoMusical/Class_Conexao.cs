@@ -11,9 +11,8 @@ namespace AcervoMusical
 {
     public class Class_Conexão
     {
-        public const string StringConexao = @"Data Source =RAFAEL\MSQL2008; Initial Catalog =Acervo; Integrated Security = SSPI";
+        public const string StringConexao = @"Data Source =PC15LAB3\MSSQLSERVER3; Initial Catalog =Acervo; Integrated Security = SSPI";
 
-        
         public SqlConnection Conexao;
 
         public Class_Conexão()

@@ -13,47 +13,63 @@ namespace AcervoMusical
     {
         public Class_Conexão Conector = new Class_Conexão();
         public DataSet Dados;
-        public SqlDataAdapter AdaptadorMusicas, AdaptadorAmigos;
+        public SqlDataAdapter Adaptador;
 
         public Class_DataSet()
         {
             Dados = new DataSet();
-            AdaptadorMusicas = new SqlDataAdapter();
-            AdaptadorAmigos = new SqlDataAdapter();
+            Adaptador = new SqlDataAdapter();
+
         }
 
         public void PreencheMusicas()
         {
-            AdaptadorMusicas.SelectCommand = new SqlCommand("Select * from Musicas", Conector.Conexao);
-            AdaptadorMusicas.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            AdaptadorMusicas.Fill(Dados, "MusicasCompletas");
+            Adaptador.SelectCommand = new SqlCommand("SELECT * FROM Musicas", Conector.Conexao);
+            Adaptador.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            Adaptador.Fill(Dados, "MusicasCompletas");
         }
-        
+
         public void BuscarMusicas(string parametro)
-       {
-            AdaptadorMusicas.SelectCommand = new SqlCommand("Select * from Musicas where (Nome_Musica like '%@par%')", Conector.Conexao);
+        {
+            Adaptador.SelectCommand = new SqlCommand("SELECT * FROM Musicas WHERE (Nome_Musica LIKE '%@par%')", Conector.Conexao);
             SqlParameter ParBusca = new SqlParameter();
             ParBusca.Value = parametro;
             ParBusca.SourceColumn = "Nome_Musica";
             ParBusca.ParameterName = "@par";
             ParBusca.SqlDbType = SqlDbType.VarChar;
-            AdaptadorMusicas.SelectCommand.Parameters.Add(ParBusca);
-            AdaptadorMusicas.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            AdaptadorMusicas.Fill(Dados, "BuscaMusicas");
+            Adaptador.SelectCommand.Parameters.Add(ParBusca);
+            Adaptador.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            Adaptador.Fill(Dados, "BuscaMusicas");
         }
 
         public void PreencheAmigos()
         {
-            AdaptadorAmigos.SelectCommand = new SqlCommand("Select Amigos.Nome, Amigos.Telefone, Amigos.Endereço, Amigos.Numero, Amigos.Email,Amigos.Bairro, Cidades.NomeCidade, Cidades.CidadeId_uf FROM Amigos INNER JOIN Cidades ON Amigos.AmigosId_Cidade = Cidades.id_Cidade", Conector.Conexao);
-            AdaptadorAmigos.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            AdaptadorAmigos.Fill(Dados, "AmigosCompletos");
+            Adaptador.SelectCommand = new SqlCommand("SELECT Amigos.Nome, Amigos.Telefone, Amigos.Endereço, Amigos.Numero, Amigos.Email,Amigos.Bairro, Cidades.NomeCidade, Cidades.CidadeId_uf FROM Amigos INNER JOIN Cidades ON Amigos.AmigosId_Cidade = Cidades.id_Cidade", Conector.Conexao);
+            Adaptador.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            Adaptador.Fill(Dados, "AmigosCompletos");
         }
 
         public void PreencheEmprestimos()
         {
-            AdaptadorMusicas.SelectCommand = new SqlCommand("SELECT Amigos.Nome, Musicas.Nome_Album, Emprestimos.Data_Emprestimo FROM Emprestimos INNER JOIN Amigos ON Emprestimos.EmprestimosId_amigo = Amigos.id_amigo INNER JOIN Musicas ON Emprestimos.EmprestimosId_musicas = Musicas.id_musicas", Conector.Conexao);
-            AdaptadorMusicas.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            AdaptadorMusicas.Fill(Dados, "EmprestimosCompletos");
+            Adaptador.SelectCommand = new SqlCommand("SELECT Amigos.Nome, Amigos.Email, Amigos.Telefone, Musicas.Nome_Album, Emprestimos.Data_Emprestimo FROM Emprestimos INNER JOIN Amigos ON Emprestimos.EmprestimosId_amigo = Amigos.id_amigo INNER JOIN Musicas ON Emprestimos.EmprestimosId_musicas = Musicas.id_musicas", Conector.Conexao);
+            Adaptador.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            Adaptador.Fill(Dados, "EmprestimosCompletos");
+        }
+
+        public void ConsultarEmprestimos(string NomeAmigo)
+        {
+            Adaptador.SelectCommand = new SqlCommand("SELECT Amigos.Nome, Musicas.Nome_Album, Emprestimos.Data_Emprestimo FROM Emprestimos INNER JOIN Amigos ON Emprestimos.EmprestimosId_amigo = Amigos.id_amigo INNER JOIN Musicas ON Emprestimos.EmprestimosId_musicas = Musicas.id_musicas WHERE (Nome LIKE '%"+NomeAmigo+"%')", Conector.Conexao);
+
+            //SqlParameter ParametroNomeAmigo = new SqlParameter();
+            //ParametroNomeAmigo.Value = NomeAmigo;
+            //ParametroNomeAmigo.SourceColumn = "Nome";
+            //ParametroNomeAmigo.ParameterName = "@NomeAmigo";
+            //ParametroNomeAmigo.SqlDbType = SqlDbType.VarChar;
+
+            //Adaptador.SelectCommand.Parameters.Add(ParametroNomeAmigo);
+
+            Adaptador.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            Adaptador.Fill(Dados, "ConsultarEmprestimos");
         }
     }
 }

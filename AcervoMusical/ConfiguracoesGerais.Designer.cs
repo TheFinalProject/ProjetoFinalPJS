@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             this.comboBox_cores = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_Salvar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.checkBox_TravarBotoes = new System.Windows.Forms.CheckBox();
+            this.button_Reset = new System.Windows.Forms.Button();
+            this.panel_ConfigGerais = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel_ConfigGerais.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox_cores
@@ -47,25 +51,26 @@
             "Roxo",
             "Preto",
             "Branco"});
-            this.comboBox_cores.Location = new System.Drawing.Point(26, 37);
+            this.comboBox_cores.Location = new System.Drawing.Point(26, 118);
             this.comboBox_cores.Name = "comboBox_cores";
             this.comboBox_cores.Size = new System.Drawing.Size(121, 21);
             this.comboBox_cores.TabIndex = 0;
             this.comboBox_cores.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // button1
+            // button_Salvar
             // 
-            this.button1.Location = new System.Drawing.Point(319, 282);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_Salvar.Location = new System.Drawing.Point(12, 282);
+            this.button_Salvar.Name = "button_Salvar";
+            this.button_Salvar.Size = new System.Drawing.Size(75, 23);
+            this.button_Salvar.TabIndex = 1;
+            this.button_Salvar.Text = "Salvar";
+            this.button_Salvar.UseVisualStyleBackColor = true;
+            this.button_Salvar.Click += new System.EventHandler(this.button_Salvar_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 21);
+            this.label1.Location = new System.Drawing.Point(23, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 2;
@@ -74,45 +79,64 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 92);
+            this.label2.Location = new System.Drawing.Point(23, 173);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Travar os botoes";
             // 
-            // checkBox1
+            // checkBox_TravarBotoes
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(128, 91);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox_TravarBotoes.AutoSize = true;
+            this.checkBox_TravarBotoes.Location = new System.Drawing.Point(132, 172);
+            this.checkBox_TravarBotoes.Name = "checkBox_TravarBotoes";
+            this.checkBox_TravarBotoes.Size = new System.Drawing.Size(15, 14);
+            this.checkBox_TravarBotoes.TabIndex = 4;
+            this.checkBox_TravarBotoes.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // button_Reset
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Travar os botoes";
+            this.button_Reset.Location = new System.Drawing.Point(93, 282);
+            this.button_Reset.Name = "button_Reset";
+            this.button_Reset.Size = new System.Drawing.Size(75, 23);
+            this.button_Reset.TabIndex = 6;
+            this.button_Reset.Text = "Padroes";
+            this.button_Reset.UseVisualStyleBackColor = true;
+            this.button_Reset.Click += new System.EventHandler(this.button_Reset_Click);
+            // 
+            // panel_ConfigGerais
+            // 
+            this.panel_ConfigGerais.Controls.Add(this.pictureBox1);
+            this.panel_ConfigGerais.Location = new System.Drawing.Point(0, 0);
+            this.panel_ConfigGerais.Name = "panel_ConfigGerais";
+            this.panel_ConfigGerais.Size = new System.Drawing.Size(407, 60);
+            this.panel_ConfigGerais.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 60);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // ConfiguracoesGerais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 317);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.panel_ConfigGerais);
+            this.Controls.Add(this.button_Reset);
+            this.Controls.Add(this.checkBox_TravarBotoes);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_Salvar);
             this.Controls.Add(this.comboBox_cores);
             this.Name = "ConfiguracoesGerais";
             this.Text = "ConfiguracoesGerais";
             this.Load += new System.EventHandler(this.ConfiguracoesGerais_Load);
+            this.panel_ConfigGerais.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,10 +145,12 @@
         #endregion
 
         private System.Windows.Forms.ComboBox comboBox_cores;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_Salvar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox_TravarBotoes;
+        private System.Windows.Forms.Button button_Reset;
+        private System.Windows.Forms.Panel panel_ConfigGerais;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

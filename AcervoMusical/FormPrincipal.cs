@@ -59,6 +59,7 @@ namespace AcervoMusical
             if (sender is Button)
             {
                 Button BotaoSelecionado = (Button)sender;
+               
                 if (Mover == true)
                 {
                     if ((BotaoSelecionado.Left + (e.X - Inicial.X) >= 0 && BotaoSelecionado.Right + (e.X - Inicial.X) <= this.Width - 4) && (BotaoSelecionado.Top + (e.Y - Inicial.Y) >= 0 && BotaoSelecionado.Bottom + (e.Y - Inicial.Y) <= this.Height - 32))
@@ -133,9 +134,7 @@ namespace AcervoMusical
             }
             else if (sender == button_Mubox)
             {
-                Mubox MU = new Mubox();
-                MU.FP = this;
-                MU.Show();
+                textBox_Mubox.Visible = true;
             }
             else if (sender == button_Musicas)
             {
@@ -165,8 +164,144 @@ namespace AcervoMusical
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            timer_Relogio.Start();
-            Conector.Conectar();
+            try
+            {
+                timer_Relogio.Start();
+                Conector.Conectar();        
+
+                #region Posicionamento dos Botoes no Formulario
+
+                SqlDataReader LeitorPosicaoBotao;
+                SqlCommand CmdPosicaoBotao = new SqlCommand("SELECT * FROM ConfiguracoesBotoes", Conector.Conexao);
+                LeitorPosicaoBotao = CmdPosicaoBotao.ExecuteReader();
+
+                while (LeitorPosicaoBotao.Read())
+                {
+                    if (LeitorPosicaoBotao["Botao"].ToString() == "Botao Agenda")
+                    {
+                        int Localizacaox = int.Parse((LeitorPosicaoBotao["Localizacaox"].ToString()));
+                        int Localizacaoy = int.Parse((LeitorPosicaoBotao["Localizacaoy"].ToString()));
+                        Point Localizacao = new Point(Localizacaox, Localizacaoy);
+                        this.button_Agenda.Location = Localizacao;
+                    }
+                    else if (LeitorPosicaoBotao["Botao"].ToString() == "Botao Mubox")
+                    {
+                        int Localizacaox = int.Parse((LeitorPosicaoBotao["Localizacaox"].ToString()));
+                        int Localizacaoy = int.Parse((LeitorPosicaoBotao["Localizacaoy"].ToString()));
+                        Point Localizacao = new Point(Localizacaox, Localizacaoy);
+                        this.button_Mubox.Location = Localizacao;
+                        this.textBox_Mubox.Location = Localizacao;
+                    }
+                    else if (LeitorPosicaoBotao["Botao"].ToString() == "Botao Amigos")
+                    {
+                        int Localizacaox = int.Parse((LeitorPosicaoBotao["Localizacaox"].ToString()));
+                        int Localizacaoy = int.Parse((LeitorPosicaoBotao["Localizacaoy"].ToString()));
+                        Point Localizacao = new Point(Localizacaox, Localizacaoy);
+                        this.button_Amigos.Location = Localizacao;
+                    }
+                    else if (LeitorPosicaoBotao["Botao"].ToString() == "Botao Musicas")
+                    {
+                        int Localizacaox = int.Parse((LeitorPosicaoBotao["Localizacaox"].ToString()));
+                        int Localizacaoy = int.Parse((LeitorPosicaoBotao["Localizacaoy"].ToString()));
+                        Point Localizacao = new Point(Localizacaox, Localizacaoy);
+                        this.button_Musicas.Location = Localizacao;
+                    }
+                    else if (LeitorPosicaoBotao["Botao"].ToString() == "Botao Media player")
+                    {
+                        int Localizacaox = int.Parse((LeitorPosicaoBotao["Localizacaox"].ToString()));
+                        int Localizacaoy = int.Parse((LeitorPosicaoBotao["Localizacaoy"].ToString()));
+                        Point Localizacao = new Point(Localizacaox, Localizacaoy);
+                        this.button_MediaPlayer.Location = Localizacao;
+                    }
+                    else if (LeitorPosicaoBotao["Botao"].ToString() == "Botao Emprestimos")
+                    {
+                        int Localizacaox = int.Parse((LeitorPosicaoBotao["Localizacaox"].ToString()));
+                        int Localizacaoy = int.Parse((LeitorPosicaoBotao["Localizacaoy"].ToString()));
+                        Point Localizacao = new Point(Localizacaox, Localizacaoy);
+                        this.button_Emprestimos.Location = Localizacao;
+                    }
+                    else if (LeitorPosicaoBotao["Botao"].ToString() == "Botao Consulta")
+                    {
+                        int Localizacaox = int.Parse((LeitorPosicaoBotao["Localizacaox"].ToString()));
+                        int Localizacaoy = int.Parse((LeitorPosicaoBotao["Localizacaoy"].ToString()));
+                        Point Localizacao = new Point(Localizacaox, Localizacaoy);
+                        this.button_Consultas.Location = Localizacao;
+                    }
+                }
+
+                LeitorPosicaoBotao.Close();
+
+                #endregion
+
+                #region Posicionamento dos Panels no Formulario
+
+                SqlDataReader LeitorPosicaoPanel;
+                SqlCommand CmdPosicaoPanel = new SqlCommand("SELECT * FROM ConfiguracoesPanel", Conector.Conexao);
+                LeitorPosicaoPanel = CmdPosicaoPanel.ExecuteReader();
+
+                while (LeitorPosicaoPanel.Read())
+                {
+                    if (LeitorPosicaoPanel["Panel"].ToString() == "Panel Configuracoes")
+                    {
+                        int Localizacaox = int.Parse(LeitorPosicaoPanel["Localizacaox"].ToString());
+                        int Localizacaoy = int.Parse(LeitorPosicaoPanel["Localizacaoy"].ToString());
+                        Point Localizacao = new Point(Localizacaox, Localizacaoy);
+                        this.panel_Configuraçoes.Location = Localizacao;
+                    }
+                    else
+                    {
+                        int Localizacaox = int.Parse(LeitorPosicaoPanel["Localizacaox"].ToString());
+                        int Localizacaoy = int.Parse(LeitorPosicaoPanel["Localizacaoy"].ToString());
+                        Point Localizacao = new Point(Localizacaox, Localizacaoy);
+                        this.panel_Relogio.Location = Localizacao;
+                    }
+
+                }
+                LeitorPosicaoPanel.Close();
+
+                #endregion
+
+                #region Posicionamento do ListView no Formulario
+
+                SqlDataReader LeitorPosicaoListView;   
+                SqlCommand CmdPosicaoListView = new SqlCommand("SELECT * FROM ConfiguracoesListView", Conector.Conexao);
+                LeitorPosicaoListView = CmdPosicaoListView.ExecuteReader();
+
+                while (LeitorPosicaoListView.Read())
+                {
+                    int Localizacaox = int.Parse(LeitorPosicaoListView["LocalizacaoX"].ToString());
+                    int Localizacaoy = int.Parse(LeitorPosicaoListView["LocalizacaoY"].ToString());
+                    Point Localizacao = new Point(Localizacaox, Localizacaoy);
+                    this.listView_Devolulcoes.Location = Localizacao;
+                }
+
+                LeitorPosicaoListView.Close();
+
+                #endregion
+
+                #region Configurações de Cores e Trava de botoes
+
+                SqlDataReader ConfigFormPrincipal;
+                SqlCommand CmdConfigFormPrincipal = new SqlCommand("SELECT * FROM ConfiguracoesForm", Conector.Conexao);
+                ConfigFormPrincipal = CmdConfigFormPrincipal.ExecuteReader();
+
+                while (ConfigFormPrincipal.Read())
+                {
+                    ConfiguracoesGerais Config = new ConfiguracoesGerais(this);
+                    Config.MudarCor(ConfigFormPrincipal["FundoFormulario"].ToString());
+                }
+                ConfigFormPrincipal.Close();
+
+                #endregion
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show(Erro.Message);
+            }
+            finally
+            {
+                Conector.Desconectar();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -174,6 +309,58 @@ namespace AcervoMusical
             //label_relogio.Text = DateTime.Now.ToLongTimeString();
             //label_Data.Text = DateTime.Now.ToShortDateString();
             //label_DiaSemana.Text = DateTime.Now.DayOfWeek.ToString();
+        }
+
+        private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            #region Salva as alterações do formulario
+            Conector.Conectar();
+            
+            if (Conector.Conectar())
+            {
+                try
+                {   
+                    #region Comando Para salvar configuraçoes finais dos botoes
+                    SqlCommand CmdUpdateBotoes = new SqlCommand("UPDATE ConfiguracoesBotoes SET Localizacaox =" + button_Amigos.Location.X.ToString() + ", Localizacaoy =" + button_Amigos.Location.Y.ToString() + " WHERE Botao = 'Botao Amigos'" +
+                                                        "UPDATE ConfiguracoesBotoes SET Localizacaox =" + button_Mubox.Location.X.ToString() + ", Localizacaoy =" + button_Mubox.Location.Y.ToString() + " WHERE Botao = 'Botao Mubox'" +
+                                                        "UPDATE ConfiguracoesBotoes SET Localizacaox =" + button_Agenda.Location.X.ToString() + ", Localizacaoy =" + button_Agenda.Location.Y.ToString() + " WHERE Botao = 'Botao Agenda'" +
+                                                        "UPDATE ConfiguracoesBotoes SET Localizacaox =" + button_Musicas.Location.X.ToString() + ", Localizacaoy =" + button_Musicas.Location.Y.ToString() + " WHERE Botao = 'Botao Musicas'" +
+                                                        "UPDATE ConfiguracoesBotoes SET Localizacaox =" + button_MediaPlayer.Location.X.ToString() + ", Localizacaoy =" + button_MediaPlayer.Location.Y.ToString() + " WHERE Botao = 'Botao Media Player'" +
+                                                        "UPDATE ConfiguracoesBotoes SET Localizacaox =" + button_Emprestimos.Location.X.ToString() + ", Localizacaoy =" + button_Emprestimos.Location.Y.ToString() + " WHERE Botao = 'Botao Emprestimos'" +
+                                                        "UPDATE ConfiguracoesBotoes SET Localizacaox =" + button_Consultas.Location.X.ToString() + ", Localizacaoy =" + button_Consultas.Location.Y.ToString() + " WHERE Botao = 'Botao Consulta'" , Conector.Conexao);
+                    #endregion
+
+                    #region Comando Para salvar configuracoes finais dos panels
+                    SqlCommand CmdUpdatePanel = new SqlCommand("UPDATE ConfiguracoesPanel SET LocalizacaoX =" + panel_Configuraçoes.Location.X.ToString() + ", LocalizacaoY =" + panel_Configuraçoes.Location.Y.ToString() + " WHERE Panel = 'Panel Configuracoes'" +                                              "UPDATE ConfiguracoesPanel SET LocalizacaoX=" + panel_Relogio.Location.X + ", LocalizacaoY=" + panel_Relogio.Location.Y + "WHERE Panel = 'Panel Timer'", Conector.Conexao);
+                    #endregion
+
+                    #region Comando Para salvar configuracoes finais do ListView
+                    SqlCommand CmdUpdateLisView = new SqlCommand("UPDATE ConfiguracoesListView SET LocalizacaoX=" + listView_Devolulcoes.Location.X + ", LocalizacaoY="+listView_Devolulcoes.Location.Y+"WHERE ListView = 'Devolucoes'", Conector.Conexao);
+                    #endregion
+
+                    //Executa os comando inseridos
+                    CmdUpdateBotoes.ExecuteNonQuery();
+                    CmdUpdateLisView.ExecuteNonQuery();
+                    CmdUpdatePanel.ExecuteNonQuery();
+
+                }
+                catch (Exception erro)
+                {
+                    MessageBox.Show(erro.Message, "");
+                }
+                finally
+                {
+                    if (Conector != null)
+                        Conector.Conexao.Close();
+                }
+
+            }
+            #endregion
+        }
+
+        private void textBox_Mubox_DoubleClick(object sender, EventArgs e)
+        {
+            textBox_Mubox.Visible = false;
         }
     }
 }

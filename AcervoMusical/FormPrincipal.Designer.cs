@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Rafael ", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Felipe", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Rafael ", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Felipe", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "Linkin Park",
             "10/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "Iron Maiden",
             "10/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
             "Nirvana",
             "25/10/2012",
             "30/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
             "Beatles",
             "30/10/2012"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.timer_Relogio = new System.Windows.Forms.Timer(this.components);
             this.label_login = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listView_Devolulcoes = new System.Windows.Forms.ListView();
             this.Devoluções = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Emprestimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label_Ferramentas = new System.Windows.Forms.Label();
@@ -65,6 +65,7 @@
             this.button_Amigos = new System.Windows.Forms.Button();
             this.button_Agenda = new System.Windows.Forms.Button();
             this.button_Mubox = new System.Windows.Forms.Button();
+            this.textBox_Mubox = new System.Windows.Forms.TextBox();
             this.panel_Relogio.SuspendLayout();
             this.panel_Configuraçoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ferramentas)).BeginInit();
@@ -88,38 +89,38 @@
             this.label_login.Text = "Consigurações de usuário";
             this.label_login.Visible = false;
             // 
-            // listView1
+            // listView_Devolulcoes
             // 
-            this.listView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listView_Devolulcoes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.listView_Devolulcoes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Devoluções,
             this.Emprestimo});
-            listViewGroup1.Header = "Rafael ";
-            listViewGroup1.Name = "Rafael";
-            listViewGroup1.Tag = "";
-            listViewGroup2.Header = "Felipe";
-            listViewGroup2.Name = "Felipe";
-            this.listView1.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2});
-            listViewItem1.Group = listViewGroup1;
-            listViewItem2.Group = listViewGroup1;
-            listViewItem3.Group = listViewGroup2;
-            listViewItem4.Group = listViewGroup2;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4});
-            this.listView1.Location = new System.Drawing.Point(337, 409);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(318, 175);
-            this.listView1.TabIndex = 30;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
-            this.listView1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
-            this.listView1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
+            listViewGroup3.Header = "Rafael ";
+            listViewGroup3.Name = "Rafael";
+            listViewGroup3.Tag = "";
+            listViewGroup4.Header = "Felipe";
+            listViewGroup4.Name = "Felipe";
+            this.listView_Devolulcoes.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup3,
+            listViewGroup4});
+            listViewItem5.Group = listViewGroup3;
+            listViewItem6.Group = listViewGroup3;
+            listViewItem7.Group = listViewGroup4;
+            listViewItem8.Group = listViewGroup4;
+            this.listView_Devolulcoes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8});
+            this.listView_Devolulcoes.Location = new System.Drawing.Point(337, 409);
+            this.listView_Devolulcoes.Name = "listView_Devolulcoes";
+            this.listView_Devolulcoes.Size = new System.Drawing.Size(318, 175);
+            this.listView_Devolulcoes.TabIndex = 30;
+            this.listView_Devolulcoes.UseCompatibleStateImageBehavior = false;
+            this.listView_Devolulcoes.View = System.Windows.Forms.View.Details;
+            this.listView_Devolulcoes.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
+            this.listView_Devolulcoes.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
+            this.listView_Devolulcoes.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // Devoluções
             // 
@@ -165,7 +166,7 @@
             // 
             // panel_Relogio
             // 
-            this.panel_Relogio.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel_Relogio.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel_Relogio.BackgroundImage = global::AcervoMusical.Properties.Resources.data;
             this.panel_Relogio.Controls.Add(this.label_Data);
             this.panel_Relogio.Controls.Add(this.label_DiaSemana);
@@ -373,6 +374,18 @@
             this.button_Mubox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
             this.button_Mubox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
+            // textBox_Mubox
+            // 
+            this.textBox_Mubox.Location = new System.Drawing.Point(138, 49);
+            this.textBox_Mubox.Multiline = true;
+            this.textBox_Mubox.Name = "textBox_Mubox";
+            this.textBox_Mubox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox_Mubox.Size = new System.Drawing.Size(320, 175);
+            this.textBox_Mubox.TabIndex = 33;
+            this.textBox_Mubox.Text = resources.GetString("textBox_Mubox.Text");
+            this.textBox_Mubox.Visible = false;
+            this.textBox_Mubox.DoubleClick += new System.EventHandler(this.textBox_Mubox_DoubleClick);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,11 +393,12 @@
             this.BackColor = System.Drawing.Color.Navy;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1034, 632);
+            this.Controls.Add(this.label_login);
+            this.Controls.Add(this.textBox_Mubox);
             this.Controls.Add(this.label_Ferramentas);
             this.Controls.Add(this.button_Consultas);
-            this.Controls.Add(this.label_login);
             this.Controls.Add(this.panel_Relogio);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listView_Devolulcoes);
             this.Controls.Add(this.panel_Configuraçoes);
             this.Controls.Add(this.button_Emprestimos);
             this.Controls.Add(this.button_Musicas);
@@ -396,7 +410,7 @@
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mubox";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
             this.panel_Relogio.ResumeLayout(false);
             this.panel_Relogio.PerformLayout();
@@ -413,7 +427,7 @@
         private System.Windows.Forms.Timer timer_Relogio;
         private System.Windows.Forms.Label label_login;
         private System.Windows.Forms.PictureBox pictureBox_Login;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listView_Devolulcoes;
         private System.Windows.Forms.ColumnHeader Devoluções;
         private System.Windows.Forms.ColumnHeader Emprestimo;
         private System.Windows.Forms.Label label_DiaSemana;
@@ -430,6 +444,7 @@
         private System.Windows.Forms.Label label_Ferramentas;
         private System.Windows.Forms.Label label_Data;
         private System.Windows.Forms.Label label_relogio;
+        private System.Windows.Forms.TextBox textBox_Mubox;
 
 
     }
