@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Rafael ", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Felipe", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Rafael ", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Felipe", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "Linkin Park",
             "10/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "Iron Maiden",
             "10/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "Nirvana",
             "25/10/2012",
             "30/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "Beatles",
             "30/10/2012"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
@@ -91,27 +91,29 @@
             // 
             // listView_Devolulcoes
             // 
-            this.listView_Devolulcoes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.listView_Devolulcoes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.listView_Devolulcoes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Devoluções,
             this.Emprestimo});
-            listViewGroup3.Header = "Rafael ";
-            listViewGroup3.Name = "Rafael";
-            listViewGroup3.Tag = "";
-            listViewGroup4.Header = "Felipe";
-            listViewGroup4.Name = "Felipe";
+            listViewGroup1.Header = "Rafael ";
+            listViewGroup1.Name = "Rafael";
+            listViewGroup1.Tag = "";
+            listViewGroup2.Header = "Felipe";
+            listViewGroup2.Name = "Felipe";
             this.listView_Devolulcoes.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3,
-            listViewGroup4});
-            listViewItem5.Group = listViewGroup3;
-            listViewItem6.Group = listViewGroup3;
-            listViewItem7.Group = listViewGroup4;
-            listViewItem8.Group = listViewGroup4;
+            listViewGroup1,
+            listViewGroup2});
+            listViewItem1.Group = listViewGroup1;
+            listViewItem2.Group = listViewGroup1;
+            listViewItem3.Group = listViewGroup2;
+            listViewItem4.Group = listViewGroup2;
             this.listView_Devolulcoes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4});
             this.listView_Devolulcoes.Location = new System.Drawing.Point(337, 409);
             this.listView_Devolulcoes.Name = "listView_Devolulcoes";
             this.listView_Devolulcoes.Size = new System.Drawing.Size(318, 175);
@@ -147,7 +149,9 @@
             // 
             // button_Consultas
             // 
-            this.button_Consultas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Consultas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Consultas.BackColor = System.Drawing.Color.Transparent;
             this.button_Consultas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Consultas.BackgroundImage")));
             this.button_Consultas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -166,7 +170,9 @@
             // 
             // panel_Relogio
             // 
-            this.panel_Relogio.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel_Relogio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_Relogio.BackgroundImage = global::AcervoMusical.Properties.Resources.data;
             this.panel_Relogio.Controls.Add(this.label_Data);
             this.panel_Relogio.Controls.Add(this.label_DiaSemana);
@@ -217,7 +223,9 @@
             // 
             // panel_Configuraçoes
             // 
-            this.panel_Configuraçoes.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel_Configuraçoes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_Configuraçoes.BackColor = System.Drawing.Color.Transparent;
             this.panel_Configuraçoes.BackgroundImage = global::AcervoMusical.Properties.Resources.data;
             this.panel_Configuraçoes.Controls.Add(this.pictureBox_ferramentas);
@@ -262,7 +270,9 @@
             // 
             // button_Emprestimos
             // 
-            this.button_Emprestimos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Emprestimos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Emprestimos.BackColor = System.Drawing.Color.Transparent;
             this.button_Emprestimos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Emprestimos.BackgroundImage")));
             this.button_Emprestimos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -281,7 +291,9 @@
             // 
             // button_Musicas
             // 
-            this.button_Musicas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Musicas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Musicas.BackColor = System.Drawing.Color.Transparent;
             this.button_Musicas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_Musicas.BackgroundImage")));
             this.button_Musicas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -300,7 +312,9 @@
             // 
             // button_MediaPlayer
             // 
-            this.button_MediaPlayer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_MediaPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.button_MediaPlayer.BackColor = System.Drawing.Color.Transparent;
             this.button_MediaPlayer.BackgroundImage = global::AcervoMusical.Properties.Resources.mediaplayer;
             this.button_MediaPlayer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -319,7 +333,9 @@
             // 
             // button_Amigos
             // 
-            this.button_Amigos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Amigos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Amigos.BackColor = System.Drawing.Color.Transparent;
             this.button_Amigos.BackgroundImage = global::AcervoMusical.Properties.Resources.amigos1;
             this.button_Amigos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -338,7 +354,9 @@
             // 
             // button_Agenda
             // 
-            this.button_Agenda.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button_Agenda.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Agenda.BackColor = System.Drawing.Color.Transparent;
             this.button_Agenda.BackgroundImage = global::AcervoMusical.Properties.Resources.agenda;
             this.button_Agenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -406,6 +424,7 @@
             this.Controls.Add(this.button_Amigos);
             this.Controls.Add(this.button_Agenda);
             this.Controls.Add(this.button_Mubox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

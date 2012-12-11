@@ -36,12 +36,15 @@
             this.NomeAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DataEmprestimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateTimePicker_emprestimo = new System.Windows.Forms.DateTimePicker();
+
             this.label_DataEmprestimo = new System.Windows.Forms.Label();
             this.textBox_PesquisarEmprestimo = new System.Windows.Forms.TextBox();
+
             this.label_Emprestados = new System.Windows.Forms.Label();
             this.button_ConsultarAmigos = new System.Windows.Forms.Button();
             this.button_ConsultarAlbum = new System.Windows.Forms.Button();
             this.button_Emprestar = new System.Windows.Forms.Button();
+
             this.panel_Emprestimos = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_Devolver = new System.Windows.Forms.Button();
@@ -51,6 +54,7 @@
             this.Nome = new System.Windows.Forms.Label();
             this.panel_Emprestimos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+
             this.SuspendLayout();
             // 
             // comboBox_NomeAmigos
@@ -98,17 +102,23 @@
             this.listView_Emprestimos.TabIndex = 5;
             this.listView_Emprestimos.UseCompatibleStateImageBehavior = false;
             this.listView_Emprestimos.View = System.Windows.Forms.View.Details;
+
             this.listView_Emprestimos.Click += new System.EventHandler(this.listView_Emprestimos_Click);
             // 
             // NomeAmigo
             // 
             this.NomeAmigo.Text = "Nome do Amigo";
-            this.NomeAmigo.Width = 241;
+            this.NomeAmigo.Width = 291;
             // 
             // NomeAlbum
             // 
             this.NomeAlbum.Text = "Nome do Album";
-            this.NomeAlbum.Width = 242;
+            this.NomeAlbum.Width = 312;
+            // 
+            // DataEmprestimo
+            // 
+            this.DataEmprestimo.Text = "Data de Emprestimo";
+            this.DataEmprestimo.Width = 174;
             // 
             // DataEmprestimo
             // 
@@ -148,6 +158,17 @@
             this.label_Emprestados.AutoSize = true;
             this.label_Emprestados.ForeColor = System.Drawing.Color.Red;
             this.label_Emprestados.Location = new System.Drawing.Point(9, 245);
+            this.label_Emprestados.Name = "label_Emprestados";
+            this.label_Emprestados.Size = new System.Drawing.Size(67, 13);
+            this.label_Emprestados.TabIndex = 11;
+            this.label_Emprestados.Text = "Nome Album";
+            this.label_Emprestados.Visible = false;
+            // 
+            // label_Emprestados
+            // 
+            this.label_Emprestados.AutoSize = true;
+            this.label_Emprestados.ForeColor = System.Drawing.Color.Red;
+            this.label_Emprestados.Location = new System.Drawing.Point(4, 180);
             this.label_Emprestados.Name = "label_Emprestados";
             this.label_Emprestados.Size = new System.Drawing.Size(67, 13);
             this.label_Emprestados.TabIndex = 11;

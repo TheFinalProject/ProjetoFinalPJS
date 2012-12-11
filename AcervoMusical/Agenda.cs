@@ -28,17 +28,29 @@ namespace AcervoMusical
                 ListViewItem Amigos = new ListViewItem();
                 Amigos.Text = registro["Nome"].ToString();
                 Amigos.SubItems.Add(registro["Telefone"].ToString());
-                Amigos.SubItems.Add(registro["Endereço"].ToString());
-                Amigos.SubItems.Add(registro["Numero"].ToString());
-                Amigos.SubItems.Add(registro["Bairro"].ToString());
                 Amigos.SubItems.Add(registro["Email"].ToString());
-                Amigos.SubItems.Add(registro["NomeCidade"].ToString());
-                Amigos.SubItems.Add(registro["CidadeId_uf"].ToString());
                 listView_AgendaAmigos.Items.Add(Amigos);
+
+            }
+            foreach (ListViewItem item in listView_AgendaAmigos.Items)
+            {
+                if ((item.Index % 2) == 0)
+                {
+                    item.BackColor = Color.Gainsboro;
+                }
+                else
+                {
+                    item.BackColor = Color.WhiteSmoke;
+                }
             }
         }
 
         private void button_BuscarAmigo_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void textBox_PesquisaAmigo_TextChanged(object sender, EventArgs e)
         {
             FP.Conector.Conectar();
             DataSet DataFiltro = new DataSet();
@@ -54,7 +66,7 @@ namespace AcervoMusical
 
                 if (textBox_PesquisaAmigo.Text != "")
                 {
-                    if (registro.RowState != DataRowState.Deleted && registro["Nome"].ToString() != textBox_PesquisaAmigo.Text)
+                    if (registro.RowState != DataRowState.Deleted && !registro["Nome"].ToString().ToUpper().Contains(textBox_PesquisaAmigo.Text.ToUpper()))
                     {
                         registro.Delete();
                     }
@@ -74,7 +86,6 @@ namespace AcervoMusical
                     InseriMusicas.Text = RegistroMusicas["Nome"].ToString();
                     InseriMusicas.SubItems.Add(RegistroMusicas["Telefone"].ToString());
                     InseriMusicas.SubItems.Add(RegistroMusicas["Email"].ToString());
-
                     listView_AgendaAmigos.Items.Add(InseriMusicas);
                 }
             }
