@@ -290,9 +290,13 @@ namespace AcervoMusical
                     #endregion
 
                     #region ParametroNota
+
                     SqlParameter Nota = new SqlParameter();
                     Nota.SourceColumn = "Nota";
-                    Nota.Value = int.Parse(comboBox_Classificacao.Text);
+                    if (comboBox_Classificacao.Text != "")
+                        Nota.Value = comboBox_Classificacao.Text;
+                    else
+                        Nota.Value = 0;
                     Nota.ParameterName = "@Nota";
                     Nota.SqlDbType = SqlDbType.SmallInt;
                     #endregion
@@ -316,8 +320,6 @@ namespace AcervoMusical
                     #endregion
                     #endregion
 
-                    
-
                     CmdUpdate.Parameters.AddRange(new SqlParameter[] {Interprete, Autor, Album, DataAlbum, DataCompra, Origem, Midia, Observacao, Nota, Musica, Status });
 
                     CmdUpdate.ExecuteNonQuery();
@@ -332,6 +334,7 @@ namespace AcervoMusical
                     Atualizado.SubItems[4].Text = comboBox_Classificacao.Text;
                     Atualizado.SubItems[5].Text = textBox_Observacao.Text;
                     #endregion
+
                     LimparTextBox();
                     button_Adicionar.Text = "Adicionar";
                 }
@@ -440,6 +443,9 @@ namespace AcervoMusical
 
         private void CadastroMusicas_Load(object sender, EventArgs e)
         {
+
+            panel_CadastroMusicas.BackColor = FP.BackColor;
+
             #region ListView de Musicas
             foreach (DataRow registro in DataSetMusicas.Dados.Tables["MusicasCompletas"].Rows)
             {
@@ -454,6 +460,7 @@ namespace AcervoMusical
                 listView_Cadastro_Musicas.Items.Add(Item);
             }
             #endregion
+
             foreach (Control C in this.Controls)
             {
                 if (C is Label)

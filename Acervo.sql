@@ -1,8 +1,7 @@
-DROP DATABASE Acervo
-GO
+--DROP DATABASE Acervo
+--GO
 
 --Criação do diretorio
-
 XP_CREATE_SUBDIR N'C:\Mubox\DB'
 
 CREATE DATABASE Acervo ON PRIMARY
@@ -44,27 +43,41 @@ GO
 CREATE TABLE Usuario
 (
 	Login VARCHAR(20) PRIMARY KEY,
-	senha VARCHAR(20)
+	senha VARCHAR(20),
+	Email VARCHAR(20),
+	EmailSenha VARCHAR(20)	
+)
+GO
+
+CREATE TABLE ConfiguracoesBotoes
+(
+	Botao VARCHAR(18),
+	Localizacaox VARCHAR(8),
+	Localizacaoy VARCHAR(8)	
 )
 GO
 
 CREATE TABLE ConfiguracoesPanel
 (
-	PanelConfig CHAR(10),
-	ConfigLocalizacaoY CHAR(8),
-	ConfigLocalizacaoX CHAR(8),
-	
-	PanelTime CHAR(10),
-	TimeLocalizacaoY CHAR(8),
-	TimeLocalizacaoX CHAR(8)
+	Panel VARCHAR(20),
+	LocalizacaoX VARCHAR(8),
+	LocalizacaoY VARCHAR(8)
 )
 GO
 
 CREATE TABLE ConfiguracoesForm
 (
-	FundoFormulario CHAR(10)
+	FundoFormulario VARCHAR(10),
+	TravarBotoes TINYINT
 )
 GO
+
+CREATE TABLE ConfiguracoesListView
+(
+	ListView VARCHAR(20),
+	LocalizacaoX VARCHAR(8),
+	LocalizacaoY VARCHAR(8)
+)
 
 CREATE TABLE Estados
 (
@@ -82,7 +95,6 @@ CREATE TABLE Cidades
 	FOREIGN KEY (CidadeId_uf)REFERENCES Estados(id_Estado)
 )
 GO
-
 
 CREATE TABLE Amigos 
 (
@@ -136,11 +148,15 @@ GO
 
 INSERT INTO Usuario
 VALUES 
-	('Rafael','rafael'),
-	('Gustavo','gustavo'),
-	('Felipe', 'felipe')
+	('Rafael','rafael','',''),
+	('Gustavo','gustavo','',''),
+	('Felipe', 'felipe','','')
+GO		  
+
+EXEC IniciarConfiguracoes
 GO
-	  
+
+EXEC Padrao
 
 SELECT * FROM Cidades
 SELECT * FROM Amigos
@@ -151,8 +167,7 @@ SELECT * FROM Usuario
 SELECT * FROM ConfiguracoesBotoes
 SELECT * FROM ConfiguracoesPanel
 SELECT * FROM ConfiguracoesPanel
-
-
+SELECT * FROM ConfiguracoesListView
 
 /*Scripts para teste ===========================================================
 Delete From Amigos

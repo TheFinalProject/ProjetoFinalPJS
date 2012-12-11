@@ -44,7 +44,7 @@ namespace AcervoMusical
 
         private void ConfiguracoesUsuario_Load(object sender, EventArgs e)
         {
-
+            panel_Usuario.BackColor = FP.BackColor;
         }
     }
 }
