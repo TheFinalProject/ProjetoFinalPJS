@@ -337,6 +337,8 @@ namespace AcervoMusical
 
         private void CadastroAmigos_Load(object sender, EventArgs e)
         {
+            panel_CadastroAmigos.BackColor = FP.BackColor;
+
             SqlDataReader LeitorEstados;
 
             button_Remover.Enabled = false;

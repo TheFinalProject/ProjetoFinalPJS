@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.textBox_Musicas = new System.Windows.Forms.TextBox();
             this.listView_Cadastro_Musicas = new System.Windows.Forms.ListView();
             this.Musica = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -66,12 +66,17 @@
             this.textBox_BuscaMusica = new System.Windows.Forms.TextBox();
             this.label_AvisoAdicionar = new System.Windows.Forms.Label();
             this.comboBox_Classificacao = new System.Windows.Forms.ComboBox();
+            this.panel_CadastroMusicas = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            this.panel_CadastroMusicas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox_Musicas
             // 
-            this.textBox_Musicas.Location = new System.Drawing.Point(139, 26);
+            this.textBox_Musicas.Location = new System.Drawing.Point(137, 96);
             this.textBox_Musicas.Name = "textBox_Musicas";
             this.textBox_Musicas.Size = new System.Drawing.Size(518, 20);
             this.textBox_Musicas.TabIndex = 1;
@@ -88,23 +93,23 @@
             this.Observacao});
             this.listView_Cadastro_Musicas.FullRowSelect = true;
             this.listView_Cadastro_Musicas.GridLines = true;
-            listViewGroup1.Header = "Vinil";
-            listViewGroup1.Name = "Vinil";
-            listViewGroup2.Header = "K7";
-            listViewGroup2.Name = "K7";
-            listViewGroup3.Header = "CD";
-            listViewGroup3.Name = "CD";
-            listViewGroup4.Header = "DVD";
-            listViewGroup4.Name = "DVD";
-            listViewGroup5.Header = "Digital";
-            listViewGroup5.Name = "Digital";
+            listViewGroup6.Header = "Vinil";
+            listViewGroup6.Name = "Vinil";
+            listViewGroup7.Header = "K7";
+            listViewGroup7.Name = "K7";
+            listViewGroup8.Header = "CD";
+            listViewGroup8.Name = "CD";
+            listViewGroup9.Header = "DVD";
+            listViewGroup9.Name = "DVD";
+            listViewGroup10.Header = "Digital";
+            listViewGroup10.Name = "Digital";
             this.listView_Cadastro_Musicas.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2,
-            listViewGroup3,
-            listViewGroup4,
-            listViewGroup5});
-            this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(12, 291);
+            listViewGroup6,
+            listViewGroup7,
+            listViewGroup8,
+            listViewGroup9,
+            listViewGroup10});
+            this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(10, 365);
             this.listView_Cadastro_Musicas.Name = "listView_Cadastro_Musicas";
             this.listView_Cadastro_Musicas.Size = new System.Drawing.Size(645, 259);
             this.listView_Cadastro_Musicas.TabIndex = 14;
@@ -145,7 +150,7 @@
             // dateTimePicker_DataCampra
             // 
             this.dateTimePicker_DataCampra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_DataCampra.Location = new System.Drawing.Point(469, 104);
+            this.dateTimePicker_DataCampra.Location = new System.Drawing.Point(467, 174);
             this.dateTimePicker_DataCampra.Name = "dateTimePicker_DataCampra";
             this.dateTimePicker_DataCampra.Size = new System.Drawing.Size(100, 20);
             this.dateTimePicker_DataCampra.TabIndex = 7;
@@ -153,7 +158,7 @@
             // dateTimePicker_DataAlbum
             // 
             this.dateTimePicker_DataAlbum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_DataAlbum.Location = new System.Drawing.Point(363, 104);
+            this.dateTimePicker_DataAlbum.Location = new System.Drawing.Point(361, 174);
             this.dateTimePicker_DataAlbum.Name = "dateTimePicker_DataAlbum";
             this.dateTimePicker_DataAlbum.Size = new System.Drawing.Size(100, 20);
             this.dateTimePicker_DataAlbum.TabIndex = 6;
@@ -167,7 +172,7 @@
             "CD",
             "DVD",
             "Digital"});
-            this.comboBox_Midia.Location = new System.Drawing.Point(12, 25);
+            this.comboBox_Midia.Location = new System.Drawing.Point(10, 95);
             this.comboBox_Midia.Name = "comboBox_Midia";
             this.comboBox_Midia.Size = new System.Drawing.Size(121, 21);
             this.comboBox_Midia.TabIndex = 0;
@@ -176,14 +181,14 @@
             // 
             // textBox_Album
             // 
-            this.textBox_Album.Location = new System.Drawing.Point(12, 65);
+            this.textBox_Album.Location = new System.Drawing.Point(10, 135);
             this.textBox_Album.Name = "textBox_Album";
             this.textBox_Album.Size = new System.Drawing.Size(315, 20);
             this.textBox_Album.TabIndex = 2;
             // 
             // textBox_Interprete
             // 
-            this.textBox_Interprete.Location = new System.Drawing.Point(204, 104);
+            this.textBox_Interprete.Location = new System.Drawing.Point(202, 174);
             this.textBox_Interprete.Name = "textBox_Interprete";
             this.textBox_Interprete.Size = new System.Drawing.Size(153, 20);
             this.textBox_Interprete.TabIndex = 5;
@@ -191,7 +196,7 @@
             // 
             // button_Adicionar
             // 
-            this.button_Adicionar.Location = new System.Drawing.Point(500, 192);
+            this.button_Adicionar.Location = new System.Drawing.Point(498, 266);
             this.button_Adicionar.Name = "button_Adicionar";
             this.button_Adicionar.Size = new System.Drawing.Size(75, 23);
             this.button_Adicionar.TabIndex = 10;
@@ -201,14 +206,14 @@
             // 
             // textBox_Origem
             // 
-            this.textBox_Origem.Location = new System.Drawing.Point(331, 65);
+            this.textBox_Origem.Location = new System.Drawing.Point(329, 135);
             this.textBox_Origem.Name = "textBox_Origem";
             this.textBox_Origem.Size = new System.Drawing.Size(325, 20);
             this.textBox_Origem.TabIndex = 3;
             // 
             // textBox_Observacao
             // 
-            this.textBox_Observacao.Location = new System.Drawing.Point(11, 146);
+            this.textBox_Observacao.Location = new System.Drawing.Point(9, 216);
             this.textBox_Observacao.MaxLength = 200;
             this.textBox_Observacao.Multiline = true;
             this.textBox_Observacao.Name = "textBox_Observacao";
@@ -217,7 +222,7 @@
             // 
             // textBox_Autor
             // 
-            this.textBox_Autor.Location = new System.Drawing.Point(12, 104);
+            this.textBox_Autor.Location = new System.Drawing.Point(10, 174);
             this.textBox_Autor.Name = "textBox_Autor";
             this.textBox_Autor.Size = new System.Drawing.Size(186, 20);
             this.textBox_Autor.TabIndex = 4;
@@ -226,7 +231,7 @@
             // label_Musica
             // 
             this.label_Musica.AutoSize = true;
-            this.label_Musica.Location = new System.Drawing.Point(136, 9);
+            this.label_Musica.Location = new System.Drawing.Point(134, 79);
             this.label_Musica.Name = "label_Musica";
             this.label_Musica.Size = new System.Drawing.Size(41, 13);
             this.label_Musica.TabIndex = 60;
@@ -236,7 +241,7 @@
             // label_Observação
             // 
             this.label_Observação.AutoSize = true;
-            this.label_Observação.Location = new System.Drawing.Point(12, 130);
+            this.label_Observação.Location = new System.Drawing.Point(10, 200);
             this.label_Observação.Name = "label_Observação";
             this.label_Observação.Size = new System.Drawing.Size(70, 13);
             this.label_Observação.TabIndex = 59;
@@ -245,7 +250,7 @@
             // label_Midia
             // 
             this.label_Midia.AutoSize = true;
-            this.label_Midia.Location = new System.Drawing.Point(9, 9);
+            this.label_Midia.Location = new System.Drawing.Point(7, 79);
             this.label_Midia.Name = "label_Midia";
             this.label_Midia.Size = new System.Drawing.Size(77, 13);
             this.label_Midia.TabIndex = 58;
@@ -254,7 +259,7 @@
             // label_Data_Album
             // 
             this.label_Data_Album.AutoSize = true;
-            this.label_Data_Album.Location = new System.Drawing.Point(360, 88);
+            this.label_Data_Album.Location = new System.Drawing.Point(358, 158);
             this.label_Data_Album.Name = "label_Data_Album";
             this.label_Data_Album.Size = new System.Drawing.Size(77, 13);
             this.label_Data_Album.TabIndex = 57;
@@ -263,7 +268,7 @@
             // label_Data_Compra
             // 
             this.label_Data_Compra.AutoSize = true;
-            this.label_Data_Compra.Location = new System.Drawing.Point(466, 88);
+            this.label_Data_Compra.Location = new System.Drawing.Point(464, 158);
             this.label_Data_Compra.Name = "label_Data_Compra";
             this.label_Data_Compra.Size = new System.Drawing.Size(84, 13);
             this.label_Data_Compra.TabIndex = 56;
@@ -272,7 +277,7 @@
             // label_Classificacao
             // 
             this.label_Classificacao.AutoSize = true;
-            this.label_Classificacao.Location = new System.Drawing.Point(573, 88);
+            this.label_Classificacao.Location = new System.Drawing.Point(571, 158);
             this.label_Classificacao.Name = "label_Classificacao";
             this.label_Classificacao.Size = new System.Drawing.Size(69, 13);
             this.label_Classificacao.TabIndex = 55;
@@ -281,7 +286,7 @@
             // label_Autor
             // 
             this.label_Autor.AutoSize = true;
-            this.label_Autor.Location = new System.Drawing.Point(9, 88);
+            this.label_Autor.Location = new System.Drawing.Point(7, 158);
             this.label_Autor.Name = "label_Autor";
             this.label_Autor.Size = new System.Drawing.Size(36, 13);
             this.label_Autor.TabIndex = 54;
@@ -290,7 +295,7 @@
             // label_Album
             // 
             this.label_Album.AutoSize = true;
-            this.label_Album.Location = new System.Drawing.Point(13, 49);
+            this.label_Album.Location = new System.Drawing.Point(11, 119);
             this.label_Album.Name = "label_Album";
             this.label_Album.Size = new System.Drawing.Size(36, 13);
             this.label_Album.TabIndex = 3;
@@ -299,7 +304,7 @@
             // label_Interprete
             // 
             this.label_Interprete.AutoSize = true;
-            this.label_Interprete.Location = new System.Drawing.Point(201, 88);
+            this.label_Interprete.Location = new System.Drawing.Point(199, 158);
             this.label_Interprete.Name = "label_Interprete";
             this.label_Interprete.Size = new System.Drawing.Size(56, 13);
             this.label_Interprete.TabIndex = 52;
@@ -308,7 +313,7 @@
             // label_Origem_Compra
             // 
             this.label_Origem_Compra.AutoSize = true;
-            this.label_Origem_Compra.Location = new System.Drawing.Point(331, 49);
+            this.label_Origem_Compra.Location = new System.Drawing.Point(329, 119);
             this.label_Origem_Compra.Name = "label_Origem_Compra";
             this.label_Origem_Compra.Size = new System.Drawing.Size(94, 13);
             this.label_Origem_Compra.TabIndex = 51;
@@ -316,7 +321,7 @@
             // 
             // button_Cancelar
             // 
-            this.button_Cancelar.Location = new System.Drawing.Point(581, 192);
+            this.button_Cancelar.Location = new System.Drawing.Point(579, 266);
             this.button_Cancelar.Name = "button_Cancelar";
             this.button_Cancelar.Size = new System.Drawing.Size(75, 23);
             this.button_Cancelar.TabIndex = 11;
@@ -328,7 +333,7 @@
             // 
             this.groupBox1.Controls.Add(this.button_Remover);
             this.groupBox1.Controls.Add(this.textBox_BuscaMusica);
-            this.groupBox1.Location = new System.Drawing.Point(11, 221);
+            this.groupBox1.Location = new System.Drawing.Point(9, 295);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(645, 64);
             this.groupBox1.TabIndex = 13;
@@ -338,7 +343,7 @@
             // button_Remover
             // 
             this.button_Remover.Enabled = false;
-            this.button_Remover.Location = new System.Drawing.Point(564, 19);
+            this.button_Remover.Location = new System.Drawing.Point(574, 21);
             this.button_Remover.Name = "button_Remover";
             this.button_Remover.Size = new System.Drawing.Size(75, 23);
             this.button_Remover.TabIndex = 13;
@@ -348,7 +353,7 @@
             // 
             // textBox_BuscaMusica
             // 
-            this.textBox_BuscaMusica.Location = new System.Drawing.Point(6, 19);
+            this.textBox_BuscaMusica.Location = new System.Drawing.Point(16, 21);
             this.textBox_BuscaMusica.Name = "textBox_BuscaMusica";
             this.textBox_BuscaMusica.Size = new System.Drawing.Size(552, 20);
             this.textBox_BuscaMusica.TabIndex = 12;
@@ -357,7 +362,7 @@
             // 
             this.label_AvisoAdicionar.AutoSize = true;
             this.label_AvisoAdicionar.ForeColor = System.Drawing.Color.Red;
-            this.label_AvisoAdicionar.Location = new System.Drawing.Point(303, 197);
+            this.label_AvisoAdicionar.Location = new System.Drawing.Point(301, 271);
             this.label_AvisoAdicionar.Name = "label_AvisoAdicionar";
             this.label_AvisoAdicionar.Size = new System.Drawing.Size(35, 13);
             this.label_AvisoAdicionar.TabIndex = 79;
@@ -379,16 +384,47 @@
             "8",
             "9",
             "10"});
-            this.comboBox_Classificacao.Location = new System.Drawing.Point(577, 104);
+            this.comboBox_Classificacao.Location = new System.Drawing.Point(575, 174);
             this.comboBox_Classificacao.Name = "comboBox_Classificacao";
             this.comboBox_Classificacao.Size = new System.Drawing.Size(65, 21);
             this.comboBox_Classificacao.TabIndex = 8;
+            // 
+            // panel_CadastroMusicas
+            // 
+            this.panel_CadastroMusicas.Controls.Add(this.label1);
+            this.panel_CadastroMusicas.Controls.Add(this.pictureBox1);
+            this.panel_CadastroMusicas.Location = new System.Drawing.Point(1, 0);
+            this.panel_CadastroMusicas.Name = "panel_CadastroMusicas";
+            this.panel_CadastroMusicas.Size = new System.Drawing.Size(665, 60);
+            this.panel_CadastroMusicas.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(445, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(217, 29);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "CADASTRO MUSICAS";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AcervoMusical.Properties.Resources.Musica;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(61, 56);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // CadastroMusicas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 562);
+            this.ClientSize = new System.Drawing.Size(668, 636);
+            this.Controls.Add(this.panel_CadastroMusicas);
             this.Controls.Add(this.comboBox_Classificacao);
             this.Controls.Add(this.label_AvisoAdicionar);
             this.Controls.Add(this.groupBox1);
@@ -415,7 +451,7 @@
             this.Controls.Add(this.label_Interprete);
             this.Controls.Add(this.label_Origem_Compra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximumSize = new System.Drawing.Size(800, 600);
+            this.MaximumSize = new System.Drawing.Size(1024, 778);
             this.Name = "CadastroMusicas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Músicas";
@@ -423,6 +459,9 @@
             this.Load += new System.EventHandler(this.CadastroMusicas_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel_CadastroMusicas.ResumeLayout(false);
+            this.panel_CadastroMusicas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,6 +502,9 @@
         private System.Windows.Forms.TextBox textBox_BuscaMusica;
         private System.Windows.Forms.Label label_AvisoAdicionar;
         private System.Windows.Forms.ComboBox comboBox_Classificacao;
+        private System.Windows.Forms.Panel panel_CadastroMusicas;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
 
 
 

@@ -22,7 +22,7 @@ namespace AcervoMusical
 
         private void MediaPlayer_Load(object sender, EventArgs e)
         {
-
+            panel_MediaPlayer.BackColor = FP.BackColor;
         }
 
         private void button_Play_Click(object sender, EventArgs e)
