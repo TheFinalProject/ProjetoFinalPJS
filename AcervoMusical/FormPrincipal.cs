@@ -167,7 +167,7 @@ namespace AcervoMusical
             try
             {
                 timer_Relogio.Start();
-                Conector.Conectar();        
+                Conector.Conectar();
 
                 #region Posicionamento dos Botoes no Formulario
 
@@ -263,7 +263,7 @@ namespace AcervoMusical
 
                 #region Posicionamento do ListView no Formulario
 
-                SqlDataReader LeitorPosicaoListView;   
+                SqlDataReader LeitorPosicaoListView;
                 SqlCommand CmdPosicaoListView = new SqlCommand("SELECT * FROM ConfiguracoesListView", Conector.Conexao);
                 LeitorPosicaoListView = CmdPosicaoListView.ExecuteReader();
 
@@ -303,12 +303,11 @@ namespace AcervoMusical
                 Conector.Desconectar();
             }
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //label_relogio.Text = DateTime.Now.ToLongTimeString();
-            //label_Data.Text = DateTime.Now.ToShortDateString();
-            //label_DiaSemana.Text = DateTime.Now.DayOfWeek.ToString();
+          //label_Data.Text = DateTime.Now.ToShortDateString();
+          //label1.Text = DateTime.Now.ToShortTimeString();
+          //label2.Text = DateTime.Now.ToString();
         }
 
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -361,6 +360,11 @@ namespace AcervoMusical
         private void textBox_Mubox_DoubleClick(object sender, EventArgs e)
         {
             textBox_Mubox.Visible = false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

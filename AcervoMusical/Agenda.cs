@@ -32,17 +32,6 @@ namespace AcervoMusical
                 listView_AgendaAmigos.Items.Add(Amigos);
 
             }
-            foreach (ListViewItem item in listView_AgendaAmigos.Items)
-            {
-                if ((item.Index % 2) == 0)
-                {
-                    item.BackColor = Color.Gainsboro;
-                }
-                else
-                {
-                    item.BackColor = Color.WhiteSmoke;
-                }
-            }
         }
 
         private void button_BuscarAmigo_Click(object sender, EventArgs e)

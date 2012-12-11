@@ -397,6 +397,7 @@
             this.Controls.Add(this.label_Telefone);
             this.Controls.Add(this.textBox_NomeAmigo);
             this.Controls.Add(this.label_Nome);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(821, 534);
             this.Name = "CadastroAmigos";
