@@ -26,7 +26,7 @@ namespace AcervoMusical
 
         private void Emprestimos_Load(object sender, EventArgs e)
         {
-            
+
             AutoCompleteStringCollection DadosComboboxAmigos = new AutoCompleteStringCollection();
             AutoCompleteStringCollection DadosComboboxMusicas = new AutoCompleteStringCollection();
 

@@ -294,8 +294,7 @@ namespace AcervoMusical
                     TelConsulta.Size = 15;
 
                     SqlParameter EmailConsulta = new SqlParameter();
-                    EmailConsulta.SourceColumn = "Email";
-                    EmailConsulta.Value = listView_CadastroAmigos.FocusedItem.SubItems[4].Text;
+                    EmailConsulta.Value = listView_CadastroAmigos.FocusedItem.SubItems[5].Text;
                     EmailConsulta.ParameterName = "@EmailAmigo";
                     EmailConsulta.SqlDbType = SqlDbType.VarChar;
                     EmailConsulta.Size = 50;
@@ -497,7 +496,6 @@ namespace AcervoMusical
                 textBox_Numero.Text = listView_CadastroAmigos.FocusedItem.SubItems[3].Text;
                 comboBox_Cidade.Text = listView_CadastroAmigos.FocusedItem.SubItems[6].Text;
                 comboBox_UF.Text = listView_CadastroAmigos.FocusedItem.SubItems[7].Text;
-                textBox_Remover.Text = listView_CadastroAmigos.SelectedItems[0].Text;
 
 
             }
@@ -543,7 +541,7 @@ namespace AcervoMusical
         {
             FP.Conector.Conectar();
             DataSet DataFiltro = new DataSet();
-            SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("SELECT * FROM Amigos", FP.Conector.Conexao);
+            SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("Select Amigos.Nome, Amigos.Telefone, Amigos.Endereço, Amigos.Numero, Amigos.Email,Amigos.Bairro, Cidades.NomeCidade, Cidades.CidadeId_uf FROM Amigos INNER JOIN Cidades ON Amigos.AmigosId_Cidade = Cidades.id_Cidade", FP.Conector.Conexao);
             AdaptadorFiltro.Fill(DataFiltro, "Amigos");
             DataTable TabelaFiltro = DataFiltro.Tables["Amigos"];
 
@@ -573,11 +571,12 @@ namespace AcervoMusical
                     InseriAmigos.SubItems.Add(RegistroAmigos["Numero"].ToString());
                     InseriAmigos.SubItems.Add(RegistroAmigos["Bairro"].ToString());
                     InseriAmigos.SubItems.Add(RegistroAmigos["Email"].ToString());
-                    InseriAmigos.SubItems.Add(RegistroAmigos["AmigosId_Cidade"].ToString());
-                    InseriAmigos.SubItems.Add(RegistroAmigos["AmigosId_Estado"].ToString());
+                    InseriAmigos.SubItems.Add(RegistroAmigos["NomeCidade"].ToString());
+                    InseriAmigos.SubItems.Add(RegistroAmigos["CidadeId_uf"].ToString());
                     listView_CadastroAmigos.Items.Add(InseriAmigos);
                 }
             }
+            FP.Conector.Desconectar();
         }
     }
 }
