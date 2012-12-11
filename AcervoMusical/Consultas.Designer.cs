@@ -427,6 +427,7 @@
             this.textBox_Album.Name = "textBox_Album";
             this.textBox_Album.Size = new System.Drawing.Size(213, 20);
             this.textBox_Album.TabIndex = 7;
+            this.textBox_Album.TextChanged += new System.EventHandler(this.textBox_Interprete_TextChanged);
             // 
             // comboBox_Midia
             // 

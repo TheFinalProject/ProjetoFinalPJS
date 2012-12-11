@@ -19,7 +19,6 @@ namespace AcervoMusical
         }
         DataSet FiltraAmigo = new DataSet();
         Class_DataSet DatasetAmigos = new Class_DataSet();
-
         ListViewItem Amigos = new ListViewItem();
         public FormPrincipal FP;
 
@@ -542,62 +541,43 @@ namespace AcervoMusical
 
         private void textBox_Remover_TextChanged(object sender, EventArgs e)
         {
-            //SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("SELECT Amigos.Nome, Amigos.Telefone, Amigos.Endereço, Amigos.Numero, Amigos.Email,Amigos.Bairro, Cidades.NomeCidade, Cidades.CidadeId_uf FROM Amigos INNER JOIN Cidades ON Amigos.AmigosId_Cidade = Cidades.id_Cidade", FP.Conector.Conexao);
+            FP.Conector.Conectar();
+            DataSet DataFiltro = new DataSet();
             SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("SELECT * FROM Amigos", FP.Conector.Conexao);
-            AdaptadorFiltro.Fill(FiltraAmigo, "Amigos");
-            DataTable TabelaFiltro = FiltraAmigo.Tables["Amigos"];
+            AdaptadorFiltro.Fill(DataFiltro, "Amigos");
+            DataTable TabelaFiltro = DataFiltro.Tables["Amigos"];
 
-            listView_CadastroAmigos.Items.Clear();
-
-            foreach (DataRow registro in FiltraAmigo.Tables["Amigos"].Rows)
+            //Percorre o listview e verifica se ja há items com aqueles valores, se tiver com valores diferente dos que procura, ele deleta para poder apresentar. 
+            foreach (DataRow registro in DataFiltro.Tables["Amigos"].Rows)
             {
-                if (textBox_NomeAmigo.Text != "")
+                if (registro.RowState != DataRowState.Deleted && !registro["Nome"].ToString().ToUpper().Contains(textBox_Remover.Text.ToUpper()))
                 {
-                    if (registro.RowState != DataRowState.Deleted && registro["Nome"].ToString() != textBox_NomeAmigo.Text)
-                    {
-                        registro.Delete();
-                    }
+                    registro.Delete();
                 }
             }
-            //if(textBox_NomeAmigo.Text != "")
-            //{
+
             listView_CadastroAmigos.Items.Clear();
-                for (int i = 0; i < TabelaFiltro.Rows.Count; i++)
+
+            for (int i = 0; i < TabelaFiltro.Rows.Count; i++)
+            {
+                DataRow RegistroAmigos = TabelaFiltro.Rows[i];
+                // Somente as linhas que não foram deletadas
+                if (RegistroAmigos.RowState != DataRowState.Deleted)
                 {
-                    DataRow RegistroMusicas = TabelaFiltro.Rows[i];
-                    // Somente as linhas que não foram deletadas
-                    if (RegistroMusicas.RowState != DataRowState.Deleted)
-                    {
-                        // Define os itens da lista
-                        ListViewItem InseriAmigos = new ListViewItem();
-                        InseriAmigos.Text = RegistroMusicas["Nome"].ToString();
-                        InseriAmigos.SubItems.Add(RegistroMusicas["Telefone"].ToString());
-                        InseriAmigos.SubItems.Add(RegistroMusicas["Endereço"].ToString());
-                        InseriAmigos.SubItems.Add(RegistroMusicas["Numero"].ToString());
-                        InseriAmigos.SubItems.Add(RegistroMusicas["Bairro"].ToString());
-                        InseriAmigos.SubItems.Add(RegistroMusicas["Email"].ToString());
-                        InseriAmigos.SubItems.Add(RegistroMusicas["AmigosId_Cidade"].ToString());
-                        InseriAmigos.SubItems.Add(RegistroMusicas["AmigosId_Estado"].ToString());
-                        listView_CadastroAmigos.Items.Add(InseriAmigos);
-                    }
+                    // Define os itens da lista
+                    ListViewItem InseriAmigos = new ListViewItem();
+
+                    InseriAmigos.Text = RegistroAmigos["Nome"].ToString();
+                    InseriAmigos.SubItems.Add(RegistroAmigos["Telefone"].ToString());
+                    InseriAmigos.SubItems.Add(RegistroAmigos["Endereço"].ToString());
+                    InseriAmigos.SubItems.Add(RegistroAmigos["Numero"].ToString());
+                    InseriAmigos.SubItems.Add(RegistroAmigos["Bairro"].ToString());
+                    InseriAmigos.SubItems.Add(RegistroAmigos["Email"].ToString());
+                    InseriAmigos.SubItems.Add(RegistroAmigos["AmigosId_Cidade"].ToString());
+                    InseriAmigos.SubItems.Add(RegistroAmigos["AmigosId_Estado"].ToString());
+                    listView_CadastroAmigos.Items.Add(InseriAmigos);
                 }
             }
-            //else
-            //{
-            //    DatasetAmigos.PreencheAmigos();
-            //     foreach (DataRow registro in DatasetAmigos.Dados.Tables["AmigosCompletos"].Rows)
-            //     {
-            //        ListViewItem Amigos = new ListViewItem();
-            //        Amigos.Text = registro["Nome"].ToString();
-            //        Amigos.SubItems.Add(registro["Telefone"].ToString());
-            //        Amigos.SubItems.Add(registro["Endereço"].ToString());
-            //        Amigos.SubItems.Add(registro["Numero"].ToString());
-            //        Amigos.SubItems.Add(registro["Bairro"].ToString());
-            //        Amigos.SubItems.Add(registro["Email"].ToString());
-            //        Amigos.SubItems.Add(registro["NomeCidade"].ToString());
-            //        Amigos.SubItems.Add(registro["CidadeId_uf"].ToString());
-            //        listView_CadastroAmigos.Items.Add(Amigos);
-            //     }
-            //}
         }
     }
+}
