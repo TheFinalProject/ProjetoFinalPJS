@@ -30,11 +30,17 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label_OrigemCompra = new System.Windows.Forms.Label();
+            this.label_Nota = new System.Windows.Forms.Label();
+            this.label_Album = new System.Windows.Forms.Label();
+            this.label_Autor = new System.Windows.Forms.Label();
+            this.label_Midia = new System.Windows.Forms.Label();
+            this.label_Interprete = new System.Windows.Forms.Label();
+            this.label_Nome = new System.Windows.Forms.Label();
             this.button_TodasMusicas = new System.Windows.Forms.Button();
             this.button_Buscar = new System.Windows.Forms.Button();
             this.button_Limpar = new System.Windows.Forms.Button();
             this.textBox_OrigemCompra = new System.Windows.Forms.TextBox();
-            this.checkBox_OrigemCompra = new System.Windows.Forms.CheckBox();
             this.label_Ate2 = new System.Windows.Forms.Label();
             this.label_Ate1 = new System.Windows.Forms.Label();
             this.dateTimePicker_AteAlbum = new System.Windows.Forms.DateTimePicker();
@@ -50,12 +56,6 @@
             this.DataCompra = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.OrigemCompra = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Classificacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.checkBox_Album = new System.Windows.Forms.CheckBox();
-            this.checkBox_Nota = new System.Windows.Forms.CheckBox();
-            this.checkBox_Midia = new System.Windows.Forms.CheckBox();
-            this.checkBox_Interprete = new System.Windows.Forms.CheckBox();
-            this.checkBox_Autor = new System.Windows.Forms.CheckBox();
-            this.checkBox_Nome = new System.Windows.Forms.CheckBox();
             this.dateTimePicker_Album = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_Compra = new System.Windows.Forms.DateTimePicker();
             this.checkBox_DataAlbum = new System.Windows.Forms.CheckBox();
@@ -72,7 +72,6 @@
             this.listView_ConsultaEmprestimos = new System.Windows.Forms.ListView();
             this.NomeAmigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TipoMidia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.NomeMusica = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NomeAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DataEmprestimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
@@ -115,23 +114,23 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label_OrigemCompra);
+            this.tabPage2.Controls.Add(this.label_Nota);
+            this.tabPage2.Controls.Add(this.label_Album);
+            this.tabPage2.Controls.Add(this.label_Autor);
+            this.tabPage2.Controls.Add(this.label_Midia);
+            this.tabPage2.Controls.Add(this.label_Interprete);
+            this.tabPage2.Controls.Add(this.label_Nome);
             this.tabPage2.Controls.Add(this.button_TodasMusicas);
             this.tabPage2.Controls.Add(this.button_Buscar);
             this.tabPage2.Controls.Add(this.button_Limpar);
             this.tabPage2.Controls.Add(this.textBox_OrigemCompra);
-            this.tabPage2.Controls.Add(this.checkBox_OrigemCompra);
             this.tabPage2.Controls.Add(this.label_Ate2);
             this.tabPage2.Controls.Add(this.label_Ate1);
             this.tabPage2.Controls.Add(this.dateTimePicker_AteAlbum);
             this.tabPage2.Controls.Add(this.dateTimePicker_AteCompra);
             this.tabPage2.Controls.Add(this.comboBox_Nota);
             this.tabPage2.Controls.Add(this.listView_ConsultaMusicas);
-            this.tabPage2.Controls.Add(this.checkBox_Album);
-            this.tabPage2.Controls.Add(this.checkBox_Nota);
-            this.tabPage2.Controls.Add(this.checkBox_Midia);
-            this.tabPage2.Controls.Add(this.checkBox_Interprete);
-            this.tabPage2.Controls.Add(this.checkBox_Autor);
-            this.tabPage2.Controls.Add(this.checkBox_Nome);
             this.tabPage2.Controls.Add(this.dateTimePicker_Album);
             this.tabPage2.Controls.Add(this.dateTimePicker_Compra);
             this.tabPage2.Controls.Add(this.checkBox_DataAlbum);
@@ -148,6 +147,69 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Músicas";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label_OrigemCompra
+            // 
+            this.label_OrigemCompra.AutoSize = true;
+            this.label_OrigemCompra.Location = new System.Drawing.Point(801, 13);
+            this.label_OrigemCompra.Name = "label_OrigemCompra";
+            this.label_OrigemCompra.Size = new System.Drawing.Size(97, 13);
+            this.label_OrigemCompra.TabIndex = 88;
+            this.label_OrigemCompra.Text = "Origem da Compra:";
+            // 
+            // label_Nota
+            // 
+            this.label_Nota.AutoSize = true;
+            this.label_Nota.Location = new System.Drawing.Point(466, 58);
+            this.label_Nota.Name = "label_Nota";
+            this.label_Nota.Size = new System.Drawing.Size(33, 13);
+            this.label_Nota.TabIndex = 87;
+            this.label_Nota.Text = "Nota:";
+            // 
+            // label_Album
+            // 
+            this.label_Album.AutoSize = true;
+            this.label_Album.Location = new System.Drawing.Point(246, 59);
+            this.label_Album.Name = "label_Album";
+            this.label_Album.Size = new System.Drawing.Size(39, 13);
+            this.label_Album.TabIndex = 86;
+            this.label_Album.Text = "Album:";
+            // 
+            // label_Autor
+            // 
+            this.label_Autor.AutoSize = true;
+            this.label_Autor.Location = new System.Drawing.Point(4, 59);
+            this.label_Autor.Name = "label_Autor";
+            this.label_Autor.Size = new System.Drawing.Size(35, 13);
+            this.label_Autor.TabIndex = 85;
+            this.label_Autor.Text = "Autor:";
+            // 
+            // label_Midia
+            // 
+            this.label_Midia.AutoSize = true;
+            this.label_Midia.Location = new System.Drawing.Point(462, 14);
+            this.label_Midia.Name = "label_Midia";
+            this.label_Midia.Size = new System.Drawing.Size(37, 13);
+            this.label_Midia.TabIndex = 84;
+            this.label_Midia.Text = "Mídia:";
+            // 
+            // label_Interprete
+            // 
+            this.label_Interprete.AutoSize = true;
+            this.label_Interprete.Location = new System.Drawing.Point(249, 14);
+            this.label_Interprete.Name = "label_Interprete";
+            this.label_Interprete.Size = new System.Drawing.Size(55, 13);
+            this.label_Interprete.TabIndex = 83;
+            this.label_Interprete.Text = "Intérprete:";
+            // 
+            // label_Nome
+            // 
+            this.label_Nome.AutoSize = true;
+            this.label_Nome.Location = new System.Drawing.Point(6, 14);
+            this.label_Nome.Name = "label_Nome";
+            this.label_Nome.Size = new System.Drawing.Size(38, 13);
+            this.label_Nome.TabIndex = 82;
+            this.label_Nome.Text = "Nome:";
             // 
             // button_TodasMusicas
             // 
@@ -184,16 +246,6 @@
             this.textBox_OrigemCompra.Name = "textBox_OrigemCompra";
             this.textBox_OrigemCompra.Size = new System.Drawing.Size(224, 20);
             this.textBox_OrigemCompra.TabIndex = 80;
-            // 
-            // checkBox_OrigemCompra
-            // 
-            this.checkBox_OrigemCompra.AutoSize = true;
-            this.checkBox_OrigemCompra.Location = new System.Drawing.Point(801, 12);
-            this.checkBox_OrigemCompra.Name = "checkBox_OrigemCompra";
-            this.checkBox_OrigemCompra.Size = new System.Drawing.Size(113, 17);
-            this.checkBox_OrigemCompra.TabIndex = 79;
-            this.checkBox_OrigemCompra.Text = "Origem da Compra";
-            this.checkBox_OrigemCompra.UseVisualStyleBackColor = true;
             // 
             // label_Ate2
             // 
@@ -264,6 +316,7 @@
             this.DataCompra,
             this.OrigemCompra,
             this.Classificacao});
+            this.listView_ConsultaMusicas.FullRowSelect = true;
             this.listView_ConsultaMusicas.Location = new System.Drawing.Point(3, 104);
             this.listView_ConsultaMusicas.Name = "listView_ConsultaMusicas";
             this.listView_ConsultaMusicas.Size = new System.Drawing.Size(1030, 346);
@@ -316,68 +369,6 @@
             this.Classificacao.Text = "Classificação";
             this.Classificacao.Width = 85;
             // 
-            // checkBox_Album
-            // 
-            this.checkBox_Album.AutoSize = true;
-            this.checkBox_Album.Location = new System.Drawing.Point(246, 58);
-            this.checkBox_Album.Name = "checkBox_Album";
-            this.checkBox_Album.Size = new System.Drawing.Size(58, 17);
-            this.checkBox_Album.TabIndex = 26;
-            this.checkBox_Album.Text = "Album:";
-            this.checkBox_Album.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_Nota
-            // 
-            this.checkBox_Nota.AutoSize = true;
-            this.checkBox_Nota.Location = new System.Drawing.Point(465, 58);
-            this.checkBox_Nota.Name = "checkBox_Nota";
-            this.checkBox_Nota.Size = new System.Drawing.Size(52, 17);
-            this.checkBox_Nota.TabIndex = 25;
-            this.checkBox_Nota.Text = "Nota:";
-            this.checkBox_Nota.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_Midia
-            // 
-            this.checkBox_Midia.AutoSize = true;
-            this.checkBox_Midia.Location = new System.Drawing.Point(465, 13);
-            this.checkBox_Midia.Name = "checkBox_Midia";
-            this.checkBox_Midia.Size = new System.Drawing.Size(56, 17);
-            this.checkBox_Midia.TabIndex = 24;
-            this.checkBox_Midia.Text = "Mídia:";
-            this.checkBox_Midia.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_Interprete
-            // 
-            this.checkBox_Interprete.AutoSize = true;
-            this.checkBox_Interprete.Location = new System.Drawing.Point(246, 14);
-            this.checkBox_Interprete.Name = "checkBox_Interprete";
-            this.checkBox_Interprete.Size = new System.Drawing.Size(74, 17);
-            this.checkBox_Interprete.TabIndex = 23;
-            this.checkBox_Interprete.Text = "Intérprete:";
-            this.checkBox_Interprete.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_Autor
-            // 
-            this.checkBox_Autor.AutoSize = true;
-            this.checkBox_Autor.Location = new System.Drawing.Point(3, 59);
-            this.checkBox_Autor.Name = "checkBox_Autor";
-            this.checkBox_Autor.Size = new System.Drawing.Size(54, 17);
-            this.checkBox_Autor.TabIndex = 22;
-            this.checkBox_Autor.Text = "Autor:";
-            this.checkBox_Autor.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_Nome
-            // 
-            this.checkBox_Nome.AutoSize = true;
-            this.checkBox_Nome.Checked = true;
-            this.checkBox_Nome.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_Nome.Location = new System.Drawing.Point(3, 14);
-            this.checkBox_Nome.Name = "checkBox_Nome";
-            this.checkBox_Nome.Size = new System.Drawing.Size(57, 17);
-            this.checkBox_Nome.TabIndex = 21;
-            this.checkBox_Nome.Text = "Nome:";
-            this.checkBox_Nome.UseVisualStyleBackColor = true;
-            // 
             // dateTimePicker_Album
             // 
             this.dateTimePicker_Album.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -420,6 +411,7 @@
             this.textBox_Interprete.Name = "textBox_Interprete";
             this.textBox_Interprete.Size = new System.Drawing.Size(213, 20);
             this.textBox_Interprete.TabIndex = 10;
+            this.textBox_Interprete.TextChanged += new System.EventHandler(this.textBox_Interprete_TextChanged);
             // 
             // textBox_Autor
             // 
@@ -427,6 +419,7 @@
             this.textBox_Autor.Name = "textBox_Autor";
             this.textBox_Autor.Size = new System.Drawing.Size(237, 20);
             this.textBox_Autor.TabIndex = 8;
+            this.textBox_Autor.TextChanged += new System.EventHandler(this.textBox_Interprete_TextChanged);
             // 
             // textBox_Album
             // 
@@ -455,6 +448,7 @@
             this.textBox_Nome.Name = "textBox_Nome";
             this.textBox_Nome.Size = new System.Drawing.Size(237, 20);
             this.textBox_Nome.TabIndex = 2;
+            this.textBox_Nome.TextChanged += new System.EventHandler(this.textBox_Interprete_TextChanged);
             // 
             // tabPage3
             // 
@@ -507,7 +501,6 @@
             this.listView_ConsultaEmprestimos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.NomeAmigo,
             this.TipoMidia,
-            this.NomeMusica,
             this.NomeAlbum,
             this.DataEmprestimo});
             this.listView_ConsultaEmprestimos.Location = new System.Drawing.Point(9, 58);
@@ -526,11 +519,6 @@
             // 
             this.TipoMidia.Text = "Mídia";
             this.TipoMidia.Width = 129;
-            // 
-            // NomeMusica
-            // 
-            this.NomeMusica.Text = "Nome da Música";
-            this.NomeMusica.Width = 259;
             // 
             // NomeAlbum
             // 
@@ -704,7 +692,6 @@
             this.Controls.Add(this.tabControl);
             this.Name = "Consultas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consultas";
             this.Load += new System.EventHandler(this.Consultas_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -734,12 +721,6 @@
         private System.Windows.Forms.CheckBox checkBox_DataAlbum;
         private System.Windows.Forms.CheckBox checkBox_DataCompra;
         private System.Windows.Forms.Button button_Limpar;
-        private System.Windows.Forms.CheckBox checkBox_Midia;
-        private System.Windows.Forms.CheckBox checkBox_Interprete;
-        private System.Windows.Forms.CheckBox checkBox_Autor;
-        private System.Windows.Forms.CheckBox checkBox_Nome;
-        private System.Windows.Forms.CheckBox checkBox_Album;
-        private System.Windows.Forms.CheckBox checkBox_Nota;
         private System.Windows.Forms.ListView listView_ConsultaMusicas;
         private System.Windows.Forms.ColumnHeader Musica;
         private System.Windows.Forms.ColumnHeader Album;
@@ -757,7 +738,6 @@
         private System.Windows.Forms.ListView listView_ConsultaEmprestimos;
         private System.Windows.Forms.ColumnHeader NomeAmigo;
         private System.Windows.Forms.ColumnHeader TipoMidia;
-        private System.Windows.Forms.ColumnHeader NomeMusica;
         private System.Windows.Forms.ColumnHeader NomeAlbum;
         private System.Windows.Forms.ColumnHeader DataEmprestimo;
         private System.Windows.Forms.Button button_BuscarDevolucao;
@@ -782,8 +762,14 @@
         private System.Windows.Forms.ColumnHeader DataCompra;
         private System.Windows.Forms.ColumnHeader OrigemCompra;
         private System.Windows.Forms.TextBox textBox_OrigemCompra;
-        private System.Windows.Forms.CheckBox checkBox_OrigemCompra;
         private System.Windows.Forms.Button button_TodasMusicas;
+        private System.Windows.Forms.Label label_OrigemCompra;
+        private System.Windows.Forms.Label label_Nota;
+        private System.Windows.Forms.Label label_Album;
+        private System.Windows.Forms.Label label_Autor;
+        private System.Windows.Forms.Label label_Midia;
+        private System.Windows.Forms.Label label_Interprete;
+        private System.Windows.Forms.Label label_Nome;
 
     }
 }

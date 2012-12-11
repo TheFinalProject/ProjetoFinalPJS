@@ -34,19 +34,19 @@
             this.comboBox_NomeMusicas = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.listView_Emprestimos = new System.Windows.Forms.ListView();
-            this.DataEmprestimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NomeAmigo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NomeAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DataEmprestimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateTimePicker_emprestimo = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label_Emprestados = new System.Windows.Forms.Label();
             this.button_ConsultarAmigos = new System.Windows.Forms.Button();
             this.button_ConsultarAlbum = new System.Windows.Forms.Button();
             this.button_Emprestar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label_Emprestados = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -114,20 +114,20 @@
             this.listView_Emprestimos.UseCompatibleStateImageBehavior = false;
             this.listView_Emprestimos.View = System.Windows.Forms.View.Details;
             // 
-            // DataEmprestimo
-            // 
-            this.DataEmprestimo.Text = "Data de Emprestimo";
-            this.DataEmprestimo.Width = 174;
-            // 
             // NomeAmigo
             // 
             this.NomeAmigo.Text = "Nome do Amigo";
-            this.NomeAmigo.Width = 241;
+            this.NomeAmigo.Width = 291;
             // 
             // NomeAlbum
             // 
             this.NomeAlbum.Text = "Nome do Album";
-            this.NomeAlbum.Width = 242;
+            this.NomeAlbum.Width = 312;
+            // 
+            // DataEmprestimo
+            // 
+            this.DataEmprestimo.Text = "Data de Emprestimo";
+            this.DataEmprestimo.Width = 174;
             // 
             // dateTimePicker_emprestimo
             // 
@@ -179,6 +179,24 @@
             this.tabPage1.Text = "Emprestimos";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(530, 172);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(256, 20);
+            this.textBox1.TabIndex = 12;
+            // 
+            // label_Emprestados
+            // 
+            this.label_Emprestados.AutoSize = true;
+            this.label_Emprestados.ForeColor = System.Drawing.Color.Red;
+            this.label_Emprestados.Location = new System.Drawing.Point(4, 180);
+            this.label_Emprestados.Name = "label_Emprestados";
+            this.label_Emprestados.Size = new System.Drawing.Size(67, 13);
+            this.label_Emprestados.TabIndex = 11;
+            this.label_Emprestados.Text = "Nome Album";
+            this.label_Emprestados.Visible = false;
+            // 
             // button_ConsultarAmigos
             // 
             this.button_ConsultarAmigos.Location = new System.Drawing.Point(9, 78);
@@ -214,28 +232,10 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(795, 459);
+            this.tabPage2.Size = new System.Drawing.Size(795, 527);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Devoluções";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label_Emprestados
-            // 
-            this.label_Emprestados.AutoSize = true;
-            this.label_Emprestados.ForeColor = System.Drawing.Color.Red;
-            this.label_Emprestados.Location = new System.Drawing.Point(4, 180);
-            this.label_Emprestados.Name = "label_Emprestados";
-            this.label_Emprestados.Size = new System.Drawing.Size(67, 13);
-            this.label_Emprestados.TabIndex = 11;
-            this.label_Emprestados.Text = "Nome Album";
-            this.label_Emprestados.Visible = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(530, 172);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(256, 20);
-            this.textBox1.TabIndex = 12;
             // 
             // Emprestimos
             // 
