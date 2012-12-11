@@ -188,9 +188,18 @@ namespace AcervoMusical
                     {
                         label_AvisoAdicionar.Visible = true;
                         label_AvisoAdicionar.Text = "Campos *obrigatórios não preenchidos";
-                        textBox_Autor.BackColor = Color.OldLace;
-                        textBox_Interprete.BackColor = Color.OldLace;
-                        comboBox_Midia.BackColor = Color.OldLace;
+                        if (textBox_Autor.Text == "")
+                        {
+                            textBox_Autor.BackColor = Color.OldLace;
+                        }
+                        if (textBox_Interprete.Text == "")
+                        {
+                            textBox_Interprete.BackColor = Color.OldLace;
+                        }
+                        if (comboBox_Midia.SelectedItem == null)
+                        {
+                            comboBox_Midia.BackColor = Color.OldLace;
+                        }
                     }
                     finally
                     {
