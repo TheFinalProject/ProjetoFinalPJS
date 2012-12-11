@@ -60,143 +60,187 @@ namespace AcervoMusical
             if (button_Adicionar.Text == "Adicionar")
             {
                 if (FP.Conector.Conectar())
-                {
-                    try
-                    {
-                        SqlCommand Adicionar = new SqlCommand("Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)", FP.Conector.Conexao);
-                        #region Parametros
-                        #region ParametroInterprete
-                        SqlParameter NomeInterprete = new SqlParameter();
-                        NomeInterprete.Value = textBox_Interprete.Text;
-                        NomeInterprete.SourceColumn = "Nome_Interprete";
-                        NomeInterprete.ParameterName = "@Interprete";
-                        NomeInterprete.SqlDbType = SqlDbType.VarChar;
-                        NomeInterprete.Size = 50;
-                        #endregion
-
+                {                    
+                   if((textBox_Interprete.Text != "") && (textBox_Autor.Text != "") && (comboBox_Midia.Text != ""))
+                   {
+                       SqlCommand VerficaDublicidade = new SqlCommand("Select count(*) from Musicas where (Nome_Autor = @Autor) and (Nome_Interprete = @Interprete) and (Tipo_Midia = @Midia)", FP.Conector.Conexao);
                         #region ParametroAutor
-                        SqlParameter Autor = new SqlParameter();
-                        Autor.SourceColumn = "Nome_Autor";
-                        Autor.Value = textBox_Autor.Text;
-                        Autor.ParameterName = "@Autor";
-                        Autor.SqlDbType = SqlDbType.VarChar;
-                        Autor.Size = 50;
+                        SqlParameter AutorVerificador = new SqlParameter();
+                        AutorVerificador.SourceColumn = "Nome_Autor";
+                        AutorVerificador.Value = textBox_Autor.Text;
+                        AutorVerificador.ParameterName = "@Autor";
+                        AutorVerificador.SqlDbType = SqlDbType.VarChar;
+                        AutorVerificador.Size = 50;
                         #endregion
 
-                        #region ParametroAlbum
-                        SqlParameter Album = new SqlParameter();
-                        Album.SourceColumn = "Nome_Album";
-                        Album.Value = textBox_Album.Text;
-                        Album.ParameterName = "@Album";
-                        Album.SqlDbType = SqlDbType.VarChar;
-                        Album.Size = 50;
-                        #endregion
-
-                        #region ParametroDataAlbum
-                        SqlParameter DataAlbum = new SqlParameter();
-                        DataAlbum.SourceColumn = "Data_Album";
-                        DataAlbum.SqlDbType = SqlDbType.Date;
-                        DataAlbum.Value = dateTimePicker_DataAlbum.Value.ToShortDateString();
-                        DataAlbum.ParameterName = "@DataAlbum";
-
-                        #endregion
-
-                        #region ParametroDataCompra
-                        SqlParameter DataCompra = new SqlParameter();
-                        DataCompra.SourceColumn = "Data_Compra";
-                        DataCompra.SqlDbType = SqlDbType.Date;
-                        DataCompra.Value = dateTimePicker_DataCampra.Value.ToShortDateString();
-                        DataCompra.ParameterName = "@DataCompra";
-
-                        #endregion
-
-                        #region ParametroOrigem
-                        SqlParameter Origem = new SqlParameter();
-                        Origem.SourceColumn = "Origem_Compra";
-                        Origem.Value = textBox_Origem.Text;
-                        Origem.ParameterName = "@Origem";
-                        Origem.SqlDbType = SqlDbType.VarChar;
-                        Origem.Size = 40;
-                        #endregion
-
-                        #region ParametroObservação
-                        SqlParameter Observacao = new SqlParameter();
-                        Observacao.SourceColumn = "Observacao";
-                        Observacao.Value = textBox_Observacao.Text;
-                        Observacao.ParameterName = "@Observacao";
-                        Observacao.SqlDbType = SqlDbType.VarChar;
-                        Observacao.Size = 200;
+                        #region ParametroInterprete
+                        SqlParameter InterpreteVerificador = new SqlParameter();
+                        InterpreteVerificador.Value = textBox_Interprete.Text;
+                        InterpreteVerificador.SourceColumn = "Nome_Interprete";
+                        InterpreteVerificador.ParameterName = "@Interprete";
+                        InterpreteVerificador.SqlDbType = SqlDbType.VarChar;
+                        InterpreteVerificador.Size = 50;
                         #endregion
 
                         #region ParametroMidia
-                        SqlParameter Midia = new SqlParameter();
-                        Midia.SourceColumn = "Tipo_Midia";
-                        Midia.Value = comboBox_Midia.SelectedItem.ToString();
-                        Midia.ParameterName = "@Midia";
-                        Midia.SqlDbType = SqlDbType.VarChar;
-                        Midia.Size = 10;
+                        SqlParameter MidiaVerificador = new SqlParameter();
+                        MidiaVerificador.SourceColumn = "Tipo_Midia";
+                        MidiaVerificador.Value = comboBox_Midia.SelectedItem.ToString();
+                        MidiaVerificador.ParameterName = "@Midia";
+                        MidiaVerificador.SqlDbType = SqlDbType.VarChar;
+                        MidiaVerificador.Size = 10;
                         #endregion
 
-                        #region ParametroNota
-                        
-                        SqlParameter Nota = new SqlParameter();
-                        Nota.SourceColumn = "Nota";
-                        if (comboBox_Classificacao.Text != "")
-                            Nota.Value = comboBox_Classificacao.Text;
+                        VerficaDublicidade.Parameters.AddRange(new SqlParameter[]{AutorVerificador, InterpreteVerificador, MidiaVerificador });
+                        int Verificador = (int)VerficaDublicidade.ExecuteScalar();
+                        if (Verificador == 0)
+                        {
+                            SqlCommand Adicionar = new SqlCommand("Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)", FP.Conector.Conexao);
+                            #region Parametros
+                            #region ParametroInterprete
+                            SqlParameter NomeInterprete = new SqlParameter();
+                            NomeInterprete.Value = textBox_Interprete.Text;
+                            NomeInterprete.SourceColumn = "Nome_Interprete";
+                            NomeInterprete.ParameterName = "@Interprete";
+                            NomeInterprete.SqlDbType = SqlDbType.VarChar;
+                            NomeInterprete.Size = 50;
+                            #endregion
+
+                            #region ParametroAutor
+                            SqlParameter Autor = new SqlParameter();
+                            Autor.SourceColumn = "Nome_Autor";
+                            Autor.Value = textBox_Autor.Text;
+                            Autor.ParameterName = "@Autor";
+                            Autor.SqlDbType = SqlDbType.VarChar;
+                            Autor.Size = 50;
+                            #endregion
+
+                            #region ParametroAlbum
+                            SqlParameter Album = new SqlParameter();
+                            Album.SourceColumn = "Nome_Album";
+                            Album.Value = textBox_Album.Text;
+                            Album.ParameterName = "@Album";
+                            Album.SqlDbType = SqlDbType.VarChar;
+                            Album.Size = 50;
+                            #endregion
+
+                            #region ParametroDataAlbum
+                            SqlParameter DataAlbum = new SqlParameter();
+                            DataAlbum.SourceColumn = "Data_Album";
+                            DataAlbum.SqlDbType = SqlDbType.Date;
+                            DataAlbum.Value = dateTimePicker_DataAlbum.Value.ToShortDateString();
+                            DataAlbum.ParameterName = "@DataAlbum";
+
+                            #endregion
+
+                            #region ParametroDataCompra
+                            SqlParameter DataCompra = new SqlParameter();
+                            DataCompra.SourceColumn = "Data_Compra";
+                            DataCompra.SqlDbType = SqlDbType.Date;
+                            DataCompra.Value = dateTimePicker_DataCampra.Value.ToShortDateString();
+                            DataCompra.ParameterName = "@DataCompra";
+
+                            #endregion
+
+                            #region ParametroOrigem
+                            SqlParameter Origem = new SqlParameter();
+                            Origem.SourceColumn = "Origem_Compra";
+                            Origem.Value = textBox_Origem.Text;
+                            Origem.ParameterName = "@Origem";
+                            Origem.SqlDbType = SqlDbType.VarChar;
+                            Origem.Size = 40;
+                            #endregion
+
+                            #region ParametroObservação
+                            SqlParameter Observacao = new SqlParameter();
+                            Observacao.SourceColumn = "Observacao";
+                            Observacao.Value = textBox_Observacao.Text;
+                            Observacao.ParameterName = "@Observacao";
+                            Observacao.SqlDbType = SqlDbType.VarChar;
+                            Observacao.Size = 200;
+                            #endregion
+
+                            #region ParametroMidia
+                            SqlParameter Midia = new SqlParameter();
+                            Midia.SourceColumn = "Tipo_Midia";
+                            Midia.Value = comboBox_Midia.SelectedItem.ToString();
+                            Midia.ParameterName = "@Midia";
+                            Midia.SqlDbType = SqlDbType.VarChar;
+                            Midia.Size = 10;
+                            #endregion
+
+                            #region ParametroNota
+
+                            SqlParameter Nota = new SqlParameter();
+                            Nota.SourceColumn = "Nota";
+                            if (comboBox_Classificacao.Text != "")
+                                Nota.Value = comboBox_Classificacao.Text;
+                            else
+                                Nota.Value = 0;
+                            Nota.ParameterName = "@Nota";
+                            Nota.SqlDbType = SqlDbType.SmallInt;
+                            #endregion
+
+                            #region ParametroStatus
+                            SqlParameter Status = new SqlParameter();
+                            Status.SourceColumn = "Status";
+                            Status.Value = 0;
+                            Status.ParameterName = "@Status";
+                            Status.SqlDbType = SqlDbType.Bit;
+
+                            #endregion
+
+                            #region ParametroMusica
+                            SqlParameter Musica = new SqlParameter();
+                            Musica.SourceColumn = "Nome_Musica";
+                            Musica.Value = textBox_Musicas.Text;
+                            Musica.ParameterName = "@Musica";
+                            Musica.SqlDbType = SqlDbType.VarChar;
+                            Musica.Size = 50;
+                            #endregion
+                            #endregion
+
+                            Adicionar.Parameters.AddRange(new SqlParameter[] { NomeInterprete, Autor, Album, DataAlbum, DataCompra, Origem, Midia, Observacao, Nota, Musica, Status });
+                            Adicionar.ExecuteNonQuery();
+
+                            Musicas = new ListViewItem();
+                            Musicas.Group = listView_Cadastro_Musicas.Groups[comboBox_Midia.Text];
+                            Musicas.Text = textBox_Musicas.Text;
+                            Musicas.SubItems.Add(textBox_Album.Text);
+                            Musicas.SubItems.Add(textBox_Autor.Text);
+                            Musicas.SubItems.Add(textBox_Interprete.Text);
+                            Musicas.SubItems.Add(comboBox_Classificacao.Text);
+                            Musicas.SubItems.Add(textBox_Observacao.Text);
+
+                            listView_Cadastro_Musicas.Items.Add(Musicas);
+
+                            LimparTextBox();
+                        }
                         else
-                            Nota.Value = 0;
-                        Nota.ParameterName = "@Nota";
-                        Nota.SqlDbType = SqlDbType.SmallInt;
-                        #endregion
-
-                        #region ParametroStatus
-                        SqlParameter Status = new SqlParameter();
-                        Status.SourceColumn = "Status";
-                        Status.Value = 0;
-                        Status.ParameterName = "@Status";
-                        Status.SqlDbType = SqlDbType.Bit;
-
-                        #endregion
-
-                        #region ParametroMusica
-                        SqlParameter Musica = new SqlParameter();
-                        Musica.SourceColumn = "Nome_Musica";
-                        Musica.Value = textBox_Musicas.Text;
-                        Musica.ParameterName = "@Musica";
-                        Musica.SqlDbType = SqlDbType.VarChar;
-                        Musica.Size = 50;
-                        #endregion
-                        #endregion
-
-                        Adicionar.Parameters.AddRange(new SqlParameter[] { NomeInterprete, Autor, Album, DataAlbum, DataCompra, Origem, Midia, Observacao, Nota, Musica, Status });
-                        Adicionar.ExecuteNonQuery();
-                        
-                        Musicas = new ListViewItem();
-                        Musicas.Group = listView_Cadastro_Musicas.Groups[comboBox_Midia.Text];
-                        Musicas.Text = textBox_Musicas.Text;
-                        Musicas.SubItems.Add(textBox_Album.Text);
-                        Musicas.SubItems.Add(textBox_Autor.Text);
-                        Musicas.SubItems.Add(textBox_Interprete.Text);
-                        Musicas.SubItems.Add(comboBox_Classificacao.Text);
-                        Musicas.SubItems.Add(textBox_Observacao.Text);
-
-                        listView_Cadastro_Musicas.Items.Add(Musicas);
-
-                        LimparTextBox();
+                        {
+                            label_AvisoAdicionar.Visible = true;
+                            label_AvisoAdicionar.Text = "Já existe esse registro!"; 
+                        }
                     }
-                    catch
+                   else
                     {
                         label_AvisoAdicionar.Visible = true;
                         label_AvisoAdicionar.Text = "Campos *obrigatórios não preenchidos";
-                        textBox_Autor.BackColor = Color.OldLace;
-                        textBox_Interprete.BackColor = Color.OldLace;
-                        comboBox_Midia.BackColor = Color.OldLace;
+                        if (textBox_Autor.Text == "")
+                        {
+                            textBox_Autor.BackColor = Color.OldLace;
+                        }
+                        if (textBox_Interprete.Text == "")
+                        {
+                            textBox_Interprete.BackColor = Color.OldLace;
+                        }
+                        if (comboBox_Midia.SelectedItem == null)
+                        {
+                            comboBox_Midia.BackColor = Color.OldLace;
+                        }
                     }
-                    finally
-                    {
                         if (FP.Conector != null)
                             FP.Conector.Conexao.Close();
-                    }
                 }
             }
             else
