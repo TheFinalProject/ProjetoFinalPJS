@@ -137,6 +137,7 @@ CREATE TABLE Emprestimos
 (
 	Data_Emprestimo DATE,
 	Data_Devolucao DATE,
+	EmprestimosTipo_Midia VARCHAR(20),
 	
 	EmprestimosId_musicas INT,
 	EmprestimosId_amigo INT,
@@ -157,6 +158,7 @@ EXEC IniciarConfiguracoes
 GO
 
 EXEC Padrao
+GO
 
 SELECT * FROM Cidades
 SELECT * FROM Amigos
