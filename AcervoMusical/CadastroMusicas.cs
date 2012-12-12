@@ -209,7 +209,7 @@ namespace AcervoMusical
                             Musicas.SubItems.Add(textBox_Album.Text);
                             Musicas.SubItems.Add(textBox_Autor.Text);
                             Musicas.SubItems.Add(textBox_Interprete.Text);
-                            Musicas.SubItems.Add(comboBox_Classificacao.Text);
+                            Musicas.SubItems.Add(Nota.Value.ToString());
                             Musicas.SubItems.Add(textBox_Observacao.Text);
 
                             listView_Cadastro_Musicas.Items.Add(Musicas);

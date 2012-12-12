@@ -343,7 +343,7 @@
             // button_Remover
             // 
             this.button_Remover.Enabled = false;
-            this.button_Remover.Location = new System.Drawing.Point(574, 21);
+            this.button_Remover.Location = new System.Drawing.Point(565, 21);
             this.button_Remover.Name = "button_Remover";
             this.button_Remover.Size = new System.Drawing.Size(75, 23);
             this.button_Remover.TabIndex = 13;
@@ -355,7 +355,7 @@
             // 
             this.textBox_BuscaMusica.Location = new System.Drawing.Point(16, 21);
             this.textBox_BuscaMusica.Name = "textBox_BuscaMusica";
-            this.textBox_BuscaMusica.Size = new System.Drawing.Size(552, 20);
+            this.textBox_BuscaMusica.Size = new System.Drawing.Size(543, 20);
             this.textBox_BuscaMusica.TabIndex = 12;
             this.textBox_BuscaMusica.TextChanged += new System.EventHandler(this.textBox_BuscaMusica_TextChanged);
             // 
@@ -452,6 +452,7 @@
             this.Controls.Add(this.label_Interprete);
             this.Controls.Add(this.label_Origem_Compra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1024, 778);
             this.Name = "CadastroMusicas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
