@@ -219,7 +219,7 @@ namespace AcervoMusical
                         else
                         {
                             label_AvisoAdicionar.Visible = true;
-                            label_AvisoAdicionar.Text = "Já existe esse registro!"; 
+                            label_AvisoAdicionar.Text = "Já existe este registro!"; 
                         }
                     }
                    else
