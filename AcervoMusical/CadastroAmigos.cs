@@ -87,128 +87,152 @@ namespace AcervoMusical
             {
                 if (FP.Conector.Conectar())
                 {
-                    try
+                    SqlCommand VerficaDublicidade = new SqlCommand("Select count(*) from Amigos where (Nome = @Nome) and (Telefone = @Telefone) and (Email = @Email)", FP.Conector.Conexao);
+
+
+                    #region Parametros Duplicidade
+                    SqlParameter NomeVerificador = new SqlParameter();
+                    NomeVerificador.Value = textBox_NomeAmigo.Text;
+                    NomeVerificador.SourceColumn = "Nome";
+                    NomeVerificador.ParameterName = "@Nome";
+                    NomeVerificador.SqlDbType = SqlDbType.VarChar;
+                    NomeVerificador.Size = 50;
+
+
+                    SqlParameter TelefoneVerificador = new SqlParameter();
+                    TelefoneVerificador.SourceColumn = "Telefone";
+                    TelefoneVerificador.Value = maskedTextBox_Telefone.Text;
+                    TelefoneVerificador.ParameterName = "@Telefone";
+                    TelefoneVerificador.SqlDbType = SqlDbType.Char;
+                    TelefoneVerificador.Size = 15;
+
+                    SqlParameter EmailVerificador = new SqlParameter();
+                    EmailVerificador.SourceColumn = "Email";
+                    EmailVerificador.Value = textBox_Email.Text;
+                    EmailVerificador.ParameterName = "@Email";
+                    EmailVerificador.SqlDbType = SqlDbType.VarChar;
+                    EmailVerificador.Size = 50;
+                    #endregion
+
+                    VerficaDublicidade.Parameters.AddRange(new SqlParameter[] { NomeVerificador, TelefoneVerificador, EmailVerificador });
+                    int Verificador = (int)VerficaDublicidade.ExecuteScalar();
+                    if (Verificador == 0)
                     {
-                        SqlCommand Comando = new SqlCommand("Insert into Amigos (Nome, Telefone, Endereço, Bairro, Numero, Email, AmigosId_Cidade, AmigosId_Estado) values (@Nome, @Telefone, @Endereço, @Bairro, @Numero, @Email, @AmigosId_Cidade, @AmigosId_Estado)", FP.Conector.Conexao);
-                        #region Parametros
-                        #region Param_Amigo
-                        SqlParameter NomeAmigo = new SqlParameter();
-                        NomeAmigo.Value = textBox_NomeAmigo.Text;
-                        NomeAmigo.SourceColumn = "Nome";
-                        NomeAmigo.ParameterName = "@Nome";
-                        NomeAmigo.SqlDbType = SqlDbType.VarChar;
-                        NomeAmigo.Size = 50;
-                        #endregion
+                        try
+                        {
+                            SqlCommand Comando = new SqlCommand("Insert into Amigos (Nome, Telefone, Endereço, Bairro, Numero, Email, AmigosId_Cidade, AmigosId_Estado) values (@Nome, @Telefone, @Endereço, @Bairro, @Numero, @Email, @AmigosId_Cidade, @AmigosId_Estado)", FP.Conector.Conexao);
+                            #region Parametros
+                            #region Param_Amigo
+                            SqlParameter NomeAmigo = new SqlParameter();
+                            NomeAmigo.Value = textBox_NomeAmigo.Text;
+                            NomeAmigo.SourceColumn = "Nome";
+                            NomeAmigo.ParameterName = "@Nome";
+                            NomeAmigo.SqlDbType = SqlDbType.VarChar;
+                            NomeAmigo.Size = 50;
+                            #endregion
 
-                        #region Param_Telefone
-                        SqlParameter Telefone = new SqlParameter();
-                        Telefone.SourceColumn = "Telefone";
-                        Telefone.Value = maskedTextBox_Telefone.Text;
-                        Telefone.ParameterName = "@Telefone";
-                        Telefone.SqlDbType = SqlDbType.Char;
-                        Telefone.Size = 15;
-                        #endregion
+                            #region Param_Telefone
+                            SqlParameter Telefone = new SqlParameter();
+                            Telefone.SourceColumn = "Telefone";
+                            Telefone.Value = maskedTextBox_Telefone.Text;
+                            Telefone.ParameterName = "@Telefone";
+                            Telefone.SqlDbType = SqlDbType.Char;
+                            Telefone.Size = 15;
+                            #endregion
 
-                        #region Param_Endereço
-                        SqlParameter Endereco = new SqlParameter();
-                        Endereco.SourceColumn = "Endereço";
-                        Endereco.Value = textBox_Endereco.Text;
-                        Endereco.ParameterName = "@Endereço";
-                        Endereco.SqlDbType = SqlDbType.VarChar;
-                        Endereco.Size = 50;
-                        #endregion
+                            #region Param_Endereço
+                            SqlParameter Endereco = new SqlParameter();
+                            Endereco.SourceColumn = "Endereço";
+                            Endereco.Value = textBox_Endereco.Text;
+                            Endereco.ParameterName = "@Endereço";
+                            Endereco.SqlDbType = SqlDbType.VarChar;
+                            Endereco.Size = 50;
+                            #endregion
 
-                        #region Param_Bairro
-                        SqlParameter Bairro = new SqlParameter();
-                        Bairro.SourceColumn = "Bairro";
-                        Bairro.Value = textBox_Bairro.Text;
-                        Bairro.ParameterName = "@Bairro";
-                        Bairro.SqlDbType = SqlDbType.VarChar;
+                            #region Param_Bairro
+                            SqlParameter Bairro = new SqlParameter();
+                            Bairro.SourceColumn = "Bairro";
+                            Bairro.Value = textBox_Bairro.Text;
+                            Bairro.ParameterName = "@Bairro";
+                            Bairro.SqlDbType = SqlDbType.VarChar;
 
 
-                        #endregion
+                            #endregion
 
-                        #region Param_Numero
-                        SqlParameter Numero = new SqlParameter();
-                        Numero.SourceColumn = "Numero";
-                        Numero.Value = textBox_Numero.Text;
-                        Numero.ParameterName = "@Numero";
-                        Numero.SqlDbType = SqlDbType.Char;
-                        Numero.Size = 10;
-                        #endregion
+                            #region Param_Numero
+                            SqlParameter Numero = new SqlParameter();
+                            Numero.SourceColumn = "Numero";
+                            Numero.Value = textBox_Numero.Text;
+                            Numero.ParameterName = "@Numero";
+                            Numero.SqlDbType = SqlDbType.Char;
+                            Numero.Size = 10;
+                            #endregion
 
-                        #region Param_Email
-                        SqlParameter Email = new SqlParameter();
-                        Email.SourceColumn = "Email";
-                        Email.Value = textBox_Email.Text;
-                        Email.ParameterName = "@Email";
-                        Email.SqlDbType = SqlDbType.VarChar;
-                        Email.Size = 50;
-                        #endregion
+                            #region Param_Email
+                            SqlParameter Email = new SqlParameter();
+                            Email.SourceColumn = "Email";
+                            Email.Value = textBox_Email.Text;
+                            Email.ParameterName = "@Email";
+                            Email.SqlDbType = SqlDbType.VarChar;
+                            Email.Size = 50;
+                            #endregion
 
-                        #region Param_Cidade
-                        SqlParameter Cidade = new SqlParameter();
-                        Cidade.SourceColumn = "AmigosId_Cidade";
-                        Cidade.Value = Id_Cidade;
-                        Cidade.ParameterName = "@AmigosId_Cidade";
-                        Cidade.SqlDbType = SqlDbType.Int;
+                            #region Param_Cidade
+                            SqlParameter Cidade = new SqlParameter();
+                            Cidade.SourceColumn = "AmigosId_Cidade";
+                            Cidade.Value = Id_Cidade;
+                            Cidade.ParameterName = "@AmigosId_Cidade";
+                            Cidade.SqlDbType = SqlDbType.Int;
 
-                        #endregion
+                            #endregion
 
-                        #region Param_Estado
-                        SqlParameter Estado = new SqlParameter();
-                        Estado.SourceColumn = "AmigosId_Estado";
-                        Estado.Value = comboBox_UF.Text;
-                        Estado.ParameterName = "@AmigosId_Estado";
-                        Estado.SqlDbType = SqlDbType.Char;
-                        Estado.Size = 3;
-                        #endregion
-                        #endregion
+                            #region Param_Estado
+                            SqlParameter Estado = new SqlParameter();
+                            Estado.SourceColumn = "AmigosId_Estado";
+                            Estado.Value = comboBox_UF.Text;
+                            Estado.ParameterName = "@AmigosId_Estado";
+                            Estado.SqlDbType = SqlDbType.Char;
+                            Estado.Size = 3;
+                            #endregion
+                            #endregion
 
-                        Comando.Parameters.AddRange(new SqlParameter[] { NomeAmigo, Telefone, Endereco, Bairro, Numero, Email, Cidade, Estado });
-                        Comando.ExecuteNonQuery();
+                            Comando.Parameters.AddRange(new SqlParameter[] { NomeAmigo, Telefone, Endereco, Bairro, Numero, Email, Cidade, Estado });
+                            Comando.ExecuteNonQuery();
 
-                        #region Adicionar no listview
-                        Amigos = new ListViewItem();
-                        Amigos.Text = textBox_NomeAmigo.Text;
-                        Amigos.SubItems.Add(maskedTextBox_Telefone.Text);
-                        Amigos.SubItems.Add(textBox_Endereco.Text);
-                        Amigos.SubItems.Add(textBox_Numero.Text);
-                        Amigos.SubItems.Add(textBox_Bairro.Text);
-                        Amigos.SubItems.Add(textBox_Email.Text);
-                        Amigos.SubItems.Add(comboBox_Cidade.Text);
-                        Amigos.SubItems.Add(comboBox_UF.Text);
-                        listView_CadastroAmigos.Items.Add(Amigos);
-                        #endregion
+                            #region Adicionar no listview
+                            Amigos = new ListViewItem();
+                            Amigos.Text = textBox_NomeAmigo.Text;
+                            Amigos.SubItems.Add(maskedTextBox_Telefone.Text);
+                            Amigos.SubItems.Add(textBox_Endereco.Text);
+                            Amigos.SubItems.Add(textBox_Numero.Text);
+                            Amigos.SubItems.Add(textBox_Bairro.Text);
+                            Amigos.SubItems.Add(textBox_Email.Text);
+                            Amigos.SubItems.Add(comboBox_Cidade.Text);
+                            Amigos.SubItems.Add(comboBox_UF.Text);
+                            listView_CadastroAmigos.Items.Add(Amigos);
+                            #endregion
 
+                        }
+                        catch
+                        {
+                            label_Aviso.Visible = true;
+                            textBox_NomeAmigo.BackColor = Color.OldLace;
+                            textBox_Email.BackColor = Color.OldLace;
+                            maskedTextBox_Telefone.BackColor = Color.OldLace;
+                            comboBox_UF.BackColor = Color.OldLace;
+                            comboBox_Cidade.BackColor = Color.OldLace;
+                        }
+                        finally
+                        {
+                            if (FP.Conector != null)
+                                FP.Conector.Conexao.Close();
+                        }
                     }
-                    catch
+                    else
                     {
-                        label_Aviso.Visible = true;
-                        textBox_NomeAmigo.BackColor = Color.OldLace;
-                        textBox_Email.BackColor = Color.OldLace;
-                        maskedTextBox_Telefone.BackColor = Color.OldLace;
-                        comboBox_UF.BackColor = Color.OldLace;
-                        comboBox_Cidade.BackColor = Color.OldLace;
-                    }
-                    finally
-                    {
-                        if (FP.Conector != null)
-                            FP.Conector.Conexao.Close();
+                        label_RegistroExistente.Visible = true;
                     }
                 }
-                #region limpar Campos
-                textBox_NomeAmigo.Clear();
-                textBox_Endereco.Clear();
-                textBox_Email.Clear();
-                textBox_Bairro.Clear();
-                textBox_Numero.Clear();
-                textBox_Remover.Clear();
-                comboBox_Cidade.Text = "";
-                comboBox_UF.Text = "";
-                maskedTextBox_Telefone.Clear();
-                #endregion
-
             }
             else
             {
@@ -294,8 +318,7 @@ namespace AcervoMusical
                     TelConsulta.Size = 15;
 
                     SqlParameter EmailConsulta = new SqlParameter();
-                    EmailConsulta.SourceColumn = "Email";
-                    EmailConsulta.Value = listView_CadastroAmigos.FocusedItem.SubItems[4].Text;
+                    EmailConsulta.Value = listView_CadastroAmigos.FocusedItem.SubItems[5].Text;
                     EmailConsulta.ParameterName = "@EmailAmigo";
                     EmailConsulta.SqlDbType = SqlDbType.VarChar;
                     EmailConsulta.Size = 50;
@@ -331,6 +354,19 @@ namespace AcervoMusical
                 {
                     FP.Conector.Desconectar();
                 }
+
+                #region limpar Campos
+                textBox_NomeAmigo.Clear();
+                textBox_Endereco.Clear();
+                textBox_Email.Clear();
+                textBox_Bairro.Clear();
+                textBox_Numero.Clear();
+                textBox_Remover.Clear();
+                comboBox_Cidade.Text = "";
+                comboBox_UF.Text = "";
+                maskedTextBox_Telefone.Clear();
+                #endregion
+
                 button_Cadastrar.Text = "Adicionar";
 
             }
@@ -499,7 +535,6 @@ namespace AcervoMusical
                 textBox_Numero.Text = listView_CadastroAmigos.FocusedItem.SubItems[3].Text;
                 comboBox_Cidade.Text = listView_CadastroAmigos.FocusedItem.SubItems[6].Text;
                 comboBox_UF.Text = listView_CadastroAmigos.FocusedItem.SubItems[7].Text;
-                textBox_Remover.Text = listView_CadastroAmigos.SelectedItems[0].Text;
 
 
             }
@@ -545,7 +580,7 @@ namespace AcervoMusical
         {
             FP.Conector.Conectar();
             DataSet DataFiltro = new DataSet();
-            SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("SELECT * FROM Amigos", FP.Conector.Conexao);
+            SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("Select Amigos.Nome, Amigos.Telefone, Amigos.Endereço, Amigos.Numero, Amigos.Email,Amigos.Bairro, Cidades.NomeCidade, Cidades.CidadeId_uf FROM Amigos INNER JOIN Cidades ON Amigos.AmigosId_Cidade = Cidades.id_Cidade", FP.Conector.Conexao);
             AdaptadorFiltro.Fill(DataFiltro, "Amigos");
             DataTable TabelaFiltro = DataFiltro.Tables["Amigos"];
 
@@ -575,11 +610,12 @@ namespace AcervoMusical
                     InseriAmigos.SubItems.Add(RegistroAmigos["Numero"].ToString());
                     InseriAmigos.SubItems.Add(RegistroAmigos["Bairro"].ToString());
                     InseriAmigos.SubItems.Add(RegistroAmigos["Email"].ToString());
-                    InseriAmigos.SubItems.Add(RegistroAmigos["AmigosId_Cidade"].ToString());
-                    InseriAmigos.SubItems.Add(RegistroAmigos["AmigosId_Estado"].ToString());
+                    InseriAmigos.SubItems.Add(RegistroAmigos["NomeCidade"].ToString());
+                    InseriAmigos.SubItems.Add(RegistroAmigos["CidadeId_uf"].ToString());
                     listView_CadastroAmigos.Items.Add(InseriAmigos);
                 }
             }
+            FP.Conector.Desconectar();
         }
     }
 }

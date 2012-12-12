@@ -61,6 +61,7 @@
             this.label_Aviso = new System.Windows.Forms.Label();
             this.panel_CadastroAmigos = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label_RegistroExistente = new System.Windows.Forms.Label();
             this.groupBox_Remover.SuspendLayout();
             this.panel_CadastroAmigos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -295,9 +296,9 @@
             this.UF});
             this.listView_CadastroAmigos.FullRowSelect = true;
             this.listView_CadastroAmigos.GridLines = true;
-            this.listView_CadastroAmigos.Location = new System.Drawing.Point(12, 249);
+            this.listView_CadastroAmigos.Location = new System.Drawing.Point(12, 257);
             this.listView_CadastroAmigos.Name = "listView_CadastroAmigos";
-            this.listView_CadastroAmigos.Size = new System.Drawing.Size(926, 329);
+            this.listView_CadastroAmigos.Size = new System.Drawing.Size(926, 322);
             this.listView_CadastroAmigos.TabIndex = 63;
             this.listView_CadastroAmigos.UseCompatibleStateImageBehavior = false;
             this.listView_CadastroAmigos.View = System.Windows.Forms.View.Details;
@@ -370,11 +371,23 @@
             this.pictureBox1.TabIndex = 67;
             this.pictureBox1.TabStop = false;
             // 
+            // label_RegistroExistente
+            // 
+            this.label_RegistroExistente.AutoSize = true;
+            this.label_RegistroExistente.ForeColor = System.Drawing.Color.Red;
+            this.label_RegistroExistente.Location = new System.Drawing.Point(18, 241);
+            this.label_RegistroExistente.Name = "label_RegistroExistente";
+            this.label_RegistroExistente.Size = new System.Drawing.Size(111, 13);
+            this.label_RegistroExistente.TabIndex = 67;
+            this.label_RegistroExistente.Text = "Já existe este registro!";
+            this.label_RegistroExistente.Visible = false;
+            // 
             // CadastroAmigos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 591);
+            this.Controls.Add(this.label_RegistroExistente);
             this.Controls.Add(this.panel_CadastroAmigos);
             this.Controls.Add(this.label_Aviso);
             this.Controls.Add(this.listView_CadastroAmigos);
@@ -397,6 +410,7 @@
             this.Controls.Add(this.label_Telefone);
             this.Controls.Add(this.textBox_NomeAmigo);
             this.Controls.Add(this.label_Nome);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(821, 534);
             this.Name = "CadastroAmigos";
@@ -448,6 +462,7 @@
         private System.Windows.Forms.Label label_Aviso;
         private System.Windows.Forms.Panel panel_CadastroAmigos;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label_RegistroExistente;
 
 
     }

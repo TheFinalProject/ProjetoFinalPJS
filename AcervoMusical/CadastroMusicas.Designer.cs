@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.textBox_Musicas = new System.Windows.Forms.TextBox();
             this.listView_Cadastro_Musicas = new System.Windows.Forms.ListView();
             this.Musica = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -93,22 +93,22 @@
             this.Observacao});
             this.listView_Cadastro_Musicas.FullRowSelect = true;
             this.listView_Cadastro_Musicas.GridLines = true;
-            listViewGroup6.Header = "Vinil";
-            listViewGroup6.Name = "Vinil";
-            listViewGroup7.Header = "K7";
-            listViewGroup7.Name = "K7";
-            listViewGroup8.Header = "CD";
-            listViewGroup8.Name = "CD";
-            listViewGroup9.Header = "DVD";
-            listViewGroup9.Name = "DVD";
-            listViewGroup10.Header = "Digital";
-            listViewGroup10.Name = "Digital";
+            listViewGroup1.Header = "Vinil";
+            listViewGroup1.Name = "Vinil";
+            listViewGroup2.Header = "K7";
+            listViewGroup2.Name = "K7";
+            listViewGroup3.Header = "CD";
+            listViewGroup3.Name = "CD";
+            listViewGroup4.Header = "DVD";
+            listViewGroup4.Name = "DVD";
+            listViewGroup5.Header = "Digital";
+            listViewGroup5.Name = "Digital";
             this.listView_Cadastro_Musicas.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup6,
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9,
-            listViewGroup10});
+            listViewGroup1,
+            listViewGroup2,
+            listViewGroup3,
+            listViewGroup4,
+            listViewGroup5});
             this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(10, 365);
             this.listView_Cadastro_Musicas.Name = "listView_Cadastro_Musicas";
             this.listView_Cadastro_Musicas.Size = new System.Drawing.Size(645, 259);
@@ -343,7 +343,7 @@
             // button_Remover
             // 
             this.button_Remover.Enabled = false;
-            this.button_Remover.Location = new System.Drawing.Point(574, 21);
+            this.button_Remover.Location = new System.Drawing.Point(565, 21);
             this.button_Remover.Name = "button_Remover";
             this.button_Remover.Size = new System.Drawing.Size(75, 23);
             this.button_Remover.TabIndex = 13;
@@ -355,8 +355,9 @@
             // 
             this.textBox_BuscaMusica.Location = new System.Drawing.Point(16, 21);
             this.textBox_BuscaMusica.Name = "textBox_BuscaMusica";
-            this.textBox_BuscaMusica.Size = new System.Drawing.Size(552, 20);
+            this.textBox_BuscaMusica.Size = new System.Drawing.Size(543, 20);
             this.textBox_BuscaMusica.TabIndex = 12;
+            this.textBox_BuscaMusica.TextChanged += new System.EventHandler(this.textBox_BuscaMusica_TextChanged);
             // 
             // label_AvisoAdicionar
             // 
@@ -451,6 +452,7 @@
             this.Controls.Add(this.label_Interprete);
             this.Controls.Add(this.label_Origem_Compra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1024, 778);
             this.Name = "CadastroMusicas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
