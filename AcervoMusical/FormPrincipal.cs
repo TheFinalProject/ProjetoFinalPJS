@@ -98,12 +98,15 @@ namespace AcervoMusical
                 label_login.Visible = true;
             else if (sender == pictureBox_ferramentas)
                 label_Ferramentas.Visible = true;
+            else if (sender == pictureBox_Sair)
+                label_Sair.Visible = true;
         }
 
         public void Esconder_texto(object sender, EventArgs e)
         {
             label_login.Visible = false;
             label_Ferramentas.Visible = false;
+            label_Sair.Visible = false;
         }
 
         private void Abrir_Fomulario(object sender, EventArgs e)

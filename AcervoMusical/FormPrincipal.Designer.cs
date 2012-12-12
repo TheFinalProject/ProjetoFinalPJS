@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("Rafael ", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("Felipe", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Rafael ", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Felipe", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "Linkin Park",
             "10/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "Iron Maiden",
             "10/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem(new string[] {
             "Nirvana",
             "25/10/2012",
             "30/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem(new string[] {
             "Beatles",
             "30/10/2012"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
@@ -54,9 +54,11 @@
             this.textBox_Mubox = new System.Windows.Forms.TextBox();
             this.button_Consultas = new System.Windows.Forms.Button();
             this.panel_Relogio = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label_Data = new System.Windows.Forms.Label();
             this.panel_Configuraçoes = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_Sair = new System.Windows.Forms.PictureBox();
             this.pictureBox_ferramentas = new System.Windows.Forms.PictureBox();
             this.pictureBox_Login = new System.Windows.Forms.PictureBox();
             this.button_Emprestimos = new System.Windows.Forms.Button();
@@ -65,11 +67,10 @@
             this.button_Amigos = new System.Windows.Forms.Button();
             this.button_Agenda = new System.Windows.Forms.Button();
             this.button_Mubox = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_Sair = new System.Windows.Forms.Label();
             this.panel_Relogio.SuspendLayout();
             this.panel_Configuraçoes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Sair)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ferramentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Login)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +82,9 @@
             // 
             // label_login
             // 
-            this.label_login.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label_login.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label_login.AutoSize = true;
             this.label_login.BackColor = System.Drawing.Color.Transparent;
             this.label_login.ForeColor = System.Drawing.Color.White;
@@ -100,23 +103,23 @@
             this.listView_Devolulcoes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Devoluções,
             this.Emprestimo});
-            listViewGroup7.Header = "Rafael ";
-            listViewGroup7.Name = "Rafael";
-            listViewGroup7.Tag = "";
-            listViewGroup8.Header = "Felipe";
-            listViewGroup8.Name = "Felipe";
+            listViewGroup3.Header = "Rafael ";
+            listViewGroup3.Name = "Rafael";
+            listViewGroup3.Tag = "";
+            listViewGroup4.Header = "Felipe";
+            listViewGroup4.Name = "Felipe";
             this.listView_Devolulcoes.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup7,
-            listViewGroup8});
-            listViewItem13.Group = listViewGroup7;
-            listViewItem14.Group = listViewGroup7;
-            listViewItem15.Group = listViewGroup8;
-            listViewItem16.Group = listViewGroup8;
+            listViewGroup3,
+            listViewGroup4});
+            listViewItem5.Group = listViewGroup3;
+            listViewItem6.Group = listViewGroup3;
+            listViewItem7.Group = listViewGroup4;
+            listViewItem8.Group = listViewGroup4;
             this.listView_Devolulcoes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16});
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8});
             this.listView_Devolulcoes.Location = new System.Drawing.Point(337, 409);
             this.listView_Devolulcoes.Name = "listView_Devolulcoes";
             this.listView_Devolulcoes.Size = new System.Drawing.Size(318, 175);
@@ -139,7 +142,9 @@
             // 
             // label_Ferramentas
             // 
-            this.label_Ferramentas.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label_Ferramentas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Ferramentas.AutoSize = true;
             this.label_Ferramentas.BackColor = System.Drawing.Color.Transparent;
             this.label_Ferramentas.ForeColor = System.Drawing.Color.White;
@@ -200,6 +205,30 @@
             this.panel_Relogio.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
             this.panel_Relogio.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(6, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(29, 31);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "d";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(6, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 31);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "d";
+            // 
             // label_Data
             // 
             this.label_Data.AutoSize = true;
@@ -219,7 +248,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_Configuraçoes.BackColor = System.Drawing.Color.Transparent;
             this.panel_Configuraçoes.BackgroundImage = global::AcervoMusical.Properties.Resources.data;
-            this.panel_Configuraçoes.Controls.Add(this.pictureBox1);
+            this.panel_Configuraçoes.Controls.Add(this.pictureBox_Sair);
             this.panel_Configuraçoes.Controls.Add(this.pictureBox_ferramentas);
             this.panel_Configuraçoes.Controls.Add(this.pictureBox_Login);
             this.panel_Configuraçoes.Location = new System.Drawing.Point(55, 134);
@@ -230,19 +259,20 @@
             this.panel_Configuraçoes.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
             this.panel_Configuraçoes.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
-            // pictureBox1
+            // pictureBox_Sair
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::AcervoMusical.Properties.Resources.login;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Image = global::AcervoMusical.Properties.Resources.messagebox_critical;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 177);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 33);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox_Sair.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox_Sair.BackgroundImage = global::AcervoMusical.Properties.Resources.messagebox_critical;
+            this.pictureBox_Sair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox_Sair.Location = new System.Drawing.Point(4, 172);
+            this.pictureBox_Sair.Name = "pictureBox_Sair";
+            this.pictureBox_Sair.Size = new System.Drawing.Size(33, 33);
+            this.pictureBox_Sair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_Sair.TabIndex = 2;
+            this.pictureBox_Sair.TabStop = false;
+            this.pictureBox_Sair.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox_Sair.MouseLeave += new System.EventHandler(this.Esconder_texto);
+            this.pictureBox_Sair.MouseHover += new System.EventHandler(this.Mostrar_texto);
             // 
             // pictureBox_ferramentas
             // 
@@ -398,29 +428,20 @@
             this.button_Mubox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
             this.button_Mubox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
-            // label1
+            // label_Sair
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(6, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 31);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "d";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(6, 71);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 31);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "d";
+            this.label_Sair.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Sair.AutoSize = true;
+            this.label_Sair.BackColor = System.Drawing.Color.Transparent;
+            this.label_Sair.ForeColor = System.Drawing.Color.White;
+            this.label_Sair.Location = new System.Drawing.Point(98, 317);
+            this.label_Sair.Name = "label_Sair";
+            this.label_Sair.Size = new System.Drawing.Size(25, 13);
+            this.label_Sair.TabIndex = 34;
+            this.label_Sair.Text = "Sair";
+            this.label_Sair.Visible = false;
             // 
             // FormPrincipal
             // 
@@ -429,6 +450,7 @@
             this.BackColor = System.Drawing.Color.Navy;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1034, 632);
+            this.Controls.Add(this.label_Sair);
             this.Controls.Add(this.label_login);
             this.Controls.Add(this.textBox_Mubox);
             this.Controls.Add(this.label_Ferramentas);
@@ -452,7 +474,7 @@
             this.panel_Relogio.ResumeLayout(false);
             this.panel_Relogio.PerformLayout();
             this.panel_Configuraçoes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Sair)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_ferramentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Login)).EndInit();
             this.ResumeLayout(false);
@@ -481,9 +503,10 @@
         private System.Windows.Forms.Label label_Ferramentas;
         private System.Windows.Forms.Label label_Data;
         private System.Windows.Forms.TextBox textBox_Mubox;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox_Sair;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_Sair;
 
 
     }
