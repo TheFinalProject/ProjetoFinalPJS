@@ -51,7 +51,7 @@ namespace AcervoMusical
 
         public void PreencheEmprestimos()
         {
-            Adaptador.SelectCommand = new SqlCommand("SELECT Amigos.Nome, Amigos.Email, Amigos.Telefone, Musicas.Nome_Album, Emprestimos.Data_Emprestimo, EmprestimosTipo_Midia FROM Emprestimos INNER JOIN Amigos ON Emprestimos.EmprestimosId_amigo = Amigos.id_amigo INNER JOIN Musicas ON Emprestimos.EmprestimosId_musicas = Musicas.id_musicas", Conector.Conexao);
+            Adaptador.SelectCommand = new SqlCommand("SELECT Amigos.Nome, Amigos.Email, Amigos.Telefone, Musicas.Status,Musicas.Nome_Album, Emprestimos.Data_Emprestimo, Emprestimos.Data_Devolucao, EmprestimosTipo_Midia FROM Emprestimos INNER JOIN Amigos ON Emprestimos.EmprestimosId_amigo = Amigos.id_amigo INNER JOIN Musicas ON Emprestimos.EmprestimosId_musicas = Musicas.id_musicas", Conector.Conexao);
             Adaptador.MissingSchemaAction = MissingSchemaAction.AddWithKey;
             Adaptador.Fill(Dados, "EmprestimosCompletos");
         }

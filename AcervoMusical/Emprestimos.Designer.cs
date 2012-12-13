@@ -69,6 +69,8 @@
             // 
             // comboBox_TipoMidia
             // 
+            this.comboBox_TipoMidia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox_TipoMidia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.comboBox_TipoMidia.Items.AddRange(new object[] {
             "K7",
             "CD",
@@ -198,7 +200,7 @@
             // panel_Emprestimos
             // 
             this.panel_Emprestimos.Controls.Add(this.pictureBox1);
-            this.panel_Emprestimos.Location = new System.Drawing.Point(2, 2);
+            this.panel_Emprestimos.Location = new System.Drawing.Point(2, 1);
             this.panel_Emprestimos.Name = "panel_Emprestimos";
             this.panel_Emprestimos.Size = new System.Drawing.Size(800, 60);
             this.panel_Emprestimos.TabIndex = 9;

@@ -1,3 +1,6 @@
+USE Acervo
+GO
+
 CREATE PROCEDURE IniciarConfiguracoes
 AS
 	---- TRUNCATE TABLE ConfiguracoesBotoes

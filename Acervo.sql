@@ -200,11 +200,13 @@ SELECT * FROM Musicas
 
 SELECT id_amigo FROM Amigos WHERE Nome = 'Rafael'
 
-SELECT * FROM Emprestimos
+SELECT * FROM Musicas
 SELECT Amigos.Nome, Musicas.Nome_Album, Emprestimos.Data_Emprestimo FROM Emprestimos INNER JOIN Amigos ON Emprestimos.EmprestimosId_amigo = Amigos.id_amigo INNER JOIN Musicas ON Emprestimos.EmprestimosId_musicas = Musicas.id_musicas  
 
-UPDATE Musicas SET Status = 0 WHERE id_musicas = 7; SELECT * FROM Musicas
+UPDATE Musicas SET Status = 0 WHERE id_musicas ; SELECT * FROM Musicas
+TRUNCATE TABLE Emprestimos
+SELECT * FROM Emprestimos
 
-DELETE FROM Emprestimos
+SELECT id_musicas FROM Musicas WHERE Nome_Album = 'Fear of the Dark'
 --=================================================================================*/
 

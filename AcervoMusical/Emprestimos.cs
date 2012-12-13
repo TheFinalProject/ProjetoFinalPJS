@@ -13,15 +13,18 @@ namespace AcervoMusical
     public partial class Emprestimos : Form
     {
         public FormPrincipal FP;
+
         Class_DataSet DatasetEmprestimos = new Class_DataSet();
+
+        int Id_Amigo = 0, Id_Musica = 0;
+        string NomeDoAmigo, NomeDaMusica;
+
+        
 
         public Emprestimos()
         {
             InitializeComponent();
         }
-
-        int Id_Amigo=0, Id_Musica=0;
-        string NomeDoAmigo, NomeDaMusica;
 
         public void LimparTexto()
         {
@@ -51,15 +54,20 @@ namespace AcervoMusical
             {
                 foreach (DataRow Registro in DatasetEmprestimos.Dados.Tables["EmprestimosCompletos"].Rows)
                 {
-                    //Carrega os Valores do dataset no Listview
-                    ListViewItem ListaDeEmprestimos = new ListViewItem();
+                    string Teste = Registro["Status"].ToString();
+                    string teste2 = Registro["Data_Devolucao"].ToString();
+                    if ((Registro["Status"].ToString() != "True") && (Registro["Data_Devolucao"].ToString() != string.Empty))
+                    {
+                        //Carrega os Valores do dataset no Listview
+                        ListViewItem ListaDeEmprestimos = new ListViewItem();
 
-                    ListaDeEmprestimos.Text = (Registro["Nome"].ToString());
-                    ListaDeEmprestimos.SubItems.Add(Registro["EmprestimosTipo_Midia"].ToString());
-                    ListaDeEmprestimos.SubItems.Add(Registro["Nome_Album"].ToString());
-                    ListaDeEmprestimos.SubItems.Add(Registro["Data_Emprestimo"].ToString());
+                        ListaDeEmprestimos.Text = (Registro["Nome"].ToString());
+                        ListaDeEmprestimos.SubItems.Add(Registro["EmprestimosTipo_Midia"].ToString());
+                        ListaDeEmprestimos.SubItems.Add(Registro["Nome_Album"].ToString());
+                        ListaDeEmprestimos.SubItems.Add(Registro["Data_Emprestimo"].ToString());
 
-                    listView_Emprestimos.Items.Add(ListaDeEmprestimos);
+                        listView_Emprestimos.Items.Add(ListaDeEmprestimos);
+                    }
                 }
 
                 //Carrega os nomes dos amigos cadastrados no combobox_NomeAmigo
@@ -119,10 +127,11 @@ namespace AcervoMusical
 
                             #region Parametro Tipo de Midia
                             SqlParameter TipoMidia = new SqlParameter();
-                            DataEmprestimo.Value = comboBox_TipoMidia.Text;
-                            DataEmprestimo.SourceColumn = "EmprestimosTipo_Midia";
-                            DataEmprestimo.ParameterName = "@EmprestimosTipo_Midia";
-                            DataEmprestimo.SqlDbType = SqlDbType.VarChar;
+                            TipoMidia.Value = comboBox_TipoMidia.Text;
+                            TipoMidia.SourceColumn = "EmprestimosTipo_Midia";
+                            TipoMidia.ParameterName = "@EmprestimosTipo_Midia";
+                            TipoMidia.SqlDbType = SqlDbType.VarChar;
+                            TipoMidia.Size = 50;
                             #endregion
 
                             #region Parametro Id Amigo
@@ -145,14 +154,16 @@ namespace AcervoMusical
                             CmdInserir.Parameters.AddRange(new SqlParameter[] { DataEmprestimo, IdMusica, IdAmigo, TipoMidia });
                             CmdInserir.ExecuteNonQuery();
 
-                            //Atualiza o status do album para que nao possa mais ser emprestado
-                            SqlCommand CmdAtualizar = new SqlCommand("UPDATE Musicas SET Status = 1 WHERE Nome_Album = @NomeALbum", FP.Conector.Conexao);
+                            //Atualiza o status do album na tabela musicas para que nao possa mais ser emprestado
+                            SqlCommand CmdAtualizar = new SqlCommand("UPDATE Musicas SET Status = 1 WHERE id_musicas = @IdAlbum", FP.Conector.Conexao);
                             SqlParameter NomeAlbum = new SqlParameter();
-                            NomeAlbum.Value = comboBox_NomeAlbum.Text;
+
+                            #region Parametro Status
+                            NomeAlbum.Value = Id_Musica;
                             NomeAlbum.SourceColumn = "Status";
-                            NomeAlbum.ParameterName = "@NomeAlbum";
-                            NomeAlbum.SqlDbType = SqlDbType.VarChar;
-                            NomeAlbum.Size = 50;
+                            NomeAlbum.ParameterName = "@IdAlbum";
+                            NomeAlbum.SqlDbType = SqlDbType.Int;
+                            #endregion
 
                             CmdAtualizar.Parameters.AddRange(new SqlParameter[] { NomeAlbum });
                             CmdAtualizar.ExecuteNonQuery();
@@ -160,12 +171,13 @@ namespace AcervoMusical
                             ListViewItem ListaDeEmprestimos = new ListViewItem();
                             ListaDeEmprestimos.Text = comboBox_NomeAmigos.Text;
                             ListaDeEmprestimos.SubItems.Add(comboBox_TipoMidia.Text);
-                            ListaDeEmprestimos.SubItems.Add(comboBox_TipoMidia.Text);
+                            ListaDeEmprestimos.SubItems.Add(comboBox_NomeAlbum.Text);
                             ListaDeEmprestimos.SubItems.Add(dateTimePicker_emprestimo.Value.ToShortDateString());
 
                             listView_Emprestimos.Items.Add(ListaDeEmprestimos);
 
                             comboBox_NomeAlbum.Items.Remove(comboBox_NomeAlbum.Text);
+                            //LimparTexto();
                         }
                         catch (Exception Erro)
                         {
@@ -238,17 +250,26 @@ namespace AcervoMusical
 
         private void listView_Emprestimos_Click(object sender, EventArgs e)
         {
+            //comboBox_NomeAmigos.Text = listView_Emprestimos.FocusedItem.SubItems[0].ToString();
+            //comboBox_TipoMidia.Text = listView_Emprestimos.FocusedItem.SubItems[1].ToString();
+            //comboBox_NomeAlbum.Text = listView_Emprestimos.FocusedItem.SubItems[2].ToString();
+            //dateTimePicker_emprestimo.Value = Convert.ToDateTime(listView_Emprestimos.FocusedItem.SubItems[3].ToString());
+
             try
             {
                 FP.Conector.Conectar();
 
                 SqlCommand IdMusica = new SqlCommand("SELECT id_musicas FROM Musicas WHERE Nome_Album = @NomeAlbum", FP.Conector.Conexao);
                 IdMusica.Parameters.Add("@NomeAlbum", SqlDbType.VarChar);
-                IdMusica.Parameters["@NomeAlbum"].Value = listView_Emprestimos.Items[0].SubItems[2].ToString();
+                IdMusica.Parameters["@NomeAlbum"].Value = listView_Emprestimos.FocusedItem.SubItems[2].Text;
+
+                SqlCommand IdAmigo = new SqlCommand("SELECT id_amigo FROM Amigos WHERE Nome = @NomeAmigo", FP.Conector.Conexao);
+                IdAmigo.Parameters.Add("@NomeAmigo", SqlDbType.VarChar);
+                IdAmigo.Parameters["@NomeAmigo"].Value = listView_Emprestimos.FocusedItem.SubItems[0].Text;
+
+                Id_Amigo = (int)IdAmigo.ExecuteScalar();
 
                 Id_Musica = (int)IdMusica.ExecuteScalar();
-                NomeDaMusica = comboBox_TipoMidia.Text;
-
             }
             catch (Exception erro)
             {
@@ -261,7 +282,6 @@ namespace AcervoMusical
         
             button_Emprestar.Text = "Voltar";
             button_Devolver.Enabled = true;
-
         }
 
         private void textBox1_Click(object sender, EventArgs e)
@@ -333,17 +353,20 @@ namespace AcervoMusical
 
         private void comboBox_TipoMidia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AutoCompleteStringCollection DadosComboboxAlbum = new AutoCompleteStringCollection();
             comboBox_NomeAlbum.Items.Clear();
             comboBox_NomeAlbum.ResetText();
 
+            AutoCompleteStringCollection DadosComboboxAlbum = new AutoCompleteStringCollection();
+
             foreach (DataRow Registro in DatasetEmprestimos.Dados.Tables["MusicasCompletas"].Rows)
             {
+                string Teste = Registro["Status"].ToString();
+                string Teste2 = Registro["Nome_Album"].ToString();
                 if ((comboBox_TipoMidia.Text == Registro["Tipo_Midia"].ToString()) && (Registro["Status"].ToString() != "True"))
                 {
                     comboBox_NomeAlbum.Items.Add(Registro["Nome_Album"]);
                     DadosComboboxAlbum.Add(Registro["Nome_Album"].ToString());
-                    comboBox_TipoMidia.AutoCompleteCustomSource = DadosComboboxAlbum;
+                    comboBox_NomeAlbum.AutoCompleteCustomSource = DadosComboboxAlbum;
                 }
                 //else if ((Registro["Tipo_Midia"].ToString() == "Vinil") && (Registro["Status"].ToString() != "True"))
                 //{
@@ -369,25 +392,77 @@ namespace AcervoMusical
 
         private void button_Devolver_Click(object sender, EventArgs e)
         {
-            FP.Conector.Conectar();
-            SqlCommand CmdAtualizar = new SqlCommand("UPDATE Emprestimos SET Data_Devolucao = @DataDevolucao WHERE (EmprestimosId_musica = @NomeAlbum) AND (EmprestimosId_Amigo = @NomeAmigo)", FP.Conector.Conexao);
+            try
+            {
+                FP.Conector.Conectar();
 
-            #region Parametro Id Amigo
-            SqlParameter NomeAmigo = new SqlParameter();
-            NomeAmigo.Value = Id_Amigo;
-            NomeAmigo.SourceColumn = "EmprestimosId_amigo";
-            NomeAmigo.ParameterName = "@IdAmigo";
-            NomeAmigo.SqlDbType = SqlDbType.Int;
-            NomeAmigo.Size = 50;
-            #endregion
+                //Atualiza a data de Devolução para que possa gerar um relatorio
+                SqlCommand CmdAtualizarEmprestimos = new SqlCommand("UPDATE Emprestimos SET Data_Devolucao = @DataDevolucao WHERE (EmprestimosId_musicas = @IdAlbum) AND (EmprestimosId_Amigo = @IdAmigo)", FP.Conector.Conexao);
 
-            #region Parametro Id Musica
-            SqlParameter NomeAlbum = new SqlParameter();
-            NomeAlbum.Value = Id_Musica;
-            NomeAlbum.SourceColumn = "EmprestimosId_musicas";
-            NomeAlbum.ParameterName = "@IdMusica";
-            NomeAlbum.SqlDbType = SqlDbType.Int;
-            #endregion
+                #region Parametro Id Amigo
+                SqlParameter DataDevolucao = new SqlParameter();
+                DataDevolucao.Value = DateTime.Now.ToShortDateString();
+                DataDevolucao.SourceColumn = "Data_Devolucao";
+                DataDevolucao.ParameterName = "@DataDevolucao";
+                DataDevolucao.SqlDbType = SqlDbType.Date;
+                #endregion
+
+                #region Parametro Id Amigo
+                SqlParameter IdAmigo = new SqlParameter();
+                IdAmigo.Value = Id_Amigo;
+                IdAmigo.SourceColumn = "EmprestimosId_amigo";
+                IdAmigo.ParameterName = "@IdAmigo";
+                IdAmigo.SqlDbType = SqlDbType.Int;
+                #endregion
+
+                #region Parametro Id Musica
+                SqlParameter IdAlbum = new SqlParameter();
+                IdAlbum.Value = Id_Musica;
+                IdAlbum.SourceColumn = "EmprestimosId_musicas";
+                IdAlbum.ParameterName = "@IdAlbum";
+                IdAlbum.SqlDbType = SqlDbType.Int;
+                #endregion
+
+                CmdAtualizarEmprestimos.Parameters.AddRange(new SqlParameter[] { IdAlbum, IdAmigo, DataDevolucao });
+                CmdAtualizarEmprestimos.ExecuteNonQuery();
+
+                //Atualiza o status da musica para que possa ser emprestado por outro amigo
+                SqlCommand CmdAtualizarMusicas = new SqlCommand("UPDATE Musicas SET Status = 0 WHERE id_musicas = @IdMusica", FP.Conector.Conexao);
+
+                #region Parametro Id Musica
+                SqlParameter IdMusica = new SqlParameter();
+                IdMusica.Value = Id_Amigo;
+                IdMusica.SourceColumn = "id_musica";
+                IdMusica.ParameterName = "@IdMusica";
+                IdMusica.SqlDbType = SqlDbType.Int;
+                #endregion
+
+                #region Parametro Tipo de Midia
+                SqlParameter TipoMidia= new SqlParameter();
+                TipoMidia.Value = Id_Musica;
+                TipoMidia.SourceColumn = "Tipo_Midia";
+                TipoMidia.ParameterName = "@TipoMidia";
+                TipoMidia.SqlDbType = SqlDbType.VarChar;
+                TipoMidia.Size = 10;
+                #endregion
+
+                CmdAtualizarMusicas.Parameters.AddRange(new SqlParameter[] { IdMusica, TipoMidia });
+                CmdAtualizarMusicas.ExecuteNonQuery();
+
+                for (int I = listView_Emprestimos.Items.Count; I <= 0; --I)
+                {
+                    ListViewItem Remover = listView_Emprestimos.SelectedItems[I];
+                    listView_Emprestimos.Items.Remove(Remover);
+                }
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show(Erro.Message);
+            }
+            finally
+            {
+                FP.Conector.Desconectar();
+            }
 
 
         }
