@@ -24,6 +24,8 @@ namespace AcervoMusical
         public Emprestimos()
         {
             InitializeComponent();
+            DatasetEmprestimos.PreencheAmigos();
+            DatasetEmprestimos.PreencheEmprestimos();
         }
 
         public void LimparTexto()
@@ -44,19 +46,13 @@ namespace AcervoMusical
             AutoCompleteStringCollection DadosComboboxAmigos = new AutoCompleteStringCollection();
             AutoCompleteStringCollection DadosComboboxTipoDeMidia = new AutoCompleteStringCollection();
 
-            DatasetEmprestimos.PreencheAmigos();
-            DatasetEmprestimos.PreencheMusicas();
-            DatasetEmprestimos.PreencheEmprestimos();
-
             int ContadorDeDados = DatasetEmprestimos.Dados.Tables.Count;
 
             if (ContadorDeDados > 0)
             {
                 foreach (DataRow Registro in DatasetEmprestimos.Dados.Tables["EmprestimosCompletos"].Rows)
                 {
-                    string Teste = Registro["Status"].ToString();
-                    string teste2 = Registro["Data_Devolucao"].ToString();
-                    if ((Registro["Status"].ToString() != "True") && (Registro["Data_Devolucao"].ToString() != string.Empty))
+                    if ((Registro["Status"].ToString() == "True") && (Registro["Data_Devolucao"].ToString() == ""))
                     {
                         //Carrega os Valores do dataset no Listview
                         ListViewItem ListaDeEmprestimos = new ListViewItem();
@@ -85,17 +81,6 @@ namespace AcervoMusical
                 }
                 else
                     label_Emprestados.Visible = false;
-
-                //Apresenta a quantidade de emprestimos
-                //foreach (DataRow Registro in DatasetEmprestimos.Dados.Tables["MusicasCompletas"].Rows)
-                //{
-                //    if ((Registro["Tipo_Midia"].ToString() != "Digital") && (Registro["Status"].ToString() == "True"))
-                //    {
-                //        ContadorDeEmprestimos = ContadorDeEmprestimos + 1;
-                //        label_Emprestados.Text = "Voce tem : " + ContadorDeEmprestimos + " Albun(s) emprestado(s).";
-                //        label_Emprestados.Visible = true;
-                //    }
-                //}
             }
             else
             {
@@ -110,7 +95,7 @@ namespace AcervoMusical
             {
                 if (comboBox_NomeAmigos.Text != string.Empty)
                 {
-                    if (comboBox_TipoMidia.Text != string.Empty)
+                    if (comboBox_NomeAlbum.Text != string.Empty)
                     {
                         try
                         {
@@ -189,7 +174,7 @@ namespace AcervoMusical
                         }
                     }
                     else
-                        MessageBox.Show("Nenhuma musica foi selecionada");
+                        MessageBox.Show("Nenhuma Album foi selecionada!");
                 }
                 else
                     MessageBox.Show("Nenhum Amigo foi selecionado");
@@ -250,11 +235,6 @@ namespace AcervoMusical
 
         private void listView_Emprestimos_Click(object sender, EventArgs e)
         {
-            //comboBox_NomeAmigos.Text = listView_Emprestimos.FocusedItem.SubItems[0].ToString();
-            //comboBox_TipoMidia.Text = listView_Emprestimos.FocusedItem.SubItems[1].ToString();
-            //comboBox_NomeAlbum.Text = listView_Emprestimos.FocusedItem.SubItems[2].ToString();
-            //dateTimePicker_emprestimo.Value = Convert.ToDateTime(listView_Emprestimos.FocusedItem.SubItems[3].ToString());
-
             try
             {
                 FP.Conector.Conectar();
@@ -298,24 +278,53 @@ namespace AcervoMusical
         {
             try
             {
-                if (textBox_PesquisarEmprestimo.Text != "")
+                FP.Conector.Conectar();
+                DataSet DataFiltro = new DataSet();
+
+                SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("SELECT Amigos.Nome, Musicas.Tipo_Midia, Musicas.Nome_Album, Musicas.Status, Emprestimos.Data_Emprestimo, Emprestimos.Data_Devolucao FROM Emprestimos INNER JOIN Amigos ON Amigos.id_amigo = Emprestimos.EmprestimosId_amigo INNER JOIN Musicas ON Musicas.id_musicas = EmprestimosId_musicas", FP.Conector.Conexao);
+                AdaptadorFiltro.Fill(DataFiltro, "Emprestimos");
+                DataTable TabelaFiltro = DataFiltro.Tables["Emprestimos"];
+
+                foreach (DataRow Registro in DataFiltro.Tables["Emprestimos"].Rows)
                 {
-                    FP.Conector.Conectar();
-                    DatasetEmprestimos.ConsultarEmprestimos(textBox_PesquisarEmprestimo.Text);
-
-                    foreach (DataRow Registro in DatasetEmprestimos.Dados.Tables["ConsultarEmprestimos"].Rows)
+                    if ((Registro["Status"].ToString() == "True") && (Registro["Data_Devolucao"].ToString() == ""))
                     {
-                        ListViewItem ListaDeEmprestimos = new ListViewItem();
-
-                        ListaDeEmprestimos.Text = Registro["Nome"].ToString();
-                        ListaDeEmprestimos.SubItems.Add(Registro["Nome_Album"].ToString());
-                        ListaDeEmprestimos.SubItems.Add(Registro["Data_Emprestimo"].ToString());
-
-                        listView_Emprestimos.Items.Add(ListaDeEmprestimos);
+                        string Teste = Registro["Nome"].ToString();
+                        if (textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Nome"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper()) /*|| textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Tipo_Midia"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper()) || textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Nome_Album"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper()) || textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Data_Emprestimos"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper())*/)
+                        {
+                            Registro.Delete();
+                        }
                     }
-                }         
-            }
+                }
                 
+                listView_Emprestimos.Items.Clear();
+
+                for (int I = 0; I < TabelaFiltro.Rows.Count; ++I)
+                {
+                    DataRow Registro = TabelaFiltro.Rows[I];
+
+                    string teste4 = Registro["Nome"].ToString();
+                    string teste3 = Registro["Nome_Album"].ToString();
+                    string teste1 = Registro["Status"].ToString();
+                    string teste2 = Registro["Data_Devolucao"].ToString();
+
+                    if ((Registro["Status"].ToString() == "True") && (Registro["Data_Devolucao"].ToString() == ""))
+                    {
+                        // Somente as linhas que não foram deletadas
+                        if (Registro.RowState != DataRowState.Deleted)
+                        {
+                            // Define os itens da lista
+                            ListViewItem InserirEmprestimos = new ListViewItem();
+                            InserirEmprestimos.Text = Registro["Nome"].ToString();
+                            InserirEmprestimos.SubItems.Add(Registro["Tipo_Midia"].ToString());
+                            InserirEmprestimos.SubItems.Add(Registro["Nome_Album"].ToString());
+                            InserirEmprestimos.SubItems.Add(Registro["Data_Emprestimo"].ToString());
+
+                            listView_Emprestimos.Items.Add(InserirEmprestimos);
+                        }
+                    }
+                }
+            }
             catch (Exception Erro)
             {
                 MessageBox.Show(Erro.Message);
@@ -324,6 +333,7 @@ namespace AcervoMusical
             {
                 FP.Conector.Desconectar();
             }
+        
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -353,6 +363,9 @@ namespace AcervoMusical
 
         private void comboBox_TipoMidia_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DatasetEmprestimos.PreencheEmprestimos();
+            DatasetEmprestimos.PreencheMusicas();
+
             comboBox_NomeAlbum.Items.Clear();
             comboBox_NomeAlbum.ResetText();
 
@@ -360,8 +373,6 @@ namespace AcervoMusical
 
             foreach (DataRow Registro in DatasetEmprestimos.Dados.Tables["MusicasCompletas"].Rows)
             {
-                string Teste = Registro["Status"].ToString();
-                string Teste2 = Registro["Nome_Album"].ToString();
                 if ((comboBox_TipoMidia.Text == Registro["Tipo_Midia"].ToString()) && (Registro["Status"].ToString() != "True"))
                 {
                     comboBox_NomeAlbum.Items.Add(Registro["Nome_Album"]);
@@ -427,11 +438,11 @@ namespace AcervoMusical
                 CmdAtualizarEmprestimos.ExecuteNonQuery();
 
                 //Atualiza o status da musica para que possa ser emprestado por outro amigo
-                SqlCommand CmdAtualizarMusicas = new SqlCommand("UPDATE Musicas SET Status = 0 WHERE id_musicas = @IdMusica", FP.Conector.Conexao);
+                SqlCommand CmdAtualizarMusicas = new SqlCommand("UPDATE Musicas SET Status = 0 WHERE (id_musicas = @IdMusica) AND (Tipo_Midia = @TipoMidia)", FP.Conector.Conexao);
 
                 #region Parametro Id Musica
                 SqlParameter IdMusica = new SqlParameter();
-                IdMusica.Value = Id_Amigo;
+                IdMusica.Value = Id_Musica;
                 IdMusica.SourceColumn = "id_musica";
                 IdMusica.ParameterName = "@IdMusica";
                 IdMusica.SqlDbType = SqlDbType.Int;
@@ -439,7 +450,7 @@ namespace AcervoMusical
 
                 #region Parametro Tipo de Midia
                 SqlParameter TipoMidia= new SqlParameter();
-                TipoMidia.Value = Id_Musica;
+                TipoMidia.Value = listView_Emprestimos.SelectedItems[0].SubItems[1].Text;
                 TipoMidia.SourceColumn = "Tipo_Midia";
                 TipoMidia.ParameterName = "@TipoMidia";
                 TipoMidia.SqlDbType = SqlDbType.VarChar;

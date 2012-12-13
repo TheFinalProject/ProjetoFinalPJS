@@ -240,7 +240,7 @@ namespace AcervoMusical
 
                             }
                         }
-                        catch (Exception erro)
+                        catch
                         {
                             label_Aviso.Visible = true;
                             if (textBox_NomeAmigo.Text == "")

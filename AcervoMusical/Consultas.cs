@@ -14,10 +14,11 @@ namespace AcervoMusical
     public partial class Consultas : Form
     {
         //Class_DataSet DataSet_Filtro = new Class_DataSet();
+        Class_DataSet DataSetFiltro = new Class_DataSet();
         public Consultas()
         {
             InitializeComponent();
-            //DataSet_Filtro.PreencheMusicas
+            DataSetFiltro.PreencheMusicas();
         }
 
         public FormPrincipal FP;
@@ -188,7 +189,6 @@ namespace AcervoMusical
 
         private void textBox_Interprete_TextChanged(object sender, EventArgs e)
         {
-
             FP.Conector.Conectar();
             DataSet DataFiltro = new DataSet();
 
@@ -199,8 +199,9 @@ namespace AcervoMusical
             //Percorre o listview e verifica se ja há items com aqueles valores, se tiver com valores diferente dos que procura, ele deleta para poder apresentar, pois nao consegue ter 2 valores em 2 listviews. 
             foreach (DataRow registro in DataFiltro.Tables["Musicas"].Rows)
             {
-
-                if (textBox_Interprete.Text != string.Empty && !registro["Nome_Interprete"].ToString().ToUpper().Contains(textBox_Interprete.Text.ToUpper()) || textBox_Autor.Text != string.Empty && !registro["Nome_Autor"].ToString().ToUpper().Contains(textBox_Autor.Text.ToUpper()) || textBox_Album.Text != string.Empty && !registro["Nome_Album"].ToString().ToUpper().Contains(textBox_Album.Text.ToUpper())||textBox_Nome.Text != string.Empty && !registro["Nome_Musica"].ToString().ToUpper().Contains(textBox_Nome.Text.ToUpper()) || textBox_OrigemCompra.Text != string.Empty && !registro["Origem_Compra"].ToString().ToUpper().Contains(textBox_OrigemCompra.Text.ToUpper()) || comboBox_Midia.Text != string.Empty && !registro["Tipo_Midia"].ToString().ToUpper().Contains(comboBox_Midia.Text.ToUpper()) || comboBox_Nota.Text != string.Empty && !registro["Nota"].ToString().ToUpper().Contains(comboBox_Nota.Text.ToUpper()))
+                string Teste = registro["Nome_Album"].ToString();
+          
+                if (textBox_Interprete.Text != string.Empty && !registro["Nome_Interprete"].ToString().ToUpper().Contains(textBox_Interprete.Text.ToUpper()) || textBox_Autor.Text != string.Empty && !registro["Nome_Autor"].ToString().ToUpper().Contains(textBox_Autor.Text.ToUpper()) || textBox_Album.Text != string.Empty && !registro["Nome_Album"].ToString().ToUpper().Contains(textBox_Album.Text.ToUpper()) || textBox_Nome.Text != string.Empty && !registro["Nome_Musica"].ToString().ToUpper().Contains(textBox_Nome.Text.ToUpper()) || textBox_OrigemCompra.Text != string.Empty && !registro["Origem_Compra"].ToString().ToUpper().Contains(textBox_OrigemCompra.Text.ToUpper()) || comboBox_Midia.Text != string.Empty && !registro["Tipo_Midia"].ToString().ToUpper().Contains(comboBox_Midia.Text.ToUpper()) || comboBox_Nota.Text != string.Empty && !registro["Nota"].ToString().ToUpper().Contains(comboBox_Nota.Text.ToUpper()))
                 {
                     registro.Delete();
                 }
