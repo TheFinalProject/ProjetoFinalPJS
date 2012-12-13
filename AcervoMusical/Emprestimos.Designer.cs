@@ -46,12 +46,12 @@
             this.panel_Emprestimos = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_Devolver = new System.Windows.Forms.Button();
-            this.textBox_Email = new System.Windows.Forms.TextBox();
             this.textBox_Tel = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Nome = new System.Windows.Forms.Label();
             this.comboBox_NomeAlbum = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBox_Email = new System.Windows.Forms.TextBox();
             this.panel_Emprestimos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -200,7 +200,7 @@
             // panel_Emprestimos
             // 
             this.panel_Emprestimos.Controls.Add(this.pictureBox1);
-            this.panel_Emprestimos.Location = new System.Drawing.Point(2, 1);
+            this.panel_Emprestimos.Location = new System.Drawing.Point(1, 1);
             this.panel_Emprestimos.Name = "panel_Emprestimos";
             this.panel_Emprestimos.Size = new System.Drawing.Size(800, 60);
             this.panel_Emprestimos.TabIndex = 9;
@@ -224,16 +224,9 @@
             this.button_Devolver.UseVisualStyleBackColor = true;
             this.button_Devolver.Click += new System.EventHandler(this.button_Devolver_Click);
             // 
-            // textBox_Email
-            // 
-            this.textBox_Email.Location = new System.Drawing.Point(322, 156);
-            this.textBox_Email.Name = "textBox_Email";
-            this.textBox_Email.Size = new System.Drawing.Size(201, 20);
-            this.textBox_Email.TabIndex = 14;
-            // 
             // textBox_Tel
             // 
-            this.textBox_Tel.Location = new System.Drawing.Point(322, 182);
+            this.textBox_Tel.Location = new System.Drawing.Point(322, 156);
             this.textBox_Tel.Name = "textBox_Tel";
             this.textBox_Tel.Size = new System.Drawing.Size(201, 20);
             this.textBox_Tel.TabIndex = 15;
@@ -275,6 +268,13 @@
             this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 18;
             this.label3.Text = "Album";
+            // 
+            // textBox_Email
+            // 
+            this.textBox_Email.Location = new System.Drawing.Point(322, 182);
+            this.textBox_Email.Name = "textBox_Email";
+            this.textBox_Email.Size = new System.Drawing.Size(201, 20);
+            this.textBox_Email.TabIndex = 14;
             // 
             // Emprestimos
             // 
@@ -328,12 +328,12 @@
         private System.Windows.Forms.Panel panel_Emprestimos;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button_Devolver;
-        private System.Windows.Forms.TextBox textBox_Email;
         private System.Windows.Forms.TextBox textBox_Tel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Nome;
         private System.Windows.Forms.ComboBox comboBox_NomeAlbum;
         private System.Windows.Forms.ColumnHeader DataEmprestimo;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox_Email;
     }
 }
