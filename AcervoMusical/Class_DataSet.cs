@@ -15,11 +15,11 @@ namespace AcervoMusical
         public DataSet Dados;
         public SqlDataAdapter Adaptador;
 
+
         public Class_DataSet()
         {
             Dados = new DataSet();
             Adaptador = new SqlDataAdapter();
-
         }
 
         public void PreencheMusicas()
@@ -28,20 +28,7 @@ namespace AcervoMusical
             Adaptador.MissingSchemaAction = MissingSchemaAction.AddWithKey;
             Adaptador.Fill(Dados, "MusicasCompletas");
         }
-
-        public void BuscarMusicas(string parametro)
-        {
-            Adaptador.SelectCommand = new SqlCommand("SELECT * FROM Musicas WHERE (Nome_Musica LIKE '%@par%')", Conector.Conexao);
-            SqlParameter ParBusca = new SqlParameter();
-            ParBusca.Value = parametro;
-            ParBusca.SourceColumn = "Nome_Musica";
-            ParBusca.ParameterName = "@par";
-            ParBusca.SqlDbType = SqlDbType.VarChar;
-            Adaptador.SelectCommand.Parameters.Add(ParBusca);
-            Adaptador.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            Adaptador.Fill(Dados, "BuscaMusicas");
-        }
-
+        
         public void PreencheAmigos()
         {
             Adaptador.SelectCommand = new SqlCommand("SELECT Amigos.Nome, Amigos.Telefone, Amigos.Endereço, Amigos.Numero, Amigos.Email,Amigos.Bairro, Cidades.NomeCidade, Cidades.CidadeId_uf FROM Amigos INNER JOIN Cidades ON Amigos.AmigosId_Cidade = Cidades.id_Cidade", Conector.Conexao);

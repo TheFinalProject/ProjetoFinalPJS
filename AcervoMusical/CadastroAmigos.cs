@@ -240,7 +240,7 @@ namespace AcervoMusical
 
                             }
                         }
-                        catch (Exception erro)
+                        catch
                         {
                             label_Aviso.Visible = true;
                             textBox_NomeAmigo.BackColor = Color.OldLace;
