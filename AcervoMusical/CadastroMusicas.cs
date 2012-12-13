@@ -163,7 +163,14 @@ namespace AcervoMusical
                                 #region ParametroMidia
                                 SqlParameter Midia = new SqlParameter();
                                 Midia.SourceColumn = "Tipo_Midia";
-                                Midia.Value = comboBox_Midia.SelectedItem.ToString();
+                                if (comboBox_Midia.SelectedItem.ToString() != "")
+                                {
+                                    Midia.Value = comboBox_Midia.SelectedItem.ToString();
+                                }
+                                else
+                                {
+                                    Midia.Value = null;
+                                }
                                 Midia.ParameterName = "@Midia";
                                 Midia.SqlDbType = SqlDbType.VarChar;
                                 Midia.Size = 10;
@@ -253,38 +260,6 @@ namespace AcervoMusical
                 try
                 {
                     FP.Conector.Conectar();
-                    SqlCommand VerficaDublicidade = new SqlCommand("Select count(*) from Musicas where (Nome_Autor = @Autor) and (Nome_Interprete = @Interprete) and (Tipo_Midia = @Midia)", FP.Conector.Conexao);
-                        #region ParametroAutor
-                        SqlParameter AutorVerificador = new SqlParameter();
-                        AutorVerificador.SourceColumn = "Nome_Autor";
-                        AutorVerificador.Value = textBox_Autor.Text;
-                        AutorVerificador.ParameterName = "@Autor";
-                        AutorVerificador.SqlDbType = SqlDbType.VarChar;
-                        AutorVerificador.Size = 50;
-                        #endregion
-
-                        #region ParametroInterprete
-                        SqlParameter InterpreteVerificador = new SqlParameter();
-                        InterpreteVerificador.Value = textBox_Interprete.Text;
-                        InterpreteVerificador.SourceColumn = "Nome_Interprete";
-                        InterpreteVerificador.ParameterName = "@Interprete";
-                        InterpreteVerificador.SqlDbType = SqlDbType.VarChar;
-                        InterpreteVerificador.Size = 50;
-                        #endregion
-
-                        #region ParametroMidia
-                        SqlParameter MidiaVerificador = new SqlParameter();
-                        MidiaVerificador.SourceColumn = "Tipo_Midia";
-                        MidiaVerificador.Value = comboBox_Midia.SelectedItem.ToString();
-                        MidiaVerificador.ParameterName = "@Midia";
-                        MidiaVerificador.SqlDbType = SqlDbType.VarChar;
-                        MidiaVerificador.Size = 10;
-                        #endregion
-
-                        VerficaDublicidade.Parameters.AddRange(new SqlParameter[]{AutorVerificador, InterpreteVerificador, MidiaVerificador });
-                        int Verificador = (int)VerficaDublicidade.ExecuteScalar();
-                        if (Verificador == 0)
-                        {
                             //comando para alterar os valores do amigo////(Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)"
                             SqlCommand CmdUpdate = new SqlCommand("UPDATE Musicas SET Nome_Interprete = @Interprete, Nome_Autor = @Autor, Nome_Album = @Album, Data_Album = @DataAlbum, Data_Compra = @Datacompra, Origem_Compra = @Origem, Tipo_Midia = @Midia, Observacao = @Observacao, Nota = @Nota, Nome_Musica = @Musica, Status = @Status WHERE (Nome_Musica = @Musica) AND (Nome_Autor = @Autor) AND (Nome_Album = @Album)", FP.Conector.Conexao);
 
@@ -410,12 +385,6 @@ namespace AcervoMusical
                             LimparTextBox();
                             button_Adicionar.Text = "Adicionar";
                             button_Remover.Enabled = false;
-                        }
-                        else
-                        {
-                            label_AvisoAdicionar.Visible = true;
-                            label_AvisoAdicionar.Text = "Já existe este registro!";
-                        }
                 }
                 catch (SqlException erro)
                 {
@@ -560,6 +529,7 @@ namespace AcervoMusical
             comboBox_Classificacao.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[4].Text;
             textBox_Observacao.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[5].Text;
             comboBox_Midia.SelectedItem = listView_Cadastro_Musicas.FocusedItem.Group.ToString();
+            dateTimePicker_DataAlbum.Text =  
         }
 
         private void textBox_BuscaMusica_TextChanged(object sender, EventArgs e)
