@@ -62,6 +62,7 @@
             this.panel_CadastroAmigos = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_RegistroExistente = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox_Remover.SuspendLayout();
             this.panel_CadastroAmigos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -257,7 +258,6 @@
             // 
             // comboBox_UF
             // 
-            this.comboBox_UF.FormattingEnabled = true;
             this.comboBox_UF.Location = new System.Drawing.Point(492, 147);
             this.comboBox_UF.Name = "comboBox_UF";
             this.comboBox_UF.Size = new System.Drawing.Size(45, 21);
@@ -382,11 +382,23 @@
             this.label_RegistroExistente.Text = "Já existe este registro!";
             this.label_RegistroExistente.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(305, 170);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "Número Inválido";
+            this.label1.Visible = false;
+            // 
             // CadastroAmigos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(950, 591);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label_RegistroExistente);
             this.Controls.Add(this.panel_CadastroAmigos);
             this.Controls.Add(this.label_Aviso);
@@ -463,6 +475,7 @@
         private System.Windows.Forms.Panel panel_CadastroAmigos;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label_RegistroExistente;
+        private System.Windows.Forms.Label label1;
 
 
     }
