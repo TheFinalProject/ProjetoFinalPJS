@@ -242,11 +242,26 @@ namespace AcervoMusical
                         catch
                         {
                             label_Aviso.Visible = true;
-                            textBox_NomeAmigo.BackColor = Color.OldLace;
-                            textBox_Email.BackColor = Color.OldLace;
-                            maskedTextBox_Telefone.BackColor = Color.OldLace;
-                            comboBox_UF.BackColor = Color.OldLace;
-                            comboBox_Cidade.BackColor = Color.OldLace;
+                            if (textBox_NomeAmigo.Text == "")
+                            {
+                                textBox_NomeAmigo.BackColor = Color.OldLace;
+                            }
+                            if (textBox_Email.Text == "")
+                            {
+                                textBox_Email.BackColor = Color.OldLace;
+                            }
+                            if (maskedTextBox_Telefone.Text == "")
+                            {
+                                maskedTextBox_Telefone.BackColor = Color.OldLace;
+                            }
+                            if (comboBox_UF.SelectedItem == null)
+                            {
+                                comboBox_UF.BackColor = Color.OldLace;
+                            }
+                            if (comboBox_Cidade.SelectedItem == null)
+                            {
+                                comboBox_Cidade.BackColor = Color.OldLace;
+                            }
                         }
                         finally
                         {

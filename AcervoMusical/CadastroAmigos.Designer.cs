@@ -119,9 +119,9 @@
             // 
             // textBox_Email
             // 
-            this.textBox_Email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Email.Location = new System.Drawing.Point(401, 108);
             this.textBox_Email.MaximumSize = new System.Drawing.Size(600, 20);
             this.textBox_Email.MinimumSize = new System.Drawing.Size(150, 20);
@@ -132,9 +132,9 @@
             // 
             // label_Email
             // 
-            this.label_Email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Email.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Email.AutoSize = true;
             this.label_Email.Location = new System.Drawing.Point(401, 92);
             this.label_Email.Name = "label_Email";
@@ -150,6 +150,7 @@
             this.maskedTextBox_Telefone.Name = "maskedTextBox_Telefone";
             this.maskedTextBox_Telefone.Size = new System.Drawing.Size(80, 20);
             this.maskedTextBox_Telefone.TabIndex = 3;
+            this.maskedTextBox_Telefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maskedTextBox_Telefone.Enter += new System.EventHandler(this.maskedTextBox_Telefone_Enter);
             // 
             // textBox_Bairro
@@ -189,9 +190,9 @@
             // 
             // textBox_Endereco
             // 
-            this.textBox_Endereco.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Endereco.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Endereco.Location = new System.Drawing.Point(12, 147);
             this.textBox_Endereco.MaximumSize = new System.Drawing.Size(442, 20);
             this.textBox_Endereco.MinimumSize = new System.Drawing.Size(130, 20);
@@ -201,9 +202,9 @@
             // 
             // label_Endereço
             // 
-            this.label_Endereço.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Endereço.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Endereço.AutoSize = true;
             this.label_Endereço.Location = new System.Drawing.Point(9, 131);
             this.label_Endereço.Name = "label_Endereço";
@@ -222,9 +223,9 @@
             // 
             // textBox_NomeAmigo
             // 
-            this.textBox_NomeAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_NomeAmigo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_NomeAmigo.Location = new System.Drawing.Point(12, 108);
             this.textBox_NomeAmigo.MaximumSize = new System.Drawing.Size(600, 20);
             this.textBox_NomeAmigo.MaxLength = 50;
@@ -236,9 +237,9 @@
             // 
             // label_Nome
             // 
-            this.label_Nome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Nome.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Nome.AutoSize = true;
             this.label_Nome.Location = new System.Drawing.Point(9, 92);
             this.label_Nome.Name = "label_Nome";

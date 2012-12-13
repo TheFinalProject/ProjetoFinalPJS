@@ -78,7 +78,7 @@
             // 
             this.textBox_Musicas.Location = new System.Drawing.Point(137, 96);
             this.textBox_Musicas.Name = "textBox_Musicas";
-            this.textBox_Musicas.Size = new System.Drawing.Size(518, 20);
+            this.textBox_Musicas.Size = new System.Drawing.Size(310, 20);
             this.textBox_Musicas.TabIndex = 1;
             this.textBox_Musicas.Visible = false;
             // 
@@ -181,14 +181,14 @@
             // 
             // textBox_Album
             // 
-            this.textBox_Album.Location = new System.Drawing.Point(10, 135);
+            this.textBox_Album.Location = new System.Drawing.Point(373, 135);
             this.textBox_Album.Name = "textBox_Album";
             this.textBox_Album.Size = new System.Drawing.Size(315, 20);
             this.textBox_Album.TabIndex = 2;
             // 
             // textBox_Interprete
             // 
-            this.textBox_Interprete.Location = new System.Drawing.Point(202, 174);
+            this.textBox_Interprete.Location = new System.Drawing.Point(214, 135);
             this.textBox_Interprete.Name = "textBox_Interprete";
             this.textBox_Interprete.Size = new System.Drawing.Size(153, 20);
             this.textBox_Interprete.TabIndex = 5;
@@ -206,7 +206,7 @@
             // 
             // textBox_Origem
             // 
-            this.textBox_Origem.Location = new System.Drawing.Point(329, 135);
+            this.textBox_Origem.Location = new System.Drawing.Point(12, 174);
             this.textBox_Origem.Name = "textBox_Origem";
             this.textBox_Origem.Size = new System.Drawing.Size(325, 20);
             this.textBox_Origem.TabIndex = 3;
@@ -222,7 +222,7 @@
             // 
             // textBox_Autor
             // 
-            this.textBox_Autor.Location = new System.Drawing.Point(10, 174);
+            this.textBox_Autor.Location = new System.Drawing.Point(10, 135);
             this.textBox_Autor.Name = "textBox_Autor";
             this.textBox_Autor.Size = new System.Drawing.Size(186, 20);
             this.textBox_Autor.TabIndex = 4;
@@ -286,7 +286,7 @@
             // label_Autor
             // 
             this.label_Autor.AutoSize = true;
-            this.label_Autor.Location = new System.Drawing.Point(7, 158);
+            this.label_Autor.Location = new System.Drawing.Point(7, 119);
             this.label_Autor.Name = "label_Autor";
             this.label_Autor.Size = new System.Drawing.Size(36, 13);
             this.label_Autor.TabIndex = 54;
@@ -295,7 +295,7 @@
             // label_Album
             // 
             this.label_Album.AutoSize = true;
-            this.label_Album.Location = new System.Drawing.Point(11, 119);
+            this.label_Album.Location = new System.Drawing.Point(374, 119);
             this.label_Album.Name = "label_Album";
             this.label_Album.Size = new System.Drawing.Size(36, 13);
             this.label_Album.TabIndex = 3;
@@ -304,7 +304,7 @@
             // label_Interprete
             // 
             this.label_Interprete.AutoSize = true;
-            this.label_Interprete.Location = new System.Drawing.Point(199, 158);
+            this.label_Interprete.Location = new System.Drawing.Point(211, 119);
             this.label_Interprete.Name = "label_Interprete";
             this.label_Interprete.Size = new System.Drawing.Size(56, 13);
             this.label_Interprete.TabIndex = 52;
@@ -313,7 +313,7 @@
             // label_Origem_Compra
             // 
             this.label_Origem_Compra.AutoSize = true;
-            this.label_Origem_Compra.Location = new System.Drawing.Point(329, 119);
+            this.label_Origem_Compra.Location = new System.Drawing.Point(12, 158);
             this.label_Origem_Compra.Name = "label_Origem_Compra";
             this.label_Origem_Compra.Size = new System.Drawing.Size(94, 13);
             this.label_Origem_Compra.TabIndex = 51;
@@ -396,7 +396,7 @@
             this.panel_CadastroMusicas.Controls.Add(this.pictureBox1);
             this.panel_CadastroMusicas.Location = new System.Drawing.Point(1, 0);
             this.panel_CadastroMusicas.Name = "panel_CadastroMusicas";
-            this.panel_CadastroMusicas.Size = new System.Drawing.Size(665, 60);
+            this.panel_CadastroMusicas.Size = new System.Drawing.Size(922, 63);
             this.panel_CadastroMusicas.TabIndex = 0;
             // 
             // label1
@@ -404,7 +404,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(445, 27);
+            this.label1.Location = new System.Drawing.Point(701, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(217, 29);
             this.label1.TabIndex = 1;
@@ -424,7 +424,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 636);
+            this.ClientSize = new System.Drawing.Size(927, 636);
             this.Controls.Add(this.panel_CadastroMusicas);
             this.Controls.Add(this.comboBox_Classificacao);
             this.Controls.Add(this.label_AvisoAdicionar);
