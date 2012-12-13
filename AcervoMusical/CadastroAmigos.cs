@@ -99,6 +99,7 @@ namespace AcervoMusical
 
                 if (FP.Conector.Conectar())
                 {
+
                     SqlCommand VerficaDublicidade = new SqlCommand("Select count(*) from Amigos where (Nome = @Nome) and (Telefone = @Telefone) and (Email = @Email)", FP.Conector.Conexao);
 
 
@@ -239,7 +240,7 @@ namespace AcervoMusical
 
                             }
                         }
-                        catch
+                        catch (Exception erro)
                         {
                             label_Aviso.Visible = true;
                             textBox_NomeAmigo.BackColor = Color.OldLace;
@@ -257,7 +258,6 @@ namespace AcervoMusical
                     else
                     {
                         label_RegistroExistente.Visible = true;
-
                     }
                 }
             }
@@ -403,8 +403,8 @@ namespace AcervoMusical
                     FP.Conector.Desconectar();
                 }
 
-                if(label1.Visible != true)
-                button_Cadastrar.Text = "Adicionar";
+                if (label1.Visible != true)
+                    button_Cadastrar.Text = "Adicionar";
                 button_Remover.Enabled = false;
             }
         }
