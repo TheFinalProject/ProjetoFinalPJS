@@ -53,34 +53,41 @@ namespace AcervoMusical
         private void CadastroAmigos_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Verifica se a variavel manteve o seu valor inicial, se caso manteve, ele entra e verifica se há dados salvos ou nao!!!
-            if (fechar == false)
-            {
-                int soma = 0;
-                foreach (Control c in this.Controls)
+
+            //if (button_Cadastrar.Text == "Salvar")
+            //    this.Close();
+            
+
+            //passa no formulario verificando se tem campos nao salvos, se caso tenha, ele sinaliza que existe informações nao salva se mesmo diante disto queira continuar.
+                if (fechar == false)
                 {
-                    if (c is TextBox)
+                    int soma = 0;
+                    foreach (Control c in this.Controls)
                     {
-                        TextBox t = (TextBox)c;
-                        if (t.Text != "")
+                        if (c is TextBox)
                         {
-                            soma++;
+                            TextBox t = (TextBox)c;
+                            if (t.Text != "")
+                            {
+                                soma++;
+                            }
+                        }
+                    }
+                    if (soma > 0)
+                    {
+                        if (MessageBox.Show("O Formulário contém dados não salvos, deseja continuar?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                        {
+                            fechar = true;
+                            this.Close();
+
+                        }
+                        else
+                        {
+                            e.Cancel = true;
                         }
                     }
                 }
-                if (soma > 0)
-                {
-                    if (MessageBox.Show("O Formulário contém dados não salvos, deseja continuar?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-                    {
-                        fechar = true;
-                        this.Close();
-
-                    }
-                    else
-                    {
-                        e.Cancel = true;
-                    }
-                }
-            }
+            
         }
 
         private void button_Cadastrar_Click(object sender, EventArgs e)
@@ -92,6 +99,7 @@ namespace AcervoMusical
 
                 if (FP.Conector.Conectar())
                 {
+
                     SqlCommand VerficaDublicidade = new SqlCommand("Select count(*) from Amigos where (Nome = @Nome) and (Telefone = @Telefone) and (Email = @Email)", FP.Conector.Conexao);
 
 
@@ -232,7 +240,7 @@ namespace AcervoMusical
 
                             }
                         }
-                        catch
+                        catch (Exception erro)
                         {
                             label_Aviso.Visible = true;
                             textBox_NomeAmigo.BackColor = Color.OldLace;
@@ -250,7 +258,6 @@ namespace AcervoMusical
                     else
                     {
                         label_RegistroExistente.Visible = true;
-
                     }
                 }
             }
@@ -352,7 +359,6 @@ namespace AcervoMusical
 
                         CmdUpdate.ExecuteNonQuery();
 
-
                         #region atualiza o listview depois de alterações
                         for (int i = listView_CadastroAmigos.SelectedItems.Count - 1; i >= 0; i--)
                         {
@@ -368,12 +374,24 @@ namespace AcervoMusical
                         }
                         #endregion
 
-                        Limpar();
                         label1.Visible = false;
+
+                        #region limpar Campos
+                        textBox_NomeAmigo.Clear();
+                        textBox_Endereco.Clear();
+                        textBox_Email.Clear();
+                        textBox_Bairro.Clear();
+                        textBox_Numero.Clear();
+                        textBox_Remover.Clear();
+                        comboBox_Cidade.Text = "";
+                        comboBox_UF.Text = "";
+                        maskedTextBox_Telefone.Clear();
+                        #endregion
                     }
                     else
                     {
                         label1.Visible = true;
+
                     }
                 }
                 catch (SqlException erro)
@@ -385,20 +403,9 @@ namespace AcervoMusical
                     FP.Conector.Desconectar();
                 }
 
-                #region limpar Campos
-                textBox_NomeAmigo.Clear();
-                textBox_Endereco.Clear();
-                textBox_Email.Clear();
-                textBox_Bairro.Clear();
-                textBox_Numero.Clear();
-                textBox_Remover.Clear();
-                comboBox_Cidade.Text = "";
-                comboBox_UF.Text = "";
-                maskedTextBox_Telefone.Clear();
-                #endregion
-
-                button_Cadastrar.Text = "Adicionar";
-
+                if (label1.Visible != true)
+                    button_Cadastrar.Text = "Adicionar";
+                button_Remover.Enabled = false;
             }
         }
 
@@ -538,6 +545,7 @@ namespace AcervoMusical
 
                     }
                     button_Remover.Enabled = false;
+                    Limpar();
                 }
                 catch (SqlException erro)
                 {

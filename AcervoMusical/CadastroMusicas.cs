@@ -372,6 +372,7 @@ namespace AcervoMusical
 
                     LimparTextBox();
                     button_Adicionar.Text = "Adicionar";
+                    button_Remover.Enabled = false;
                 }
                 catch (SqlException erro)
                 {
@@ -381,6 +382,7 @@ namespace AcervoMusical
                 {
                     FP.Conector.Desconectar();
                 }
+
             }
 
         }
