@@ -295,7 +295,7 @@ namespace AcervoMusical
                             SqlParameter DataAlbum = new SqlParameter();
                             DataAlbum.SourceColumn = "Data_Album";
                             DataAlbum.SqlDbType = SqlDbType.Date;
-                            DataAlbum.Value = dateTimePicker_DataAlbum.Value.ToShortDateString();
+                            DataAlbum.Value = dateTimePicker_DataAlbum.Value;
                             DataAlbum.ParameterName = "@DataAlbum";
 
                             #endregion
@@ -529,7 +529,6 @@ namespace AcervoMusical
             comboBox_Classificacao.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[4].Text;
             textBox_Observacao.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[5].Text;
             comboBox_Midia.SelectedItem = listView_Cadastro_Musicas.FocusedItem.Group.ToString();
-            dateTimePicker_DataAlbum.Text =  
         }
 
         private void textBox_BuscaMusica_TextChanged(object sender, EventArgs e)

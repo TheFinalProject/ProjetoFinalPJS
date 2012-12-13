@@ -12,6 +12,10 @@ namespace AcervoMusical
     public class Class_Conexão
     {
         public const string StringConexao = @"Data Source =(local); Initial Catalog =Acervo; Integrated Security = SSPI";
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
         public SqlConnection Conexao;
 
         public Class_Conexão()
