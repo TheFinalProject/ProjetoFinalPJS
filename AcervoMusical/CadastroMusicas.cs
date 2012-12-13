@@ -128,7 +128,7 @@ namespace AcervoMusical
                             SqlParameter DataAlbum = new SqlParameter();
                             DataAlbum.SourceColumn = "Data_Album";
                             DataAlbum.SqlDbType = SqlDbType.Date;
-                            DataAlbum.Value = dateTimePicker_DataAlbum.Value.ToShortDateString();
+                            DataAlbum.Value = dateTimePicker_DataAlbum.Value;
                             DataAlbum.ParameterName = "@DataAlbum";
 
                             #endregion

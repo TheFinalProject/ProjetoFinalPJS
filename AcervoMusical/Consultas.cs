@@ -42,74 +42,9 @@ namespace AcervoMusical
             //Percorre o listview e verifica se ja há items com aqueles valores, se tiver com valores diferente dos que procura, ele deleta para poder apresentar, pois nao consegue ter 2 valores em 2 listviews. 
             foreach (DataRow registro in DataFiltro.Tables["Musicas"].Rows)
             {
-                //if (checkBox_Nome.Checked)
-                //{
-                //    if (registro.RowState != DataRowState.Deleted && !registro["Nome_Musica"].ToString().ToUpper().Contains(textBox_Nome.Text.ToUpper()))
-                //    {
-                //        registro.Delete();
-                //    }
-                //}
-                //if (checkBox_Interprete.Checked)
-                //{
-                //    if (registro.RowState != DataRowState.Deleted && !registro["Nome_Interprete"].ToString().ToUpper().Contains(textBox_Interprete.Text.ToUpper()))
-                //    {
-                //        registro.Delete();
-                //    }
-                //}
-                //if (checkBox_Autor.Checked)
-                //{
-                //    if (registro.RowState != DataRowState.Deleted && !registro["Nome_Autor"].ToString().ToUpper().Contains(textBox_Autor.Text.ToUpper()))
-                //    {
-                //        registro.Delete();
-                //    }
-                //}
-                //if (checkBox_Album.Checked)
-                //{
-                //    if (registro.RowState != DataRowState.Deleted && !registro["Nome_Album"].ToString().ToUpper().Contains(textBox_Album.Text.ToUpper()))
-                //    {
-                //        registro.Delete();
-                //    }
-                //}
-                //if (checkBox_OrigemCompra.Checked)
-                //{
-                //    if (registro.RowState != DataRowState.Deleted && !registro["Origem_Compra"].ToString().ToUpper().Contains(textBox_OrigemCompra.Text.ToUpper()))
-                //    {
-                //        registro.Delete();
-                //    }
-                //}
-                //if (checkBox_Midia.Checked)
-                //{
-                //    if (registro.RowState != DataRowState.Deleted && !registro["Tipo_Midia"].ToString().ToUpper().Contains(comboBox_Midia.Text.ToUpper()))
-                //    {
-                //        registro.Delete();
-                //    }
-                //}
-                //if (checkBox_Nota.Checked)
-                //{
-                //    if (registro.RowState != DataRowState.Deleted && !registro["Nota"].ToString().ToUpper().Contains(comboBox_Nota.Text.ToUpper()))
-                //    {
-                //        registro.Delete();
-                //    }
-                //}
-                //////Superior a data de album
-                ////if (checkBox_DataAlbum.Checked)
-                ////    if (registro.RowState != DataRowState.Deleted && DataAlbum < dateTimePicker_Album.Value)
-                ////        registro.Delete();
-
-                //////Inferior a data de album
-                ////if (.Checked)
-                ////    if (registro.RowState != DataRowState.Deleted && DataAlbum > dateTimePickerDataAlbum1.Value)
-                ////        registro.Delete();
-
-                //////Superior a data da compra
-                ////if (checkBox_dataCompra.Checked)
-                ////    if (registro.RowState != DataRowState.Deleted && DataCompra < dateTimeDataCompra.Value)
-                ////        registro.Delete();
-
-                //////Inferior a data de album
-                ////if (checkBoxDataCompra1.Checked)
-                ////    if (registro.RowState != DataRowState.Deleted && DataCompra > dateTimePickerDataCompra1.Value)
-                ////        registro.Delete();
+                DateTime Data_Album = Convert.ToDateTime(dateTimePicker_Album.Value);
+                if (registro.RowState != DataRowState.Deleted && Data_Album != dateTimePicker_Album.Value)
+                    registro.Delete();
             }
 
             listView_ConsultaMusicas.Items.Clear();

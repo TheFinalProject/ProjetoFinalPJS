@@ -378,6 +378,7 @@
             this.dateTimePicker_Album.Name = "dateTimePicker_Album";
             this.dateTimePicker_Album.Size = new System.Drawing.Size(85, 20);
             this.dateTimePicker_Album.TabIndex = 16;
+            this.dateTimePicker_Album.Value = new System.DateTime(2012, 12, 13, 0, 0, 0, 0);
             // 
             // dateTimePicker_Compra
             // 

@@ -99,7 +99,6 @@ namespace AcervoMusical
 
                 if (FP.Conector.Conectar())
                 {
-
                     SqlCommand VerficaDublicidade = new SqlCommand("Select count(*) from Amigos where (Nome = @Nome) and (Telefone = @Telefone) and (Email = @Email)", FP.Conector.Conexao);
 
 
