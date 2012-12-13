@@ -147,9 +147,17 @@ namespace AcervoMusical
             }
             else if (sender == button_Amigos)
             {
-                CadastroAmigos CA = new CadastroAmigos();
-                CA.FP = this;
-                CA.Show();
+                if (Application.OpenForms.OfType<CadastroAmigos>().Count() > 0)
+                {
+                    MessageBox.Show("Form ja está aberto");
+                }
+                else
+                {
+                    CadastroAmigos CA = new CadastroAmigos();
+                    CA.FP = this;
+                    CA.Show();
+                }
+                
             }
             else if (sender == pictureBox_Login)
             {
