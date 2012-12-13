@@ -23,12 +23,6 @@ namespace AcervoMusical
 
         public FormPrincipal FP;
 
-        private void tabPage2_Enter(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
 
