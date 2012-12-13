@@ -196,7 +196,7 @@ INSERT INTO Cidades VALUES('12460','Campos do jordao','SP')
 INSERT INTO Amigos VALUES('Rafael','36624530','rua hum','ceu azul','14','phaelrlz@gmail.com','12460','SP')
 
 Select Amigos.Nome, Amigos.Telefone, Amigos.Endereço, Amigos.Numero, Amigos.Email, Cidades.NomeCidade, Cidades.CidadeId_uf FROM Amigos INNER JOIN Cidades ON Amigos.AmigosId_Cidade = Cidades.id_Cidade
-SELECT * FROM Musicas
+SELECT * FROM Amigos
 
 SELECT id_amigo FROM Amigos WHERE Nome = 'Rafael'
 
@@ -208,5 +208,7 @@ TRUNCATE TABLE Emprestimos
 SELECT * FROM Emprestimos
 
 SELECT id_musicas FROM Musicas WHERE Nome_Album = 'Fear of the Dark'
+
+SELECT Amigos.Nome_Amigo, Musicas.Tipo_Midia, Musicas.Nome_Album, Emprestimos.Data_Emprestimo FROM Emprestimos INNER JOIN Amigos ON Amigo.id_amigo = Emprestimos.EmprestimosId_amigo INNER JOIN Musicas ON Musicas.id_musicas = EmprestimosId_musica
 --=================================================================================*/
 
