@@ -200,12 +200,12 @@ namespace AcervoMusical
                 Id_Amigo = (int)IdAmigo.ExecuteScalar();
                 NomeDoAmigo = comboBox_NomeAmigos.Text;
 
-                foreach (DataRow Registro in DatasetEmprestimos.Dados.Tables["EmprestimosCompletos"].Rows)
+                foreach (DataRow Registro in DatasetEmprestimos.Dados.Tables["AmigosCompletos"].Rows)
                 {
                     if (Registro["Nome"].ToString() == comboBox_NomeAmigos.Text)
                     {
-                        textBox_Tel.Text = Registro["Telefone"].ToString();
                         textBox_Email.Text = Registro["Email"].ToString();
+                        textBox_Tel.Text = Registro["Telefone"].ToString();
                     }
                 }
             }
@@ -276,62 +276,49 @@ namespace AcervoMusical
 
         private void textBox_PesquisarEmprestimo_TextChanged(object sender, EventArgs e)
         {
-            try
+            
+            FP.Conector.Conectar();
+            DataSet DataFiltro = new DataSet();
+
+            SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("SELECT Amigos.Nome, Musicas.Tipo_Midia, Musicas.Nome_Album, Musicas.Status, Emprestimos.Data_Emprestimo, Emprestimos.Data_Devolucao FROM Emprestimos INNER JOIN Amigos ON Amigos.id_amigo = Emprestimos.EmprestimosId_amigo INNER JOIN Musicas ON Musicas.id_musicas = EmprestimosId_musicas", FP.Conector.Conexao);
+
+            AdaptadorFiltro.Fill(DataFiltro, "Emprestimos");
+
+            DataTable TabelaFiltro = DataFiltro.Tables["Emprestimos"];
+
+            foreach (DataRow Registro in DataFiltro.Tables["Emprestimos"].Rows)
             {
-                FP.Conector.Conectar();
-                DataSet DataFiltro = new DataSet();
-
-                SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("SELECT Amigos.Nome, Musicas.Tipo_Midia, Musicas.Nome_Album, Musicas.Status, Emprestimos.Data_Emprestimo, Emprestimos.Data_Devolucao FROM Emprestimos INNER JOIN Amigos ON Amigos.id_amigo = Emprestimos.EmprestimosId_amigo INNER JOIN Musicas ON Musicas.id_musicas = EmprestimosId_musicas", FP.Conector.Conexao);
-                AdaptadorFiltro.Fill(DataFiltro, "Emprestimos");
-                DataTable TabelaFiltro = DataFiltro.Tables["Emprestimos"];
-
-                foreach (DataRow Registro in DataFiltro.Tables["Emprestimos"].Rows)
-                {
-                    if ((Registro["Status"].ToString() == "True") && (Registro["Data_Devolucao"].ToString() == ""))
+                //if ((Registro["Status"].ToString() == "True") && (Registro["Data_Devolucao"].ToString() == ""))
+                //{
+                    string Teste = Registro["Nome"].ToString();
+                    if (textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Nome"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper()) /*|| textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Tipo_Midia"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper()) || textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Nome_Album"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper()) || textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Data_Emprestimos"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper())*/)
                     {
-                        string Teste = Registro["Nome"].ToString();
-                        if (textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Nome"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper()) /*|| textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Tipo_Midia"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper()) || textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Nome_Album"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper()) || textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Data_Emprestimos"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper())*/)
-                        {
-                            Registro.Delete();
-                        }
+                        Registro.Delete();
                     }
-                }
+                //}
+            }
                 
-                listView_Emprestimos.Items.Clear();
+            listView_Emprestimos.Items.Clear();
 
-                for (int I = 0; I < TabelaFiltro.Rows.Count; ++I)
+            for (int I = 0; I < TabelaFiltro.Rows.Count; ++I)
+            {
+                DataRow Registro = TabelaFiltro.Rows[I];
+
+                if ((Registro["Status"].ToString() == "True") && (Registro["Data_Devolucao"].ToString() == ""))
                 {
-                    DataRow Registro = TabelaFiltro.Rows[I];
-
-                    string teste4 = Registro["Nome"].ToString();
-                    string teste3 = Registro["Nome_Album"].ToString();
-                    string teste1 = Registro["Status"].ToString();
-                    string teste2 = Registro["Data_Devolucao"].ToString();
-
-                    if ((Registro["Status"].ToString() == "True") && (Registro["Data_Devolucao"].ToString() == ""))
+                    // Somente as linhas que não foram deletadas
+                    if (Registro.RowState != DataRowState.Deleted)
                     {
-                        // Somente as linhas que não foram deletadas
-                        if (Registro.RowState != DataRowState.Deleted)
-                        {
-                            // Define os itens da lista
-                            ListViewItem InserirEmprestimos = new ListViewItem();
-                            InserirEmprestimos.Text = Registro["Nome"].ToString();
-                            InserirEmprestimos.SubItems.Add(Registro["Tipo_Midia"].ToString());
-                            InserirEmprestimos.SubItems.Add(Registro["Nome_Album"].ToString());
-                            InserirEmprestimos.SubItems.Add(Registro["Data_Emprestimo"].ToString());
+                        // Define os itens da lista
+                        ListViewItem InserirEmprestimos = new ListViewItem();
+                        InserirEmprestimos.Text = Registro["Nome"].ToString();
+                        InserirEmprestimos.SubItems.Add(Registro["Tipo_Midia"].ToString());
+                        InserirEmprestimos.SubItems.Add(Registro["Nome_Album"].ToString());
+                        InserirEmprestimos.SubItems.Add(Registro["Data_Emprestimo"].ToString());
 
-                            listView_Emprestimos.Items.Add(InserirEmprestimos);
-                        }
+                        listView_Emprestimos.Items.Add(InserirEmprestimos);
                     }
                 }
-            }
-            catch (Exception Erro)
-            {
-                MessageBox.Show(Erro.Message);
-            }
-            finally
-            {
-                FP.Conector.Desconectar();
             }
         
         }
@@ -379,25 +366,6 @@ namespace AcervoMusical
                     DadosComboboxAlbum.Add(Registro["Nome_Album"].ToString());
                     comboBox_NomeAlbum.AutoCompleteCustomSource = DadosComboboxAlbum;
                 }
-                //else if ((Registro["Tipo_Midia"].ToString() == "Vinil") && (Registro["Status"].ToString() != "True"))
-                //{
-                //    comboBox_NomeAlbum.Items.Add(Registro["Nome_Album"]);
-                //    DadosComboboxAlbum.Add(Registro["Nome_Album"].ToString());
-                //    comboBox_TipoMidia.AutoCompleteCustomSource = DadosComboboxAlbum;
-                //}
-                //else if ((Registro["Tipo_Midia"].ToString() == "CD") && (Registro["Status"].ToString() != "True"))
-                //{
-                //    comboBox_NomeAlbum.Items.Clear();
-                //    comboBox_NomeAlbum.Items.Add(Registro["Nome_Album"]);
-                //    DadosComboboxAlbum.Add(Registro["Nome_Album"].ToString());
-                //    comboBox_TipoMidia.AutoCompleteCustomSource = DadosComboboxAlbum;
-                //}
-                //else if ((Registro["Tipo_Midia"].ToString() == "K7") && (Registro["Status"].ToString() != "True"))
-                //{
-                //    comboBox_NomeAlbum.Items.Add(Registro["Nome_Album"]);
-                //    DadosComboboxAlbum.Add(Registro["Nome_Album"].ToString());
-                //    comboBox_TipoMidia.AutoCompleteCustomSource = DadosComboboxAlbum;
-                //}
             }
         }
 
@@ -460,7 +428,7 @@ namespace AcervoMusical
                 CmdAtualizarMusicas.Parameters.AddRange(new SqlParameter[] { IdMusica, TipoMidia });
                 CmdAtualizarMusicas.ExecuteNonQuery();
 
-                for (int I = listView_Emprestimos.Items.Count; I <= 0; --I)
+                for (int I = listView_Emprestimos.Items.Count-1; I >= 0; --I)
                 {
                     ListViewItem Remover = listView_Emprestimos.SelectedItems[I];
                     listView_Emprestimos.Items.Remove(Remover);
