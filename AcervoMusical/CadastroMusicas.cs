@@ -577,30 +577,39 @@ namespace AcervoMusical
         {
             FP.Conector.Conectar();
             DataSet FiltroMusicas = new DataSet();
-            SqlDataAdapter AdaptadorMusicas = new SqlDataAdapter("Select * from Musicas", FP.Conector.Conexao);
+            SqlDataAdapter AdaptadorMusicas = new SqlDataAdapter("SELECT * FROM Musicas", FP.Conector.Conexao);
             AdaptadorMusicas.Fill(FiltroMusicas, "Musicas");
             DataTable TabelaMusicas = FiltroMusicas.Tables["Musicas"];
             foreach (DataRow registro in FiltroMusicas.Tables["Musicas"].Rows)
             {
-                if (registro.RowState != DataRowState.Deleted && !registro["Nome_Autor"].ToString().ToUpper().Contains(textBox_BuscaMusica.Text.ToUpper()))
+                if (!(registro["Nome_Musica"].ToString().ToUpper().Contains(textBox_BuscaMusica.Text.ToUpper())))
                 {
                     registro.Delete();
                 }
             }
             listView_Cadastro_Musicas.Items.Clear();
+
             for (int i = 0; i < TabelaMusicas.Rows.Count; i++)
             {
                 DataRow RegistroMusicas = TabelaMusicas.Rows[i];
                 if (RegistroMusicas.RowState != DataRowState.Deleted)
                 {
-                    ListViewItem Item = new ListViewItem();
-                    Item.Text = RegistroMusicas["Nome_Musica"].ToString();
-                    Item.SubItems.Add(RegistroMusicas["Nome_Album"].ToString());
-                    Item.SubItems.Add(RegistroMusicas["Nome_Autor"].ToString());
-                    Item.SubItems.Add(RegistroMusicas["Nome_Interprete"].ToString());
-                    Item.SubItems.Add(RegistroMusicas["Nota"].ToString());
-                    Item.SubItems.Add(RegistroMusicas["Observacao"].ToString());
-                    Item.Group = listView_Cadastro_Musicas.Groups[RegistroMusicas["Tipo_Midia"].ToString()];
+                    listView_Cadastro_Musicas.Items.Clear();
+                    foreach (DataRow registro in DataSetMusicas.Dados.Tables["MusicasCompletas"].Rows)
+                    {
+                        ListViewItem Item = new ListViewItem();
+                        Item.Text = registro["Nome_Musica"].ToString();
+                        Item.Group = listView_Cadastro_Musicas.Groups[registro["Tipo_Midia"].ToString()];
+                        Item.SubItems.Add(registro["Nome_Album"].ToString());
+                        Item.SubItems.Add(registro["Nome_Autor"].ToString());
+                        Item.SubItems.Add(registro["Nome_Interprete"].ToString());
+                        Item.SubItems.Add(registro["Nota"].ToString());
+                        Item.SubItems.Add(registro["Observacao"].ToString());
+                        Item.SubItems.Add(registro["Origem_Compra"].ToString());
+                        Item.SubItems.Add(((DateTime)registro["Data_Compra"]).ToString("dd/MM/yyyy"));
+                        Item.SubItems.Add(((DateTime)registro["Data_Album"]).ToString("dd/MM/yyyy"));
+                        listView_Cadastro_Musicas.Items.Add(Item);
+                    }
                 }
             }
             //FP.Conector.Desconectar();
