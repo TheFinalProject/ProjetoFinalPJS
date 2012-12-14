@@ -27,16 +27,26 @@ namespace AcervoMusical
             DatasetEmprestimos.PreencheAmigos();
             DatasetEmprestimos.PreencheEmprestimos();
         }
+        public void CalcularEmprestimos()
+        {
+            int ContadorDeEmprestimos = listView_Emprestimos.Items.Count;
+            if (ContadorDeEmprestimos > 0)
+            {
+                label_Emprestados.Text = "Voce tem : " + ContadorDeEmprestimos + " Albun(s) emprestado(s).";
+                label_Emprestados.Visible = true;
+            }
+            else
+                label_Emprestados.Visible = false;
+        }
 
         public void LimparTexto()
         {
-            comboBox_NomeAlbum.Text = null;
-            comboBox_NomeAmigos.Text = null;
-            comboBox_TipoMidia.Text = null;
-            textBox_Email.Text = null;
-            textBox_Tel.Text = null;
-            dateTimePicker_emprestimo.ResetText();
-            
+            comboBox_NomeAlbum.Text = "";
+            comboBox_NomeAmigos.Text = "";
+            comboBox_TipoMidia.Text = "";
+            textBox_Email.Text = "";
+            textBox_Tel.Text = "";
+            dateTimePicker_emprestimo.ResetText();         
         }
 
         private void Emprestimos_Load(object sender, EventArgs e)
@@ -73,14 +83,7 @@ namespace AcervoMusical
                     DadosComboboxAmigos.Add(Registro["Nome"].ToString());
                     comboBox_NomeAmigos.AutoCompleteCustomSource = DadosComboboxAmigos;
                 }
-                int ContadorDeEmprestimos = listView_Emprestimos.Items.Count;
-                if (ContadorDeEmprestimos > 0)
-                {
-                    label_Emprestados.Text = "Voce tem : " + ContadorDeEmprestimos + " Albun(s) emprestado(s).";
-                    label_Emprestados.Visible = true;
-                }
-                else
-                    label_Emprestados.Visible = false;
+                CalcularEmprestimos();
             }
             else
             {
@@ -95,12 +98,28 @@ namespace AcervoMusical
             {
                 if (comboBox_NomeAmigos.Text != string.Empty)
                 {
-                    if (comboBox_NomeAlbum.Text != string.Empty)
+                    label_NomeAmigo.ForeColor = Color.Black;
+
+                    if ((comboBox_NomeAlbum.Text != string.Empty) && (comboBox_TipoMidia.Text != string.Empty) )
                     {
                         try
-                        {
+                        {                            
                             FP.Conector.Conectar();
                             SqlCommand CmdInserir = new SqlCommand("INSERT INTO Emprestimos(Data_Emprestimo, EmprestimosId_amigo, EmprestimosId_musicas, EmprestimosTipo_Midia) VALUES (@DataEmprestimo, @IdAmigo, @IdMusica,@EmprestimosTipo_Midia)", FP.Conector.Conexao);
+
+                            #region Pega Id_Amigo
+                            SqlCommand PegaIdAmigo = new SqlCommand("SELECT id_amigo FROM Amigos WHERE (Nome = @NomeAmigo) AND (Email = @Email )", FP.Conector.Conexao);
+                            PegaIdAmigo.Parameters.Add("@NomeAmigo", SqlDbType.VarChar);
+                            PegaIdAmigo.Parameters.Add("@Email", SqlDbType.VarChar);
+                            PegaIdAmigo.Parameters.Add("@Telefone", SqlDbType.VarChar);
+
+                            PegaIdAmigo.Parameters["@NomeAmigo"].Value = comboBox_NomeAmigos.Text;
+                            PegaIdAmigo.Parameters["@Email"].Value = textBox_Email.Text;
+                            PegaIdAmigo.Parameters["@Telefone"].Value = textBox_Tel.Text;
+
+                            Id_Amigo = (int)PegaIdAmigo.ExecuteScalar();
+                            NomeDoAmigo = comboBox_NomeAmigos.Text;
+                            #endregion
 
                             #region Parametro Data de Emprestimo
                             SqlParameter DataEmprestimo = new SqlParameter();
@@ -162,7 +181,10 @@ namespace AcervoMusical
                             listView_Emprestimos.Items.Add(ListaDeEmprestimos);
 
                             comboBox_NomeAlbum.Items.Remove(comboBox_NomeAlbum.Text);
-                            //LimparTexto();
+                            comboBox_NomeAlbum.Text = string.Empty;
+                            comboBox_TipoMidia.Text = string.Empty;
+
+                            CalcularEmprestimos();
                         }
                         catch (Exception Erro)
                         {
@@ -174,16 +196,15 @@ namespace AcervoMusical
                         }
                     }
                     else
-                        MessageBox.Show("Nenhuma Album foi selecionada!");
+                        label_Album.ForeColor = Color.Red;
                 }
                 else
-                    MessageBox.Show("Nenhum Amigo foi selecionado");
+                    label_NomeAmigo.ForeColor = Color.Red;
             }
-            else
+            else if(button_Emprestar.Text == "Voltar")
             {
                 button_Emprestar.Text = "Emprestar";
                 button_Devolver.Enabled = false;
-                LimparTexto();
             }
         }
 
@@ -192,13 +213,6 @@ namespace AcervoMusical
             try
             {
                 FP.Conector.Conectar();
-
-                SqlCommand IdAmigo = new SqlCommand("SELECT id_amigo FROM Amigos WHERE Nome = @NomeAmigo", FP.Conector.Conexao);
-                IdAmigo.Parameters.Add("@NomeAmigo", SqlDbType.VarChar);
-                IdAmigo.Parameters["@NomeAmigo"].Value = comboBox_NomeAmigos.Text;
-
-                Id_Amigo = (int)IdAmigo.ExecuteScalar();
-                NomeDoAmigo = comboBox_NomeAmigos.Text;
 
                 foreach (DataRow Registro in DatasetEmprestimos.Dados.Tables["AmigosCompletos"].Rows)
                 {
@@ -428,11 +442,12 @@ namespace AcervoMusical
                 CmdAtualizarMusicas.Parameters.AddRange(new SqlParameter[] { IdMusica, TipoMidia });
                 CmdAtualizarMusicas.ExecuteNonQuery();
 
-                for (int I = listView_Emprestimos.Items.Count-1; I >= 0; --I)
-                {
-                    ListViewItem Remover = listView_Emprestimos.SelectedItems[I];
-                    listView_Emprestimos.Items.Remove(Remover);
-                }
+                listView_Emprestimos.Items.Remove(listView_Emprestimos.SelectedItems[0]);
+
+                CalcularEmprestimos();
+
+                button_Devolver.Enabled = false;
+                button_Emprestar.Text = "Emprestar";
             }
             catch (Exception Erro)
             {
