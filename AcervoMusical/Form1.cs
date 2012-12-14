@@ -7,12 +7,18 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
+using System.Net;
+using System.Net.Mail;
+using System.Web;
 
 namespace AcervoMusical
 {
     public partial class Login : Form
     {
         public FormPrincipal FP = new FormPrincipal();
+
+        MailMessage Menssagem;
+        SmtpClient Cliente;
 
         public Login()
         {
@@ -80,6 +86,30 @@ namespace AcervoMusical
             if (textBox_Senha.Text == "" || textBox_Senha.Text == " ")
             {
                 textBox_Senha.Text = "Senha";
+            }
+        }
+
+        private void linkLabel1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cliente = new SmtpClient();
+                Menssagem = new MailMessage();
+
+                Menssagem.Body = "Senha Recuperada";
+                Menssagem.From = new MailAddress("phaelrlz@gmail.com");
+                Menssagem.Subject = "Recuperação de Senha";
+                Menssagem.To.Add("phaelrlz@gmail.com");
+
+                Cliente.Credentials = new NetworkCredential("phaelrlz@gmail.com", "kinoflex");
+                Cliente.Port = 25;
+                Cliente.Host = "smtp.gmail.com";
+                Cliente.EnableSsl = true;
+                Cliente.Send(Menssagem);
+            }
+            catch (Exception Erro)
+            {
+                MessageBox.Show(Erro.Message);
             }
         }
     }

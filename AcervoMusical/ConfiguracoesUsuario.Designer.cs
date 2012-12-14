@@ -214,6 +214,7 @@
             this.textBox_Password.Enabled = false;
             this.textBox_Password.Location = new System.Drawing.Point(9, 143);
             this.textBox_Password.Name = "textBox_Password";
+            this.textBox_Password.PasswordChar = '*';
             this.textBox_Password.Size = new System.Drawing.Size(271, 20);
             this.textBox_Password.TabIndex = 3;
             // 
@@ -326,6 +327,7 @@
             this.textBox_EmailSenha.Enabled = false;
             this.textBox_EmailSenha.Location = new System.Drawing.Point(8, 128);
             this.textBox_EmailSenha.Name = "textBox_EmailSenha";
+            this.textBox_EmailSenha.PasswordChar = '*';
             this.textBox_EmailSenha.Size = new System.Drawing.Size(432, 20);
             this.textBox_EmailSenha.TabIndex = 5;
             // 

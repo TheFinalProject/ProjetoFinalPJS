@@ -107,6 +107,7 @@
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Esqueceu a senha?";
+            this.linkLabel1.Click += new System.EventHandler(this.linkLabel1_Click);
             // 
             // button_sair
             // 
