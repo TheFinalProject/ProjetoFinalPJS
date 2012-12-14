@@ -49,6 +49,8 @@
             this.textBox_Login.Size = new System.Drawing.Size(174, 20);
             this.textBox_Login.TabIndex = 1;
             this.textBox_Login.Text = "Nome";
+            this.textBox_Login.Enter += new System.EventHandler(this.textBox_Login_Enter);
+            this.textBox_Login.Leave += new System.EventHandler(this.textBox_Login_Leave);
             // 
             // button_Entrar
             // 
@@ -68,6 +70,8 @@
             this.textBox_Senha.Size = new System.Drawing.Size(174, 20);
             this.textBox_Senha.TabIndex = 4;
             this.textBox_Senha.Text = "Senha";
+            this.textBox_Senha.Enter += new System.EventHandler(this.textBox_Senha_Enter);
+            this.textBox_Senha.Leave += new System.EventHandler(this.textBox_Senha_Leave);
             // 
             // groupBox1
             // 
@@ -75,7 +79,7 @@
             this.groupBox1.Controls.Add(this.textBox_Login);
             this.groupBox1.Controls.Add(this.textBox_Senha);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox1.Location = new System.Drawing.Point(12, 118);
+            this.groupBox1.Location = new System.Drawing.Point(18, 118);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(198, 96);
             this.groupBox1.TabIndex = 5;
@@ -85,11 +89,14 @@
             // label_mensagem
             // 
             this.label_mensagem.AutoSize = true;
+            this.label_mensagem.BackColor = System.Drawing.Color.Transparent;
+            this.label_mensagem.ForeColor = System.Drawing.Color.Red;
             this.label_mensagem.Location = new System.Drawing.Point(7, 72);
             this.label_mensagem.Name = "label_mensagem";
             this.label_mensagem.Size = new System.Drawing.Size(13, 13);
             this.label_mensagem.TabIndex = 5;
             this.label_mensagem.Text = "k";
+            this.label_mensagem.Visible = false;
             // 
             // linkLabel1
             // 
@@ -100,7 +107,6 @@
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Esqueceu a senha?";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // button_sair
             // 
@@ -129,7 +135,6 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Login_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
