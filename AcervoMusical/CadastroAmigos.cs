@@ -54,8 +54,8 @@ namespace AcervoMusical
         {
             //Verifica se a variavel manteve o seu valor inicial, se caso manteve, ele entra e verifica se há dados salvos ou nao!!!
 
-            //if (button_Cadastrar.Text == "Salvar")
-            //    this.Close();
+            if (button_Cadastrar.Text == "Salvar")
+                return;
             
 
             //passa no formulario verificando se tem campos nao salvos, se caso tenha, ele sinaliza que existe informações nao salva se mesmo diante disto queira continuar.

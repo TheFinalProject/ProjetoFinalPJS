@@ -58,8 +58,6 @@
             this.Classificacao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateTimePicker_Album = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker_Compra = new System.Windows.Forms.DateTimePicker();
-            this.checkBox_DataAlbum = new System.Windows.Forms.CheckBox();
-            this.checkBox_DataCompra = new System.Windows.Forms.CheckBox();
             this.textBox_Interprete = new System.Windows.Forms.TextBox();
             this.textBox_Autor = new System.Windows.Forms.TextBox();
             this.textBox_Album = new System.Windows.Forms.TextBox();
@@ -92,6 +90,9 @@
             this.dateTimePicker_DataFinal = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker_DataInicial = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.checkBox_QualquerData = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -114,6 +115,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.checkBox_QualquerData);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label_OrigemCompra);
             this.tabPage2.Controls.Add(this.label_Nota);
             this.tabPage2.Controls.Add(this.label_Album);
@@ -133,8 +137,6 @@
             this.tabPage2.Controls.Add(this.listView_ConsultaMusicas);
             this.tabPage2.Controls.Add(this.dateTimePicker_Album);
             this.tabPage2.Controls.Add(this.dateTimePicker_Compra);
-            this.tabPage2.Controls.Add(this.checkBox_DataAlbum);
-            this.tabPage2.Controls.Add(this.checkBox_DataCompra);
             this.tabPage2.Controls.Add(this.textBox_Interprete);
             this.tabPage2.Controls.Add(this.textBox_Autor);
             this.tabPage2.Controls.Add(this.textBox_Album);
@@ -379,6 +381,7 @@
             this.dateTimePicker_Album.Size = new System.Drawing.Size(85, 20);
             this.dateTimePicker_Album.TabIndex = 16;
             this.dateTimePicker_Album.Value = new System.DateTime(2012, 12, 13, 0, 0, 0, 0);
+            this.dateTimePicker_Album.TabIndexChanged += new System.EventHandler(this.textBox_Interprete_TextChanged);
             // 
             // dateTimePicker_Compra
             // 
@@ -387,26 +390,6 @@
             this.dateTimePicker_Compra.Name = "dateTimePicker_Compra";
             this.dateTimePicker_Compra.Size = new System.Drawing.Size(85, 20);
             this.dateTimePicker_Compra.TabIndex = 15;
-            // 
-            // checkBox_DataAlbum
-            // 
-            this.checkBox_DataAlbum.AutoSize = true;
-            this.checkBox_DataAlbum.Location = new System.Drawing.Point(549, 58);
-            this.checkBox_DataAlbum.Name = "checkBox_DataAlbum";
-            this.checkBox_DataAlbum.Size = new System.Drawing.Size(99, 17);
-            this.checkBox_DataAlbum.TabIndex = 14;
-            this.checkBox_DataAlbum.Text = "Data do Album:";
-            this.checkBox_DataAlbum.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_DataCompra
-            // 
-            this.checkBox_DataCompra.AutoSize = true;
-            this.checkBox_DataCompra.Location = new System.Drawing.Point(549, 12);
-            this.checkBox_DataCompra.Name = "checkBox_DataCompra";
-            this.checkBox_DataCompra.Size = new System.Drawing.Size(106, 17);
-            this.checkBox_DataCompra.TabIndex = 13;
-            this.checkBox_DataCompra.Text = "Data da Compra:";
-            this.checkBox_DataCompra.UseVisualStyleBackColor = true;
             // 
             // textBox_Interprete
             // 
@@ -689,6 +672,36 @@
             this.dateTimePicker_DataInicial.Size = new System.Drawing.Size(99, 20);
             this.dateTimePicker_DataInicial.TabIndex = 8;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(546, 59);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 13);
+            this.label7.TabIndex = 89;
+            this.label7.Text = "Data do Album:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(546, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 13);
+            this.label8.TabIndex = 90;
+            this.label8.Text = "Data da Compra:";
+            // 
+            // checkBox_QualquerData
+            // 
+            this.checkBox_QualquerData.AutoSize = true;
+            this.checkBox_QualquerData.Checked = true;
+            this.checkBox_QualquerData.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_QualquerData.Location = new System.Drawing.Point(804, 53);
+            this.checkBox_QualquerData.Name = "checkBox_QualquerData";
+            this.checkBox_QualquerData.Size = new System.Drawing.Size(98, 17);
+            this.checkBox_QualquerData.TabIndex = 91;
+            this.checkBox_QualquerData.Text = "Qualquer Data:";
+            this.checkBox_QualquerData.UseVisualStyleBackColor = true;
+            // 
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -723,8 +736,6 @@
         private System.Windows.Forms.Button button_Buscar;
         private System.Windows.Forms.DateTimePicker dateTimePicker_Album;
         private System.Windows.Forms.DateTimePicker dateTimePicker_Compra;
-        private System.Windows.Forms.CheckBox checkBox_DataAlbum;
-        private System.Windows.Forms.CheckBox checkBox_DataCompra;
         private System.Windows.Forms.Button button_Limpar;
         private System.Windows.Forms.ListView listView_ConsultaMusicas;
         private System.Windows.Forms.ColumnHeader Musica;
@@ -775,6 +786,9 @@
         private System.Windows.Forms.Label label_Midia;
         private System.Windows.Forms.Label label_Interprete;
         private System.Windows.Forms.Label label_Nome;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox checkBox_QualquerData;
 
     }
 }

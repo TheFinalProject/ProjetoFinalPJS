@@ -316,9 +316,10 @@ namespace AcervoMusical
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-          //label_Data.Text = DateTime.Now.ToShortDateString();
-          //label1.Text = DateTime.Now.ToShortTimeString();
-          //label2.Text = DateTime.Now.ToString();
+
+            label_Data.Text = DateTime.Now.ToShortDateString();
+            label_DiaDaSemana.Text = DateTime.Now.ToString("dddd");
+            label_Hora.Text = DateTime.Now.ToLongTimeString();
         }
 
         private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
