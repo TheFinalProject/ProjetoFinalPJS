@@ -93,9 +93,9 @@
             this.label_mensagem.ForeColor = System.Drawing.Color.Red;
             this.label_mensagem.Location = new System.Drawing.Point(7, 72);
             this.label_mensagem.Name = "label_mensagem";
-            this.label_mensagem.Size = new System.Drawing.Size(13, 13);
+            this.label_mensagem.Size = new System.Drawing.Size(26, 13);
             this.label_mensagem.TabIndex = 5;
-            this.label_mensagem.Text = "k";
+            this.label_mensagem.Text = "Erro";
             this.label_mensagem.Visible = false;
             // 
             // linkLabel1

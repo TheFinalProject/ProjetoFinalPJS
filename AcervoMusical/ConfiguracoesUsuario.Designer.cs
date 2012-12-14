@@ -35,22 +35,28 @@
             this.label_imagem = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label_MaxChar = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_Salvar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox_smtp = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox_Password = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox_Login = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox_Senha = new System.Windows.Forms.TextBox();
             this.panel_Usuario = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox_Email = new System.Windows.Forms.TextBox();
+            this.comboBox_Smtp = new System.Windows.Forms.ComboBox();
+            this.textBox_EmailSenha = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel_Usuario.SuspendLayout();
@@ -61,7 +67,7 @@
             // checkBox_Habilitar
             // 
             this.checkBox_Habilitar.AutoSize = true;
-            this.checkBox_Habilitar.Location = new System.Drawing.Point(26, 85);
+            this.checkBox_Habilitar.Location = new System.Drawing.Point(13, 43);
             this.checkBox_Habilitar.Name = "checkBox_Habilitar";
             this.checkBox_Habilitar.Size = new System.Drawing.Size(134, 17);
             this.checkBox_Habilitar.TabIndex = 0;
@@ -125,14 +131,15 @@
             this.label_MaxChar.Text = "Max 18 Caracteres";
             this.label_MaxChar.Visible = false;
             // 
-            // button1
+            // button_Salvar
             // 
-            this.button1.Location = new System.Drawing.Point(339, 570);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Slavar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_Salvar.Location = new System.Drawing.Point(339, 570);
+            this.button_Salvar.Name = "button_Salvar";
+            this.button_Salvar.Size = new System.Drawing.Size(84, 23);
+            this.button_Salvar.TabIndex = 9;
+            this.button_Salvar.Text = "Slavar";
+            this.button_Salvar.UseVisualStyleBackColor = true;
+            this.button_Salvar.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -142,16 +149,19 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.textBox_EmailSenha);
+            this.groupBox2.Controls.Add(this.comboBox_Smtp);
             this.groupBox2.Controls.Add(this.textBox_smtp);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox_Login);
-            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.textBox_Email);
             this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Location = new System.Drawing.Point(58, 309);
             this.groupBox2.Name = "groupBox2";
@@ -167,13 +177,6 @@
             this.textBox_smtp.Size = new System.Drawing.Size(315, 20);
             this.textBox_smtp.TabIndex = 13;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 108);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(315, 20);
-            this.textBox1.TabIndex = 12;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -183,7 +186,6 @@
             this.label8.Size = new System.Drawing.Size(182, 13);
             this.label8.TabIndex = 9;
             this.label8.Text = "Selecione seu servidor de saida smtp";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -194,32 +196,6 @@
             this.label7.TabIndex = 10;
             this.label7.Text = "Servidor SMTP";
             this.label7.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 95);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Senha";
-            this.label3.Visible = false;
-            // 
-            // textBox_Login
-            // 
-            this.textBox_Login.Location = new System.Drawing.Point(12, 73);
-            this.textBox_Login.Name = "textBox_Login";
-            this.textBox_Login.Size = new System.Drawing.Size(315, 20);
-            this.textBox_Login.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 53);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Login";
             // 
             // textBox3
             // 
@@ -232,13 +208,52 @@
             this.textBox3.Text = "O cadastro de email serve em caso de perda da senha, caso nao utilize um usuario " +
                 "com senha, nao é necessario preencher este campo";
             // 
+            // textBox_Password
+            // 
+            this.textBox_Password.Enabled = false;
+            this.textBox_Password.Location = new System.Drawing.Point(9, 143);
+            this.textBox_Password.Name = "textBox_Password";
+            this.textBox_Password.Size = new System.Drawing.Size(271, 20);
+            this.textBox_Password.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Senha";
+            this.label3.Visible = false;
+            // 
+            // textBox_Login
+            // 
+            this.textBox_Login.Enabled = false;
+            this.textBox_Login.Location = new System.Drawing.Point(9, 104);
+            this.textBox_Login.Name = "textBox_Login";
+            this.textBox_Login.Size = new System.Drawing.Size(271, 20);
+            this.textBox_Login.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 88);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(33, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Login";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.textBox_Senha);
+            this.groupBox1.Controls.Add(this.textBox_Password);
             this.groupBox1.Controls.Add(this.checkBox_Habilitar);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label_Senha);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label_MaxChar);
             this.groupBox1.Controls.Add(this.textBox_NomeUsuario);
+            this.groupBox1.Controls.Add(this.textBox_Login);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label_Nome);
             this.groupBox1.Location = new System.Drawing.Point(209, 99);
@@ -282,18 +297,75 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Email";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 180);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "SMTP";
+            this.label2.Visible = false;
+            // 
+            // textBox_Email
+            // 
+            this.textBox_Email.Enabled = false;
+            this.textBox_Email.Location = new System.Drawing.Point(8, 87);
+            this.textBox_Email.Name = "textBox_Email";
+            this.textBox_Email.Size = new System.Drawing.Size(432, 20);
+            this.textBox_Email.TabIndex = 14;
+            // 
+            // comboBox_Smtp
+            // 
+            this.comboBox_Smtp.Enabled = false;
+            this.comboBox_Smtp.FormattingEnabled = true;
+            this.comboBox_Smtp.Items.AddRange(new object[] {
+            "smtp.uol.com.br",
+            "smtp.gmail.com",
+            "smtp.live.com"});
+            this.comboBox_Smtp.Location = new System.Drawing.Point(6, 196);
+            this.comboBox_Smtp.Name = "comboBox_Smtp";
+            this.comboBox_Smtp.Size = new System.Drawing.Size(432, 21);
+            this.comboBox_Smtp.TabIndex = 16;
+            // 
+            // textBox_EmailSenha
+            // 
+            this.textBox_EmailSenha.Enabled = false;
+            this.textBox_EmailSenha.Location = new System.Drawing.Point(6, 128);
+            this.textBox_EmailSenha.Name = "textBox_EmailSenha";
+            this.textBox_EmailSenha.Size = new System.Drawing.Size(432, 20);
+            this.textBox_EmailSenha.TabIndex = 17;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(5, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(66, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Senha Email";
+            // 
             // ConfiguracoesUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 608);
             this.Controls.Add(this.panel_Usuario);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_Salvar);
             this.Controls.Add(this.label_imagem);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.Name = "ConfiguracoesUsuario";
             this.Text = "ConfiguracoesUsuario";
             this.Load += new System.EventHandler(this.ConfiguracoesUsuario_Load);
@@ -319,7 +391,7 @@
         private System.Windows.Forms.Label label_imagem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label_MaxChar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_Salvar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;
@@ -331,8 +403,14 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox_Senha;
         private System.Windows.Forms.TextBox textBox_smtp;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_Password;
         private System.Windows.Forms.Panel panel_Usuario;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox_Email;
+        private System.Windows.Forms.ComboBox comboBox_Smtp;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox_EmailSenha;
     }
 }

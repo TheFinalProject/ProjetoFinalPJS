@@ -42,10 +42,14 @@ GO
 
 CREATE TABLE Usuario
 (
+	IdLogin INT IDENTITY,
 	Login VARCHAR(20) PRIMARY KEY,
-	senha VARCHAR(20),
+	Senha VARCHAR(20),
 	Email VARCHAR(20),
-	EmailSenha VARCHAR(20)	
+	EmailSenha VARCHAR(20),
+	Smtp VARCHAR(25),
+	AtivarLogin BIT,	
+	Imagem VARBINARY(MAX)
 )
 GO
 
@@ -147,11 +151,11 @@ CREATE TABLE Emprestimos
 )
 GO
 
+SELECT * FROM Usuario
+TRUNCATE TABLE Usuario
 INSERT INTO Usuario
 VALUES 
-	('Rafael','rafael','',''),
-	('Gustavo','gustavo','',''),
-	('Felipe', 'felipe','','')
+	('Admin','admin','','','',0,0)
 GO		  
 
 EXEC IniciarConfiguracoes
@@ -186,7 +190,7 @@ GO
 SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
 ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'SP'
 
-Select * from Musicas where  (Nome_Musica like '%i%')
+Select * from Usuario where  (Nome_Musica like '%i%')
 
 SELECT Cidades.Nome, Estados.id_Estado FROM Cidades INNER JOIN Estados 
 ON Cidades.CidadeId_uf = Estados.id_Estado WHERE Estados.id_Estado = 'RJ'
@@ -206,6 +210,7 @@ SELECT Amigos.Nome, Musicas.Nome_Album, Emprestimos.Data_Emprestimo FROM Emprest
 UPDATE Musicas SET Status = 0 WHERE id_musicas ; SELECT * FROM Musicas
 TRUNCATE TABLE Emprestimos
 SELECT * FROM Emprestimos
+SELECT * FROM Usuario
 
 SELECT id_musicas FROM Musicas WHERE Nome_Album = 'Fear of the Dark'
 

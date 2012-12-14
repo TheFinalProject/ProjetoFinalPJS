@@ -19,10 +19,10 @@ namespace AcervoMusical
 
         private void listView_smtp_DoubleClick(object sender, EventArgs e)
         {
-            string Valor;
-            Valor = listView_smtp.SelectedItems[0].SubItems[1].ToString();
-            ConfiguracoesUsuario ConfigUser = new ConfiguracoesUsuario(Valor);
-            this.Close();
+            //string Valor;
+            //Valor = listView_smtp.SelectedItems[0].SubItems[1].ToString();
+            //ConfiguracoesUsuario ConfigUser = new ConfiguracoesUsuario(Valor);
+            //this.Close();
         }
 
         private void listView_smtp_SelectedIndexChanged(object sender, EventArgs e)
