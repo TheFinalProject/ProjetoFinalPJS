@@ -175,6 +175,12 @@ namespace AcervoMusical
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            #region Chama o formulario de Login
+            Login Login = new Login();
+            Login.FP = this;
+            Login.ShowDialog();
+            #endregion
+
             try
             {
                 timer_Relogio.Start();

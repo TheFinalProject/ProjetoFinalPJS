@@ -43,20 +43,11 @@ namespace AcervoMusical
             Adaptador.Fill(Dados, "EmprestimosCompletos");
         }
 
-        public void ConsultarEmprestimos(string NomeAmigo)
+        public void Login()
         {
-            Adaptador.SelectCommand = new SqlCommand("SELECT Amigos.Nome, Musicas.Nome_Album, Emprestimos.Data_Emprestimo FROM Emprestimos INNER JOIN Amigos ON Emprestimos.EmprestimosId_amigo = Amigos.id_amigo INNER JOIN Musicas ON Emprestimos.EmprestimosId_musicas = Musicas.id_musicas WHERE (Nome LIKE '%"+NomeAmigo+"%')", Conector.Conexao);
-
-            //SqlParameter ParametroNomeAmigo = new SqlParameter();
-            //ParametroNomeAmigo.Value = NomeAmigo;
-            //ParametroNomeAmigo.SourceColumn = "Nome";
-            //ParametroNomeAmigo.ParameterName = "@NomeAmigo";
-            //ParametroNomeAmigo.SqlDbType = SqlDbType.VarChar;
-
-            //Adaptador.SelectCommand.Parameters.Add(ParametroNomeAmigo);
-
+            Adaptador.SelectCommand = new SqlCommand("SELECT * FROM Usuario", Conector.Conexao);
             Adaptador.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            Adaptador.Fill(Dados, "ConsultarEmprestimos");
+            Adaptador.Fill(Dados, "Usuario");
         }
     }
 }

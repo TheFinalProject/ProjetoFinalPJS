@@ -61,11 +61,11 @@
             // checkBox_Habilitar
             // 
             this.checkBox_Habilitar.AutoSize = true;
-            this.checkBox_Habilitar.Location = new System.Drawing.Point(13, 142);
+            this.checkBox_Habilitar.Location = new System.Drawing.Point(26, 85);
             this.checkBox_Habilitar.Name = "checkBox_Habilitar";
-            this.checkBox_Habilitar.Size = new System.Drawing.Size(98, 17);
+            this.checkBox_Habilitar.Size = new System.Drawing.Size(134, 17);
             this.checkBox_Habilitar.TabIndex = 0;
-            this.checkBox_Habilitar.Text = "Habilitar Senha";
+            this.checkBox_Habilitar.Text = "Habilitar Login e senha";
             this.checkBox_Habilitar.UseVisualStyleBackColor = true;
             this.checkBox_Habilitar.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
