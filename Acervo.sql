@@ -103,7 +103,7 @@ CREATE TABLE Amigos
 	Telefone CHAR(15),
 	Endereço VARCHAR(50),
 	Bairro VARCHAR(40),
-	Numero CHAR(10),
+	Numero VARCHAR(10),
 	Email VARCHAR(50),
 	
 	AmigosId_Cidade INT,
