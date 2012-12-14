@@ -77,16 +77,10 @@
             this.NomeMidiaDevolucao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NomeAlbumDevolucao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DataDevolucao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-<<<<<<< HEAD
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker_DataFinal = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker_DataInicial = new System.Windows.Forms.DateTimePicker();
-            this.panel_Consulta = new System.Windows.Forms.Panel();
+
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
-=======
->>>>>>> origin/master
+
             this.tabControl.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage_Emprestimos.SuspendLayout();
@@ -549,41 +543,6 @@
             this.DataDevolucao.Text = "Data";
             this.DataDevolucao.Width = 143;
             // 
-<<<<<<< HEAD
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(431, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Data Final:";
-            // 
-            // dateTimePicker_DataFinal
-            // 
-            this.dateTimePicker_DataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_DataFinal.Location = new System.Drawing.Point(434, 32);
-            this.dateTimePicker_DataFinal.Name = "dateTimePicker_DataFinal";
-            this.dateTimePicker_DataFinal.Size = new System.Drawing.Size(99, 20);
-            this.dateTimePicker_DataFinal.TabIndex = 10;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(309, 16);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Data Inicial:";
-            // 
-            // dateTimePicker_DataInicial
-            // 
-            this.dateTimePicker_DataInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_DataInicial.Location = new System.Drawing.Point(312, 32);
-            this.dateTimePicker_DataInicial.Name = "dateTimePicker_DataInicial";
-            this.dateTimePicker_DataInicial.Size = new System.Drawing.Size(99, 20);
-            this.dateTimePicker_DataInicial.TabIndex = 8;
-            // 
             // panel_Consulta
             // 
             this.panel_Consulta.Controls.Add(this.label9);
@@ -614,8 +573,6 @@
             this.label9.TabIndex = 92;
             this.label9.Text = "CONSULTA";
             // 
-=======
->>>>>>> origin/master
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -632,14 +589,10 @@
             this.tabPage_Emprestimos.ResumeLayout(false);
             this.tabPage_Emprestimos.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-<<<<<<< HEAD
             this.tabPage4.PerformLayout();
             this.panel_Consulta.ResumeLayout(false);
             this.panel_Consulta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-=======
->>>>>>> origin/master
-            this.ResumeLayout(false);
 
         }
 
