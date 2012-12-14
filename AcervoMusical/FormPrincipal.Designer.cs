@@ -92,6 +92,7 @@
             this.Midia,
             this.Album,
             this.Data});
+            this.listView_Devolucoes.GridLines = true;
             this.listView_Devolucoes.Location = new System.Drawing.Point(337, 409);
             this.listView_Devolucoes.Name = "listView_Devolucoes";
             this.listView_Devolucoes.Size = new System.Drawing.Size(387, 175);

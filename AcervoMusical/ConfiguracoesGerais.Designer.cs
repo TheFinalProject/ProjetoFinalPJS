@@ -148,6 +148,7 @@
             this.Controls.Add(this.button_Salvar);
             this.Controls.Add(this.comboBox_cores);
             this.Name = "ConfiguracoesGerais";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfiguracoesGerais";
             this.Load += new System.EventHandler(this.ConfiguracoesGerais_Load);
             this.panel_ConfigGerais.ResumeLayout(false);

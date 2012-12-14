@@ -28,29 +28,18 @@ namespace AcervoMusical
 
         private void button_Play_Click(object sender, EventArgs e)
         {
-            if (button_Play.Text == "PLAY")
-            //Quando der play ele vai tocar a musica, caso o listbox tenha 1 musica selecionado, caso nao tenha ele nao executará nenhuma ação
+
             if (listBox_Musicas.SelectedItems.Count > 0)
             {
                 if (listBox_Musicas.SelectedItems.Count > 0)
                 {
                     WindowsMediaPlayer.URL = Musicas[listBox_Musicas.SelectedIndex];
                     timer_tempo.Start();
-                    button_Play.Text = "PAUSE";
+
                 }
-            }
-            else if (button_Play.Text == "PAUSE")
-            {
-                WindowsMediaPlayer.Ctlcontrols.pause();
-                button_Play.Text = "RESUME";
-            }
-            else if (button_Play.Text == "RESUME")
-            {
-                WindowsMediaPlayer.Ctlcontrols.play();
-                button_Play.Text = "PAUSE";
+
             }
         }
-            
         private void button_Add_Click(object sender, EventArgs e)
         {
             //Abrirá a janela de procura do windows, que possibilitará abrir musicas do seu computador para ouvir durante a execução do programa
@@ -148,6 +137,28 @@ namespace AcervoMusical
         {
             WindowsMediaPlayer.settings.volume = trackBar_Volume.Value;
         }
+
+        private void button_Pause_Click_1(object sender, EventArgs e)
+        {
+            WindowsMediaPlayer.Ctlcontrols.pause();
+        }
+
+        private void button_Resume_Click_1(object sender, EventArgs e)
+        {
+            if (listBox_Musicas.Items.Count > 0)
+            {
+                WindowsMediaPlayer.Ctlcontrols.play();
+            }
+        }
+
+        private void button_Stop_Click_1(object sender, EventArgs e)
+        {
+            if (listBox_Musicas.Items.Count > 0)
+            {
+                WindowsMediaPlayer.Ctlcontrols.stop();
+            }
+        }
+
 
     }
 }

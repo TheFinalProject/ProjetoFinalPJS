@@ -41,14 +41,17 @@
             this.WindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.timer_tempo = new System.Windows.Forms.Timer(this.components);
             this.panel_MediaPlayer = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_Resume = new System.Windows.Forms.Button();
+            this.button_Pause = new System.Windows.Forms.Button();
+            this.button_Stop = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_Volume)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WindowsMediaPlayer)).BeginInit();
             this.panel_MediaPlayer.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // trackBar_Volume
@@ -66,7 +69,7 @@
             // 
             this.button_anterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button_anterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_anterior.Location = new System.Drawing.Point(316, 15);
+            this.button_anterior.Location = new System.Drawing.Point(244, 15);
             this.button_anterior.Name = "button_anterior";
             this.button_anterior.Size = new System.Drawing.Size(55, 40);
             this.button_anterior.TabIndex = 37;
@@ -78,7 +81,7 @@
             // 
             this.button_proximo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button_proximo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_proximo.Location = new System.Drawing.Point(461, 15);
+            this.button_proximo.Location = new System.Drawing.Point(609, 15);
             this.button_proximo.Name = "button_proximo";
             this.button_proximo.Size = new System.Drawing.Size(55, 40);
             this.button_proximo.TabIndex = 36;
@@ -90,7 +93,7 @@
             // 
             this.button_ultimo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.button_ultimo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_ultimo.Location = new System.Drawing.Point(522, 15);
+            this.button_ultimo.Location = new System.Drawing.Point(670, 15);
             this.button_ultimo.Name = "button_ultimo";
             this.button_ultimo.Size = new System.Drawing.Size(55, 40);
             this.button_ultimo.TabIndex = 35;
@@ -128,7 +131,7 @@
             // 
             this.button_Primeiro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.button_Primeiro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Primeiro.Location = new System.Drawing.Point(255, 15);
+            this.button_Primeiro.Location = new System.Drawing.Point(183, 15);
             this.button_Primeiro.Name = "button_Primeiro";
             this.button_Primeiro.Size = new System.Drawing.Size(55, 40);
             this.button_Primeiro.TabIndex = 38;
@@ -168,19 +171,6 @@
             this.panel_MediaPlayer.Size = new System.Drawing.Size(871, 60);
             this.panel_MediaPlayer.TabIndex = 46;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button_Play);
-            this.groupBox1.Controls.Add(this.button_Primeiro);
-            this.groupBox1.Controls.Add(this.button_anterior);
-            this.groupBox1.Controls.Add(this.button_ultimo);
-            this.groupBox1.Controls.Add(this.button_proximo);
-            this.groupBox1.Location = new System.Drawing.Point(11, 469);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(844, 67);
-            this.groupBox1.TabIndex = 47;
-            this.groupBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -199,6 +189,64 @@
             this.pictureBox1.Size = new System.Drawing.Size(100, 60);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button_Resume);
+            this.groupBox1.Controls.Add(this.button_Pause);
+            this.groupBox1.Controls.Add(this.button_Stop);
+            this.groupBox1.Controls.Add(this.button_Play);
+            this.groupBox1.Controls.Add(this.button_Primeiro);
+            this.groupBox1.Controls.Add(this.button_anterior);
+            this.groupBox1.Controls.Add(this.button_ultimo);
+            this.groupBox1.Controls.Add(this.button_proximo);
+            this.groupBox1.Location = new System.Drawing.Point(11, 469);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(844, 67);
+            this.groupBox1.TabIndex = 47;
+            this.groupBox1.TabStop = false;
+            // 
+            // button_Resume
+            // 
+            this.button_Resume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button_Resume.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_Resume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Resume.ForeColor = System.Drawing.Color.White;
+            this.button_Resume.Location = new System.Drawing.Point(457, 15);
+            this.button_Resume.Name = "button_Resume";
+            this.button_Resume.Size = new System.Drawing.Size(70, 40);
+            this.button_Resume.TabIndex = 41;
+            this.button_Resume.Text = "RESUME";
+            this.button_Resume.UseVisualStyleBackColor = false;
+            this.button_Resume.Click += new System.EventHandler(this.button_Resume_Click_1);
+            // 
+            // button_Pause
+            // 
+            this.button_Pause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button_Pause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_Pause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Pause.ForeColor = System.Drawing.Color.White;
+            this.button_Pause.Location = new System.Drawing.Point(305, 15);
+            this.button_Pause.Name = "button_Pause";
+            this.button_Pause.Size = new System.Drawing.Size(70, 40);
+            this.button_Pause.TabIndex = 40;
+            this.button_Pause.Text = "PAUSE";
+            this.button_Pause.UseVisualStyleBackColor = false;
+            this.button_Pause.Click += new System.EventHandler(this.button_Pause_Click_1);
+            // 
+            // button_Stop
+            // 
+            this.button_Stop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button_Stop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button_Stop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_Stop.ForeColor = System.Drawing.Color.White;
+            this.button_Stop.Location = new System.Drawing.Point(533, 15);
+            this.button_Stop.Name = "button_Stop";
+            this.button_Stop.Size = new System.Drawing.Size(70, 40);
+            this.button_Stop.TabIndex = 39;
+            this.button_Stop.Text = "STOP";
+            this.button_Stop.UseVisualStyleBackColor = false;
+            this.button_Stop.Click += new System.EventHandler(this.button_Stop_Click_1);
             // 
             // MediaPlayer
             // 
@@ -219,8 +267,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.WindowsMediaPlayer)).EndInit();
             this.panel_MediaPlayer.ResumeLayout(false);
             this.panel_MediaPlayer.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +290,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button_Resume;
+        private System.Windows.Forms.Button button_Pause;
+        private System.Windows.Forms.Button button_Stop;
     }
 }
