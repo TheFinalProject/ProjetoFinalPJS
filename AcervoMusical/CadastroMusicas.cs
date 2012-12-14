@@ -64,195 +64,228 @@ namespace AcervoMusical
                             try
                             {
                                 SqlCommand VerficaDublicidade = new SqlCommand("Select count(*) from Musicas where (Nome_Autor = @Autor) and (Nome_Interprete = @Interprete) and (Tipo_Midia = @Midia)", FP.Conector.Conexao);
-                        #region ParametroAutor
-                        SqlParameter AutorVerificador = new SqlParameter();
-                        AutorVerificador.SourceColumn = "Nome_Autor";
-                        AutorVerificador.Value = textBox_Autor.Text;
-                        AutorVerificador.ParameterName = "@Autor";
-                        AutorVerificador.SqlDbType = SqlDbType.VarChar;
-                        AutorVerificador.Size = 50;
-                        #endregion
-
-                        #region ParametroInterprete
-                        SqlParameter InterpreteVerificador = new SqlParameter();
-                        InterpreteVerificador.Value = textBox_Interprete.Text;
-                        InterpreteVerificador.SourceColumn = "Nome_Interprete";
-                        InterpreteVerificador.ParameterName = "@Interprete";
-                        InterpreteVerificador.SqlDbType = SqlDbType.VarChar;
-                        InterpreteVerificador.Size = 50;
-                        #endregion
-
-                        #region ParametroMidia
-                        SqlParameter MidiaVerificador = new SqlParameter();
-                        MidiaVerificador.SourceColumn = "Tipo_Midia";
-                        MidiaVerificador.Value = comboBox_Midia.SelectedItem.ToString();
-                        MidiaVerificador.ParameterName = "@Midia";
-                        MidiaVerificador.SqlDbType = SqlDbType.VarChar;
-                        MidiaVerificador.Size = 10;
-                        #endregion
-
-                        VerficaDublicidade.Parameters.AddRange(new SqlParameter[]{AutorVerificador, InterpreteVerificador, MidiaVerificador });
-                        int Verificador = (int)VerficaDublicidade.ExecuteScalar();
-                        if (Verificador == 0)
-                        {
-                                SqlCommand Adicionar = new SqlCommand("Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)", FP.Conector.Conexao);
-                                #region Parametros
-                                #region ParametroInterprete
-                                SqlParameter NomeInterprete = new SqlParameter();
-                                NomeInterprete.Value = textBox_Interprete.Text;
-                                NomeInterprete.SourceColumn = "Nome_Interprete";
-                                NomeInterprete.ParameterName = "@Interprete";
-                                NomeInterprete.SqlDbType = SqlDbType.VarChar;
-                                NomeInterprete.Size = 50;
-                                #endregion
-
                                 #region ParametroAutor
-                                SqlParameter Autor = new SqlParameter();
-                                Autor.SourceColumn = "Nome_Autor";
-                                Autor.Value = textBox_Autor.Text;
-                                Autor.ParameterName = "@Autor";
-                                Autor.SqlDbType = SqlDbType.VarChar;
-                                Autor.Size = 50;
+                                SqlParameter AutorVerificador = new SqlParameter();
+                                AutorVerificador.SourceColumn = "Nome_Autor";
+                                AutorVerificador.Value = textBox_Autor.Text;
+                                AutorVerificador.ParameterName = "@Autor";
+                                AutorVerificador.SqlDbType = SqlDbType.VarChar;
+                                AutorVerificador.Size = 50;
                                 #endregion
 
-                                #region ParametroAlbum
-                                SqlParameter Album = new SqlParameter();
-                                Album.SourceColumn = "Nome_Album";
-                                Album.Value = textBox_Album.Text;
-                                Album.ParameterName = "@Album";
-                                Album.SqlDbType = SqlDbType.VarChar;
-                                Album.Size = 50;
-                                #endregion
-
-                                #region ParametroDataAlbum
-                                SqlParameter DataAlbum = new SqlParameter();
-                                DataAlbum.SourceColumn = "Data_Album";
-                                DataAlbum.SqlDbType = SqlDbType.Date;
-                                DataAlbum.Value = dateTimePicker_DataAlbum.Value.ToShortDateString();
-                                DataAlbum.ParameterName = "@DataAlbum";
-
-                                #endregion
-
-                                #region ParametroDataCompra
-                                SqlParameter DataCompra = new SqlParameter();
-                                DataCompra.SourceColumn = "Data_Compra";
-                                DataCompra.SqlDbType = SqlDbType.Date;
-                                DataCompra.Value = dateTimePicker_DataCampra.Value.ToShortDateString();
-                                DataCompra.ParameterName = "@DataCompra";
-
-                                #endregion
-
-                                #region ParametroOrigem
-                                SqlParameter Origem = new SqlParameter();
-                                Origem.SourceColumn = "Origem_Compra";
-                                Origem.Value = textBox_Origem.Text;
-                                Origem.ParameterName = "@Origem";
-                                Origem.SqlDbType = SqlDbType.VarChar;
-                                Origem.Size = 40;
-                                #endregion
-
-                                #region ParametroObservação
-                                SqlParameter Observacao = new SqlParameter();
-                                Observacao.SourceColumn = "Observacao";
-                                Observacao.Value = textBox_Observacao.Text;
-                                Observacao.ParameterName = "@Observacao";
-                                Observacao.SqlDbType = SqlDbType.VarChar;
-                                Observacao.Size = 200;
+                                #region ParametroInterprete
+                                SqlParameter InterpreteVerificador = new SqlParameter();
+                                InterpreteVerificador.Value = textBox_Interprete.Text;
+                                InterpreteVerificador.SourceColumn = "Nome_Interprete";
+                                InterpreteVerificador.ParameterName = "@Interprete";
+                                InterpreteVerificador.SqlDbType = SqlDbType.VarChar;
+                                InterpreteVerificador.Size = 50;
                                 #endregion
 
                                 #region ParametroMidia
-                                SqlParameter Midia = new SqlParameter();
-                                Midia.SourceColumn = "Tipo_Midia";
-                                if (comboBox_Midia.SelectedItem.ToString() != "")
+                                SqlParameter MidiaVerificador = new SqlParameter();
+                                MidiaVerificador.SourceColumn = "Tipo_Midia";
+                                MidiaVerificador.Value = comboBox_Midia.SelectedItem.ToString();
+                                MidiaVerificador.ParameterName = "@Midia";
+                                MidiaVerificador.SqlDbType = SqlDbType.VarChar;
+                                MidiaVerificador.Size = 10;
+                                #endregion
+
+                                VerficaDublicidade.Parameters.AddRange(new SqlParameter[]{AutorVerificador, InterpreteVerificador, MidiaVerificador });
+                                int Verificador = (int)VerficaDublicidade.ExecuteScalar();
+                                if (Verificador == 0)
                                 {
-                                    Midia.Value = comboBox_Midia.SelectedItem.ToString();
+                                    SqlCommand Adicionar = new SqlCommand("Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)", FP.Conector.Conexao);
+                                    #region Parametros
+                                    #region ParametroInterprete
+                                    SqlParameter NomeInterprete = new SqlParameter();
+                                    if (textBox_Interprete.Text != "")
+                                    {
+                                        NomeInterprete.Value = textBox_Interprete.Text;
+                                    }
+                                    else
+                                    {
+                                        NomeInterprete.Value = null;
+                                    }
+                                    NomeInterprete.SourceColumn = "Nome_Interprete";
+                                    NomeInterprete.ParameterName = "@Interprete";
+                                    NomeInterprete.SqlDbType = SqlDbType.VarChar;
+                                    NomeInterprete.Size = 50;
+                                    #endregion
+
+                                    #region ParametroAutor
+                                    SqlParameter Autor = new SqlParameter();
+                                    Autor.SourceColumn = "Nome_Autor";
+                                    if (textBox_Autor.Text != "")
+                                    {
+                                        Autor.Value = textBox_Autor.Text;
+                                    }
+                                    else
+                                    {
+                                        Autor.Value = null;
+                                    }
+                                    Autor.ParameterName = "@Autor";
+                                    Autor.SqlDbType = SqlDbType.VarChar;
+                                    Autor.Size = 50;
+                                    #endregion
+
+                                    #region ParametroAlbum
+                                    SqlParameter Album = new SqlParameter();
+                                    Album.SourceColumn = "Nome_Album";
+                                    Album.Value = textBox_Album.Text;
+                                    Album.ParameterName = "@Album";
+                                    Album.SqlDbType = SqlDbType.VarChar;
+                                    Album.Size = 50;
+                                    #endregion
+
+                                    #region ParametroDataAlbum
+                                    SqlParameter DataAlbum = new SqlParameter();
+                                    DataAlbum.SourceColumn = "Data_Album";
+                                    DataAlbum.SqlDbType = SqlDbType.Date;
+                                    DataAlbum.Value = dateTimePicker_DataAlbum.Value.ToShortDateString();
+                                    DataAlbum.ParameterName = "@DataAlbum";
+
+                                    #endregion
+
+                                    #region ParametroDataCompra
+                                    SqlParameter DataCompra = new SqlParameter();
+                                    DataCompra.SourceColumn = "Data_Compra";
+                                    DataCompra.SqlDbType = SqlDbType.Date;
+                                    DataCompra.Value = dateTimePicker_DataCampra.Value.ToShortDateString();
+                                    DataCompra.ParameterName = "@DataCompra";
+
+                                    #endregion
+
+                                    #region ParametroOrigem
+                                    SqlParameter Origem = new SqlParameter();
+                                    Origem.SourceColumn = "Origem_Compra";
+                                    Origem.Value = textBox_Origem.Text;
+                                    Origem.ParameterName = "@Origem";
+                                    Origem.SqlDbType = SqlDbType.VarChar;
+                                    Origem.Size = 40;
+                                    #endregion
+
+                                    #region ParametroObservação
+                                    SqlParameter Observacao = new SqlParameter();
+                                    Observacao.SourceColumn = "Observacao";
+                                    Observacao.Value = textBox_Observacao.Text;
+                                    Observacao.ParameterName = "@Observacao";
+                                    Observacao.SqlDbType = SqlDbType.VarChar;
+                                    Observacao.Size = 200;
+                                    #endregion
+
+                                    #region ParametroMidia
+                                    SqlParameter Midia = new SqlParameter();
+                                    Midia.SourceColumn = "Tipo_Midia";
+                                    if (comboBox_Midia.SelectedItem.ToString() != "")
+                                    {
+                                        Midia.Value = comboBox_Midia.SelectedItem.ToString();
+                                    }
+                                    else
+                                    {
+                                        Midia.Value = null;
+                                    }
+                                    Midia.ParameterName = "@Midia";
+                                    Midia.SqlDbType = SqlDbType.VarChar;
+                                    Midia.Size = 10;
+                                    #endregion
+
+                                    #region ParametroNota
+
+                                    SqlParameter Nota = new SqlParameter();
+                                    Nota.SourceColumn = "Nota";
+                                    if (comboBox_Classificacao.Text != "")
+                                        Nota.Value = comboBox_Classificacao.Text;
+                                    else
+                                        Nota.Value = 0;
+                                    Nota.ParameterName = "@Nota";
+                                    Nota.SqlDbType = SqlDbType.SmallInt;
+                                    #endregion
+
+                                    #region ParametroStatus
+                                    SqlParameter Status = new SqlParameter();
+                                    Status.SourceColumn = "Status";
+                                    Status.Value = 0;
+                                    Status.ParameterName = "@Status";
+                                    Status.SqlDbType = SqlDbType.Bit;
+
+                                    #endregion
+
+                                    #region ParametroMusica
+                                    SqlParameter Musica = new SqlParameter();
+                                    Musica.SourceColumn = "Nome_Musica";
+                                    if (comboBox_Midia.SelectedItem.ToString() == "Digital")
+                                    {
+                                        if (textBox_Musicas.Text != "")
+                                        {
+                                            Musica.Value = textBox_Musicas.Text;
+                                        }
+                                        else
+                                        {
+                                            Musica.Value = null;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Musica.Value = "";
+                                    }
+                                    Musica.ParameterName = "@Musica";
+                                    Musica.SqlDbType = SqlDbType.VarChar;
+                                    Musica.Size = 50;
+                                    #endregion
+                                    #endregion
+
+                                    Adicionar.Parameters.AddRange(new SqlParameter[] { NomeInterprete, Autor, Album, DataAlbum, DataCompra, Origem, Midia, Observacao, Nota, Musica, Status });
+                                    Adicionar.ExecuteNonQuery();
+
+                                    Musicas = new ListViewItem();
+                                    Musicas.Group = listView_Cadastro_Musicas.Groups[comboBox_Midia.Text];
+                                    Musicas.Text = textBox_Musicas.Text;
+                                    Musicas.SubItems.Add(textBox_Album.Text);
+                                    Musicas.SubItems.Add(textBox_Autor.Text);
+                                    Musicas.SubItems.Add(textBox_Interprete.Text);
+                                    Musicas.SubItems.Add(Nota.Value.ToString());
+                                    Musicas.SubItems.Add(textBox_Observacao.Text);
+                                    Musicas.SubItems.Add(textBox_Origem.Text);
+                                    Musicas.SubItems.Add(dateTimePicker_DataCampra.Value.ToShortDateString());
+                                    Musicas.SubItems.Add(dateTimePicker_DataAlbum.Value.ToShortDateString());
+
+                                    listView_Cadastro_Musicas.Items.Add(Musicas);
+
+                                    LimparTextBox();
                                 }
                                 else
                                 {
-                                    Midia.Value = null;
+                                    label_AvisoAdicionar.Visible = true;
+                                    label_AvisoAdicionar.Text = "Já existe este registro!";
                                 }
-                                Midia.ParameterName = "@Midia";
-                                Midia.SqlDbType = SqlDbType.VarChar;
-                                Midia.Size = 10;
-                                #endregion
-
-                                #region ParametroNota
-
-                                SqlParameter Nota = new SqlParameter();
-                                Nota.SourceColumn = "Nota";
-                                if (comboBox_Classificacao.Text != "")
-                                    Nota.Value = comboBox_Classificacao.Text;
-                                else
-                                    Nota.Value = 0;
-                                Nota.ParameterName = "@Nota";
-                                Nota.SqlDbType = SqlDbType.SmallInt;
-                                #endregion
-
-                                #region ParametroStatus
-                                SqlParameter Status = new SqlParameter();
-                                Status.SourceColumn = "Status";
-                                Status.Value = 0;
-                                Status.ParameterName = "@Status";
-                                Status.SqlDbType = SqlDbType.Bit;
-
-                                #endregion
-
-                                #region ParametroMusica
-                                SqlParameter Musica = new SqlParameter();
-                                Musica.SourceColumn = "Nome_Musica";
-                                Musica.Value = textBox_Musicas.Text;
-                                Musica.ParameterName = "@Musica";
-                                Musica.SqlDbType = SqlDbType.VarChar;
-                                Musica.Size = 50;
-                                #endregion
-                                #endregion
-
-                                Adicionar.Parameters.AddRange(new SqlParameter[] { NomeInterprete, Autor, Album, DataAlbum, DataCompra, Origem, Midia, Observacao, Nota, Musica, Status });
-                                Adicionar.ExecuteNonQuery();
-
-                                Musicas = new ListViewItem();
-                                Musicas.Group = listView_Cadastro_Musicas.Groups[comboBox_Midia.Text];
-                                Musicas.Text = textBox_Musicas.Text;
-                                Musicas.SubItems.Add(textBox_Album.Text);
-                                Musicas.SubItems.Add(textBox_Autor.Text);
-                                Musicas.SubItems.Add(textBox_Interprete.Text);
-                                Musicas.SubItems.Add(Nota.Value.ToString());
-                                Musicas.SubItems.Add(textBox_Observacao.Text);
-
-                                listView_Cadastro_Musicas.Items.Add(Musicas);
-
-                                LimparTextBox();
-                        }
-                        else
+                            }
+                        catch
                         {
                             label_AvisoAdicionar.Visible = true;
-                            label_AvisoAdicionar.Text = "Já existe este registro!";
+                            label_AvisoAdicionar.Text = "Campos obrigatórios não preenchidos";
+                            if (textBox_Autor.Text == "")
+                            {
+                                textBox_Autor.BackColor = Color.OldLace;
+                            }
+                            if (textBox_Interprete.Text == "")
+                            {
+                                textBox_Interprete.BackColor = Color.OldLace;
+                            }
+                            if (comboBox_Midia.SelectedItem == null)
+                            {
+                                comboBox_Midia.BackColor = Color.OldLace;
+                            }
+                            if (textBox_Musicas.Text == "")
+                            {
+                                textBox_Musicas.BackColor = Color.OldLace;
+                            }
                         }
-                            }
-                            catch
-                            {
-                                label_AvisoAdicionar.Visible = true;
-                                label_AvisoAdicionar.Text = "Campos *obrigatórios não preenchidos";
-                                if (textBox_Autor.Text == "")
-                                {
-                                    textBox_Autor.BackColor = Color.OldLace;
-                                }
-                                if (textBox_Interprete.Text == "")
-                                {
-                                    textBox_Interprete.BackColor = Color.OldLace;
-                                }
-                                if (comboBox_Midia.SelectedItem == null)
-                                {
-                                    comboBox_Midia.BackColor = Color.OldLace;
-                                }
-                            }
-                            finally
-                            {
-                                if (FP.Conector != null)
-                                    FP.Conector.Conexao.Close();
-                            }
-                        
-
+                        finally
+                        {
+                            if (FP.Conector != null)
+                                FP.Conector.Conexao.Close();
+                        }
                 }
             }
             else
@@ -380,6 +413,9 @@ namespace AcervoMusical
                             Atualizado.SubItems[3].Text = textBox_Interprete.Text;
                             Atualizado.SubItems[4].Text = comboBox_Classificacao.Text;
                             Atualizado.SubItems[5].Text = textBox_Observacao.Text;
+                            Atualizado.SubItems[6].Text = textBox_Origem.Text;
+                            Atualizado.SubItems[7].Text = dateTimePicker_DataCampra.Value.ToShortDateString();
+                            Atualizado.SubItems[8].Text = dateTimePicker_DataAlbum.Value.ToShortDateString();
                             #endregion
 
                             LimparTextBox();
@@ -421,17 +457,13 @@ namespace AcervoMusical
                     {
                         TextBox t = (TextBox)c;
                         if (t.Text != "")
-                        {
                             soma++;
-                        }
                     }
                     if (c is ComboBox)
                     {
                         ComboBox combo = (ComboBox)c;
-                        if ((combo.Text != "") && combo.Name != "comboBox_Classificacao")
-                        {
+                        if ((combo.Text != "") && (combo.Name != "comboBox_Classificacao"))
                             soma++;
-                        }
                     }
                 }
                 if (soma > 0)
@@ -506,6 +538,9 @@ namespace AcervoMusical
                 Item.SubItems.Add(registro["Nome_Interprete"].ToString());
                 Item.SubItems.Add(registro["Nota"].ToString());
                 Item.SubItems.Add(registro["Observacao"].ToString());
+                Item.SubItems.Add(registro["Origem_Compra"].ToString());
+                Item.SubItems.Add(((DateTime)registro["Data_Compra"]).ToString("dd/MM/yyyy"));
+                Item.SubItems.Add(((DateTime)registro["Data_Album"]).ToString("dd/MM/yyyy"));
                 listView_Cadastro_Musicas.Items.Add(Item);
             }
             #endregion
@@ -529,39 +564,47 @@ namespace AcervoMusical
             comboBox_Classificacao.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[4].Text;
             textBox_Observacao.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[5].Text;
             comboBox_Midia.SelectedItem = listView_Cadastro_Musicas.FocusedItem.Group.ToString();
+            textBox_Origem.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[6].Text;
+            dateTimePicker_DataCampra.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[7].Text;
+            dateTimePicker_DataAlbum.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[8].Text;
         }
 
         private void textBox_BuscaMusica_TextChanged(object sender, EventArgs e)
         {
-            FP.Conector.Conectar();
-            DataSet FiltroMusicas = new DataSet();
-            SqlDataAdapter AdaptadorMusicas = new SqlDataAdapter("Select * from Musicas", FP.Conector.Conexao);
-            AdaptadorMusicas.Fill(FiltroMusicas, "Musicas");
-            DataTable TabelaMusicas = FiltroMusicas.Tables["Musicas"];
-            foreach (DataRow registro in FiltroMusicas.Tables["Musicas"].Rows)
-            {
-                if (registro.RowState != DataRowState.Deleted && !registro["Nome_Autor"].ToString().ToUpper().Contains(textBox_BuscaMusica.Text.ToUpper()))
-                {
-                    registro.Delete();
-                }
-            }
-            listView_Cadastro_Musicas.Items.Clear();
-            for (int i = 0; i < TabelaMusicas.Rows.Count; i++)
-            {
-                DataRow RegistroMusicas = TabelaMusicas.Rows[i];
-                if (RegistroMusicas.RowState != DataRowState.Deleted)
-                {
-                    ListViewItem Item = new ListViewItem();
-                    Item.Text = RegistroMusicas["Nome_Musica"].ToString();
-                    Item.SubItems.Add(RegistroMusicas["Nome_Album"].ToString());
-                    Item.SubItems.Add(RegistroMusicas["Nome_Autor"].ToString());
-                    Item.SubItems.Add(RegistroMusicas["Nome_Interprete"].ToString());
-                    Item.SubItems.Add(RegistroMusicas["Nota"].ToString());
-                    Item.SubItems.Add(RegistroMusicas["Observacao"].ToString());
-                    Item.Group = listView_Cadastro_Musicas.Groups[RegistroMusicas["Tipo_Midia"].ToString()];
-                }
-            }
-            FP.Conector.Desconectar();
+
+
+
+
+
+            //FP.Conector.Conectar();
+            //DataSet FiltroMusicas = new DataSet();
+            //SqlDataAdapter AdaptadorMusicas = new SqlDataAdapter("Select * from Musicas", FP.Conector.Conexao);
+            //AdaptadorMusicas.Fill(FiltroMusicas, "Musicas");
+            //DataTable TabelaMusicas = FiltroMusicas.Tables["Musicas"];
+            //foreach (DataRow registro in FiltroMusicas.Tables["Musicas"].Rows)
+            //{
+            //    if (registro.RowState != DataRowState.Deleted && !registro["Nome_Autor"].ToString().ToUpper().Contains(textBox_BuscaMusica.Text.ToUpper()))
+            //    {
+            //        registro.Delete();
+            //    }
+            //}
+            //listView_Cadastro_Musicas.Items.Clear();
+            //for (int i = 0; i < TabelaMusicas.Rows.Count; i++)
+            //{
+            //    DataRow RegistroMusicas = TabelaMusicas.Rows[i];
+            //    if (RegistroMusicas.RowState != DataRowState.Deleted)
+            //    {
+            //        ListViewItem Item = new ListViewItem();
+            //        Item.Text = RegistroMusicas["Nome_Musica"].ToString();
+            //        Item.SubItems.Add(RegistroMusicas["Nome_Album"].ToString());
+            //        Item.SubItems.Add(RegistroMusicas["Nome_Autor"].ToString());
+            //        Item.SubItems.Add(RegistroMusicas["Nome_Interprete"].ToString());
+            //        Item.SubItems.Add(RegistroMusicas["Nota"].ToString());
+            //        Item.SubItems.Add(RegistroMusicas["Observacao"].ToString());
+            //        Item.Group = listView_Cadastro_Musicas.Groups[RegistroMusicas["Tipo_Midia"].ToString()];
+            //    }
+            //}
+            //FP.Conector.Desconectar();
         }
 
         private void textBox_Autor_Enter(object sender, EventArgs e)
@@ -579,6 +622,12 @@ namespace AcervoMusical
         private void textBox_Interprete_Enter(object sender, EventArgs e)
         {
             textBox_Interprete.BackColor = SystemColors.Window;
+            label_AvisoAdicionar.Visible = false;
+        }
+
+        private void textBox_Musicas_Enter(object sender, EventArgs e)
+        {
+            textBox_Musicas.BackColor = SystemColors.Window;
             label_AvisoAdicionar.Visible = false;
         }
     }
