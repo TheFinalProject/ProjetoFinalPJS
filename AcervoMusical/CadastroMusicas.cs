@@ -571,35 +571,40 @@ namespace AcervoMusical
 
         private void textBox_BuscaMusica_TextChanged(object sender, EventArgs e)
         {
-            FP.Conector.Conectar();
-            DataSet FiltroMusicas = new DataSet();
-            SqlDataAdapter AdaptadorMusicas = new SqlDataAdapter("Select * from Musicas", FP.Conector.Conexao);
-            AdaptadorMusicas.Fill(FiltroMusicas, "Musicas");
-            DataTable TabelaMusicas = FiltroMusicas.Tables["Musicas"];
-            foreach (DataRow registro in FiltroMusicas.Tables["Musicas"].Rows)
-            {
-                if (registro.RowState != DataRowState.Deleted && !registro["Nome_Autor"].ToString().ToUpper().Contains(textBox_BuscaMusica.Text.ToUpper()))
-                {
-                    registro.Delete();
-                }
-            }
-            listView_Cadastro_Musicas.Items.Clear();
-            for (int i = 0; i < TabelaMusicas.Rows.Count; i++)
-            {
-                DataRow RegistroMusicas = TabelaMusicas.Rows[i];
-                if (RegistroMusicas.RowState != DataRowState.Deleted)
-                {
-                    ListViewItem Item = new ListViewItem();
-                    Item.Text = RegistroMusicas["Nome_Musica"].ToString();
-                    Item.SubItems.Add(RegistroMusicas["Nome_Album"].ToString());
-                    Item.SubItems.Add(RegistroMusicas["Nome_Autor"].ToString());
-                    Item.SubItems.Add(RegistroMusicas["Nome_Interprete"].ToString());
-                    Item.SubItems.Add(RegistroMusicas["Nota"].ToString());
-                    Item.SubItems.Add(RegistroMusicas["Observacao"].ToString());
-                    Item.Group = listView_Cadastro_Musicas.Groups[RegistroMusicas["Tipo_Midia"].ToString()];
-                }
-            }
-            FP.Conector.Desconectar();
+
+
+
+
+
+            //FP.Conector.Conectar();
+            //DataSet FiltroMusicas = new DataSet();
+            //SqlDataAdapter AdaptadorMusicas = new SqlDataAdapter("Select * from Musicas", FP.Conector.Conexao);
+            //AdaptadorMusicas.Fill(FiltroMusicas, "Musicas");
+            //DataTable TabelaMusicas = FiltroMusicas.Tables["Musicas"];
+            //foreach (DataRow registro in FiltroMusicas.Tables["Musicas"].Rows)
+            //{
+            //    if (registro.RowState != DataRowState.Deleted && !registro["Nome_Autor"].ToString().ToUpper().Contains(textBox_BuscaMusica.Text.ToUpper()))
+            //    {
+            //        registro.Delete();
+            //    }
+            //}
+            //listView_Cadastro_Musicas.Items.Clear();
+            //for (int i = 0; i < TabelaMusicas.Rows.Count; i++)
+            //{
+            //    DataRow RegistroMusicas = TabelaMusicas.Rows[i];
+            //    if (RegistroMusicas.RowState != DataRowState.Deleted)
+            //    {
+            //        ListViewItem Item = new ListViewItem();
+            //        Item.Text = RegistroMusicas["Nome_Musica"].ToString();
+            //        Item.SubItems.Add(RegistroMusicas["Nome_Album"].ToString());
+            //        Item.SubItems.Add(RegistroMusicas["Nome_Autor"].ToString());
+            //        Item.SubItems.Add(RegistroMusicas["Nome_Interprete"].ToString());
+            //        Item.SubItems.Add(RegistroMusicas["Nota"].ToString());
+            //        Item.SubItems.Add(RegistroMusicas["Observacao"].ToString());
+            //        Item.Group = listView_Cadastro_Musicas.Groups[RegistroMusicas["Tipo_Midia"].ToString()];
+            //    }
+            //}
+            //FP.Conector.Desconectar();
         }
 
         private void textBox_Autor_Enter(object sender, EventArgs e)
