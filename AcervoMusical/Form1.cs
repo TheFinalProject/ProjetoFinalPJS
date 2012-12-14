@@ -71,7 +71,6 @@ namespace AcervoMusical
             if (textBox_Senha.Text == "Senha")
             {
                 textBox_Senha.Text = string.Empty;
-                
             }
 
         }

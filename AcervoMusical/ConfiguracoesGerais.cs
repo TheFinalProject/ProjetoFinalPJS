@@ -85,8 +85,6 @@ namespace AcervoMusical
         {
             byte Travar;
 
-            
- 
             if(checkBox_TravarBotoes.Checked == true)
                 Travar = 1;
             else

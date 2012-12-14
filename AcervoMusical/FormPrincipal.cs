@@ -161,7 +161,7 @@ namespace AcervoMusical
             }
             else if (sender == pictureBox_Login)
             {
-                ConfiguracoesUsuario CU = new ConfiguracoesUsuario("");
+                ConfiguracoesUsuario CU = new ConfiguracoesUsuario();
                 CU.FP = this;
                 CU.Show();
             }

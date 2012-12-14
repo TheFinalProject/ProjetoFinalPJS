@@ -13,15 +13,16 @@ namespace AcervoMusical
 {
     public partial class CadastroAmigos : Form
     {
-        public CadastroAmigos()
-        {
-            InitializeComponent();
-        }
-
         DataSet FiltraAmigo = new DataSet();
         Class_DataSet DatasetAmigos = new Class_DataSet();
         ListViewItem Amigos = new ListViewItem();
         public FormPrincipal FP;
+
+        public CadastroAmigos()
+        {
+            InitializeComponent();
+            DatasetAmigos.PreencheAmigos();
+        }
 
         //Variavel criada para verificação de botao caso precionado
         bool fechar = false;
@@ -133,7 +134,7 @@ namespace AcervoMusical
                         try
                         {
 
-                            SqlCommand Comando = new SqlCommand("Insert into Amigos (Nome, Telefone, Endereço, Bairro, Numero, Email, AmigosId_Cidade, AmigosId_Estado) values (@Nome, @Telefone, @Endereço, @Bairro, @Numero, @Email, @AmigosId_Cidade, @AmigosId_Estado)", FP.Conector.Conexao);
+                            SqlCommand Comando = new SqlCommand("INSERT INTO Amigos (Nome, Telefone, Endereço, Bairro, Numero, Email, AmigosId_Cidade, AmigosId_Estado) values (@Nome, @Telefone, @Endereço, @Bairro, @Numero, @Email, @AmigosId_Cidade, @AmigosId_Estado)", FP.Conector.Conexao);
 
 
                             System.Text.RegularExpressions.Regex Num = new System.Text.RegularExpressions.Regex("[^0-9]");
@@ -447,8 +448,6 @@ namespace AcervoMusical
             }
 
             #region Situação atual de amigos no Banco de Dados
-
-            DatasetAmigos.PreencheAmigos();
 
             foreach (DataRow registro in DatasetAmigos.Dados.Tables["AmigosCompletos"].Rows)
             {
