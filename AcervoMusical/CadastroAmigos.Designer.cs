@@ -63,6 +63,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label_RegistroExistente = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox_Remover.SuspendLayout();
             this.panel_CadastroAmigos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -360,6 +361,7 @@
             // 
             // panel_CadastroAmigos
             // 
+            this.panel_CadastroAmigos.Controls.Add(this.label2);
             this.panel_CadastroAmigos.Controls.Add(this.pictureBox1);
             this.panel_CadastroAmigos.Location = new System.Drawing.Point(0, 0);
             this.panel_CadastroAmigos.Name = "panel_CadastroAmigos";
@@ -395,6 +397,17 @@
             this.label1.TabIndex = 68;
             this.label1.Text = "Número Inválido";
             this.label1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(783, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(166, 19);
+            this.label2.TabIndex = 69;
+            this.label2.Text = "CADASTRO AMIGOS";
             // 
             // CadastroAmigos
             // 
@@ -436,6 +449,7 @@
             this.groupBox_Remover.ResumeLayout(false);
             this.groupBox_Remover.PerformLayout();
             this.panel_CadastroAmigos.ResumeLayout(false);
+            this.panel_CadastroAmigos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -479,6 +493,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label_RegistroExistente;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
 
 
     }

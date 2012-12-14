@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup7 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup8 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup9 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup10 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup26 = new System.Windows.Forms.ListViewGroup("Vinil", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup27 = new System.Windows.Forms.ListViewGroup("K7", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup28 = new System.Windows.Forms.ListViewGroup("CD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup29 = new System.Windows.Forms.ListViewGroup("DVD", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup30 = new System.Windows.Forms.ListViewGroup("Digital", System.Windows.Forms.HorizontalAlignment.Left);
             this.textBox_Musicas = new System.Windows.Forms.TextBox();
             this.listView_Cadastro_Musicas = new System.Windows.Forms.ListView();
             this.Musica = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -65,6 +65,9 @@
             this.label_Origem_Compra = new System.Windows.Forms.Label();
             this.button_Cancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton_Autor = new System.Windows.Forms.RadioButton();
+            this.radioButton_Album = new System.Windows.Forms.RadioButton();
+            this.radioButton_Nome = new System.Windows.Forms.RadioButton();
             this.textBox_BuscaMusica = new System.Windows.Forms.TextBox();
             this.button_Remover = new System.Windows.Forms.Button();
             this.label_AvisoAdicionar = new System.Windows.Forms.Label();
@@ -72,9 +75,6 @@
             this.panel_CadastroMusicas = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.radioButton_Nome = new System.Windows.Forms.RadioButton();
-            this.radioButton_Album = new System.Windows.Forms.RadioButton();
-            this.radioButton_Autor = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.panel_CadastroMusicas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -103,22 +103,22 @@
             this.DataAlbum});
             this.listView_Cadastro_Musicas.FullRowSelect = true;
             this.listView_Cadastro_Musicas.GridLines = true;
-            listViewGroup6.Header = "Vinil";
-            listViewGroup6.Name = "Vinil";
-            listViewGroup7.Header = "K7";
-            listViewGroup7.Name = "K7";
-            listViewGroup8.Header = "CD";
-            listViewGroup8.Name = "CD";
-            listViewGroup9.Header = "DVD";
-            listViewGroup9.Name = "DVD";
-            listViewGroup10.Header = "Digital";
-            listViewGroup10.Name = "Digital";
+            listViewGroup26.Header = "Vinil";
+            listViewGroup26.Name = "Vinil";
+            listViewGroup27.Header = "K7";
+            listViewGroup27.Name = "K7";
+            listViewGroup28.Header = "CD";
+            listViewGroup28.Name = "CD";
+            listViewGroup29.Header = "DVD";
+            listViewGroup29.Name = "DVD";
+            listViewGroup30.Header = "Digital";
+            listViewGroup30.Name = "Digital";
             this.listView_Cadastro_Musicas.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup6,
-            listViewGroup7,
-            listViewGroup8,
-            listViewGroup9,
-            listViewGroup10});
+            listViewGroup26,
+            listViewGroup27,
+            listViewGroup28,
+            listViewGroup29,
+            listViewGroup30});
             this.listView_Cadastro_Musicas.Location = new System.Drawing.Point(9, 365);
             this.listView_Cadastro_Musicas.Name = "listView_Cadastro_Musicas";
             this.listView_Cadastro_Musicas.Size = new System.Drawing.Size(910, 259);
@@ -367,6 +367,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisa:";
             // 
+            // radioButton_Autor
+            // 
+            this.radioButton_Autor.AutoSize = true;
+            this.radioButton_Autor.Location = new System.Drawing.Point(844, 41);
+            this.radioButton_Autor.Name = "radioButton_Autor";
+            this.radioButton_Autor.Size = new System.Drawing.Size(50, 17);
+            this.radioButton_Autor.TabIndex = 15;
+            this.radioButton_Autor.Text = "Autor";
+            this.radioButton_Autor.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_Album
+            // 
+            this.radioButton_Album.AutoSize = true;
+            this.radioButton_Album.Location = new System.Drawing.Point(844, 25);
+            this.radioButton_Album.Name = "radioButton_Album";
+            this.radioButton_Album.Size = new System.Drawing.Size(54, 17);
+            this.radioButton_Album.TabIndex = 14;
+            this.radioButton_Album.Text = "Album";
+            this.radioButton_Album.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_Nome
+            // 
+            this.radioButton_Nome.AutoSize = true;
+            this.radioButton_Nome.Checked = true;
+            this.radioButton_Nome.Location = new System.Drawing.Point(844, 10);
+            this.radioButton_Nome.Name = "radioButton_Nome";
+            this.radioButton_Nome.Size = new System.Drawing.Size(59, 17);
+            this.radioButton_Nome.TabIndex = 13;
+            this.radioButton_Nome.TabStop = true;
+            this.radioButton_Nome.Text = "Música";
+            this.radioButton_Nome.UseVisualStyleBackColor = true;
+            // 
             // textBox_BuscaMusica
             // 
             this.textBox_BuscaMusica.Location = new System.Drawing.Point(6, 27);
@@ -423,61 +455,30 @@
             this.panel_CadastroMusicas.Controls.Add(this.pictureBox1);
             this.panel_CadastroMusicas.Location = new System.Drawing.Point(1, 0);
             this.panel_CadastroMusicas.Name = "panel_CadastroMusicas";
-            this.panel_CadastroMusicas.Size = new System.Drawing.Size(922, 63);
+            this.panel_CadastroMusicas.Size = new System.Drawing.Size(928, 63);
             this.panel_CadastroMusicas.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(701, 27);
+            this.label1.Location = new System.Drawing.Point(748, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 29);
+            this.label1.Size = new System.Drawing.Size(178, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "CADASTRO MÚSICAS";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::AcervoMusical.Properties.Resources.Musica;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(11, -19);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(61, 56);
+            this.pictureBox1.Size = new System.Drawing.Size(89, 95);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // radioButton_Nome
-            // 
-            this.radioButton_Nome.AutoSize = true;
-            this.radioButton_Nome.Checked = true;
-            this.radioButton_Nome.Location = new System.Drawing.Point(844, 10);
-            this.radioButton_Nome.Name = "radioButton_Nome";
-            this.radioButton_Nome.Size = new System.Drawing.Size(59, 17);
-            this.radioButton_Nome.TabIndex = 13;
-            this.radioButton_Nome.TabStop = true;
-            this.radioButton_Nome.Text = "Música";
-            this.radioButton_Nome.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_Album
-            // 
-            this.radioButton_Album.AutoSize = true;
-            this.radioButton_Album.Location = new System.Drawing.Point(844, 25);
-            this.radioButton_Album.Name = "radioButton_Album";
-            this.radioButton_Album.Size = new System.Drawing.Size(54, 17);
-            this.radioButton_Album.TabIndex = 14;
-            this.radioButton_Album.Text = "Album";
-            this.radioButton_Album.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_Autor
-            // 
-            this.radioButton_Autor.AutoSize = true;
-            this.radioButton_Autor.Location = new System.Drawing.Point(844, 41);
-            this.radioButton_Autor.Name = "radioButton_Autor";
-            this.radioButton_Autor.Size = new System.Drawing.Size(50, 17);
-            this.radioButton_Autor.TabIndex = 15;
-            this.radioButton_Autor.Text = "Autor";
-            this.radioButton_Autor.UseVisualStyleBackColor = true;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // CadastroMusicas
             // 

@@ -89,10 +89,15 @@
             this.dateTimePicker_DataFinal = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker_DataInicial = new System.Windows.Forms.DateTimePicker();
+            this.panel_Consulta = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage_Emprestimos.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.panel_Consulta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -103,7 +108,7 @@
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage_Emprestimos);
             this.tabControl.Controls.Add(this.tabPage4);
-            this.tabControl.Location = new System.Drawing.Point(8, 74);
+            this.tabControl.Location = new System.Drawing.Point(13, 74);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1047, 482);
@@ -659,11 +664,42 @@
             this.dateTimePicker_DataInicial.Size = new System.Drawing.Size(99, 20);
             this.dateTimePicker_DataInicial.TabIndex = 8;
             // 
+            // panel_Consulta
+            // 
+            this.panel_Consulta.Controls.Add(this.label9);
+            this.panel_Consulta.Controls.Add(this.pictureBox1);
+            this.panel_Consulta.Location = new System.Drawing.Point(0, 0);
+            this.panel_Consulta.Name = "panel_Consulta";
+            this.panel_Consulta.Size = new System.Drawing.Size(1072, 60);
+            this.panel_Consulta.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AcervoMusical.Properties.Resources.Lupa;
+            this.pictureBox1.Location = new System.Drawing.Point(26, -16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(81, 123);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(966, 34);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(97, 19);
+            this.label9.TabIndex = 92;
+            this.label9.Text = "CONSULTA";
+            // 
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 563);
+            this.Controls.Add(this.panel_Consulta);
             this.Controls.Add(this.tabControl);
             this.Name = "Consultas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -675,6 +711,9 @@
             this.tabPage_Emprestimos.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.panel_Consulta.ResumeLayout(false);
+            this.panel_Consulta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -742,6 +781,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox checkBox_QualquerData;
+        private System.Windows.Forms.Panel panel_Consulta;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label9;
 
     }
 }

@@ -44,7 +44,6 @@
             this.button_ConsultarAlbum = new System.Windows.Forms.Button();
             this.button_Emprestar = new System.Windows.Forms.Button();
             this.panel_Emprestimos = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_Devolver = new System.Windows.Forms.Button();
             this.textBox_Tel = new System.Windows.Forms.TextBox();
             this.label_TipoMidia = new System.Windows.Forms.Label();
@@ -52,6 +51,10 @@
             this.comboBox_NomeAlbum = new System.Windows.Forms.ComboBox();
             this.label_Album = new System.Windows.Forms.Label();
             this.textBox_Email = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel_Emprestimos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +67,7 @@
             this.comboBox_NomeAmigos.Location = new System.Drawing.Point(322, 129);
             this.comboBox_NomeAmigos.Name = "comboBox_NomeAmigos";
             this.comboBox_NomeAmigos.Size = new System.Drawing.Size(201, 21);
-            this.comboBox_NomeAmigos.TabIndex = 0;
+            this.comboBox_NomeAmigos.TabIndex = 3;
             this.comboBox_NomeAmigos.SelectedIndexChanged += new System.EventHandler(this.comboBox_NomeAmigos_SelectedIndexChanged);
             // 
             // comboBox_TipoMidia
@@ -84,7 +87,7 @@
             this.comboBox_TipoMidia.Location = new System.Drawing.Point(12, 131);
             this.comboBox_TipoMidia.Name = "comboBox_TipoMidia";
             this.comboBox_TipoMidia.Size = new System.Drawing.Size(201, 21);
-            this.comboBox_TipoMidia.TabIndex = 17;
+            this.comboBox_TipoMidia.TabIndex = 1;
             this.comboBox_TipoMidia.SelectedIndexChanged += new System.EventHandler(this.comboBox_TipoMidia_SelectedIndexChanged);
             // 
             // label2
@@ -139,7 +142,7 @@
             this.dateTimePicker_emprestimo.Location = new System.Drawing.Point(678, 131);
             this.dateTimePicker_emprestimo.Name = "dateTimePicker_emprestimo";
             this.dateTimePicker_emprestimo.Size = new System.Drawing.Size(113, 20);
-            this.dateTimePicker_emprestimo.TabIndex = 6;
+            this.dateTimePicker_emprestimo.TabIndex = 4;
             // 
             // label_DataEmprestimo
             // 
@@ -174,7 +177,7 @@
             // 
             // button_ConsultarAmigos
             // 
-            this.button_ConsultarAmigos.Location = new System.Drawing.Point(448, 208);
+            this.button_ConsultarAmigos.Location = new System.Drawing.Point(448, 233);
             this.button_ConsultarAmigos.Name = "button_ConsultarAmigos";
             this.button_ConsultarAmigos.Size = new System.Drawing.Size(75, 23);
             this.button_ConsultarAmigos.TabIndex = 10;
@@ -197,26 +200,19 @@
             this.button_Emprestar.Location = new System.Drawing.Point(716, 168);
             this.button_Emprestar.Name = "button_Emprestar";
             this.button_Emprestar.Size = new System.Drawing.Size(75, 23);
-            this.button_Emprestar.TabIndex = 8;
+            this.button_Emprestar.TabIndex = 5;
             this.button_Emprestar.Text = "Emprestar";
             this.button_Emprestar.UseVisualStyleBackColor = true;
             this.button_Emprestar.Click += new System.EventHandler(this.button_Emprestar_Click);
             // 
             // panel_Emprestimos
             // 
+            this.panel_Emprestimos.Controls.Add(this.label1);
             this.panel_Emprestimos.Controls.Add(this.pictureBox1);
             this.panel_Emprestimos.Location = new System.Drawing.Point(1, 1);
             this.panel_Emprestimos.Name = "panel_Emprestimos";
             this.panel_Emprestimos.Size = new System.Drawing.Size(800, 60);
             this.panel_Emprestimos.TabIndex = 9;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 60);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // button_Devolver
             // 
@@ -231,7 +227,8 @@
             // 
             // textBox_Tel
             // 
-            this.textBox_Tel.Location = new System.Drawing.Point(322, 156);
+            this.textBox_Tel.Enabled = false;
+            this.textBox_Tel.Location = new System.Drawing.Point(322, 170);
             this.textBox_Tel.Name = "textBox_Tel";
             this.textBox_Tel.Size = new System.Drawing.Size(201, 20);
             this.textBox_Tel.TabIndex = 15;
@@ -262,7 +259,7 @@
             this.comboBox_NomeAlbum.Location = new System.Drawing.Point(12, 173);
             this.comboBox_NomeAlbum.Name = "comboBox_NomeAlbum";
             this.comboBox_NomeAlbum.Size = new System.Drawing.Size(201, 21);
-            this.comboBox_NomeAlbum.TabIndex = 16;
+            this.comboBox_NomeAlbum.TabIndex = 2;
             this.comboBox_NomeAlbum.Text = "Selecione um tipo de Midia";
             this.comboBox_NomeAlbum.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -277,16 +274,58 @@
             // 
             // textBox_Email
             // 
-            this.textBox_Email.Location = new System.Drawing.Point(322, 182);
+            this.textBox_Email.Enabled = false;
+            this.textBox_Email.Location = new System.Drawing.Point(322, 211);
             this.textBox_Email.Name = "textBox_Email";
             this.textBox_Email.Size = new System.Drawing.Size(201, 20);
             this.textBox_Email.TabIndex = 14;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AcervoMusical.Properties.Resources.Setas;
+            this.pictureBox1.Location = new System.Drawing.Point(11, -20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 85);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(538, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(261, 19);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "EMPRESTIMOS E DEVOLUCOES";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(320, 153);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Email";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(319, 194);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Telefone";
             // 
             // Emprestimos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 615);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label_Album);
             this.Controls.Add(this.comboBox_NomeAlbum);
             this.Controls.Add(this.textBox_Tel);
@@ -309,6 +348,7 @@
             this.Name = "Emprestimos";
             this.Load += new System.EventHandler(this.Emprestimos_Load);
             this.panel_Emprestimos.ResumeLayout(false);
+            this.panel_Emprestimos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -341,5 +381,8 @@
         private System.Windows.Forms.ColumnHeader DataEmprestimo;
         private System.Windows.Forms.Label label_Album;
         private System.Windows.Forms.TextBox textBox_Email;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -687,6 +687,11 @@ namespace AcervoMusical
             textBox_Musicas.BackColor = SystemColors.Window;
             label_AvisoAdicionar.Visible = false;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
     

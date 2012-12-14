@@ -72,6 +72,7 @@ namespace AcervoMusical
         private void Consultas_Load(object sender, EventArgs e)
         {
             FiltrarTodasMusicas();
+            panel_Consulta.BackColor = FP.BackColor;
             //FiltraEmprestimos();
 
         }

@@ -27,14 +27,27 @@ namespace AcervoMusical
 
         private void button_Play_Click(object sender, EventArgs e)
         {
-            if (listBox_Musicas.SelectedItems.Count > 0)
+            if (button_Play.Text == "PLAY")
             {
-                WindowsMediaPlayer.URL = Musicas[listBox_Musicas.SelectedIndex];
-                timer_tempo.Start();
+                if (listBox_Musicas.SelectedItems.Count > 0)
+                {
+                    WindowsMediaPlayer.URL = Musicas[listBox_Musicas.SelectedIndex];
+                    timer_tempo.Start();
+                    button_Play.Text = "PAUSE";
+                }
+            }
+            else if (button_Play.Text == "PAUSE")
+            {
+                WindowsMediaPlayer.Ctlcontrols.pause();
+                button_Play.Text = "RESUME";
+            }
+            else if (button_Play.Text == "RESUME")
+            {
+                WindowsMediaPlayer.Ctlcontrols.play();
+                button_Play.Text = "PAUSE";
             }
         }
-
-
+            
         private void button_Add_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();

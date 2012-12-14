@@ -167,6 +167,8 @@ namespace AcervoMusical
             finally
             {
                 FP.Conector.Desconectar();
+                if (MessageBox.Show("As configuraçõess foram alteradas, o sistema precisa ser reiniciado. Deseja reiniciar agora?","Alerta",MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                    Application.Restart();
             }
         }
     }

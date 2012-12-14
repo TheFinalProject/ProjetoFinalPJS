@@ -104,6 +104,7 @@ namespace AcervoMusical
                 finally
                 {
                     FP.Conector.Desconectar();
+                    this.Close();
                 }
             }
         }
