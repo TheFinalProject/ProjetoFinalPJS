@@ -35,7 +35,7 @@
             this.label_imagem = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label_MaxChar = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_Salvar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox_smtp = new System.Windows.Forms.TextBox();
@@ -131,15 +131,15 @@
             this.label_MaxChar.Text = "Max 18 Caracteres";
             this.label_MaxChar.Visible = false;
             // 
-            // button1
+            // button_Salvar
             // 
-            this.button1.Location = new System.Drawing.Point(339, 570);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Slavar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_Salvar.Location = new System.Drawing.Point(339, 570);
+            this.button_Salvar.Name = "button_Salvar";
+            this.button_Salvar.Size = new System.Drawing.Size(84, 23);
+            this.button_Salvar.TabIndex = 9;
+            this.button_Salvar.Text = "Slavar";
+            this.button_Salvar.UseVisualStyleBackColor = true;
+            this.button_Salvar.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -361,7 +361,7 @@
             this.ClientSize = new System.Drawing.Size(565, 608);
             this.Controls.Add(this.panel_Usuario);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_Salvar);
             this.Controls.Add(this.label_imagem);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
@@ -391,7 +391,7 @@
         private System.Windows.Forms.Label label_imagem;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label_MaxChar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_Salvar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;

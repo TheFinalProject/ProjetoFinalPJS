@@ -42,6 +42,7 @@ GO
 
 CREATE TABLE Usuario
 (
+	IdLogin INT IDENTITY,
 	Login VARCHAR(20) PRIMARY KEY,
 	Senha VARCHAR(20),
 	Email VARCHAR(20),
@@ -151,6 +152,7 @@ CREATE TABLE Emprestimos
 GO
 
 SELECT * FROM Usuario
+TRUNCATE TABLE Usuario
 INSERT INTO Usuario
 VALUES 
 	('Admin','admin','','','',0,0)

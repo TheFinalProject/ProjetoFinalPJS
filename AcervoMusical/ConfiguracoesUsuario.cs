@@ -15,6 +15,8 @@ namespace AcervoMusical
         public FormPrincipal FP;
         Class_DataSet DataSetLogin = new Class_DataSet();
 
+        int ContadorDeRegistro;
+
         public ConfiguracoesUsuario()
         {
             InitializeComponent();
@@ -48,27 +50,25 @@ namespace AcervoMusical
         private void ConfiguracoesUsuario_Load(object sender, EventArgs e)
         {
             panel_Usuario.BackColor = FP.BackColor;
-            string AtivarLogin;
-
-            int ContadorDeRegistro = DataSetLogin.Dados.Tables.Count;
-
-            foreach (DataRow Registro in DataSetLogin.Dados.Tables["Login"].Rows)
+            int c = DataSetLogin.Dados.Tables.Count;
+            foreach (DataRow Registro in DataSetLogin.Dados.Tables["Usuario"].Rows)
             {
-                if (ContadorDeRegistro > 1)
+                if (Registro["Login"].ToString() != "Admin") 
                 {
+                    string Teste = Registro["AtivarLogin"].ToString();
                     if (Registro["AtivarLogin"].ToString() == "True")
                     {
-                        AtivarLogin = Registro["AtivarLogin"].ToString();
-                        textBox_Login.Text = Registro["Nome"].ToString();
+                        checkBox_Habilitar.Checked = Convert.ToBoolean(Registro["AtivarLogin"].ToString());
+                        textBox_Login.Text = Registro["Login"].ToString();
                         textBox_Password.Text = Registro["Senha"].ToString();
                         textBox_Email.Text = Registro["Email"].ToString();
                         textBox_EmailSenha.Text = Registro["EmailSenha"].ToString();
-                        comboBox_Smtp.Text = Registro["Smtp"].ToString();
+                        comboBox_Smtp.Text = Registro["Smtp"].ToString(); 
                     }
                     else
                         break;
                 }
-            }
+            }            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -87,7 +87,6 @@ namespace AcervoMusical
             try
             {
                 FP.Conector.Conectar();
-                SqlCommand CmdInserir = new SqlCommand("INSERT INTO Usuario VALUES(@Login, @Senha, @Email, @EmailSenha, @Smtp, @AtivarLogin,0)", FP.Conector.Conexao);
 
                 #region Paramametro Login
                 SqlParameter Login = new SqlParameter();
@@ -100,7 +99,7 @@ namespace AcervoMusical
 
                 #region Parametro Senha
                 SqlParameter Senha = new SqlParameter();
-                Senha.Value = textBox_Senha.Text;
+                Senha.Value = textBox_Password.Text;
                 Senha.SourceColumn = "Senha";
                 Senha.ParameterName = "@Senha";
                 Senha.SqlDbType = SqlDbType.VarChar;
@@ -142,8 +141,24 @@ namespace AcervoMusical
                 Ativar.SqlDbType = SqlDbType.Bit;
                 #endregion
 
-                CmdInserir.Parameters.AddRange(new SqlParameter[] { Login, Senha, Email, EmailSenha, Smtp, Ativar});
-                CmdInserir.ExecuteNonQuery();
+                DataSetLogin.Login();
+                foreach (DataRow Registro in DataSetLogin.Dados.Tables["Usuario"].Rows)
+                    ContadorDeRegistro = int.Parse(Registro["IdLogin"].ToString());
+
+                if (ContadorDeRegistro <= 1)
+                {
+                    SqlCommand CmdInserir = new SqlCommand("INSERT INTO Usuario VALUES(@Login, @Senha, @Email, @EmailSenha, @Smtp, @AtivarLogin,0)", FP.Conector.Conexao);
+
+                    CmdInserir.Parameters.AddRange(new SqlParameter[] { Login, Senha, Email, EmailSenha, Smtp, Ativar });
+                    CmdInserir.ExecuteNonQuery();
+                }
+                else
+                {
+                    SqlCommand CmdAtualizar = new SqlCommand("UPDATE Usuario SET Login = @Login, Senha = @Senha, Email = @Email, EmailSenha = @EmailSenha, Smtp = @Smtp, AtivarLogin = @AtivarLogin, Imagem = 0 WHERE IdLogin = 2", FP.Conector.Conexao);
+
+                    CmdAtualizar.Parameters.AddRange(new SqlParameter[] { Login, Senha, Email, EmailSenha, Smtp, Ativar });
+                    CmdAtualizar.ExecuteNonQuery();
+                }
             }
             catch (Exception Erro)
             {
@@ -152,7 +167,7 @@ namespace AcervoMusical
             finally
             {
                 FP.Conector.Desconectar();
-            }         
+            }
         }
     }
 }

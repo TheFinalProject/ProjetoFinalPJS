@@ -13,10 +13,12 @@ namespace AcervoMusical
     public partial class FormPrincipal : Form
     {
         public Class_Conexão Conector = new Class_Conexão();
+        Class_DataSet DataSetLogin = new Class_DataSet();
 
         public FormPrincipal()
         {
             InitializeComponent();
+            DataSetLogin.Login();
         }
               
         
@@ -175,16 +177,28 @@ namespace AcervoMusical
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            #region Chama o formulario de Login
-            Login Login = new Login();
-            Login.FP = this;
-            Login.ShowDialog();
-            #endregion
+            
 
             try
             {
                 timer_Relogio.Start();
                 Conector.Conectar();
+
+                foreach (DataRow Registro in DataSetLogin.Dados.Tables["Usuario"].Rows)
+                {
+                    if (Registro["Login"].ToString() != "Admin")
+                    {
+                        if ((Registro["AtivarLogin"].ToString() == "True") && (Registro["IdLogin"].ToString() == "2"))
+                        {
+                            #region Chama o formulario de Login
+                            Login Login = new Login();
+                            Login.FP = this;
+                            Login.ShowDialog();
+                            #endregion
+                        }
+                    }
+
+                }
 
                 #region Posicionamento dos Botoes no Formulario
 
