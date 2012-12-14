@@ -575,18 +575,51 @@ namespace AcervoMusical
 
         private void textBox_BuscaMusica_TextChanged(object sender, EventArgs e)
         {
+           
             FP.Conector.Conectar();
             DataSet FiltroMusicas = new DataSet();
-            SqlDataAdapter AdaptadorMusicas = new SqlDataAdapter("Select * from Musicas", FP.Conector.Conexao);
+            SqlDataAdapter AdaptadorMusicas = new SqlDataAdapter("SELECT * FROM Musicas", FP.Conector.Conexao);
             AdaptadorMusicas.Fill(FiltroMusicas, "Musicas");
             DataTable TabelaMusicas = FiltroMusicas.Tables["Musicas"];
-            foreach (DataRow registro in FiltroMusicas.Tables["Musicas"].Rows)
+
+            if (radioButton_Nome.Checked)
             {
-                if (registro.RowState != DataRowState.Deleted && !registro["Nome_Autor"].ToString().ToUpper().Contains(textBox_BuscaMusica.Text.ToUpper()))
+
+                #region Filtro nome da musica
+                foreach (DataRow registro in FiltroMusicas.Tables["Musicas"].Rows)
                 {
-                    registro.Delete();
+                    if (textBox_BuscaMusica.Text != string.Empty && !registro["Nome_Musica"].ToString().ToUpper().Contains(textBox_BuscaMusica.Text.ToUpper()))
+                    {
+                        registro.Delete();
+                    }
                 }
+                #endregion
             }
+            else if (radioButton_Album.Checked)
+            {
+                #region Filtro nome do album
+                foreach (DataRow registro in FiltroMusicas.Tables["Musicas"].Rows)
+                {
+                    if (textBox_BuscaMusica.Text != string.Empty && !registro["Nome_Album"].ToString().ToUpper().Contains(textBox_BuscaMusica.Text.ToUpper()))
+                    {
+                        registro.Delete();
+                    }
+                }
+                #endregion
+            }
+            else
+            {
+                #region Filtro nome do autor
+                foreach (DataRow registro in FiltroMusicas.Tables["Musicas"].Rows)
+                {
+                    if (textBox_BuscaMusica.Text != string.Empty && !registro["Nome_Autor"].ToString().ToUpper().Contains(textBox_BuscaMusica.Text.ToUpper()))
+                    {
+                        registro.Delete();
+                    }
+                }
+                #endregion
+            }
+
             listView_Cadastro_Musicas.Items.Clear();
             for (int i = 0; i < TabelaMusicas.Rows.Count; i++)
             {
@@ -595,14 +628,39 @@ namespace AcervoMusical
                 {
                     ListViewItem Item = new ListViewItem();
                     Item.Text = RegistroMusicas["Nome_Musica"].ToString();
+                    Item.Group = listView_Cadastro_Musicas.Groups[RegistroMusicas["Tipo_Midia"].ToString()];
                     Item.SubItems.Add(RegistroMusicas["Nome_Album"].ToString());
                     Item.SubItems.Add(RegistroMusicas["Nome_Autor"].ToString());
                     Item.SubItems.Add(RegistroMusicas["Nome_Interprete"].ToString());
                     Item.SubItems.Add(RegistroMusicas["Nota"].ToString());
                     Item.SubItems.Add(RegistroMusicas["Observacao"].ToString());
-                    Item.Group = listView_Cadastro_Musicas.Groups[RegistroMusicas["Tipo_Midia"].ToString()];
+                    Item.SubItems.Add(RegistroMusicas["Origem_Compra"].ToString());
+                    Item.SubItems.Add(((DateTime)RegistroMusicas["Data_Compra"]).ToString("dd/MM/yyyy"));
+                    Item.SubItems.Add(((DateTime)RegistroMusicas["Data_Album"]).ToString("dd/MM/yyyy"));
+                    listView_Cadastro_Musicas.Items.Add(Item);
                 }
             }
+            
+            //for (int i = 0; i < TabelaFiltro.Rows.Count; i++)
+            //{
+            //    DataRow RegistroAmigos = TabelaFiltro.Rows[i];
+            //    // Somente as linhas que não foram deletadas
+            //    if (RegistroAmigos.RowState != DataRowState.Deleted)
+            //    {
+            //        // Define os itens da lista
+            //        ListViewItem InseriAmigos = new ListViewItem();
+
+            //        InseriAmigos.Text = RegistroAmigos["Nome"].ToString();
+            //        InseriAmigos.SubItems.Add(RegistroAmigos["Telefone"].ToString());
+            //        InseriAmigos.SubItems.Add(RegistroAmigos["Endereço"].ToString());
+            //        InseriAmigos.SubItems.Add(RegistroAmigos["Numero"].ToString());
+            //        InseriAmigos.SubItems.Add(RegistroAmigos["Bairro"].ToString());
+            //        InseriAmigos.SubItems.Add(RegistroAmigos["Email"].ToString());
+            //        InseriAmigos.SubItems.Add(RegistroAmigos["NomeCidade"].ToString());
+            //        InseriAmigos.SubItems.Add(RegistroAmigos["CidadeId_uf"].ToString());
+            //        listView_CadastroAmigos.Items.Add(InseriAmigos);
+            //    }
+            //}
             //FP.Conector.Desconectar();
         }
 
