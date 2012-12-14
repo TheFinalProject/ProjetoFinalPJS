@@ -38,12 +38,13 @@
             this.DataEmprestimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateTimePicker_emprestimo = new System.Windows.Forms.DateTimePicker();
             this.label_DataEmprestimo = new System.Windows.Forms.Label();
-            this.textBox_PesquisarEmprestimo = new System.Windows.Forms.TextBox();
             this.label_Emprestados = new System.Windows.Forms.Label();
             this.button_ConsultarAmigos = new System.Windows.Forms.Button();
             this.button_ConsultarAlbum = new System.Windows.Forms.Button();
             this.button_Emprestar = new System.Windows.Forms.Button();
             this.panel_Emprestimos = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_Devolver = new System.Windows.Forms.Button();
             this.textBox_Tel = new System.Windows.Forms.TextBox();
             this.label_TipoMidia = new System.Windows.Forms.Label();
@@ -51,8 +52,6 @@
             this.comboBox_NomeAlbum = new System.Windows.Forms.ComboBox();
             this.label_Album = new System.Windows.Forms.Label();
             this.textBox_Email = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel_Emprestimos.SuspendLayout();
@@ -153,17 +152,6 @@
             this.label_DataEmprestimo.TabIndex = 7;
             this.label_DataEmprestimo.Text = "Emprestado na data de :";
             // 
-            // textBox_PesquisarEmprestimo
-            // 
-            this.textBox_PesquisarEmprestimo.ForeColor = System.Drawing.Color.Silver;
-            this.textBox_PesquisarEmprestimo.Location = new System.Drawing.Point(592, 238);
-            this.textBox_PesquisarEmprestimo.Name = "textBox_PesquisarEmprestimo";
-            this.textBox_PesquisarEmprestimo.Size = new System.Drawing.Size(198, 20);
-            this.textBox_PesquisarEmprestimo.TabIndex = 12;
-            this.textBox_PesquisarEmprestimo.Text = "Pesquisar";
-            this.textBox_PesquisarEmprestimo.Click += new System.EventHandler(this.textBox1_Click);
-            this.textBox_PesquisarEmprestimo.TextChanged += new System.EventHandler(this.textBox_PesquisarEmprestimo_TextChanged);
-            // 
             // label_Emprestados
             // 
             this.label_Emprestados.AutoSize = true;
@@ -213,6 +201,27 @@
             this.panel_Emprestimos.Name = "panel_Emprestimos";
             this.panel_Emprestimos.Size = new System.Drawing.Size(800, 60);
             this.panel_Emprestimos.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(538, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(261, 19);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "EMPRESTIMOS E DEVOLUCOES";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::AcervoMusical.Properties.Resources.Setas;
+            this.pictureBox1.Location = new System.Drawing.Point(11, -20);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 85);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // button_Devolver
             // 
@@ -280,27 +289,6 @@
             this.textBox_Email.Size = new System.Drawing.Size(201, 20);
             this.textBox_Email.TabIndex = 14;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AcervoMusical.Properties.Resources.Setas;
-            this.pictureBox1.Location = new System.Drawing.Point(11, -20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 85);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(538, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 19);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "EMPRESTIMOS E DEVOLUCOES";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -331,7 +319,6 @@
             this.Controls.Add(this.textBox_Tel);
             this.Controls.Add(this.textBox_Email);
             this.Controls.Add(this.button_Devolver);
-            this.Controls.Add(this.textBox_PesquisarEmprestimo);
             this.Controls.Add(this.panel_Emprestimos);
             this.Controls.Add(this.comboBox_NomeAmigos);
             this.Controls.Add(this.label_Emprestados);
@@ -346,6 +333,7 @@
             this.Controls.Add(this.button_ConsultarAlbum);
             this.Controls.Add(this.label2);
             this.Name = "Emprestimos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Emprestimos_Load);
             this.panel_Emprestimos.ResumeLayout(false);
             this.panel_Emprestimos.PerformLayout();
@@ -369,7 +357,6 @@
         private System.Windows.Forms.Button button_ConsultarAmigos;
         private System.Windows.Forms.Button button_ConsultarAlbum;
         private System.Windows.Forms.ColumnHeader NomeAlbum;
-        private System.Windows.Forms.TextBox textBox_PesquisarEmprestimo;
         private System.Windows.Forms.Label label_Emprestados;
         private System.Windows.Forms.Panel panel_Emprestimos;
         private System.Windows.Forms.PictureBox pictureBox1;

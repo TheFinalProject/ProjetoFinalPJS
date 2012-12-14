@@ -81,13 +81,13 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
 
-            this.tabControl.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage_Emprestimos.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.panel_Consulta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            //this.tabControl.SuspendLayout();
+            //this.tabPage2.SuspendLayout();
+            //this.tabPage_Emprestimos.SuspendLayout();
+            //this.tabPage4.SuspendLayout();
+            ////this.panel_Consulta.SuspendLayout();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            //this.SuspendLayout();
             // 
             // tabControl
             // 
@@ -543,15 +543,6 @@
             this.DataDevolucao.Text = "Data";
             this.DataDevolucao.Width = 143;
             // 
-            // panel_Consulta
-            // 
-            this.panel_Consulta.Controls.Add(this.label9);
-            this.panel_Consulta.Controls.Add(this.pictureBox1);
-            this.panel_Consulta.Location = new System.Drawing.Point(0, 0);
-            this.panel_Consulta.Name = "panel_Consulta";
-            this.panel_Consulta.Size = new System.Drawing.Size(1072, 60);
-            this.panel_Consulta.TabIndex = 1;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::AcervoMusical.Properties.Resources.Lupa;
@@ -578,7 +569,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 563);
-            this.Controls.Add(this.panel_Consulta);
+            //this.Controls.Add(this.panel_Consulta);
             this.Controls.Add(this.tabControl);
             this.Name = "Consultas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -590,8 +581,6 @@
             this.tabPage_Emprestimos.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.panel_Consulta.ResumeLayout(false);
-            this.panel_Consulta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 
         }
@@ -647,7 +636,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.CheckBox checkBox_QualquerData;
-        private System.Windows.Forms.Panel panel_Consulta;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
 

@@ -29,27 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Rafael ", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Felipe", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Linkin Park",
-            "10/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Iron Maiden",
-            "10/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Nirvana",
-            "25/10/2012",
-            "30/10/2012"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
-            "Beatles",
-            "30/10/2012"}, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.timer_Relogio = new System.Windows.Forms.Timer(this.components);
             this.label_login = new System.Windows.Forms.Label();
-            this.listView_Devolulcoes = new System.Windows.Forms.ListView();
-            this.Devoluções = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Emprestimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listView_Devolucoes = new System.Windows.Forms.ListView();
             this.label_Ferramentas = new System.Windows.Forms.Label();
             this.textBox_Mubox = new System.Windows.Forms.TextBox();
             this.button_Consultas = new System.Windows.Forms.Button();
@@ -68,6 +51,10 @@
             this.button_Agenda = new System.Windows.Forms.Button();
             this.button_Mubox = new System.Windows.Forms.Button();
             this.label_Sair = new System.Windows.Forms.Label();
+            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Midia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Album = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel_Relogio.SuspendLayout();
             this.panel_Configuraçoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Sair)).BeginInit();
@@ -95,50 +82,25 @@
             this.label_login.Text = "Consigurações de usuário";
             this.label_login.Visible = false;
             // 
-            // listView_Devolulcoes
+            // listView_Devolucoes
             // 
-            this.listView_Devolulcoes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.listView_Devolucoes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView_Devolulcoes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Devoluções,
-            this.Emprestimo});
-            listViewGroup1.Header = "Rafael ";
-            listViewGroup1.Name = "Rafael";
-            listViewGroup1.Tag = "";
-            listViewGroup2.Header = "Felipe";
-            listViewGroup2.Name = "Felipe";
-            this.listView_Devolulcoes.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2});
-            listViewItem1.Group = listViewGroup1;
-            listViewItem2.Group = listViewGroup1;
-            listViewItem3.Group = listViewGroup2;
-            listViewItem4.Group = listViewGroup2;
-            this.listView_Devolulcoes.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4});
-            this.listView_Devolulcoes.Location = new System.Drawing.Point(337, 409);
-            this.listView_Devolulcoes.Name = "listView_Devolulcoes";
-            this.listView_Devolulcoes.Size = new System.Drawing.Size(318, 175);
-            this.listView_Devolulcoes.TabIndex = 30;
-            this.listView_Devolulcoes.UseCompatibleStateImageBehavior = false;
-            this.listView_Devolulcoes.View = System.Windows.Forms.View.Details;
-            this.listView_Devolulcoes.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
-            this.listView_Devolulcoes.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
-            this.listView_Devolulcoes.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
-            // 
-            // Devoluções
-            // 
-            this.Devoluções.Text = "Devoluções";
-            this.Devoluções.Width = 209;
-            // 
-            // Emprestimo
-            // 
-            this.Emprestimo.Text = "Emprestimo";
-            this.Emprestimo.Width = 98;
+            this.listView_Devolucoes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Nome,
+            this.Midia,
+            this.Album,
+            this.Data});
+            this.listView_Devolucoes.Location = new System.Drawing.Point(337, 409);
+            this.listView_Devolucoes.Name = "listView_Devolucoes";
+            this.listView_Devolucoes.Size = new System.Drawing.Size(387, 175);
+            this.listView_Devolucoes.TabIndex = 30;
+            this.listView_Devolucoes.UseCompatibleStateImageBehavior = false;
+            this.listView_Devolucoes.View = System.Windows.Forms.View.Details;
+            this.listView_Devolucoes.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button_MouseDown);
+            this.listView_Devolucoes.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button_MouseMove);
+            this.listView_Devolucoes.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button_MouseUp);
             // 
             // label_Ferramentas
             // 
@@ -443,6 +405,26 @@
             this.label_Sair.Text = "Sair";
             this.label_Sair.Visible = false;
             // 
+            // Nome
+            // 
+            this.Nome.Text = "Nome";
+            this.Nome.Width = 116;
+            // 
+            // Midia
+            // 
+            this.Midia.Text = "Mídia";
+            this.Midia.Width = 102;
+            // 
+            // Album
+            // 
+            this.Album.Text = "Álbum";
+            this.Album.Width = 97;
+            // 
+            // Data
+            // 
+            this.Data.Text = "Data";
+            this.Data.Width = 68;
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,7 +438,7 @@
             this.Controls.Add(this.label_Ferramentas);
             this.Controls.Add(this.button_Consultas);
             this.Controls.Add(this.panel_Relogio);
-            this.Controls.Add(this.listView_Devolulcoes);
+            this.Controls.Add(this.listView_Devolucoes);
             this.Controls.Add(this.panel_Configuraçoes);
             this.Controls.Add(this.button_Emprestimos);
             this.Controls.Add(this.button_Musicas);
@@ -471,6 +453,7 @@
             this.Text = "Mubox";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.FormPrincipal_Load);
+            this.Shown += new System.EventHandler(this.FormPrincipal_Shown);
             this.panel_Relogio.ResumeLayout(false);
             this.panel_Relogio.PerformLayout();
             this.panel_Configuraçoes.ResumeLayout(false);
@@ -487,9 +470,7 @@
         private System.Windows.Forms.Timer timer_Relogio;
         private System.Windows.Forms.Label label_login;
         private System.Windows.Forms.PictureBox pictureBox_Login;
-        private System.Windows.Forms.ListView listView_Devolulcoes;
-        private System.Windows.Forms.ColumnHeader Devoluções;
-        private System.Windows.Forms.ColumnHeader Emprestimo;
+        private System.Windows.Forms.ListView listView_Devolucoes;
         private System.Windows.Forms.Panel panel_Configuraçoes;
         private System.Windows.Forms.Button button_Emprestimos;
         private System.Windows.Forms.Button button_Consultas;
@@ -507,6 +488,10 @@
         private System.Windows.Forms.Label label_Hora;
         private System.Windows.Forms.Label label_DiaDaSemana;
         private System.Windows.Forms.Label label_Sair;
+        private System.Windows.Forms.ColumnHeader Nome;
+        private System.Windows.Forms.ColumnHeader Midia;
+        private System.Windows.Forms.ColumnHeader Album;
+        private System.Windows.Forms.ColumnHeader Data;
 
 
     }

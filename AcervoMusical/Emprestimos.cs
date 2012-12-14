@@ -278,64 +278,6 @@ namespace AcervoMusical
             button_Devolver.Enabled = true;
         }
 
-        private void textBox1_Click(object sender, EventArgs e)
-        {
-            if (textBox_PesquisarEmprestimo.Text == "Pesquisar" && textBox_PesquisarEmprestimo.ForeColor == Color.Silver)
-            {
-                textBox_PesquisarEmprestimo.Clear();
-                textBox_PesquisarEmprestimo.ForeColor = Color.Black;
-            }               
-
-        }
-
-        private void textBox_PesquisarEmprestimo_TextChanged(object sender, EventArgs e)
-        {
-            
-            FP.Conector.Conectar();
-            DataSet DataFiltro = new DataSet();
-
-            SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("SELECT Amigos.Nome, Musicas.Tipo_Midia, Musicas.Nome_Album, Musicas.Status, Emprestimos.Data_Emprestimo, Emprestimos.Data_Devolucao FROM Emprestimos INNER JOIN Amigos ON Amigos.id_amigo = Emprestimos.EmprestimosId_amigo INNER JOIN Musicas ON Musicas.id_musicas = EmprestimosId_musicas", FP.Conector.Conexao);
-
-            AdaptadorFiltro.Fill(DataFiltro, "Emprestimos");
-
-            DataTable TabelaFiltro = DataFiltro.Tables["Emprestimos"];
-
-            foreach (DataRow Registro in DataFiltro.Tables["Emprestimos"].Rows)
-            {
-                //if ((Registro["Status"].ToString() == "True") && (Registro["Data_Devolucao"].ToString() == ""))
-                //{
-                    string Teste = Registro["Nome"].ToString();
-                    if (textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Nome"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper()) /*|| textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Tipo_Midia"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper()) || textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Nome_Album"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper()) || textBox_PesquisarEmprestimo.Text != string.Empty && !Registro["Data_Emprestimos"].ToString().ToUpper().Contains(textBox_PesquisarEmprestimo.Text.ToUpper())*/)
-                    {
-                        Registro.Delete();
-                    }
-                //}
-            }
-                
-            listView_Emprestimos.Items.Clear();
-
-            for (int I = 0; I < TabelaFiltro.Rows.Count; ++I)
-            {
-                DataRow Registro = TabelaFiltro.Rows[I];
-
-                if ((Registro["Status"].ToString() == "True") && (Registro["Data_Devolucao"].ToString() == ""))
-                {
-                    // Somente as linhas que não foram deletadas
-                    if (Registro.RowState != DataRowState.Deleted)
-                    {
-                        // Define os itens da lista
-                        ListViewItem InserirEmprestimos = new ListViewItem();
-                        InserirEmprestimos.Text = Registro["Nome"].ToString();
-                        InserirEmprestimos.SubItems.Add(Registro["Tipo_Midia"].ToString());
-                        InserirEmprestimos.SubItems.Add(Registro["Nome_Album"].ToString());
-                        InserirEmprestimos.SubItems.Add(Registro["Data_Emprestimo"].ToString());
-
-                        listView_Emprestimos.Items.Add(InserirEmprestimos);
-                    }
-                }
-            }
-        
-        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

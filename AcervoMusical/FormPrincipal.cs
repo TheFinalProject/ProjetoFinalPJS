@@ -19,6 +19,7 @@ namespace AcervoMusical
         {
             InitializeComponent();
             DataSetLogin.Login();
+            DataSetLogin.PreencheEmprestimos();
         }
               
         
@@ -303,7 +304,7 @@ namespace AcervoMusical
                     int Localizacaox = int.Parse(LeitorPosicaoListView["LocalizacaoX"].ToString());
                     int Localizacaoy = int.Parse(LeitorPosicaoListView["LocalizacaoY"].ToString());
                     Point Localizacao = new Point(Localizacaox, Localizacaoy);
-                    this.listView_Devolulcoes.Location = Localizacao;
+                    this.listView_Devolucoes.Location = Localizacao;
                 }
 
                 LeitorPosicaoListView.Close();
@@ -366,7 +367,7 @@ namespace AcervoMusical
                     #endregion
 
                     #region Comando Para salvar configuracoes finais do ListView
-                    SqlCommand CmdUpdateLisView = new SqlCommand("UPDATE ConfiguracoesListView SET LocalizacaoX=" + listView_Devolulcoes.Location.X + ", LocalizacaoY="+listView_Devolulcoes.Location.Y+"WHERE ListView = 'Devolucoes'", Conector.Conexao);
+                    SqlCommand CmdUpdateLisView = new SqlCommand("UPDATE ConfiguracoesListView SET LocalizacaoX=" + listView_Devolucoes.Location.X + ", LocalizacaoY="+listView_Devolucoes.Location.Y+"WHERE ListView = 'Devolucoes'", Conector.Conexao);
                     #endregion
 
                     //Executa os comando inseridos
@@ -397,6 +398,23 @@ namespace AcervoMusical
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void FormPrincipal_Shown(object sender, EventArgs e)
+        {
+
+            foreach (DataRow Registro in DataSetLogin.Dados.Tables["EmprestimosCompletos"].Rows)
+            {
+                if ((Registro["Status"].ToString() == "True") && (Registro["Data_Devolucao"].ToString() == ""))
+                {
+                    ListViewItem ListaEmprestimos = new ListViewItem();
+                    ListaEmprestimos.Text = Registro["Nome"].ToString();
+                    ListaEmprestimos.SubItems.Add(Registro["EmprestimosTipo_Midia"].ToString());
+                    ListaEmprestimos.SubItems.Add(Registro["Nome_Album"].ToString());
+                    ListaEmprestimos.SubItems.Add(Registro["Data_Emprestimo"].ToString());
+                    listView_Devolucoes.Items.Add(ListaEmprestimos);
+                }
+            }
         }
     }
 }
