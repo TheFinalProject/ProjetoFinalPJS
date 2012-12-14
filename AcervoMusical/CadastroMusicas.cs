@@ -40,6 +40,7 @@ namespace AcervoMusical
 
         private void comboBox_Midia_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Verificacao se tentar cadastrar midias digitais, habilitará o campo para preencher o nome da musica.
             if (comboBox_Midia.SelectedItem.ToString() == "Digital")
             {
                 textBox_Musicas.TabStop = true;
@@ -63,6 +64,8 @@ namespace AcervoMusical
                 {                    
                             try
                             {
+                                //comando que retorna um valor para as condições dos campos obrigatórios!
+                                //caso o valor retornado seja maior que 0 ele sinalizará que ja existe este registro.
                                 SqlCommand VerficaDublicidade = new SqlCommand("Select count(*) from Musicas where (Nome_Autor = @Autor) and (Nome_Interprete = @Interprete) and (Tipo_Midia = @Midia)", FP.Conector.Conexao);
                                 #region ParametroAutor
                                 SqlParameter AutorVerificador = new SqlParameter();
@@ -95,6 +98,7 @@ namespace AcervoMusical
                                 int Verificador = (int)VerficaDublicidade.ExecuteScalar();
                                 if (Verificador == 0)
                                 {
+                                    //Comando de insercao no banco de dados
                                     SqlCommand Adicionar = new SqlCommand("Insert into Musicas (Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)", FP.Conector.Conexao);
                                     #region Parametros
                                     #region ParametroInterprete
@@ -293,7 +297,7 @@ namespace AcervoMusical
                 try
                 {
                     FP.Conector.Conectar();
-                            //comando para alterar os valores do amigo////(Nome_Interprete, Nome_Autor, Nome_Album, Data_Album, Data_Compra, Origem_Compra, Tipo_Midia, Observacao, Nota,Nome_Musica, Status) values (@Interprete, @Autor, @Album, @DataAlbum, @DataCompra, @Origem, @Midia, @Observacao, @Nota, @Musica, @Status)"
+                            //comando para alterar os valores do amigo
                             SqlCommand CmdUpdate = new SqlCommand("UPDATE Musicas SET Nome_Interprete = @Interprete, Nome_Autor = @Autor, Nome_Album = @Album, Data_Album = @DataAlbum, Data_Compra = @Datacompra, Origem_Compra = @Origem, Tipo_Midia = @Midia, Observacao = @Observacao, Nota = @Nota, Nome_Musica = @Musica, Status = @Status WHERE (Nome_Musica = @Musica) AND (Nome_Autor = @Autor) AND (Nome_Album = @Album)", FP.Conector.Conexao);
 
                             #region Parametros Update
@@ -517,6 +521,8 @@ namespace AcervoMusical
                 #endregion
                 Deletar.Parameters.AddRange(new SqlParameter[] { Musica, Autor, Album });
                 Deletar.ExecuteNonQuery();
+
+            //comando usado para remover do listview o valor selecionado.
                 ListViewItem removido = listView_Cadastro_Musicas.SelectedItems[0];
                 listView_Cadastro_Musicas.Items.Remove(removido);
                 button_Adicionar.Text = "Adicionar";
@@ -531,6 +537,8 @@ namespace AcervoMusical
 
             panel_CadastroMusicas.BackColor = FP.BackColor;
 
+
+            //Carrega todos os valores de musicas do DataSet, no listview_cadastro_musicas.
             #region ListView de Musicas
             foreach (DataRow registro in DataSetMusicas.Dados.Tables["MusicasCompletas"].Rows)
             {
@@ -561,6 +569,8 @@ namespace AcervoMusical
         {
             button_Remover.Enabled = true;
             button_Adicionar.Text = "Salvar";
+
+            //Coloca os campos todos para edição
             textBox_Musicas.Text = listView_Cadastro_Musicas.SelectedItems[0].Text;
             textBox_Autor.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[2].Text;
             textBox_Album.Text = listView_Cadastro_Musicas.FocusedItem.SubItems[1].Text;
@@ -581,7 +591,7 @@ namespace AcervoMusical
             SqlDataAdapter AdaptadorMusicas = new SqlDataAdapter("SELECT * FROM Musicas", FP.Conector.Conexao);
             AdaptadorMusicas.Fill(FiltroMusicas, "Musicas");
             DataTable TabelaMusicas = FiltroMusicas.Tables["Musicas"];
-
+            //Verifica por qual campo o usuario irá fazer a pesquisa rápida para casos de remoção.
             if (radioButton_Nome.Checked)
             {
 
@@ -620,6 +630,8 @@ namespace AcervoMusical
                 #endregion
             }
 
+
+            //limpar o listview antes de apresentar valores, e percorre o datatable verificando posição por posição se o texto digitado existe valores iguais se caso existir ele será mostrado no listview, caso contrário sera deletado do DataTable!
             listView_Cadastro_Musicas.Items.Clear();
             for (int i = 0; i < TabelaMusicas.Rows.Count; i++)
             {
@@ -640,28 +652,7 @@ namespace AcervoMusical
                     listView_Cadastro_Musicas.Items.Add(Item);
                 }
             }
-            
-            //for (int i = 0; i < TabelaFiltro.Rows.Count; i++)
-            //{
-            //    DataRow RegistroAmigos = TabelaFiltro.Rows[i];
-            //    // Somente as linhas que não foram deletadas
-            //    if (RegistroAmigos.RowState != DataRowState.Deleted)
-            //    {
-            //        // Define os itens da lista
-            //        ListViewItem InseriAmigos = new ListViewItem();
-
-            //        InseriAmigos.Text = RegistroAmigos["Nome"].ToString();
-            //        InseriAmigos.SubItems.Add(RegistroAmigos["Telefone"].ToString());
-            //        InseriAmigos.SubItems.Add(RegistroAmigos["Endereço"].ToString());
-            //        InseriAmigos.SubItems.Add(RegistroAmigos["Numero"].ToString());
-            //        InseriAmigos.SubItems.Add(RegistroAmigos["Bairro"].ToString());
-            //        InseriAmigos.SubItems.Add(RegistroAmigos["Email"].ToString());
-            //        InseriAmigos.SubItems.Add(RegistroAmigos["NomeCidade"].ToString());
-            //        InseriAmigos.SubItems.Add(RegistroAmigos["CidadeId_uf"].ToString());
-            //        listView_CadastroAmigos.Items.Add(InseriAmigos);
-            //    }
-            //}
-            //FP.Conector.Desconectar();
+            FP.Conector.Desconectar();
         }
 
         private void textBox_Autor_Enter(object sender, EventArgs e)

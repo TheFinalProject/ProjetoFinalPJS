@@ -72,13 +72,12 @@ namespace AcervoMusical
         private void Consultas_Load(object sender, EventArgs e)
         {
             FiltrarTodasMusicas();
-            //FiltraEmprestimos();
-
+          
         }
         //metodo que puxa sempre todas as musicas do dataset e preenche o listview do formulario de consultas
         public void FiltrarTodasMusicas()
         {
-            
+
             DataSet ChamarMusicas = new DataSet();
 
             SqlDataAdapter Adapta = new SqlDataAdapter("SELECT * FROM Musicas", FP.Conector.Conexao);
@@ -87,7 +86,6 @@ namespace AcervoMusical
 
             DataTable TabelaFiltro = ChamarMusicas.Tables["Musicas"];
 
-            // ListViewItem MusicasFiltro = new ListViewItem();
             for (int i = 0; i < TabelaFiltro.Rows.Count; i++)
             {
                 DataRow RegistroMusicas = TabelaFiltro.Rows[i];
@@ -120,7 +118,6 @@ namespace AcervoMusical
 
             DataTable TabelaFiltroEmprestimos = ChamarEmprestimos.Tables["Emprestimos"];
 
-            // ListViewItem MusicasFiltro = new ListViewItem();
             for (int i = 0; i < TabelaFiltroEmprestimos.Rows.Count; i++)
             {
                 DataRow RegistroMusicas = TabelaFiltroEmprestimos.Rows[i];
@@ -146,7 +143,7 @@ namespace AcervoMusical
             AdaptadorFiltro.Fill(DataFiltro, "Musicas");
             DataTable TabelaFiltro = DataFiltro.Tables["Musicas"];
 
-            //Percorre o listview e verifica se ja há items com aqueles valores, se tiver com valores diferente dos que procura, ele deleta para poder apresentar, pois nao consegue ter 2 valores em 2 listviews. 
+            //Percorre o listview e verifica se ja há items com aqueles valores, se tiver com valores diferente dos que procura, ele deleta para poder apresentar
             foreach (DataRow registro in DataFiltro.Tables["Musicas"].Rows)
             {
                 string Teste = registro["Nome_Album"].ToString();
@@ -184,51 +181,12 @@ namespace AcervoMusical
             FP.Conector.Desconectar();
         }
 
-        //private void textBox_NomeEmprestimo_TextChanged(object sender, EventArgs e)
-        //{
-        //    FP.Conector.Conectar();
-        //    DataSet DataFiltro = new DataSet();
-        //    SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("Select Amigos.Nome, Amigos.Telefone, Amigos.Endereço, Amigos.Numero, Amigos.Email,Amigos.Bairro, Cidades.NomeCidade, Cidades.CidadeId_uf FROM Amigos INNER JOIN Cidades ON Amigos.AmigosId_Cidade = Cidades.id_Cidade", FP.Conector.Conexao);
-        //    AdaptadorFiltro.Fill(DataFiltro, "Amigos");
-        //    DataTable TabelaFiltro = DataFiltro.Tables["Amigos"];
-
-        //    //Percorre o listview e verifica se ja há items com aqueles valores, se tiver com valores diferente dos que procura, ele deleta para poder apresentar. 
-        //    foreach (DataRow registro in DataFiltro.Tables["Amigos"].Rows)
-        //    {
-        //        if (registro.RowState != DataRowState.Deleted && !registro["Nome"].ToString().ToUpper().Contains(textBox_Remover.Text.ToUpper()))
-        //        {
-        //            registro.Delete();
-        //        }
-        //    }
-
-        //    listView_CadastroAmigos.Items.Clear();
-
-        //    for (int i = 0; i < TabelaFiltro.Rows.Count; i++)
-        //    {
-        //        DataRow RegistroAmigos = TabelaFiltro.Rows[i];
-        //        // Somente as linhas que não foram deletadas
-        //        if (RegistroAmigos.RowState != DataRowState.Deleted)
-        //        {
-        //            // Define os itens da lista
-        //            ListViewItem InseriAmigos = new ListViewItem();
-
-        //            InseriAmigos.Text = RegistroAmigos["Nome"].ToString();
-        //            InseriAmigos.SubItems.Add(RegistroAmigos["Telefone"].ToString());
-        //            InseriAmigos.SubItems.Add(RegistroAmigos["Endereço"].ToString());
-        //            InseriAmigos.SubItems.Add(RegistroAmigos["Numero"].ToString());
-        //            InseriAmigos.SubItems.Add(RegistroAmigos["Bairro"].ToString());
-        //            InseriAmigos.SubItems.Add(RegistroAmigos["Email"].ToString());
-        //            InseriAmigos.SubItems.Add(RegistroAmigos["NomeCidade"].ToString());
-        //            InseriAmigos.SubItems.Add(RegistroAmigos["CidadeId_uf"].ToString());
-        //            listView_CadastroAmigos.Items.Add(InseriAmigos);
-        //        }
-        //    }
-        //    FP.Conector.Desconectar();
-        //}
 
         private void tabPage_Emprestimos_Enter(object sender, EventArgs e)
         {
             listView_ConsultaEmprestimos.Items.Clear();
+
+            //Verifica antes de mostrar se a situação do album é emprestado ou não
             foreach (DataRow Registro in DataSetFiltro.Dados.Tables["EmprestimosCompletos"].Rows)
             {
                 if ((Registro["Status"].ToString() == "True") && (Registro["Data_Devolucao"].ToString() == ""))
@@ -246,15 +204,50 @@ namespace AcervoMusical
         private void textBox_NomeEmprestimo_TextChanged(object sender, EventArgs e)
         {
 
+            FP.Conector.Conectar();
+            DataSet DataFiltro = new DataSet();
+            SqlDataAdapter AdaptadorFiltro = new SqlDataAdapter("SELECT Amigos.Nome, Amigos.Email, Amigos.Telefone, Musicas.Status,Musicas.Nome_Album, Emprestimos.Data_Emprestimo, Emprestimos.Data_Devolucao, EmprestimosTipo_Midia FROM Emprestimos INNER JOIN Amigos ON Emprestimos.EmprestimosId_amigo = Amigos.id_amigo INNER JOIN Musicas ON Emprestimos.EmprestimosId_musicas = Musicas.id_musicas", FP.Conector.Conexao);
+            AdaptadorFiltro.Fill(DataFiltro, "Emprestimos");
+            DataTable TabelaFiltro = DataFiltro.Tables["Emprestimos"];
+
+            //Percorre o listview e verifica se ja há items com aqueles valores, se tiver com valores diferente dos que procura, ele deleta para poder apresentar. 
+            foreach (DataRow registro in DataFiltro.Tables["Emprestimos"].Rows)
+            {
+                if (registro.RowState != DataRowState.Deleted && !registro["Nome"].ToString().ToUpper().Contains(textBox_NomeEmprestimo.Text.ToUpper()))
+                {
+                    registro.Delete();
+                }
+            }
+
+            listView_ConsultaEmprestimos.Items.Clear();
+
+            for (int i = 0; i < TabelaFiltro.Rows.Count; i++)
+            {
+                DataRow RegistroAmigos = TabelaFiltro.Rows[i];
+                // Somente as linhas que não foram deletadas
+                if (RegistroAmigos.RowState != DataRowState.Deleted)
+                {
+                    // Define os itens da lista
+                    ListViewItem InseriEmprestimos = new ListViewItem();
+
+                    InseriEmprestimos.Text = RegistroAmigos["Nome"].ToString();
+                    InseriEmprestimos.SubItems.Add(RegistroAmigos["EmprestimosTipo_Midia"].ToString());
+                    InseriEmprestimos.SubItems.Add(RegistroAmigos["Nome_Album"].ToString());
+                    InseriEmprestimos.SubItems.Add(RegistroAmigos["Data_Emprestimo"].ToString());
+                    listView_ConsultaEmprestimos.Items.Add(InseriEmprestimos);
+                }
+            }
+            FP.Conector.Desconectar();
         }
 
         private void tabPage4_Enter(object sender, EventArgs e)
         {
-            DataSetFiltro.PreencheEmprestimos();
+
             listView_ConsultaDevolucoes.Items.Clear();
             foreach (DataRow Registro in DataSetFiltro.Dados.Tables["EmprestimosCompletos"].Rows)
             {
-                if ((Registro["Status"].ToString() == "false") && (Registro["Data_Devolucao"].ToString() != ""))
+                //nega a condição de que se o album for emprestado ele mostra no listview, ou seja se ele NAO for emprestado ele apresenta no  listview, que sao as devoluções ja feitas pelos amigos!
+                if (!(Registro["Status"].ToString() == "true") && !(Registro["Data_Devolucao"].ToString() == ""))
                 {
                     ListViewItem ListaDevolucoes = new ListViewItem();
                     ListaDevolucoes.Text = Registro["Nome"].ToString();
@@ -265,6 +258,5 @@ namespace AcervoMusical
                 }
             }
         }
-
     }
 }

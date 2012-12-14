@@ -97,6 +97,7 @@ namespace AcervoMusical
             if (button_Cadastrar.Text == "Adicionar")
             {
 
+                // tenta conectar se conseguir, vai executar um comando somando quantos registros existe com os campos que determinam a pessoa igual!. 
                 if (FP.Conector.Conectar())
                 {
                     SqlCommand VerficaDublicidade = new SqlCommand("Select count(*) from Amigos where (Nome = @Nome) and (Telefone = @Telefone) and (Email = @Email)", FP.Conector.Conexao);
@@ -127,6 +128,7 @@ namespace AcervoMusical
                     #endregion
 
                     VerficaDublicidade.Parameters.AddRange(new SqlParameter[] { NomeVerificador, TelefoneVerificador, EmailVerificador });
+                    //Verifica se nao possui ja o mesmo registro adicionado.
                     int Verificador = (int)VerficaDublicidade.ExecuteScalar();
                     if (Verificador == 0)
                     {
@@ -135,7 +137,7 @@ namespace AcervoMusical
 
                             SqlCommand Comando = new SqlCommand("Insert into Amigos (Nome, Telefone, Endereço, Bairro, Numero, Email, AmigosId_Cidade, AmigosId_Estado) values (@Nome, @Telefone, @Endereço, @Bairro, @Numero, @Email, @AmigosId_Cidade, @AmigosId_Estado)", FP.Conector.Conexao);
 
-
+                            //Verifica se no textbox Numero o usuario digite apenas numeros, caso nao. ele mostrará erro.
                             System.Text.RegularExpressions.Regex Num = new System.Text.RegularExpressions.Regex("[^0-9]");
                             if (!Num.IsMatch(this.textBox_Numero.Text) || textBox_Numero.Text == string.Empty)
                             {
@@ -290,7 +292,7 @@ namespace AcervoMusical
 
                     //comando para alterar os valores do amigo
                     SqlCommand CmdUpdate = new SqlCommand("UPDATE Amigos SET Nome = @Nome, Telefone = @Telefone, Endereço = @Endereço, Bairro = @Bairro, Numero = @Numero, Email = @Email, AmigosId_Cidade = @AmigosId_Cidade, AmigosId_Estado = @AmigosId_Estado WHERE (Nome = @NomeAmigo) AND (Telefone = @TelAmigo) AND (Email = @EmailAmigo)", FP.Conector.Conexao);
-
+                    // verificando se quando for dar update ele também digite no textbox numero, valores iguais a numeros caso nao, mostrará um label sinalizando o erro.
                     System.Text.RegularExpressions.Regex Num = new System.Text.RegularExpressions.Regex("[^0-9]");
                     if (!Num.IsMatch(this.textBox_Numero.Text) || textBox_Numero.Text == string.Empty)
                     {
@@ -578,7 +580,9 @@ namespace AcervoMusical
             {
                 button_Cadastrar.Text = "Salvar";
                 button_Remover.Enabled = true;
-                //coloca os itens e subitens nos textbox para edição8
+
+                //coloca os itens e subitens nos textbox para edição
+
                 textBox_NomeAmigo.Text = listView_CadastroAmigos.SelectedItems[0].Text;
                 textBox_Email.Text = listView_CadastroAmigos.FocusedItem.SubItems[5].Text;
                 maskedTextBox_Telefone.Text = listView_CadastroAmigos.FocusedItem.SubItems[1].Text;
