@@ -71,20 +71,13 @@
             this.TipoMidia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NomeAlbum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DataEmprestimo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker_DataFinalEmprestimo = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker_DataInicialEmprestimo = new System.Windows.Forms.DateTimePicker();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button_BuscarDevolucao = new System.Windows.Forms.Button();
-            this.textBox_NomeDevolucao = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.listView_ConsultaDevolucoes = new System.Windows.Forms.ListView();
             this.NomeAmigoDevolucao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NomeMidiaDevolucao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.NomeMusicaDevolucao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NomeAlbumDevolucao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DataDevolucao = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+<<<<<<< HEAD
             this.label5 = new System.Windows.Forms.Label();
             this.dateTimePicker_DataFinal = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -92,6 +85,8 @@
             this.panel_Consulta = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
+=======
+>>>>>>> origin/master
             this.tabControl.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage_Emprestimos.SuspendLayout();
@@ -442,10 +437,6 @@
             this.tabPage_Emprestimos.Controls.Add(this.textBox_NomeEmprestimo);
             this.tabPage_Emprestimos.Controls.Add(this.label3);
             this.tabPage_Emprestimos.Controls.Add(this.listView_ConsultaEmprestimos);
-            this.tabPage_Emprestimos.Controls.Add(this.label2);
-            this.tabPage_Emprestimos.Controls.Add(this.dateTimePicker_DataFinalEmprestimo);
-            this.tabPage_Emprestimos.Controls.Add(this.label1);
-            this.tabPage_Emprestimos.Controls.Add(this.dateTimePicker_DataInicialEmprestimo);
             this.tabPage_Emprestimos.Location = new System.Drawing.Point(4, 22);
             this.tabPage_Emprestimos.Name = "tabPage_Emprestimos";
             this.tabPage_Emprestimos.Padding = new System.Windows.Forms.Padding(3);
@@ -459,7 +450,7 @@
             // 
             this.textBox_NomeEmprestimo.Location = new System.Drawing.Point(9, 32);
             this.textBox_NomeEmprestimo.Name = "textBox_NomeEmprestimo";
-            this.textBox_NomeEmprestimo.Size = new System.Drawing.Size(294, 20);
+            this.textBox_NomeEmprestimo.Size = new System.Drawing.Size(365, 20);
             this.textBox_NomeEmprestimo.TabIndex = 6;
             this.textBox_NomeEmprestimo.TextChanged += new System.EventHandler(this.textBox_NomeEmprestimo_TextChanged);
             // 
@@ -509,50 +500,9 @@
             this.DataEmprestimo.Text = "Data";
             this.DataEmprestimo.Width = 229;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(431, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Data Final:";
-            // 
-            // dateTimePicker_DataFinalEmprestimo
-            // 
-            this.dateTimePicker_DataFinalEmprestimo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_DataFinalEmprestimo.Location = new System.Drawing.Point(434, 32);
-            this.dateTimePicker_DataFinalEmprestimo.Name = "dateTimePicker_DataFinalEmprestimo";
-            this.dateTimePicker_DataFinalEmprestimo.Size = new System.Drawing.Size(99, 20);
-            this.dateTimePicker_DataFinalEmprestimo.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(309, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Data Inicial:";
-            // 
-            // dateTimePicker_DataInicialEmprestimo
-            // 
-            this.dateTimePicker_DataInicialEmprestimo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker_DataInicialEmprestimo.Location = new System.Drawing.Point(312, 32);
-            this.dateTimePicker_DataInicialEmprestimo.Name = "dateTimePicker_DataInicialEmprestimo";
-            this.dateTimePicker_DataInicialEmprestimo.Size = new System.Drawing.Size(99, 20);
-            this.dateTimePicker_DataInicialEmprestimo.TabIndex = 0;
-            // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.button_BuscarDevolucao);
-            this.tabPage4.Controls.Add(this.textBox_NomeDevolucao);
-            this.tabPage4.Controls.Add(this.label4);
             this.tabPage4.Controls.Add(this.listView_ConsultaDevolucoes);
-            this.tabPage4.Controls.Add(this.label5);
-            this.tabPage4.Controls.Add(this.dateTimePicker_DataFinal);
-            this.tabPage4.Controls.Add(this.label6);
-            this.tabPage4.Controls.Add(this.dateTimePicker_DataInicial);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -562,31 +512,6 @@
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Enter += new System.EventHandler(this.tabPage4_Enter);
             // 
-            // button_BuscarDevolucao
-            // 
-            this.button_BuscarDevolucao.Location = new System.Drawing.Point(539, 30);
-            this.button_BuscarDevolucao.Name = "button_BuscarDevolucao";
-            this.button_BuscarDevolucao.Size = new System.Drawing.Size(75, 23);
-            this.button_BuscarDevolucao.TabIndex = 15;
-            this.button_BuscarDevolucao.Text = "Buscar";
-            this.button_BuscarDevolucao.UseVisualStyleBackColor = true;
-            // 
-            // textBox_NomeDevolucao
-            // 
-            this.textBox_NomeDevolucao.Location = new System.Drawing.Point(9, 32);
-            this.textBox_NomeDevolucao.Name = "textBox_NomeDevolucao";
-            this.textBox_NomeDevolucao.Size = new System.Drawing.Size(294, 20);
-            this.textBox_NomeDevolucao.TabIndex = 14;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Nome do Amigo:";
-            // 
             // listView_ConsultaDevolucoes
             // 
             this.listView_ConsultaDevolucoes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -595,12 +520,11 @@
             this.listView_ConsultaDevolucoes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.NomeAmigoDevolucao,
             this.NomeMidiaDevolucao,
-            this.NomeMusicaDevolucao,
             this.NomeAlbumDevolucao,
             this.DataDevolucao});
-            this.listView_ConsultaDevolucoes.Location = new System.Drawing.Point(9, 58);
+            this.listView_ConsultaDevolucoes.Location = new System.Drawing.Point(9, 6);
             this.listView_ConsultaDevolucoes.Name = "listView_ConsultaDevolucoes";
-            this.listView_ConsultaDevolucoes.Size = new System.Drawing.Size(1023, 381);
+            this.listView_ConsultaDevolucoes.Size = new System.Drawing.Size(1023, 433);
             this.listView_ConsultaDevolucoes.TabIndex = 12;
             this.listView_ConsultaDevolucoes.UseCompatibleStateImageBehavior = false;
             this.listView_ConsultaDevolucoes.View = System.Windows.Forms.View.Details;
@@ -615,11 +539,6 @@
             this.NomeMidiaDevolucao.Text = "Mídia";
             this.NomeMidiaDevolucao.Width = 129;
             // 
-            // NomeMusicaDevolucao
-            // 
-            this.NomeMusicaDevolucao.Text = "Nome da Música";
-            this.NomeMusicaDevolucao.Width = 259;
-            // 
             // NomeAlbumDevolucao
             // 
             this.NomeAlbumDevolucao.Text = "Album";
@@ -630,6 +549,7 @@
             this.DataDevolucao.Text = "Data";
             this.DataDevolucao.Width = 143;
             // 
+<<<<<<< HEAD
             // label5
             // 
             this.label5.AutoSize = true;
@@ -694,6 +614,8 @@
             this.label9.TabIndex = 92;
             this.label9.Text = "CONSULTA";
             // 
+=======
+>>>>>>> origin/master
             // Consultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -710,10 +632,13 @@
             this.tabPage_Emprestimos.ResumeLayout(false);
             this.tabPage_Emprestimos.PerformLayout();
             this.tabPage4.ResumeLayout(false);
+<<<<<<< HEAD
             this.tabPage4.PerformLayout();
             this.panel_Consulta.ResumeLayout(false);
             this.panel_Consulta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+=======
+>>>>>>> origin/master
             this.ResumeLayout(false);
 
         }
@@ -738,10 +663,6 @@
         private System.Windows.Forms.ColumnHeader Interprete;
         private System.Windows.Forms.ColumnHeader Classificacao;
         private System.Windows.Forms.ComboBox comboBox_Nota;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_DataFinalEmprestimo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_DataInicialEmprestimo;
         private System.Windows.Forms.TextBox textBox_NomeEmprestimo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListView listView_ConsultaEmprestimos;
@@ -749,19 +670,11 @@
         private System.Windows.Forms.ColumnHeader TipoMidia;
         private System.Windows.Forms.ColumnHeader NomeAlbum;
         private System.Windows.Forms.ColumnHeader DataEmprestimo;
-        private System.Windows.Forms.Button button_BuscarDevolucao;
-        private System.Windows.Forms.TextBox textBox_NomeDevolucao;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListView listView_ConsultaDevolucoes;
         private System.Windows.Forms.ColumnHeader NomeAmigoDevolucao;
         private System.Windows.Forms.ColumnHeader NomeMidiaDevolucao;
-        private System.Windows.Forms.ColumnHeader NomeMusicaDevolucao;
         private System.Windows.Forms.ColumnHeader NomeAlbumDevolucao;
         private System.Windows.Forms.ColumnHeader DataDevolucao;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_DataFinal;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_DataInicial;
         private System.Windows.Forms.ColumnHeader Midia;
         private System.Windows.Forms.Label label_Ate2;
         private System.Windows.Forms.Label label_Ate1;

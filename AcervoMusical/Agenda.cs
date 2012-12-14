@@ -22,6 +22,8 @@ namespace AcervoMusical
 
         private void Agenda_Load(object sender, EventArgs e)
         {
+
+            //Preenche o listview com os dados do DataSet de Amigos
             DatasetPesqAmigos.PreencheAmigos();
             foreach (DataRow registro in DatasetPesqAmigos.Dados.Tables["AmigosCompletos"].Rows)
             {
@@ -34,11 +36,6 @@ namespace AcervoMusical
             }
         }
 
-        private void button_BuscarAmigo_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void textBox_PesquisaAmigo_TextChanged(object sender, EventArgs e)
         {
             FP.Conector.Conectar();
@@ -49,7 +46,7 @@ namespace AcervoMusical
             DataTable TabelaFiltro = DataFiltro.Tables["Amigos"];
 
 
-            //Percorre o listview e verifica se ja há items com aqueles valores, se tiver com valores diferente dos que procura, ele deleta para poder apresentar, pois nao consegue ter 2 valores em 2 listviews. 
+            //Percorre o listview e verifica se ja há items com aqueles valores, se tiver com valores diferente dos que procura, ele deleta para poder apresentar. 
             foreach (DataRow registro in DataFiltro.Tables["Amigos"].Rows)
             {
 
